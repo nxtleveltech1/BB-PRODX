@@ -1,0 +1,156 @@
+# Dependencies
+node_modules/
+**/node_modules/
+.pnp
+.pnp.js
+npm-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Production
+.vercel/
+.env*.local
+
+# Environment variables - NEVER COMMIT THESE
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.*.local
+**/.env
+**/.env.*
+
+# Security files
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Testing
+coverage/
+*.lcov
+.nyc_output
+test-results/
+playwright-report/
+test-results-*
+
+# IDEs and editors
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Cache directories
+.cache/
+.parcel-cache/
+.turbo/
+.eslintcache
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional npm cache directory
+.npm
+
+# Temporary files
+.tmp/
+*.tmp
+*.temp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Development and build artifacts  
+*.tgz
+*.tar.gz
+.roo/
+
+# IDE specific
+.vscode/settings.json
+.idea/
+
+# Project specific exclusions
+"white logo.png"
+"Untitled design (1).png"
+*.pid
+server.pid
+frontend.pid
+90%
+nul
+Tmux-Orchestrator/
+
+# Development artifacts and temporary files
+*.html
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.json.backup
+*.md.backup
+*.ts.backup
+*.py
+*.backup
+.roomodes
+.git.backup
+.claude/
+.kiro/
+.zed/
+90%
+*.pid
+frontend.pid
+server.pid
+
+# Generated documentation and reports
+OUR_GROUNDS_*.md
+OUR_GROUNDS_*.json
+*_REPORT.md
+*_SUMMARY.md
+*_GUIDE.md
+*DOCUMENTATION.md
+claudedocs/
+docs/generated/
+
+# Test and development files
+test-*.html
+*-demo.html
+color-transformation-demo.html
+design-screenshots/
+<<<<<<< HEAD
+playwright-report/
+=======
+<<<<<<< HEAD
+# Exclude NEWOG-fullstack project from build
+NEWOG-fullstack/
+playwright-report/
+=======
+>>>>>>> 06f0c00a73fa103b6b6c16ce35967089350133ce
+>>>>>>> c34476cf686291491a59031b44f49f23f54798d5

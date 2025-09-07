@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1756156313043,
+      "tag": "0000_superb_raza",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1756182991302,
+      "tag": "0001_blushing_wallow",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1756711608917,
+      "tag": "0002_bent_dreadnoughts",
+      "breakpoints": true
+    }
+  ]
+}
