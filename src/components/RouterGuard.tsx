@@ -10,7 +10,7 @@ export const RouterGuard: React.FC<{ children: React.ReactNode }> = ({ children 
     // This will throw if we're not inside a Router context
     useLocation();
     return <>{children}</>;
-  } catch (error) {
+  } catch {
     // Fallback if Router context is not available
     console.warn('RouterGuard: Router context not available, falling back to div wrapper');
     return <div>{children}</div>;

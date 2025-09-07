@@ -1,5 +1,5 @@
 import type { User, AuthResponse, LoginCredentials, RegisterData } from '@/types';
-import { AppErrorClass, ErrorCodes, ValidationHelpers, ValidationRules, validateForm } from './errorHandling';
+import { AppErrorClass, ValidationRules, validateForm } from './errorHandling';
 
 /**
  * Authentication utilities and helpers
@@ -283,7 +283,7 @@ export const AuthorizationHelpers = {
   /**
    * Check if user has required role
    */
-  hasRole: (user: User | null, requiredRole: string): boolean => {
+  hasRole: (user: User | null, _requiredRole: string): boolean => {
     if (!user) return false;
     // Implement role checking based on your user model
     // This is a placeholder implementation
@@ -293,7 +293,7 @@ export const AuthorizationHelpers = {
   /**
    * Check if user has required permission
    */
-  hasPermission: (user: User | null, permission: string): boolean => {
+  hasPermission: (user: User | null, _permission: string): boolean => {
     if (!user) return false;
     // Implement permission checking based on your user model
     // This is a placeholder implementation
@@ -303,7 +303,7 @@ export const AuthorizationHelpers = {
   /**
    * Check if user can access resource
    */
-  canAccess: (user: User | null, resourceId: string, action: string): boolean => {
+  canAccess: (user: User | null, _resourceId: string, _action: string): boolean => {
     if (!user) return false;
     // Implement resource-level access control
     // This is a placeholder implementation

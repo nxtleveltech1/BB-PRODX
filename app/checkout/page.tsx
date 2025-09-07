@@ -10,10 +10,6 @@ import {
   Check,
   AlertCircle,
   Truck,
-  MapPin,
-  User,
-  Mail,
-  Phone,
   Lock
 } from 'lucide-react';
 import { useCart } from '../../contexts/CartContext';

@@ -197,7 +197,7 @@ export const CartProviderOptimized: React.FC<CartProviderProps> = ({ children })
     queryClient.setQueryData(cartKeys.lists(), updater);
     
     // Update summary optimistically
-    queryClient.setQueryData(cartKeys.summary(), (oldSummary: CartSummary) => {
+    queryClient.setQueryData(cartKeys.summary(), (_oldSummary: CartSummary) => {
       const newItems = queryClient.getQueryData<CartItem[]>(cartKeys.lists()) || [];
       return {
         totalItems: newItems.length,

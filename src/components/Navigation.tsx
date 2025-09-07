@@ -29,7 +29,7 @@ export const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const router = useRouter();
-  const { handleAnchorClick } = useScrollToSection();
+  const { handleAnchorClick: _handleAnchorClick } = useScrollToSection();
   const { cartSummary } = useCart();
   const { user, isAuthenticated, logout } = useAuth();
 

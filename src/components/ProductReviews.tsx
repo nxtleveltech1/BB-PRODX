@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Star, ThumbsUp, ThumbsDown, Camera, Check, 
-  AlertCircle, Filter, ChevronDown, User, Shield
+  AlertCircle, Filter, Shield
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -120,7 +120,6 @@ const StarRating: React.FC<{
 
 // Review Stats Component
 const ReviewStatsCard: React.FC<{ stats: ReviewStats }> = ({ stats }) => {
-  const maxCount = Math.max(...Object.values(stats.ratingDistribution));
 
   return (
     <Card>
@@ -199,7 +198,7 @@ const WriteReviewDialog: React.FC<{ productId: string; productName: string }> = 
   productId, 
   productName 
 }) => {
-  const { user } = useAuth();
+  const { user: _user } = useAuth();
   const [rating, setRating] = useState(0);
   const [title, setTitle] = useState('');
   const [comment, setComment] = useState('');
@@ -574,10 +573,10 @@ const ReviewCard: React.FC<{
 // Main Product Reviews Component
 export const ProductReviews: React.FC<ProductReviewsProps> = ({ 
   productId, 
-  productName 
+  productName: _productName 
 }) => {
   const [reviews, setReviews] = useState<Review[]>([]);
-  const [stats, setStats] = useState<ReviewStats>({
+  const [stats, _setStats] = useState<ReviewStats>({
     averageRating: 4.5,
     totalReviews: 127,
     recommendationRate: 92,

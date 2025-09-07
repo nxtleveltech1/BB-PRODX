@@ -3,14 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { 
-  ArrowRight, Star, Sparkles, Leaf, Heart, Shield, 
-  TrendingUp, Award, Clock, Truck, ChevronLeft, ChevronRight,
+  ArrowRight, Star, Sparkles, Heart, Shield, Award, Clock, Truck, ChevronLeft, ChevronRight,
   Play, Volume2, VolumeX, Zap, Gift
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
 
 interface HeroCampaign {

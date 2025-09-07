@@ -61,7 +61,6 @@ class MiniMaxService {
   async createStreamingChatCompletion(request: MiniMaxChatCompletionRequest & { stream: true }): Promise<AsyncGenerator<MiniMaxChatCompletionChunk, void, unknown>> {
     const apiKey = this.getApiKey();
     
-    const self = this;
     async function* streamGenerator(): AsyncGenerator<MiniMaxChatCompletionChunk, void, unknown> {
       try {
         const response = await fetch(MINIMAX_API_URL, {

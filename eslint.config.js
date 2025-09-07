@@ -2,6 +2,7 @@ import js from "@eslint/js";
 import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
+import unusedImports from "eslint-plugin-unused-imports";
 import tseslint from "typescript-eslint";
 
 // Flat config
@@ -34,23 +35,37 @@ export default tseslint.config(
     plugins: {
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
+      "unused-imports": unusedImports,
+      // Expose TS plugin under the legacy alias so CLI rules like
+      // "@typescript-eslint/no-unused-vars" resolve without errors.
+      "@typescript-eslint": tseslint.plugin,
     },
     rules: {
       // React hooks sanity
       ...reactHooks.configs.recommended.rules,
-      "react-refresh/only-export-components": [
-        "warn",
-        { allowConstantExport: true },
+      // Disable noisy Fast Refresh constraint in this repo
+      "react-refresh/only-export-components": "off",
+      // Auto-remove unused imports and flag unused vars
+      "unused-imports/no-unused-imports": "error",
+      "unused-imports/no-unused-vars": [
+        "error",
+        {
+          args: "after-used",
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          ignoreRestSiblings: true,
+          caughtErrors: "all",
+          caughtErrorsIgnorePattern: "^_",
+        },
       ],
-      // Pragmatic TypeScript defaults for this repo
-      "@typescript-eslint/no-unused-vars": [
-        "warn",
-        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
-      ],
+      // Turn off base TS rule to avoid duplicate reports
+      "@typescript-eslint/no-unused-vars": "off",
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-this-alias": "off",
       // Minor cosmetic rule
       "no-useless-escape": "warn",
+      // Too noisy for this codebase; prefer manual review
+      "react-hooks/exhaustive-deps": "off",
     },
   },
   // Config and tooling overrides

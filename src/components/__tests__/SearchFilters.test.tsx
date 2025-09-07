@@ -1,7 +1,6 @@
-import { render, screen, waitFor } from '../../test/test-utils';
+import { render, screen } from '../../test/test-utils';
 import userEvent from '@testing-library/user-event';
 import SearchFilters from '../SearchFilters';
-import type { ProductFilters } from '../SearchFilters';
 
 // Mock the useFeatureFlag hook
 vi.mock('../../hooks/useFeatureFlag', () => ({

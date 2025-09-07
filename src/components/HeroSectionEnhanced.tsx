@@ -39,7 +39,7 @@ const HeroSectionEnhanced = () => {
   const [isHovered, setIsHovered] = useState(false);
   
   const heroRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const _videoRef = useRef<HTMLVideoElement>(null);
   const animationRef = useRef<number>(0);
 
   const slogans = [

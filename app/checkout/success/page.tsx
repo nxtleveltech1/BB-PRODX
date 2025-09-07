@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { CheckCircle, Package, Mail, ArrowRight, Download, Calendar } from 'lucide-react';
+import { CheckCircle, Package, Mail, ArrowRight, Calendar } from 'lucide-react';
 
 // Mock order data - would come from API/database
 const mockOrder = {

@@ -5,7 +5,7 @@ const projectId = process.env.NEXT_PUBLIC_STACK_PROJECT_ID;
 const publishableKey = process.env.NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY;
 
 declare global {
-  // eslint-disable-next-line no-var
+   
   var __STACK_CLIENT_APPS__: Record<string, StackClientApp> | undefined;
 }
 

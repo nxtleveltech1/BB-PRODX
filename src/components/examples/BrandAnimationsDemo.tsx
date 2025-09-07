@@ -4,7 +4,7 @@ import React, { useState } from 'react';
  * Demo component showcasing the brand animation system
  */
 export const BrandAnimationsDemo: React.FC = () => {
-  const [triggerAnimation, setTriggerAnimation] = useState<string | null>(null);
+  const [_triggerAnimation, setTriggerAnimation] = useState<string | null>(null);
 
   const handleTriggerAnimation = (animationType: string) => {
     setTriggerAnimation(animationType);

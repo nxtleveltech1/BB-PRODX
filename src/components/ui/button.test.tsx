@@ -164,7 +164,6 @@ describe('Button Component', () => {
       );
       const button = screen.getByRole('button');
       const icon = screen.getByTestId('test-icon');
-      const text = screen.getByText('Button with Icon');
       
       expect(icon).toBeInTheDocument();
       expect(button.firstChild).toBe(icon.parentElement);
@@ -178,7 +177,6 @@ describe('Button Component', () => {
       );
       const button = screen.getByRole('button');
       const icon = screen.getByTestId('test-icon');
-      const text = screen.getByText('Button with Icon');
       
       expect(icon).toBeInTheDocument();
       expect(button.lastChild).toBe(icon.parentElement);

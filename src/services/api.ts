@@ -3,7 +3,6 @@
 const API_URL = '/api';
 
 import type {
-  User,
   Product,
   Order,
   Cart,
@@ -11,10 +10,7 @@ import type {
   AuthResponse,
   LoginCredentials,
   RegisterData,
-  SearchFilters,
   SearchResult,
-  APIResponse,
-  PaginatedResponse,
   Address
 } from '@/types';
 

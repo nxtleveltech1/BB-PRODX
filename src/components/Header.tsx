@@ -6,7 +6,6 @@ import {
   Menu,
   X,
   Leaf,
-  ShoppingBag,
   User,
   LogOut,
   Sparkles,

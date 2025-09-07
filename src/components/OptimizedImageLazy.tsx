@@ -22,7 +22,7 @@ export const OptimizedImageLazy: React.FC<OptimizedImageLazyProps> = ({
   className,
   sizes = '100vw',
   priority = false,
-  quality = 85,
+  quality: _quality = 85,
   placeholder = 'blur',
   blurDataURL,
   onLoad,

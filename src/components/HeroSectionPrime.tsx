@@ -26,7 +26,7 @@ export default function HeroSectionPrime() {
   }, [mx, my]);
 
   // Featured products (3) for parallax stack
-  const featured = useMemo(() => getFeaturedProducts().slice(0, 3), []);
+  const _featured = useMemo(() => getFeaturedProducts().slice(0, 3), []);
 
   return (
     <section ref={containerRef} className="relative overflow-hidden">
@@ -106,7 +106,7 @@ export default function HeroSectionPrime() {
 
 function ParallaxStack() {
   const container = useRef<HTMLDivElement>(null);
-  const [bounds, setBounds] = useState<{ w: number; h: number }>({ w: 1, h: 1 });
+  const [_bounds, setBounds] = useState<{ w: number; h: number }>({ w: 1, h: 1 });
   const tiltX = useMotionValue(0);
   const tiltY = useMotionValue(0);
   const rotateX = useTransform(tiltY, [-0.5, 0.5], [8, -8]);
@@ -184,4 +184,3 @@ function ParallaxStack() {
     </motion.div>
   );
 }
-

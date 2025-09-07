@@ -1,8 +1,6 @@
 import "server-only";
 import { StackServerApp } from '@stackframe/stack';
 
-// Check if we're in build mode and provide dummy values to prevent build failures
-const isDevelopment = process.env.NODE_ENV === 'development';
 const isBuild = process.env.NEXT_PHASE === 'phase-production-build';
 
 // Use valid dummy values that Stack Auth will accept

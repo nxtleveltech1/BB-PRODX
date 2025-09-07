@@ -35,14 +35,14 @@ interface ParticleProps {
 
 const HeroSectionRevolutionary = () => {
   const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 50, y: 50 });
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [_isLoaded, setIsLoaded] = useState(false);
   const [currentWord, setCurrentWord] = useState(0);
   const [particles, setParticles] = useState<ParticleProps[]>([]);
-  const [isHovered, setIsHovered] = useState(false);
-  const [gestureDetected, setGestureDetected] = useState(false);
+  const [_isHovered, setIsHovered] = useState(false);
+  const [_gestureDetected, setGestureDetected] = useState(false);
 
   const heroRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const _videoRef = useRef<HTMLVideoElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 

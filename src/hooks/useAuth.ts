@@ -14,10 +14,7 @@ interface User {
   lastLogin?: string;
 }
 
-interface AuthTokens {
-  accessToken: string;
-  refreshToken: string;
-}
+// Removed unused AuthTokens interface
 
 interface AuthState {
   user: User | null;
@@ -153,7 +150,7 @@ export function useAuth() {
         setAuthState(prev => ({ ...prev, isLoading: false }));
         return { success: false, error: data.message || 'Login failed' };
       }
-    } catch (error) {
+    } catch {
       setAuthState(prev => ({ ...prev, isLoading: false }));
       return { success: false, error: 'Something went wrong. Please try again.' };
     }
@@ -211,7 +208,7 @@ export function useAuth() {
           errors: data.errors 
         };
       }
-    } catch (error) {
+    } catch {
       setAuthState(prev => ({ ...prev, isLoading: false }));
       return { success: false, error: 'Something went wrong. Please try again.' };
     }
@@ -288,7 +285,7 @@ export function useAuth() {
       } else {
         return { success: false, error: data.message || 'Verification failed' };
       }
-    } catch (error) {
+    } catch {
       return { success: false, error: 'Something went wrong. Please try again.' };
     }
   }, [updateUser, toast]);
