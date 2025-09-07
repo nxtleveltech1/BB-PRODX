@@ -94,7 +94,7 @@ export default function Header() {
               >
                 <User className="w-4 h-4" />
                 <span className="account-text">
-                  {showUserState && user ? user.displayName || user.primaryEmail?.split('@')[0] || 'Account' : 'My Account'}
+                  {showUserState && user ? `${user.firstName} ${user.lastName}`.trim() || user.email?.split('@')[0] || 'Account' : 'My Account'}
                 </span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${showAccountMenu ? 'rotate-180' : ''}`} />
                 <div className="account-button-glow" aria-hidden="true"></div>
