@@ -1,7 +1,16 @@
 // Ensure this route is handled dynamically at runtime to avoid SSG pre-render
 export const dynamic = "force-dynamic";
 
-export default async function Handler({ params, searchParams }: { params: { stack?: string[] }, searchParams?: Record<string, string> }) {
+type PageProps = {
+  params: Promise<{ stack?: string[] }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+export default async function Handler({ params, searchParams }: PageProps) {
+  // Await the params and searchParams as required by Next.js 15
+  const resolvedParams = await params;
+  const resolvedSearchParams = await searchParams;
+  
   // If Stack Auth env vars are not configured, avoid importing the library at build time
   if (!process.env.NEXT_PUBLIC_STACK_PROJECT_ID) {
     return (
@@ -18,5 +27,5 @@ export default async function Handler({ params, searchParams }: { params: { stac
 
   const { StackHandler } = await import("@stackframe/stack");
   const { stackServerApp } = await import("../../../stack");
-  return <StackHandler app={stackServerApp} params={params} searchParams={searchParams} />;
+  return <StackHandler app={stackServerApp} params={resolvedParams} searchParams={resolvedSearchParams as Record<string, string>} />;
 }
