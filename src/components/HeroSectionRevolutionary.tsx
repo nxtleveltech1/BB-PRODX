@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, useMotionValue, AnimatePresence } from
 import Link from "next/link";
 import {
   ArrowRight,
+  Play,
   Star,
   Users,
   Sparkles,

@@ -248,7 +248,7 @@ export function useAuth() {
         title: "Logged out",
         description: logoutAll ? "You have been logged out from all devices." : "You have been successfully logged out.",
       });
-      navigate('/');
+      navigate.push('/');
     }
   }, [clearAuth, navigate, toast]);
 
