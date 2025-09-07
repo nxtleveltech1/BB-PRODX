@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { Button } from "@/components/ui/button";
 import {
   Menu,
@@ -16,7 +17,7 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState<any>(null);
-  const navigate = useNavigate();
+  const router = useRouter();
   const { toast } = useToast();
 
   useEffect(() => {
@@ -37,7 +38,7 @@ export const Header = () => {
       title: "Logged out",
       description: "You have been successfully logged out.",
     });
-    navigate("/");
+    router.push("/");
   };
 
   return (
@@ -45,7 +46,7 @@ export const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center h-20 relative">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-4 group">
+          <Link href="/" className="flex items-center space-x-4 group">
             <div className="relative">
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-earth-clay flex items-center justify-center shadow-float group-hover:shadow-ambient transition-all duration-300 group-hover:scale-105">
                 <Sparkles className="text-white w-6 h-6" />
@@ -65,31 +66,31 @@ export const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1 absolute left-1/2 -translate-x-1/2">
             <Link
-              to="/"
+              href="/"
               className="text-white/80 hover:text-white px-4 py-2 font-medium hover:bg-white/10 rounded-[var(--radius)] transition-all duration-300"
             >
               Home
             </Link>
             <Link
-              to="/products"
+              href="/products"
               className="text-white/80 hover:text-white px-4 py-2 font-medium hover:bg-white/10 rounded-[var(--radius)] transition-all duration-300"
             >
               Products
             </Link>
             <Link
-              to="/wellness"
+              href="/wellness"
               className="text-white/80 hover:text-white px-4 py-2 font-medium hover:bg-white/10 rounded-[var(--radius)] transition-all duration-300"
             >
               Wellness
             </Link>
             <Link
-              to="/about"
+              href="/about"
               className="text-white/80 hover:text-white px-4 py-2 font-medium hover:bg-white/10 rounded-[var(--radius)] transition-all duration-300"
             >
               About
             </Link>
             <Link
-              to="/contact"
+              href="/contact"
               className="text-white/80 hover:text-white px-4 py-2 font-medium hover:bg-white/10 rounded-[var(--radius)] transition-all duration-300"
             >
               Contact
@@ -120,14 +121,14 @@ export const Header = () => {
                 className="text-white/80 hover:text-white hover:bg-white/10 font-medium"
                 asChild
               >
-                <Link to="/login">
+                <Link href="/login">
                   <User className="w-4 h-4 mr-2" />
                   Sign In
                 </Link>
               </Button>
             )}
             <Button size="sm" className="btn-primary px-6 font-medium" asChild>
-              <Link to="/products">
+              <Link href="/products">
                 <Leaf className="w-4 h-4 mr-2" />
                 Shop Now
               </Link>
@@ -155,35 +156,35 @@ export const Header = () => {
         <div className="lg:hidden bg-bb-black-bean border-t border-white/20 animate-fade-in-up">
           <div className="px-4 pt-4 pb-6 space-y-2">
             <Link
-              to="/"
+              href="/"
               className="block px-4 py-3 text-base font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-[var(--radius)] transition-all duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link
-              to="/products"
+              href="/products"
               className="block px-4 py-3 text-base font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-[var(--radius)] transition-all duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
               Products
             </Link>
             <Link
-              to="/wellness"
+              href="/wellness"
               className="block px-4 py-3 text-base font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-[var(--radius)] transition-all duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
               Wellness
             </Link>
             <Link
-              to="/about"
+              href="/about"
               className="block px-4 py-3 text-base font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-[var(--radius)] transition-all duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </Link>
             <Link
-              to="/contact"
+              href="/contact"
               className="block px-4 py-3 text-base font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-[var(--radius)] transition-all duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
@@ -216,7 +217,7 @@ export const Header = () => {
                     className="text-white/80 hover:text-white hover:bg-white/10 font-medium"
                     asChild
                   >
-                    <Link to="/login" onClick={() => setIsMenuOpen(false)}>
+                    <Link href="/login" onClick={() => setIsMenuOpen(false)}>
                       <User className="w-4 h-4 mr-2" />
                       Sign In
                     </Link>
@@ -228,7 +229,7 @@ export const Header = () => {
                 className="btn-primary px-4 font-medium"
                 asChild
               >
-                <Link to="/products" onClick={() => setIsMenuOpen(false)}>
+                <Link href="/products" onClick={() => setIsMenuOpen(false)}>
                   <Leaf className="w-4 h-4 mr-2" />
                   Shop
                 </Link>

@@ -1,28 +1,20 @@
 'use client';
 
-import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   ShoppingCart,
   Plus,
   Minus,
-  Trash2,
-  X,
-  ShoppingBag,
   ArrowRight,
-  Package,
-  Loader2,
-  ArrowLeft,
-  Heart,
   Shield,
   Truck,
   Clock,
+  X,
 } from "lucide-react";
 import { useCart } from "../../contexts/CartContext";
 
 // Mock cart data - would be replaced with actual API calls
-const mockCartItems = [
+const _mockCartItems = [
   {
     id: 1,
     product_id: 1,
@@ -97,7 +89,7 @@ function CartItemComponent({
         {/* Product Image */}
         <div className="relative w-24 h-24 bg-gradient-to-br from-[var(--bb-citron)]/20 to-[var(--bb-mahogany)]/10 rounded-xl overflow-hidden flex-shrink-0">
           <div className="w-full h-full bg-gradient-to-br from-[var(--bb-champagne)] to-[var(--bb-citron)]/20 flex items-center justify-center">
-            <Package className="w-8 h-8 text-[var(--bb-mahogany)]" />
+            <ShoppingCart className="w-8 h-8 text-[var(--bb-mahogany)]" />
           </div>
         </div>
 
@@ -300,7 +292,7 @@ export default function CartPage() {
                 onClick={handleClearCart}
                 className="text-red-600 hover:text-red-700 text-sm font-medium flex items-center gap-2 transition-colors"
               >
-                <Trash2 className="w-4 h-4" />
+                <X className="w-4 h-4" />
                 Clear Cart
               </button>
             </div>

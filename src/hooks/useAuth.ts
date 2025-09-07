@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import { useToast } from '@/hooks/use-toast';
 
 interface User {
@@ -31,7 +31,7 @@ export function useAuth() {
     isLoading: true,
     isAuthenticated: false,
   });
-  const navigate = useNavigate();
+  const navigate = useRouter();
   const { toast } = useToast();
 
   // Initialize auth state from localStorage

@@ -1,9 +1,7 @@
 'use client';
 
 import { useUser } from '@/lib/useAuth';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useEffect } from 'react';
 import { ArrowLeft, Package, CheckCircle, Clock, Truck, X, Eye } from 'lucide-react';
 import AuthGuard from '../../components/AuthGuard';
 
@@ -79,7 +77,7 @@ function OrderStatusBadge({ status }: { status: string }) {
 }
 
 function OrderHistoryContent() {
-  const { user } = useUser();
+  const { user: _user } = useUser();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-bb-champagne to-bb-champagne/90">

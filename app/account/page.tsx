@@ -5,26 +5,20 @@ export const dynamic = 'force-dynamic';
 import { useUser, useAuth } from '@/lib/useAuth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import AuthGuard from '../components/AuthGuard';
 import {
   User,
-  Mail,
-  Phone,
-  MapPin,
-  Calendar,
   Edit3,
   Save,
   X,
   Shield,
-  CreditCard,
   Package,
   Heart,
   Settings,
   LogOut,
   ChevronRight,
   CheckCircle,
-  AlertCircle,
   Truck
 } from "lucide-react";
 

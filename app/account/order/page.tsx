@@ -1,10 +1,9 @@
 'use client';
 
 import { useUser } from '@/lib/useAuth';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { ShoppingCart, Plus, Minus, ArrowLeft, CreditCard, Truck } from 'lucide-react';
+import { useState } from 'react';
+import { ShoppingCart, Plus, Minus, ArrowLeft, CreditCard } from 'lucide-react';
 import AuthGuard from '../../components/AuthGuard';
 
 // Add dynamic export to prevent SSG
@@ -46,7 +45,7 @@ const products = [
 ];
 
 function OrderContent() {
-  const { user } = useUser();
+  const { user: _user } = useUser();
   const [cart, setCart] = useState<any[]>([]);
   const [showCheckout, setShowCheckout] = useState(false);
 

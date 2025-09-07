@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { motion, useMotionTemplate, useMotionValue, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -63,12 +63,12 @@ export default function HeroSectionPrime() {
 
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button asChild className="h-12 rounded-xl bg-[#B85A3E] px-7 text-white hover:bg-[#a04f36]">
-              <Link to="/shop">
+              <Link href="/shop">
                 <ShoppingBag className="mr-2 h-5 w-5" /> Shop Now
               </Link>
             </Button>
             <Button asChild variant="outline" className="h-12 rounded-xl border-[#B85A3E] px-7 text-[#B85A3E] hover:bg-[#F5E6D3]">
-              <Link to="/products">
+              <Link href="/products">
                 Explore Products <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -149,7 +149,7 @@ function ParallaxStack() {
           transition={{ type: 'spring', stiffness: 120, damping: 18, delay: i * 0.08 }}
           style={{ zIndex: 20 - i }}
         >
-          <Link to={`/product/${p.id}`} className="block">
+          <Link href={`/product/${p.id}`} className="block">
             <Card className="overflow-hidden rounded-3xl border border-black/5 bg-white/80 shadow-xl backdrop-blur transition-transform hover:shadow-2xl">
               <div className="relative h-56 w-full bg-gradient-to-b from-gray-50 to-white">
                 <img

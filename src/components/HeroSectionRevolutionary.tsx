@@ -1,26 +1,19 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence, useInView } from "framer-motion";
-import { Link } from "react-router-dom";
+import { motion, useScroll, useTransform, useMotionValue, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import {
   ArrowRight,
-  Play,
   Star,
   Users,
-  Award,
   Sparkles,
   Heart,
-  Leaf,
-  ShoppingBag,
-  CheckCircle,
-  TrendingUp,
   Shield,
   Zap,
   Brain,
   Target,
   Globe,
   Clock,
-  Trophy,
-  ChevronDown
+  Trophy
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -513,7 +506,7 @@ const HeroSectionRevolutionary = () => {
                     asChild
                     className="group bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 transform"
                   >
-                    <Link to="/products">
+                    <Link href="/products">
                       <motion.div className="flex items-center gap-3">
                         <Brain className="w-5 h-5 group-hover:animate-pulse" />
                         <span>Start Your Journey</span>

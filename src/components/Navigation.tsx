@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
@@ -27,7 +28,7 @@ export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
-  const location = useLocation();
+  const router = useRouter();
   const { handleAnchorClick } = useScrollToSection();
   const { cartSummary } = useCart();
   const { user, isAuthenticated, logout } = useAuth();
@@ -55,12 +56,12 @@ export const Navigation = () => {
   // Close mobile menu on route change
   useEffect(() => {
     setIsMenuOpen(false);
-  }, [location]);
+  }, [router.pathname]);
 
   // Cart count comes from cart context
   const cartCount = cartSummary?.totalQuantity || 0;
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => router.pathname === path;
 
   return (
     <>
@@ -86,7 +87,7 @@ export const Navigation = () => {
             
             {/* Logo & Brand */}
             <Link 
-              to="/" 
+              href="/" 
               className="flex items-center space-x-3 group"
               aria-label="Better Being - Natural Wellness Home"
             >
@@ -117,7 +118,7 @@ export const Navigation = () => {
                   
                   {/* Home */}
                   <NavigationMenuItem>
-                    <Link to="/">
+                    <Link href="/">
                       <NavigationMenuLink 
                         className={cn(
                           "relative group font-heading text-sm uppercase tracking-brand px-4 py-2 rounded-md transition-all duration-300 font-medium",
@@ -155,7 +156,7 @@ export const Navigation = () => {
                           {productCategories.map((category) => (
                             <Link
                               key={category.name}
-                              to={category.href}
+                              href={category.href}
                               className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                             >
                               <div className="flex items-center space-x-2">
@@ -186,7 +187,7 @@ export const Navigation = () => {
                           {wellnessResources.map((resource) => (
                             <Link
                               key={resource.name}
-                              to={resource.href}
+                              href={resource.href}
                               className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
                             >
                               <div className="text-sm font-heading font-medium tracking-brand">
@@ -204,7 +205,7 @@ export const Navigation = () => {
 
                   {/* About */}
                   <NavigationMenuItem>
-                    <Link to="/about">
+                    <Link href="/about">
                       <NavigationMenuLink 
                         className={cn(
                           "relative group font-heading text-sm uppercase tracking-brand px-4 py-2 rounded-md transition-all duration-300 font-medium",
@@ -221,7 +222,7 @@ export const Navigation = () => {
 
                   {/* Contact */}
                   <NavigationMenuItem>
-                    <Link to="/contact">
+                    <Link href="/contact">
                       <NavigationMenuLink 
                         className={cn(
                           "relative group font-heading text-sm uppercase tracking-brand px-4 py-2 rounded-md transition-all duration-300 font-medium",
@@ -286,7 +287,7 @@ export const Navigation = () => {
                           <p className="text-xs text-muted-foreground truncate">{user.email}</p>
                         </div>
                         <Link 
-                          to="/profile" 
+                          href="/profile" 
                           className="flex items-center px-3 py-2 text-sm text-muted-foreground hover:text-primary-600 hover:bg-primary-50/50 rounded-md transition-colors"
                           onClick={() => setShowUserMenu(false)}
                         >
@@ -294,7 +295,7 @@ export const Navigation = () => {
                           Profile Settings
                         </Link>
                         <Link 
-                          to="/account" 
+                          href="/account" 
                           className="flex items-center px-3 py-2 text-sm text-muted-foreground hover:text-primary-600 hover:bg-primary-50/50 rounded-md transition-colors"
                           onClick={() => setShowUserMenu(false)}
                         >
@@ -317,7 +318,7 @@ export const Navigation = () => {
                 </div>
               ) : (
                 <div className="flex items-center space-x-2">
-                  <Link to="/login">
+                  <Link href="/login">
                     <Button 
                       variant="ghost" 
                       size="sm"
@@ -326,7 +327,7 @@ export const Navigation = () => {
                       Sign In
                     </Button>
                   </Link>
-                  <Link to="/register">
+                  <Link href="/register">
                     <Button 
                       size="sm"
                       className="btn-primary-vibrant font-heading uppercase text-xs tracking-wider px-4 py-2 rounded-xl shadow-premium hover:shadow-floating transition-all duration-300 hover:scale-105 btn-glow glow-primary"
@@ -354,7 +355,7 @@ export const Navigation = () => {
               </Button>
 
               {/* Checkout Button */}
-              <Link to="/checkout">
+              <Link href="/checkout">
                 <Button 
                   size="sm"
                   className="ml-2 font-heading uppercase text-xs tracking-wider px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-floating glass-primary hover:bg-primary-50/50"
@@ -387,7 +388,7 @@ export const Navigation = () => {
             >
               <nav className="flex flex-col space-y-4">
                 <Link 
-                  to="/" 
+                  href="/" 
                   className={cn(
                     "text-base font-heading uppercase tracking-brand transition-colors py-2 px-3 rounded-lg",
                     isActive("/") ? "text-primary-600 bg-primary-50" : "text-foreground hover:text-primary-600 hover:bg-primary-50/50"
@@ -396,7 +397,7 @@ export const Navigation = () => {
                   Home
                 </Link>
                 <Link 
-                  to="/products" 
+                  href="/products" 
                   className={cn(
                     "text-base font-heading uppercase tracking-brand transition-colors py-2 px-3 rounded-lg",
                     isActive("/products") ? "text-accent-600 bg-accent-50" : "text-foreground hover:text-accent-600 hover:bg-accent-50/50"
@@ -405,7 +406,7 @@ export const Navigation = () => {
                   Products
                 </Link>
                 <Link 
-                  to="/wellness" 
+                  href="/wellness" 
                   className={cn(
                     "text-base font-heading uppercase tracking-brand transition-colors py-2 px-3 rounded-lg",
                     isActive("/wellness") ? "text-success-600 bg-success-50" : "text-foreground hover:text-success-600 hover:bg-success-50/50"
@@ -414,7 +415,7 @@ export const Navigation = () => {
                   Wellness
                 </Link>
                 <Link 
-                  to="/about" 
+                  href="/about" 
                   className={cn(
                     "text-base font-heading uppercase tracking-brand transition-colors py-2 px-3 rounded-lg",
                     isActive("/about") ? "text-secondary-600 bg-secondary-50" : "text-foreground hover:text-secondary-600 hover:bg-secondary-50/50"
@@ -423,7 +424,7 @@ export const Navigation = () => {
                   About
                 </Link>
                 <Link 
-                  to="/contact" 
+                  href="/contact" 
                   className={cn(
                     "text-base font-heading uppercase tracking-brand transition-colors py-2 px-3 rounded-lg",
                     isActive("/contact") ? "text-warning-600 bg-warning-50" : "text-foreground hover:text-warning-600 hover:bg-warning-50/50"
@@ -432,7 +433,7 @@ export const Navigation = () => {
                   Contact
                 </Link>
                 <Link 
-                  to="/checkout" 
+                  href="/checkout" 
                   className={cn(
                     "text-base font-heading uppercase tracking-brand transition-colors py-2 px-3 rounded-lg",
                     isActive("/checkout") ? "text-primary-600 bg-primary-50" : "text-foreground hover:text-primary-600 hover:bg-primary-50/50"
@@ -456,7 +457,7 @@ export const Navigation = () => {
                       <Badge className="ml-2 h-5 w-5 rounded-full p-0 text-xs bg-accent-500 text-neutral-900 animate-breathe">3</Badge>
                     </Button>
                   </div>
-                  <Link to="/account" className="w-full">
+                  <Link href="/account" className="w-full">
                     <Button variant="ghost" size="sm" className="w-full glass-primary hover:bg-primary-50/50">
                       <User className="w-4 h-4 mr-2 animate-text-sparkle" />
                       My Account
@@ -474,7 +475,7 @@ export const Navigation = () => {
                       </Badge>
                     )}
                   </Button>
-                  <Link to="/checkout" className="w-full">
+                  <Link href="/checkout" className="w-full">
                     <Button 
                       size="sm" 
                       className="mt-2 w-full glass-primary hover:bg-primary-50/50 font-heading uppercase text-xs tracking-brand py-3 shadow-floating"

@@ -12,7 +12,6 @@ import {
   Truck,
   CheckCircle,
   Clock,
-  AlertCircle,
   X,
   ChevronDown,
   ChevronRight,
@@ -424,11 +423,11 @@ function OrderCard({ order, isExpanded, onToggle }: {
 export default function OrderHistoryPage() {
   const { user, isLoading, logout } = useAuth();
   const router = useRouter();
-  const [orders, setOrders] = useState<Order[]>(mockOrders);
+  const [orders, _setOrders] = useState<Order[]>(mockOrders);
   const [expandedOrders, setExpandedOrders] = useState<Set<string>>(new Set());
   const [filterStatus, setFilterStatus] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [isLoadingOrders, setIsLoadingOrders] = useState(false);
+  const [isLoadingOrders, _setIsLoadingOrders] = useState(false);
 
   useEffect(() => {
     if (!user) {

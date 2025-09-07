@@ -37,7 +37,7 @@ export default function Register() {
     agreeToTerms: false
   });
   const router = useRouter();
-  const { user } = useUser();
+  const { user: _user } = useUser();
 
   const passwordRequirements = [
     { label: "At least 8 characters", met: formData.password.length >= 8 },
