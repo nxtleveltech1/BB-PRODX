@@ -218,7 +218,7 @@ export const products: Product[] = [
       "Not suitable for pregnant or nursing women. Consult your healthcare provider before use.",
     categoryId: "wellness-essentials",
     subcategoryId: "respiratory",
-    image: "/products/bronchial_relief.webp",
+    image: "/products/bronchial_relief.webp", // TODO: updated images will be swapped to new filenames provided
     additionalImages: [
       "/products/bronchial_relief_4.jpeg",
       "/products/bronchial_relief_6.webp",

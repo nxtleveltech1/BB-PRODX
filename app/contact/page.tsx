@@ -34,7 +34,7 @@ export default function ContactPage() {
           <div className="absolute bottom-0 right-0 w-64 h-64 bg-[var(--bb-champagne)] rounded-full blur-2xl transform translate-x-32 translate-y-32"></div>
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 flex items-center min-h-[70vh]">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 flex items-center min-h-[60vh]">
           <div className="max-w-4xl space-y-12">
             <p className="text-[var(--bb-citron)] text-sm font-medium uppercase tracking-[0.2em] opacity-90">Get In Touch</p>
             <h1 className="text-6xl md:text-7xl font-light leading-[0.95]" style={{ fontFamily: 'Prata, Georgia, serif' }}>
@@ -54,7 +54,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form Section - Citron Background */}
-      <section className="py-32 bg-[var(--bb-citron)]">
+      <section className="py-16 bg-[var(--bb-citron)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-24 items-start">
             {/* Contact Information */}
@@ -194,7 +194,7 @@ export default function ContactPage() {
       </section>
 
       {/* Location & Hours Section - Mahogany Background */}
-      <section className="py-32 bg-gradient-to-r from-[var(--bb-mahogany)] to-[var(--bb-black-bean)] relative overflow-hidden">
+      <section className="py-16 bg-gradient-to-r from-[var(--bb-mahogany)] to-[var(--bb-black-bean)] relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--bb-citron)] rounded-full blur-2xl transform translate-x-32 -translate-y-32"></div>

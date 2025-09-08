@@ -339,10 +339,10 @@ html, body {
 }
 
 /* Advanced Spacing System */
-.space-section { padding: 8rem 0; }
-.space-hero { padding: 12rem 0; }
-.space-compact { padding: 4rem 0; }
-.space-luxury { padding: 10rem 0; }
+.space-section { padding: 3rem 0; }
+.space-hero { padding: 6rem 0; }
+.space-compact { padding: 2rem 0; }
+.space-luxury { padding: 4rem 0; }
 
 /* Modern Typography Enhancements */
 .text-hero {

@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from 'react';
+import FeaturedRowAesop from "@/components/FeaturedRowAesop";
 
 export default function HomePage() {
   const [scrollY, setScrollY] = useState(0);
@@ -418,99 +419,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Products Section - Floating Cards */}
-      <section className="space-section bg-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16 fade-in-up">
-            <div className="inline-flex items-center gap-3 px-6 py-3 glass-luxury rounded-full mb-6">
-              <div className="w-2 h-2 bg-[#8B4513] rounded-full luxury-glow"></div>
-              <span className="text-[#8B4513] text-sm font-bold uppercase tracking-[0.2em]">Featured Products</span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-light leading-tight text-[#2C2B29]" 
-                style={{ fontFamily: 'Playfair Display, serif' }}>
-              Magnesium <span className="text-luxury">Oil Spray Collection</span>
-            </h2>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Active Muscle Recovery */}
-            <div className="card-premium overflow-hidden hover-glow float-animation fade-in-up" 
-                 style={{ animationDelay: '0.2s' }}>
-              <div className="aspect-[4/5] relative overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
-                <img 
-                  src="/magnesium-oil-spray.png"
-                  alt="Active Muscle Recovery"
-                  className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 p-8"
-                />
-                <div className="absolute top-6 right-6 bg-blue-600 text-white px-3 py-1 text-xs uppercase tracking-wide font-medium rounded-full">
-                  Active Recovery
-                </div>
-              </div>
-              
-              <div className="p-8 space-y-4">
-                <h3 className="text-2xl font-light text-[#2C2B29]" 
-                    style={{ fontFamily: 'Playfair Display, serif' }}>
-                  Active Muscle <span className="text-luxury">Recovery</span>
-                </h3>
-                <p className="text-[#7A7771] leading-relaxed text-sm">
-                  Fast-absorbing magnesium oil with MSM. Reduces muscle soreness, speeds recovery, 
-                  and prevents cramping. 220ML of pure relief.
-                </p>
-                <div className="flex items-center justify-between pt-4">
-                  <div className="space-y-1">
-                    <div className="flex items-baseline gap-3">
-                      <span className="text-2xl font-light text-[#8B4513]">R149.99</span>
-                      <span className="text-sm text-[#7A7771] line-through">R199.99</span>
-                    </div>
-                    <div className="text-xs text-green-600 font-medium">Save 25%</div>
-                  </div>
-                  <button className="btn-premium hover-glow focus-premium text-sm px-6 py-3">
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Arthritis & Joint */}
-            <div className="card-premium overflow-hidden hover-glow float-animation fade-in-up" 
-                 style={{ animationDelay: '0.4s' }}>
-              <div className="aspect-[4/5] relative overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
-                <img 
-                  src="/magnesium-oil-spray.png"
-                  alt="Arthritis & Joint Support"
-                  className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 p-8"
-                />
-                <div className="absolute top-6 right-6 bg-red-600 text-white px-3 py-1 text-xs uppercase tracking-wide font-medium rounded-full">
-                  Joint Support
-                </div>
-              </div>
-              
-              <div className="p-8 space-y-4">
-                <h3 className="text-2xl font-light text-[#2C2B29]" 
-                    style={{ fontFamily: 'Playfair Display, serif' }}>
-                  Arthritis & <span className="text-luxury">Joint Support</span>
-                </h3>
-                <p className="text-[#7A7771] leading-relaxed text-sm">
-                  Specially formulated for joint health and arthritis relief. Provides targeted support 
-                  for inflammation reduction and improved mobility. 220ML therapeutic formula.
-                </p>
-                <div className="flex items-center justify-between pt-4">
-                  <div className="space-y-1">
-                    <div className="flex items-baseline gap-3">
-                      <span className="text-2xl font-light text-[#8B4513]">R149.99</span>
-                      <span className="text-sm text-[#7A7771] line-through">R199.99</span>
-                    </div>
-                    <div className="text-xs text-green-600 font-medium">Save 25%</div>
-                  </div>
-                  <button className="btn-premium hover-glow focus-premium text-sm px-6 py-3">
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Featured Products - Aesop inspired row */}
+      {/** Using real data and a simple, refined layout similar to the provided reference **/}
+      <FeaturedRowAesop />
 
       {/* Philosophy Section - Rich Background */}
       <section className="space-luxury bg-gradient-to-br from-[#B5A642] to-[#a49637] relative overflow-hidden">

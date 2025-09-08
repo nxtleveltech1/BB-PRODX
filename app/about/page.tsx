@@ -11,7 +11,7 @@ export default function AboutPage() {
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--bb-champagne)] rounded-full blur-2xl transform -translate-x-16 translate-y-16"></div>
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 flex items-center min-h-[80vh]">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 flex items-center min-h-[60vh]">
           <div className="max-w-4xl mx-auto text-center space-y-12">
             <p className="text-[var(--bb-citron)] text-sm font-medium uppercase tracking-[0.2em] opacity-90">Our Story</p>
             <h1 className="text-6xl md:text-7xl font-light leading-[0.95] text-white" style={{ fontFamily: 'Prata, Georgia, serif' }}>
@@ -30,7 +30,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story Section - Citron Background with Brand Imagery */}
-      <section className="py-32 bg-[var(--bb-citron)]">
+      <section className="py-16 bg-[var(--bb-citron)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-24 items-center">
             <div className="space-y-8">
@@ -81,7 +81,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section - Champagne Background with Individual Color Cards */}
-      <section className="py-32 bg-[var(--bb-champagne)]">
+      <section className="py-16 bg-[var(--bb-champagne)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <p className="text-[var(--bb-payne-gray)] text-sm font-medium uppercase tracking-[0.2em] mb-6">Our Commitment</p>

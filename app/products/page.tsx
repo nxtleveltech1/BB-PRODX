@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import api from "@/services/apiOptimized";
 import { products } from "@/data/products";
+import FeaturedRowAesop from "@/components/FeaturedRowAesop";
 
 function ProductCard({ product }: { product: any }) {
   const hasDiscount = product.originalPrice && product.originalPrice !== product.price;
@@ -258,7 +259,7 @@ export default function ProductsPage() {
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--bb-champagne)] rounded-full blur-2xl transform -translate-x-16 translate-y-16"></div>
           </div>
           
-          <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 flex items-center min-h-[70vh]">
+          <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 flex items-center min-h-[60vh]">
             <div className="max-w-4xl space-y-10">
               <p className="text-[var(--bb-citron)] text-sm font-medium uppercase tracking-[0.2em] opacity-90">
                 Collection
@@ -317,6 +318,11 @@ export default function ProductsPage() {
               </div>
             </div>
 
+            {/* Featured Aesop-style row inside products page */}
+            <div className="mb-16 -mx-6">
+              <FeaturedRowAesop title="New and notable" subtitle="Explore a collection of long‑standing formulations and recent additions to the range." />
+            </div>
+            
             {/* Products Grid - Rich Brand Layout */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
               {displayProducts.map((product: any) => (
