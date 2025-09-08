@@ -8,8 +8,8 @@ type PageProps = {
 
 export default async function Handler({ params, searchParams }: PageProps) {
   // Await the params and searchParams as required by Next.js 15
-  const resolvedParams = await params;
-  const resolvedSearchParams = await searchParams;
+  const _resolvedParams = await params;
+  const _resolvedSearchParams = await searchParams;
   
   // If Stack Auth env vars are not configured, avoid importing the library at build time
   if (!process.env.NEXT_PUBLIC_STACK_PROJECT_ID) {
@@ -27,5 +27,5 @@ export default async function Handler({ params, searchParams }: PageProps) {
 
   const { StackHandler } = await import("@stackframe/stack");
   const { stackServerApp } = await import("../../../stack");
-  return <StackHandler app={stackServerApp} params={resolvedParams} searchParams={resolvedSearchParams as Record<string, string>} />;
+  return <StackHandler fullPage={true} app={stackServerApp} />;
 }
