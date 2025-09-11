@@ -3,6 +3,6 @@
   "schema": "./src/config/schema.js",
   "out": "./src/config/migrations",
   "dbCredentials": {
-    "url": "postgresql://neondb_owner:npg_VQpw6R7nEeht@ep-aged-hall-a9or9yxm-pooler.gwc.azure.neon.tech/neondb?sslmode=require"
+    "url": "postgresql://username:password@host:5432/database?sslmode=require"
   }
 }
