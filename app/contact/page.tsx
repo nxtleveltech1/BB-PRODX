@@ -26,31 +26,17 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[var(--bb-champagne)] to-[var(--bb-champagne)]/90">
-      {/* Hero Section - Dramatic Brand Colors */}
-      <section className="relative min-h-[70vh] bg-gradient-to-br from-[var(--bb-black-bean)] via-[var(--bb-payne-gray)] to-[var(--bb-mahogany)]/90 text-white overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-[var(--bb-citron)] rounded-full blur-3xl transform -translate-x-48 -translate-y-48"></div>
-          <div className="absolute bottom-0 right-0 w-64 h-64 bg-[var(--bb-champagne)] rounded-full blur-2xl transform translate-x-32 translate-y-32"></div>
+      {/* Hero Section - Image only, no text */}
+      <section className="relative min-h-[60vh] bg-[var(--bb-hero-surround)] overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/Add ass heading (1).png"
+            alt="Contact hero"
+            className="w-full h-full object-cover"
+          />
         </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 flex items-center min-h-[60vh]">
-          <div className="max-w-4xl space-y-12">
-            <p className="text-[var(--bb-citron)] text-sm font-medium uppercase tracking-[0.2em] opacity-90">Get In Touch</p>
-            <h1 className="text-6xl md:text-7xl font-light leading-[0.95]" style={{ fontFamily: 'Prata, Georgia, serif' }}>
-              Connect With<br />
-              <span className="text-[var(--bb-citron)]">Better Being</span>
-            </h1>
-            <div className="w-24 h-px bg-gradient-to-r from-[var(--bb-citron)] to-transparent"></div>
-            <p className="text-xl leading-relaxed text-[var(--bb-champagne)] max-w-2xl font-light">
-              Have questions about our products? Need personalized wellness guidance? 
-              We're here to support your journey to better being.
-            </p>
-          </div>
-        </div>
-        
-        {/* Header needs padding for absolute positioning */}
-        <div className="h-20"></div>
+        {/* Spacer to account for absolute header */}
+        <div className="h-24"></div>
       </section>
 
       {/* Contact Form Section - Citron Background */}

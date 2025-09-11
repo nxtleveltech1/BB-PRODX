@@ -39,7 +39,7 @@ function ProductCard({ product }: { product: any }) {
     <div className="group flex flex-col h-full transition-all duration-300 hover:shadow-lg" style={{ fontFamily: 'League Spartan, sans-serif' }}>
       {/* Product Image */}
       <Link href={`/products/${product.id}`} className="block">
-        <div className="relative aspect-[4/5] bg-[var(--bb-champagne)] overflow-hidden mb-4">
+        <div className="relative aspect-square bg-[var(--bb-champagne)] overflow-hidden mb-4">
           {product.image ? (
             <img 
               src={product.image} 
@@ -71,7 +71,7 @@ function ProductCard({ product }: { product: any }) {
       {/* Product Info */}
       <div className="flex flex-col flex-1 items-center text-center gap-3 px-2" style={{ fontFamily: 'League Spartan, sans-serif' }}>
         <Link href={`/products/${product.id}`} className="block">
-          <h3 className="text-lg font-medium text-[var(--bb-black-bean)] group-hover:text-[var(--bb-mahogany)] transition-colors duration-300 leading-tight" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+          <h3 className="text-lg font-semibold uppercase tracking-wide text-[var(--bb-black-bean)] group-hover:text-[var(--bb-mahogany)] transition-colors duration-300 leading-tight" style={{ fontFamily: 'League Spartan, sans-serif' }}>
             {product.name}
           </h3>
         </Link>
@@ -90,8 +90,8 @@ function ProductCard({ product }: { product: any }) {
         </div>
         {/* Add to cart pinned at bottom */}
         <div className="mt-auto w-full">
-          <button onClick={handleAddToCart} className="w-full bg-[var(--bb-black-bean)] text-white py-3 text-sm tracking-wide hover:bg-[var(--bb-black-bean)]/90 transition-colors" style={{ fontFamily: 'League Spartan, sans-serif' }}>
-            Add to cart
+          <button onClick={handleAddToCart} className="w-full bg-[var(--bb-hero-surround)] text-white py-3 text-sm tracking-wide uppercase hover:bg-[var(--bb-hero-surround)]/90 transition-colors" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+            ADD TO CART
           </button>
         </div>
       </div>
@@ -100,13 +100,13 @@ function ProductCard({ product }: { product: any }) {
 }
 
 export default function ProductsPage() {
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ["products", { limit: 24 }],
-    queryFn: () => api.getProducts({ limit: 24 }) as Promise<{ products: any[] }>,
+  const { data } = useQuery({
+    queryKey: ["products", { limit: 100 }],
+    queryFn: () => api.getProducts({ limit: 100 }) as Promise<{ products: any[] }>,
   });
 
   // Use local data as fallback if API fails
-  const displayProducts = data?.products || products.slice(0, 12);
+  const displayProducts = data?.products || products;
 
   // Mobile-specific view - using CSS classes instead of JS width check
   return (
@@ -258,31 +258,23 @@ export default function ProductsPage() {
       {/* Desktop View */}
       <div className="min-h-screen hidden md:block">
         {/* Hero Section - Dramatic Brand Colors */}
-        <section className="relative min-h-[70vh] bg-gradient-to-br from-[var(--bb-black-bean)] via-[var(--bb-mahogany)]/90 to-[var(--bb-mahogany)] text-white overflow-hidden">
-          {/* Background Elements */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--bb-citron)] rounded-full blur-3xl transform translate-x-32 -translate-y-32"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--bb-champagne)] rounded-full blur-2xl transform -translate-x-16 translate-y-16"></div>
+        <section className="relative min-h-[70vh] bg-[var(--bb-hero-surround)] text-white overflow-hidden">
+          {/* Hero image biased to bottom without distortion */}
+          <div className="absolute inset-0 z-0 flex items-end justify-center">
+            <img
+              src="/Untitled design (3).png"
+              alt="Products hero"
+              className="object-contain object-bottom h-full w-auto max-w-[95vw] opacity-80"
+            />
           </div>
           
-          <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 flex items-center min-h-[60vh]">
-            <div className="max-w-4xl space-y-10">
-              <p className="text-[var(--bb-citron)] text-sm font-medium uppercase tracking-[0.2em] opacity-90">
-                Collection
-              </p>
-              <h1 className="text-6xl md:text-7xl font-light leading-[0.95]" style={{ fontFamily: 'Prata, Georgia, serif' }}>
-                Wellness<br />
-                <span className="text-[var(--bb-citron)]">Essentials</span>
-              </h1>
-              <div className="w-24 h-px bg-gradient-to-r from-[var(--bb-citron)] to-transparent"></div>
-              <p className="text-xl leading-relaxed text-[var(--bb-champagne)] max-w-2xl font-light">
-                Curated wellness products that work. Made with care, driven by integrity. 
-                Supporting your journey to better being, naturally.
-              </p>
+          <div className="relative z-10 max-w-7xl mx-auto px-6 pt-8 pb-6 flex items-end min-h-[70vh]">
+            <div className="max-w-4xl w-full">
+              {/* Hero text removed per request */}
             </div>
           </div>
           
-          {/* Header needs padding for absolute positioning */}
+          {/* Header spacer for absolute header overlap */}
           <div className="h-20"></div>
         </section>
 
@@ -290,39 +282,7 @@ export default function ProductsPage() {
         <div className="bg-[var(--bb-champagne)]">
           <div className="max-w-7xl mx-auto px-6 py-20">
             {/* Filter Bar - Brand Colors */}
-            <div className="flex items-center justify-between mb-16 pb-8 border-b border-[var(--bb-mahogany)]/20">
-              <div className="flex items-center gap-6">
-                <span className="text-2xl font-light text-[var(--bb-black-bean)]" style={{ fontFamily: 'Prata, Georgia, serif' }}>
-                  {displayProducts.length} Products
-                </span>
-                {isLoading && (
-                  <div className="flex items-center gap-3 text-[var(--bb-payne-gray)]">
-                    <div className="animate-spin w-4 h-4 border border-[var(--bb-mahogany)] border-t-transparent rounded-full"></div>
-                    <span className="text-sm">Loading...</span>
-                  </div>
-                )}
-                {isError && (
-                  <div className="text-[var(--bb-payne-gray)] text-sm">
-                    Showing curated collection
-                  </div>
-                )}
-              </div>
-              
-              <div className="hidden md:flex items-center gap-10">
-                <button className="text-sm font-medium uppercase tracking-[0.15em] text-[var(--bb-black-bean)] border-b-2 border-[var(--bb-mahogany)] pb-2">
-                  All Products
-                </button>
-                <button className="text-sm font-medium uppercase tracking-[0.15em] text-[var(--bb-payne-gray)] hover:text-[var(--bb-mahogany)] transition-colors">
-                  Adaptogens
-                </button>
-                <button className="text-sm font-medium uppercase tracking-[0.15em] text-[var(--bb-payne-gray)] hover:text-[var(--bb-mahogany)] transition-colors">
-                  Minerals
-                </button>
-                <button className="text-sm font-medium uppercase tracking-[0.15em] text-[var(--bb-payne-gray)] hover:text-[var(--bb-mahogany)] transition-colors">
-                  Superfoods
-                </button>
-              </div>
-            </div>
+            <div className="mb-8" />
 
             {/* Featured Aesop-style row inside products page */}
             <div className="mb-12 -mx-6">

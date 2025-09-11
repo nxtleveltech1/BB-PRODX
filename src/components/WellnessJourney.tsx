@@ -114,7 +114,7 @@ export const WellnessJourney = () => {
 
               <Button
                 size="lg"
-                className="bg-[#C1581B] hover:bg-[#C1581B]/90 text-white shadow-premium mt-8"
+                className="bg-[var(--bb-black-bean)] hover:bg-[var(--bb-black-bean)]/90 text-white shadow-premium mt-8"
               >
                 Start Your Better Being Journey
                 <ArrowRight className="w-5 h-5 ml-2" />
@@ -164,7 +164,7 @@ export const WellnessJourney = () => {
                 </div>
                 <Button 
                   variant="outline" 
-                  className="w-full mt-6 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                  className="w-full mt-6 border-[var(--bb-black-bean)] text-[var(--bb-black-bean)] hover:bg-[var(--bb-black-bean)] hover:text-white"
                 >
                   Read More Success Stories
                 </Button>

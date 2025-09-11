@@ -1,17 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
-  Facebook,
-  Twitter,
-  Instagram,
-  Youtube,
   Leaf,
-  Phone,
   Mail,
-  MapPin,
-  Clock,
   Send,
-  ArrowRight,
   Heart,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -137,189 +128,18 @@ const FooterPrimary = () => {
         </div>
       </div>
 
-      {/* Main Footer Content */}
+      {/* Main Footer Content - links removed per request */}
       <div className="relative max-w-7xl mx-auto px-6 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Brand Section */}
-          <div className="lg:col-span-1 space-y-8">
-            <Link to="/" className="inline-flex items-center gap-4 group">
-              <div className="relative">
-                <div className="w-10 h-10 bg-gradient-to-br from-[#CD853F] to-[#B8860B] rounded-xl flex items-center justify-center group-hover:scale-105 transition-all duration-300 shadow-soft">
-                  <Leaf className="w-5 h-5 text-white" />
-                </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-[#F5DEB3] rounded-full animate-soft-pulse"></div>
+        <div className="flex items-center justify-center py-8">
+          <div className="text-center text-white/80">
+            {/* Minimal brand mark only */}
+            <div className="inline-flex items-center gap-3 opacity-80">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#CD853F] to-[#B8860B] rounded-xl flex items-center justify-center shadow-soft">
+                <Leaf className="w-5 h-5 text-white" />
               </div>
               <div>
-                <div className="text-2xl font-bold text-white font-heading">
-                  Better Being
-                </div>
-                <div className="text-[#F5DEB3] text-xs font-body -mt-1">
-                  Natural Wellness Solutions
-                </div>
-              </div>
-            </Link>
-
-            <p className="text-white/90 leading-relaxed font-body text-sm">
-              Transform your wellness journey with our curated collection of
-              natural products. Building a healthier world, one conscious choice
-              at a time.
-            </p>
-
-            {/* Social Media */}
-            <div className="flex items-center gap-3">
-              <span className="text-[#F5DEB3] font-semibold text-xs uppercase tracking-wide">
-                Follow Us
-              </span>
-              <div className="flex gap-3">
-                {[
-                  { icon: Facebook, href: "#", label: "Facebook" },
-                  { icon: Twitter, href: "#", label: "Twitter" },
-                  { icon: Instagram, href: "#", label: "Instagram" },
-                  { icon: Youtube, href: "#", label: "YouTube" },
-                ].map(({ icon: Icon, href, label }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    className="w-9 h-9 bg-[#CD853F]/30 hover:bg-[#F5DEB3] rounded-lg flex items-center justify-center transition-all duration-300 group shadow-gentle hover:shadow-warm"
-                    aria-label={label}
-                  >
-                    <Icon className="h-4 w-4 text-white group-hover:text-[#4a4a4a] transition-colors duration-300" />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="space-y-8">
-            <h4 className="text-lg font-bold text-[#F5DEB3] uppercase tracking-wide font-heading relative">
-              Explore
-              <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-[#F5DEB3] to-transparent"></div>
-            </h4>
-            <ul className="space-y-2">
-              {[
-                { to: "/products", label: "Our Products" },
-                { to: "/wellness", label: "Wellness Hub" },
-                { to: "/about", label: "About Us" },
-                { to: "/blog", label: "Blog & Articles" },
-                { to: "/community", label: "Community" },
-                { to: "/farming", label: "Farming Solutions" },
-                { to: "/testimonials", label: "Testimonials" },
-                { to: "/contact", label: "Contact Us" },
-              ].map((item) => (
-                <li key={item.to}>
-                  <Link
-                    to={item.to}
-                    className="text-white/90 hover:text-[#F5DEB3] transition-all duration-300 font-body text-sm group flex items-center gap-2"
-                  >
-                    <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services & Support */}
-          <div className="space-y-8">
-            <h4 className="text-lg font-bold text-[#F5DEB3] uppercase tracking-wide font-heading relative">
-              Support
-              <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-[#F5DEB3] to-transparent"></div>
-            </h4>
-            <ul className="space-y-2">
-              {[
-                { to: "/account", label: "My Account" },
-                { to: "/shipping", label: "Shipping Info" },
-                { to: "/refund-policy", label: "Refund Policy" },
-                { to: "/store-locator", label: "Store Locator" },
-                { to: "/become-stockist", label: "Become Stockist" },
-                { to: "/marketing", label: "Marketing Partners" },
-                { to: "/investors-pool", label: "Investor Relations" },
-                { to: "/tech", label: "Technology" },
-              ].map((item) => (
-                <li key={item.to}>
-                  <Link
-                    to={item.to}
-                    className="text-white/90 hover:text-[#F5DEB3] transition-all duration-300 font-body text-lg group flex items-center gap-2"
-                  >
-                    <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <h4 className="text-xl font-bold text-[#F5DEB3] uppercase tracking-wider font-heading relative">
-              Contact
-              <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-[#F5DEB3] to-transparent"></div>
-            </h4>
-
-            <div className="space-y-6">
-              <div className="bg-[#CD853F]/20 backdrop-blur-sm border border-[#F5DEB3]/20 rounded-2xl p-6 space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-[#F5DEB3] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-[#4a4a4a]" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-[#F5DEB3] mb-1">
-                      Visit Us
-                    </p>
-                    <p className="text-white/90 leading-relaxed font-body">
-                      171 Blaauwberg Road,
-                      <br />
-                      Table View, Cape Town 7441
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-[#F5DEB3] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-[#4a4a4a]" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-[#F5DEB3] mb-1">Call Us</p>
-                    <a
-                      href="tel:+27123456789"
-                      className="text-white/90 hover:text-[#F5DEB3] transition-colors font-body"
-                    >
-                      +27 12 345 6789
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-[#F5DEB3] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-[#4a4a4a]" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-[#F5DEB3] mb-1">
-                      Email Us
-                    </p>
-                    <a
-                      href="mailto:info@betterbeing.co.za"
-                      className="text-white/90 hover:text-[#F5DEB3] transition-colors font-body"
-                    >
-                      info@betterbeing.co.za
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-[#F5DEB3] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5 text-[#4a4a4a]" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-[#F5DEB3] mb-1">Hours</p>
-                    <p className="text-white/90 font-body text-sm">
-                      Mon-Fri: 8:00 AM - 6:00 PM
-                      <br />
-                      Sat-Sun: 9:00 AM - 4:00 PM
-                    </p>
-                  </div>
-                </div>
+                <div className="text-xl font-bold font-heading">Better Being</div>
+                <div className="text-[#F5DEB3] text-xs font-body -mt-1">Natural Wellness</div>
               </div>
             </div>
           </div>
@@ -339,36 +159,13 @@ const FooterPrimary = () => {
           }}
         />
         <div className="max-w-7xl mx-auto px-6 py-8">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
-            <div className="text-center lg:text-left">
-              <p className="text-white/90 font-body text-lg">
-                Copyright © Better Being 2024. All rights reserved.
-              </p>
-              <p className="text-[#F5DEB3] font-semibold mt-1">
-                Crafted with ❤️ for Natural Wellness
-              </p>
-            </div>
-
-            <div className="flex flex-wrap justify-center lg:justify-end gap-8">
-              {[
-                { to: "/terms", label: "Terms & Conditions" },
-                { to: "/privacy", label: "Privacy Policy" },
-                { to: "/refund-policy", label: "Refund Policy" },
-                { to: "/shipping", label: "Shipping Policy" },
-              ].map((item, index) => (
-                <div key={item.to} className="flex items-center gap-8">
-                  <Link
-                    to={item.to}
-                    className="text-white/90 hover:text-[#F5DEB3] transition-colors duration-300 font-body"
-                  >
-                    {item.label}
-                  </Link>
-                  {index < 3 && (
-                    <div className="w-1 h-1 bg-[#F5DEB3]/50 rounded-full"></div>
-                  )}
-                </div>
-              ))}
-            </div>
+          <div className="flex flex-col items-center gap-2 text-center">
+            <p className="text-white/90 font-body text-lg">
+              Copyright © Better Being 2024. All rights reserved.
+            </p>
+            <p className="text-[#F5DEB3] font-semibold">
+              Crafted with ❤️ for Natural Wellness
+            </p>
           </div>
         </div>
       </div>

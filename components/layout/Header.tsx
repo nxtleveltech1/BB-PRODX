@@ -38,8 +38,8 @@ export default function Header() {
             aria-label="Better Being - Home"
           >
             <img
-              src="/better-being-logo.png"
-              alt="Better Being"
+              src="/Purple Abstract Lintree Background (1366 x 768 px) (699 x 250 px) (550 x 250 px) (550 x 150 px).png"
+              alt="Better Being Logo"
               className="header-logo"
               loading="eager"
             />
@@ -139,7 +139,7 @@ export default function Header() {
                           Account Dashboard
                         </Link>
                         <Link 
-                          href="/account/order" 
+                          href="/account/history"
                           className="dropdown-item"
                           role="menuitem"
                           onClick={() => setShowAccountMenu(false)}

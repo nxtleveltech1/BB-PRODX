@@ -22,6 +22,7 @@ import {
   Share2
 } from "lucide-react";
 import { useCart } from "../../../contexts/CartContext";
+import { getProductById, getRelatedProducts } from "@/data/products";
 
 // Mock product data - replace with actual API calls
 const mockProducts = [
@@ -118,9 +119,32 @@ export default function ProductDetailPage() {
 
   const idParam = params?.id;
   const productId = Number(idParam ?? NaN);
-  const product = Number.isNaN(productId)
-    ? undefined
-    : mockProducts.find(p => p.id === productId);
+
+  const catalogProduct = Number.isNaN(productId) ? undefined : getProductById(productId);
+  const normalized = (p: any) => ({
+    id: p.id,
+    name: p.name,
+    description: p.description,
+    longDescription: p.longDescription || p.description,
+    price: typeof p.price === 'string' ? parseFloat(p.price.replace(/[^0-9.]/g, '')) : p.price,
+    originalPrice: p.originalPrice ? (typeof p.originalPrice === 'string' ? parseFloat(p.originalPrice.replace(/[^0-9.]/g, '')) : p.originalPrice) : undefined,
+    rating: p.rating || 0,
+    reviewCount: p.reviews ?? p.reviewCount ?? 0,
+    images: [p.image, ...(p.additionalImages || p.images || [])],
+    category: p.categoryId || p.category || '',
+    tags: p.tags || [],
+    inStock: p.inStock !== false,
+    stockCount: p.stockCount || 1,
+    featured: !!p.featured,
+    benefits: p.benefits || [],
+    ingredients: p.ingredients || [],
+    usage: p.usage || '',
+    warnings: Array.isArray(p.warnings) ? p.warnings : (p.warnings ? [p.warnings] : []),
+    certifications: p.certifications || [],
+    servingsPerContainer: p.servingsPerContainer || 0,
+  });
+
+  const product = catalogProduct ? normalized(catalogProduct) : (Number.isNaN(productId) ? undefined : mockProducts.find(p => p.id === productId));
 
   if (!product) {
     return (
@@ -224,7 +248,7 @@ export default function ProductDetailPage() {
           {/* Product Images */}
           <div className="space-y-4">
             {/* Main Image */}
-            <div className="relative bg-gradient-to-br from-white/80 to-bb-champagne/40 border-2 border-bb-mahogany/20 rounded-xl overflow-hidden aspect-square">
+            <div className="relative bg-[var(--bb-champagne)] border-2 border-bb-mahogany/20 rounded-xl overflow-hidden aspect-square">
               {hasDiscount && (
                 <div className="absolute top-4 left-4 bg-red-500 text-white px-3 py-2 rounded-lg text-sm font-bold z-10">
                   -{discountPercent}% OFF
@@ -236,8 +260,18 @@ export default function ProductDetailPage() {
                 </div>
               )}
               
-              <div className="w-full h-full bg-gradient-to-br from-bb-champagne to-bb-citron/20 flex items-center justify-center">
-                <Package className="w-32 h-32 text-bb-mahogany" />
+              <div className="w-full h-full flex items-center justify-center">
+                {/* Replace placeholder with image if available */}
+                {product.images && product.images.length > 0 ? (
+                  <img
+                    src={product.images[selectedImage]}
+                    alt={product.name}
+                    className="w-full h-full object-contain p-6"
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                  />
+                ) : (
+                  <Package className="w-32 h-32 text-bb-mahogany" />
+                )}
               </div>
             </div>
 
@@ -253,8 +287,13 @@ export default function ProductDetailPage() {
                       : 'border-bb-mahogany/20 hover:border-bb-mahogany/60'
                   }`}
                 >
-                  <div className="w-full h-full bg-gradient-to-br from-bb-champagne to-bb-citron/20 flex items-center justify-center">
-                    <Package className="w-8 h-8 text-bb-mahogany" />
+                  <div className="w-full h-full bg-[var(--bb-champagne)] flex items-center justify-center">
+                    <img
+                      src={product.images[index]}
+                      alt={`${product.name} thumbnail ${index + 1}`}
+                      className="w-full h-full object-contain p-2"
+                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                    />
                   </div>
                 </button>
               ))}
@@ -319,7 +358,7 @@ export default function ProductDetailPage() {
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-6">
-                {product.tags.map((tag) => (
+                {product.tags.map((tag: string) => (
                   <span key={tag} className="bg-bb-champagne/60 text-bb-black-bean px-3 py-1 rounded-lg text-sm border border-bb-mahogany/10">
                     {tag}
                   </span>
@@ -364,7 +403,7 @@ export default function ProductDetailPage() {
                   disabled={!product.inStock}
                   className={`flex-1 py-4 rounded-lg font-heading font-semibold text-lg transition-all flex items-center justify-center gap-3 ${
                     product.inStock
-                      ? 'bg-bb-mahogany hover:bg-bb-mahogany/90 text-white transform hover:scale-105 shadow-lg'
+                      ? 'bg-[var(--bb-black-bean)] hover:bg-[var(--bb-black-bean)]/90 text-white transform hover:scale-105 shadow-lg'
                       : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                   }`}
                 >
@@ -497,7 +536,7 @@ export default function ProductDetailPage() {
                       Key Benefits
                     </h3>
                     <div className="grid md:grid-cols-2 gap-3">
-                      {product.benefits.map((benefit, index) => (
+                      {product.benefits.map((benefit: string, index: number) => (
                         <div key={index} className="flex items-center gap-3 p-3 bg-green-50 rounded-lg border border-green-200">
                           <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
                           <span className="text-bb-black-bean">{benefit}</span>
@@ -512,7 +551,7 @@ export default function ProductDetailPage() {
                       Certifications
                     </h3>
                     <div className="flex flex-wrap gap-3">
-                      {product.certifications.map((cert) => (
+                      {product.certifications.map((cert: string) => (
                         <div key={cert} className="flex items-center gap-2 bg-bb-citron/20 text-bb-black-bean px-4 py-2 rounded-lg border border-bb-citron/30">
                           <Award className="w-4 h-4" />
                           <span className="font-medium">{cert}</span>
@@ -532,7 +571,7 @@ export default function ProductDetailPage() {
                     </h3>
                     <div className="bg-bb-champagne/40 rounded-lg p-6 border-2 border-bb-mahogany/20">
                       <ul className="space-y-3">
-                        {product.ingredients.map((ingredient, index) => (
+                        {product.ingredients.map((ingredient: string, index: number) => (
                           <li key={index} className="flex items-start gap-3">
                             <Leaf className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                             <span className="text-bb-black-bean">{ingredient}</span>
@@ -568,7 +607,7 @@ export default function ProductDetailPage() {
                     </h3>
                     <div className="bg-orange-50 rounded-lg p-6 border-2 border-orange-200">
                       <ul className="space-y-2">
-                        {product.warnings.map((warning, index) => (
+                        {product.warnings.map((warning: string, index: number) => (
                           <li key={index} className="flex items-start gap-3">
                             <AlertCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
                             <span className="text-bb-black-bean text-sm">{warning}</span>
@@ -640,39 +679,44 @@ export default function ProductDetailPage() {
         <div className="mt-16">
           <h2 className="text-3xl font-heading font-bold text-bb-black-bean mb-8">You Might Also Like</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {mockProducts
-              .filter(p => p.id !== product.id)
-              .slice(0, 3)
-              .map((relatedProduct) => (
+            {getRelatedProducts(product.id, 3).map((rp) => {
+              const rpImages = [rp.image, ...(rp.additionalImages || [])];
+              const rpPrice = typeof rp.price === 'string' ? rp.price : `R${rp.price}`;
+              return (
                 <Link
-                  key={relatedProduct.id}
-                  href={`/products/${relatedProduct.id}`}
-                  className="group bg-gradient-to-br from-bb-champagne/40 to-white/80 border-2 border-bb-mahogany/20 hover:border-bb-mahogany/60 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-bb-mahogany/10 hover:scale-105"
+                  key={rp.id}
+                  href={`/products/${rp.id}`}
+                  className="group bg-[var(--bb-champagne)] border-2 border-bb-mahogany/20 hover:border-bb-mahogany/60 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-bb-mahogany/10 hover:scale-105"
                 >
-                  <div className="h-48 bg-gradient-to-br from-bb-citron/20 to-bb-mahogany/10 flex items-center justify-center">
-                    <Package className="w-16 h-16 text-bb-mahogany" />
+                  <div className="h-48 bg-[var(--bb-champagne)] flex items-center justify-center">
+                    {rpImages.length > 0 ? (
+                      <img src={rpImages[0]} alt={rp.name} className="w-full h-full object-contain p-4" />
+                    ) : (
+                      <Package className="w-16 h-16 text-bb-mahogany" />
+                    )}
                   </div>
                   <div className="p-4">
-                    <h3 className="font-heading text-lg font-semibold text-bb-black-bean mb-2 group-hover:text-bb-mahogany transition-colors">
-                      {relatedProduct.name}
+                    <h3 className="font-heading text-lg font-semibold uppercase tracking-wide text-bb-black-bean mb-2 group-hover:text-bb-mahogany transition-colors" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+                      {rp.name}
                     </h3>
                     <p className="text-bb-payne-gray text-sm mb-3 line-clamp-2">
-                      {relatedProduct.description}
+                      {rp.description}
                     </p>
                     <div className="flex items-center justify-between">
                       <span className="text-xl font-bold text-bb-mahogany">
-                        R{relatedProduct.price.toFixed(2)}
+                        {rpPrice}
                       </span>
                       <div className="flex items-center">
                         <Star className="w-4 h-4 text-bb-citron fill-current" />
                         <span className="text-sm text-bb-payne-gray ml-1">
-                          {relatedProduct.rating}
+                          {rp.rating}
                         </span>
                       </div>
                     </div>
                   </div>
                 </Link>
-              ))}
+              );
+            })}
           </div>
         </div>
       </div>

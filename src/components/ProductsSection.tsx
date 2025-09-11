@@ -68,13 +68,13 @@ export const ProductsSection = () => {
 
                 <CardContent className="p-0">
                   {/* Product Image Container */}
-                  <div className="relative w-full aspect-[4/5] bg-[var(--bb-champagne)] flex items-center justify-center">
+                  <div className="relative w-full aspect-square bg-[var(--bb-champagne)] flex items-center justify-center">
                     <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4" />
                   </div>
 
                   {/* Product Info */}
                   <div className="p-4">
-                    <h3 className="text-lg font-medium text-[var(--bb-black-bean)] mb-2 leading-snug">{product.name}</h3>
+                    <h3 className="text-lg font-semibold uppercase tracking-wide text-[var(--bb-black-bean)] mb-2 leading-snug" style={{ fontFamily: 'League Spartan, sans-serif' }}>{product.name}</h3>
                     <p className="text-sm text-[var(--bb-payne-gray)] mb-4 line-clamp-2">{product.description}</p>
 
                     {/* Benefits */}
@@ -130,7 +130,7 @@ export const ProductsSection = () => {
         {/* CTA */}
         <div className="text-center">
           <Link href="/products">
-            <Button size="lg" variant="ghost" className="border border-[#C1581B] text-[#C1581B] hover:bg-[#C1581B] hover:text-white text-base px-6 py-3">
+            <Button size="lg" variant="ghost" className="border border-[var(--bb-black-bean)] text-[var(--bb-black-bean)] hover:bg-[var(--bb-black-bean)] hover:text-white text-base px-6 py-3">
               View All Better Being Products
             </Button>
           </Link>

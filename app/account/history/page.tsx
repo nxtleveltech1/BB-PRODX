@@ -100,7 +100,7 @@ function OrderHistoryContent() {
               Your Orders ({mockOrders.length})
             </h2>
             <Link 
-              href="/account/order"
+              href="/products"
               className="bg-gradient-to-r from-[#ba7500] to-[#C4C240] text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-300"
             >
               Place New Order
@@ -117,7 +117,7 @@ function OrderHistoryContent() {
                 Start your wellness journey with our premium products
               </p>
               <Link 
-                href="/account/order" 
+                href="/products" 
                 className="bg-gradient-to-r from-[#ba7500] to-[#C4C240] text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-300"
               >
                 Browse Products

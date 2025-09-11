@@ -37,11 +37,11 @@ export const ProductsSectionTailwind = () => {
           {featuredProducts.map((product) => (
             <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
               <CardContent className="p-0">
-                <div className="relative overflow-hidden rounded-t-lg">
+                <div className="relative overflow-hidden rounded-t-lg bg-[var(--bb-champagne)] aspect-square">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                   />
                   {product.featured && (
                     <Badge className="absolute top-4 left-4 bg-green-600 text-white">
@@ -60,7 +60,7 @@ export const ProductsSectionTailwind = () => {
                     {product.category}
                   </Badge>
                   
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">
+                  <h3 className="text-xl font-semibold uppercase tracking-wide text-gray-900 mb-2 group-hover:text-green-600 transition-colors" style={{ fontFamily: 'League Spartan, sans-serif' }}>
                     {product.name}
                   </h3>
                   

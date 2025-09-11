@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "node node_modules/next/dist/bin/next dev",
     "build": "node node_modules/next/dist/bin/next build",
+    "prestart": "node -e \"const fs=require('fs'); if(!fs.existsSync('.next')){console.error('❌ Missing .next build output. Run \\\"npm run build\\\" first.'); process.exit(1)}\"",
     "start": "node node_modules/next/dist/bin/next start",
     "lint": "eslint .",
     "dev:server": "cd server && PORT=8000 npm run dev",

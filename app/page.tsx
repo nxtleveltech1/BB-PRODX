@@ -91,21 +91,7 @@ export default function HomePage() {
                 </a>
               </div>
               
-              {/* Trust Indicators */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-2xl fade-in-up" style={{ animationDelay: '1.2s' }}>
-                {[
-                  { icon: '✓', text: '100% Natural', desc: 'Pure ingredients' },
-                  { icon: '★', text: '5-Star Rating', desc: '1000+ reviews' },
-                  { icon: '⚡', text: 'Fast Shipping', desc: 'Next day delivery' },
-                  { icon: '🌱', text: 'Made in SA', desc: 'Locally sourced' }
-                ].map((item, index) => (
-                  <div key={index} className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all duration-300 group">
-                    <div className="text-[#B5A642] text-2xl mb-2 group-hover:scale-110 transition-transform">{item.icon}</div>
-                    <div className="text-white/90 text-sm font-medium uppercase tracking-wide">{item.text}</div>
-                    <div className="text-white/60 text-xs mt-1">{item.desc}</div>
-                  </div>
-                ))}
-              </div>
+              {/* Trust Indicators removed per request */}
             </div>
             
             {/* Right Side - Floating Product Preview */}

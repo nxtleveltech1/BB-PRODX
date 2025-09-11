@@ -10,14 +10,14 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // Primary - Better Being Orange
-        primary: "bg-bb-orange text-white border-2 border-bb-orange hover:bg-bb-orange-600 hover:border-bb-orange-600 active:bg-bb-orange-700 active:border-bb-orange-700 shadow-wellness-sm hover:shadow-wellness-md",
+        // Primary - Black Bean (brand requirement)
+        primary: "bg-[var(--bb-hero-surround)] text-white border-2 border-[var(--bb-hero-surround)] hover:bg-[var(--bb-hero-surround)]/90 hover:border-[var(--bb-hero-surround)]/90 active:bg-[var(--bb-hero-surround)] active:border-[var(--bb-hero-surround)] shadow-wellness-sm hover:shadow-wellness-md",
         
-        // Secondary - Champagne with Orange border
-        secondary: "bg-bb-champagne text-bb-orange border-2 border-bb-orange hover:bg-bb-champagne-200 hover:text-bb-orange-600 active:bg-bb-champagne-300 active:text-bb-orange-700 shadow-wellness-sm hover:shadow-wellness-md",
+        // Secondary - Champagne with Black Bean border/text
+        secondary: "bg-bb-champagne text-[var(--bb-black-bean)] border-2 border-[var(--bb-black-bean)] hover:bg-bb-champagne-200 hover:text-[var(--bb-black-bean)] active:bg-bb-champagne-300 shadow-wellness-sm hover:shadow-wellness-md",
         
-        // Tertiary - Transparent with Orange text
-        tertiary: "bg-transparent text-bb-orange border-2 border-transparent hover:bg-bb-champagne-100 hover:border-bb-champagne-200 active:bg-bb-champagne-200 active:border-bb-champagne-300",
+        // Tertiary - Transparent with Black Bean text
+        tertiary: "bg-transparent text-[var(--bb-black-bean)] border-2 border-transparent hover:bg-bb-champagne-100 hover:border-bb-champagne-200 active:bg-bb-champagne-200 active:border-bb-champagne-300",
         
         // Destructive - Error red
         destructive: "bg-bb-error text-white border-2 border-bb-error hover:bg-bb-error-600 hover:border-bb-error-600 active:bg-bb-error-700 active:border-bb-error-700 shadow-wellness-sm hover:shadow-wellness-md",
@@ -28,8 +28,8 @@ const buttonVariants = cva(
         // Link - Text only
         link: "bg-transparent text-bb-orange border-none p-0 h-auto font-normal underline-offset-4 hover:underline hover:text-bb-orange-600 active:text-bb-orange-700",
         
-        // Outline - Transparent with border (for backward compatibility)
-        outline: "bg-transparent text-bb-orange border-2 border-bb-orange hover:bg-bb-orange hover:text-white active:bg-bb-orange-600 active:border-bb-orange-600",
+        // Outline - Transparent with black bean border
+        outline: "bg-transparent text-[var(--bb-black-bean)] border-2 border-[var(--bb-black-bean)] hover:bg-[var(--bb-black-bean)] hover:text-white active:bg-[var(--bb-black-bean)]/90 active:border-[var(--bb-black-bean)]/90",
       },
       size: {
         // Small - 32px height

@@ -26,11 +26,11 @@ export default function FeaturedRowAesop({
   }
 
   return (
-    <section className="bg-[var(--neutral-100)] border-t border-b border-[var(--neutral-300)]/60">
+    <section className="bg-[var(--bb-champagne)] border-t border-b border-[var(--bb-mahogany)]/20">
       <div className="max-w-7xl mx-auto px-6 py-14">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-light text-[var(--neutral-800)]" style={{ fontFamily: 'Playfair Display, serif' }}>{title}</h2>
+          <h2 className="text-4xl md:text-5xl font-semibold uppercase tracking-wide text-[var(--neutral-800)]" style={{ fontFamily: 'League Spartan, sans-serif' }}>{title}</h2>
           <p className="mt-4 text-[var(--neutral-600)] max-w-3xl mx-auto">{subtitle}</p>
         </div>
 
@@ -39,7 +39,7 @@ export default function FeaturedRowAesop({
           {take.map((p, idx) => (
             <article key={p.id} className="group flex flex-col h-full" style={{ fontFamily: 'League Spartan, sans-serif' }}>
               {/* Image: use champagne background to match site */}
-              <div className="relative aspect-[4/5] bg-[var(--bb-champagne)] flex items-center justify-center">
+              <div className="relative aspect-square bg-[var(--bb-champagne)] flex items-center justify-center">
                 {p.image ? (
                   <img
                     src={p.image}
@@ -56,14 +56,14 @@ export default function FeaturedRowAesop({
               <div className="text-[var(--bb-mahogany)] text-sm font-medium mt-3">{idx === 1 ? 'New addition' : 'Beloved formulation'}</div>
 
               {/* Title */}
-              <h3 className="mt-4 text-lg md:text-xl text-[var(--neutral-800)] font-medium text-center" style={{ fontFamily: 'League Spartan, sans-serif' }}>{p.name}</h3>
+              <h3 className="mt-4 text-lg md:text-xl uppercase tracking-wide text-[var(--neutral-800)] font-semibold text-center" style={{ fontFamily: 'League Spartan, sans-serif' }}>{p.name}</h3>
               {/* Description */}
               <p className="mt-2 text-[var(--neutral-600)] text-sm text-center" style={{ fontFamily: 'League Spartan, sans-serif' }}>{p.description}</p>
 
               {/* Price + Add to cart centered */}
               <div className="mt-4 flex flex-col items-center gap-3 mt-auto">
                 <div className="text-[var(--neutral-800)] text-lg font-medium" style={{ fontFamily: 'League Spartan, sans-serif' }}>{p.price}</div>
-                <button className="w-full bg-[var(--bb-black-bean)] text-white px-6 py-3 text-sm tracking-wide hover:bg-[var(--bb-black-bean)]/90 transition-colors" style={{ fontFamily: 'League Spartan, sans-serif' }}>Add to cart</button>
+                <button className="w-full bg-[var(--bb-hero-surround)] text-white px-6 py-3 text-sm tracking-wide uppercase hover:bg-[var(--bb-hero-surround)]/90 transition-colors" style={{ fontFamily: 'League Spartan, sans-serif' }}>ADD TO CART</button>
               </div>
             </article>
           ))}

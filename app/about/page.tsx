@@ -3,29 +3,16 @@
 export default function AboutPage() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Dramatic Brand Colors */}
-      <section className="relative min-h-[80vh] bg-gradient-to-br from-[var(--bb-mahogany)] via-[var(--bb-black-bean)] to-[var(--bb-mahogany)]/90 text-white overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--bb-citron)] rounded-full blur-3xl transform translate-x-32 -translate-y-32"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--bb-champagne)] rounded-full blur-2xl transform -translate-x-16 translate-y-16"></div>
+      {/* Hero Section - Image background stretched to fit */}
+      <section className="relative min-h-[80vh] bg-[var(--bb-hero-surround)] overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/Add a heading (1).png"
+            alt="About hero"
+            className="w-full h-full object-cover"
+          />
         </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 flex items-center min-h-[60vh]">
-          <div className="max-w-4xl mx-auto text-center space-y-12">
-            <p className="text-[var(--bb-citron)] text-sm font-medium uppercase tracking-[0.2em] opacity-90">Our Story</p>
-            <h1 className="text-6xl md:text-7xl font-light leading-[0.95] text-white" style={{ fontFamily: 'Prata, Georgia, serif' }}>
-              Better <span className="text-[var(--bb-citron)]">Being</span>
-            </h1>
-            <div className="w-24 h-px bg-gradient-to-r from-[var(--bb-citron)] to-transparent mx-auto"></div>
-            <p className="text-xl leading-relaxed text-[var(--bb-champagne)] max-w-3xl mx-auto font-light">
-              A creator-led wellness house rooted in slow, intimate stories and uncomplicated products that work. 
-              We believe in the power of natural ingredients and thoughtful curation.
-            </p>
-          </div>
-        </div>
-        
-        {/* Header needs padding for absolute positioning */}
+        {/* Keep a spacer for absolute header overlap */}
         <div className="h-20"></div>
       </section>
 

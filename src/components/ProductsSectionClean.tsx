@@ -78,7 +78,7 @@ export const ProductsSectionClean = () => {
               
               <CardContent className="p-0">
                 {/* Product Image Container */}
-                <div className="relative h-64 bg-gradient-to-b from-gray-50 to-gray-100 p-4 flex items-center justify-center">
+                <div className="relative w-full aspect-square bg-[var(--bb-champagne)] p-4 flex items-center justify-center">
                   <img
                     src={product.image}
                     alt={product.name}
@@ -94,7 +94,7 @@ export const ProductsSectionClean = () => {
 
                 {/* Product Info */}
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-primary mb-3">{product.name}</h3>
+                  <h3 className="text-2xl font-bold uppercase tracking-wide text-primary mb-3" style={{ fontFamily: 'League Spartan, sans-serif' }}>{product.name}</h3>
                 <p className="text-muted-foreground mb-6">{product.description}</p>
 
                 {/* Benefits */}
@@ -131,7 +131,7 @@ export const ProductsSectionClean = () => {
                 {/* Actions */}
                 <div className="flex space-x-3">
                   <Button 
-                    className="flex-1 bg-[#C1581B] hover:bg-[#B34E16] text-white shadow-wellness"
+                    className="flex-1 bg-[var(--bb-black-bean)] hover:bg-[var(--bb-black-bean)]/90 text-white shadow-wellness"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleAddToCart(product);
@@ -143,7 +143,7 @@ export const ProductsSectionClean = () => {
                   <Button 
                     variant="outline" 
                     size="icon" 
-                    className="shrink-0 border-[#C1581B] text-[#C1581B] hover:bg-[#C1581B]/10"
+                    className="shrink-0 border-[var(--bb-black-bean)] text-[var(--bb-black-bean)] hover:bg-[var(--bb-black-bean)]/10"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleAddToWishlist(product);
@@ -163,7 +163,7 @@ export const ProductsSectionClean = () => {
          <Button 
            size="lg" 
            variant="outline" 
-           className="border-[#C1581B] text-[#C1581B] hover:bg-[#C1581B] hover:text-white text-lg px-8 py-4"
+           className="border-[var(--bb-black-bean)] text-[var(--bb-black-bean)] hover:bg-[var(--bb-black-bean)] hover:text-white text-lg px-8 py-4"
            onClick={() => handleNavigation('/products')}
          >
            View All Better Being Products
