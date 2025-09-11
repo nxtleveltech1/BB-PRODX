@@ -1,92 +1,101 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import api from "@/services/apiOptimized";
 import { products } from "@/data/products";
 import FeaturedRowAesop from "@/components/FeaturedRowAesop";
+import { useCart } from "../../contexts/CartContext";
 
 function ProductCard({ product }: { product: any }) {
+  const { addItem } = useCart();
   const hasDiscount = product.originalPrice && product.originalPrice !== product.price;
   const price = typeof product.price === 'string' ? product.price : `R${product.price}`;
   const originalPrice = typeof product.originalPrice === 'string' ? product.originalPrice : `R${product.originalPrice}`;
   
+  const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    try {
+      addItem({
+        id: Date.now(),
+        product_id: product.id,
+        quantity: 1,
+        product_name: product.name,
+        product_description: product.description,
+        product_image: product.image || "/placeholder.svg",
+        product_price: typeof product.price === 'string' ? product.price.replace(/^R/, '') : String(product.price),
+        product_original_price: typeof product.originalPrice === 'string' ? product.originalPrice.replace(/^R/, '') : (product.originalPrice ? String(product.originalPrice) : undefined),
+        product_in_stock: product.inStock !== false,
+        product_stock_count: product.stockCount || 1,
+        category_name: product.categoryId || undefined,
+      });
+    } catch (_err) {
+      // no-op: provider shows toast
+    }
+  };
+  
   return (
-    <Link
-      href={`/products/${product.id}`}
-      className="group block transition-all duration-500 hover:transform hover:scale-105"
-    >
+    <div className="group flex flex-col h-full transition-all duration-300 hover:shadow-lg" style={{ fontFamily: 'League Spartan, sans-serif' }}>
       {/* Product Image */}
-      <div className="relative aspect-[4/5] bg-gradient-to-br from-white to-[var(--bb-champagne)]/50 overflow-hidden mb-6 border border-[var(--bb-mahogany)]/10 group-hover:border-[var(--bb-mahogany)]/30 transition-all duration-500">
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--bb-mahogany)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        {product.image ? (
-          <img 
-            src={product.image} 
-            alt={product.name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.style.display = 'none';
-            }}
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[var(--bb-mahogany)]/20 to-[var(--bb-citron)]/20 flex items-center justify-center">
-              <span className="text-3xl">🌿</span>
+      <Link href={`/products/${product.id}`} className="block">
+        <div className="relative aspect-[4/5] bg-[var(--bb-champagne)] overflow-hidden mb-4">
+          {product.image ? (
+            <img 
+              src={product.image} 
+              alt={product.name}
+              className="w-full h-full object-contain p-4"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+              }}
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[var(--bb-mahogany)]/20 to-[var(--bb-citron)]/20 flex items-center justify-center">
+                <span className="text-3xl">🌿</span>
+              </div>
             </div>
-          </div>
-        )}
-        
-        {/* Elegant Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--bb-black-bean)]/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        
-        {/* Stock Status Badge */}
-        {!product.inStock && (
-          <div className="absolute top-4 left-4">
-            <span className="bg-[var(--bb-black-bean)] text-white px-3 py-1 text-xs uppercase tracking-wider">
-              Sold Out
-            </span>
-          </div>
-        )}
-      </div>
+          )}
+          {/* Stock Status Badge */}
+          {!product.inStock && (
+            <div className="absolute top-4 left-4">
+              <span className="bg-[var(--bb-black-bean)] text-white px-3 py-1 text-xs uppercase tracking-wider">
+                Sold Out
+              </span>
+            </div>
+          )}
+        </div>
+      </Link>
 
       {/* Product Info */}
-      <div className="space-y-4">
-        <div className="space-y-2">
-          <h3 className="text-xl font-light text-[var(--bb-black-bean)] group-hover:text-[var(--bb-mahogany)] transition-colors duration-300 leading-tight" style={{ fontFamily: 'Prata, Georgia, serif' }}>
+      <div className="flex flex-col flex-1 items-center text-center gap-3 px-2" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+        <Link href={`/products/${product.id}`} className="block">
+          <h3 className="text-lg font-medium text-[var(--bb-black-bean)] group-hover:text-[var(--bb-mahogany)] transition-colors duration-300 leading-tight" style={{ fontFamily: 'League Spartan, sans-serif' }}>
             {product.name}
           </h3>
-          <p className="text-sm text-[var(--bb-payne-gray)] leading-relaxed line-clamp-2">
-            {product.description}
-          </p>
-        </div>
-        
-        <div className="flex items-center justify-between pt-2 border-t border-[var(--bb-mahogany)]/10">
-          <div className="space-y-1">
-            <div className="flex items-center gap-3">
-              <span className="text-xl font-medium text-[var(--bb-mahogany)]">{price}</span>
-              {hasDiscount && (
-                <span className="text-sm text-[var(--bb-payne-gray)] line-through">
-                  {originalPrice}
-                </span>
-              )}
-            </div>
-            {product.rating && (
-              <div className="flex items-center gap-1">
-                <span className="text-[var(--bb-citron)]">★</span>
-                <span className="text-sm text-[var(--bb-payne-gray)]">{product.rating}</span>
-              </div>
+        </Link>
+        <p className="text-sm text-[var(--bb-payne-gray)] leading-relaxed line-clamp-2 max-w-[26ch]">
+          {product.description}
+        </p>
+        <div className="pt-2 border-t border-[var(--bb-mahogany)]/10 w-full">
+          <div className="flex items-center justify-center gap-3">
+            <span className="text-lg font-semibold text-[var(--bb-mahogany)]">{price}</span>
+            {hasDiscount && (
+              <span className="text-sm text-[var(--bb-payne-gray)] line-through">
+                {originalPrice}
+              </span>
             )}
           </div>
-          
-          <div className="text-right">
-            <p className="text-xs uppercase tracking-wider text-[var(--bb-payne-gray)]">
-              {product.inStock ? 'Available' : 'Sold Out'}
-            </p>
-          </div>
+        </div>
+        {/* Add to cart pinned at bottom */}
+        <div className="mt-auto w-full">
+          <button onClick={handleAddToCart} className="w-full bg-[var(--bb-black-bean)] text-white py-3 text-sm tracking-wide hover:bg-[var(--bb-black-bean)]/90 transition-colors" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+            Add to cart
+          </button>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 
@@ -157,13 +166,13 @@ export default function ProductsPage() {
               }}
             />
             <button className="absolute top-4 right-4 bg-white/80 px-3 py-1 rounded text-sm">
-              More ›
+              More {">"}
             </button>
           </div>
         </div>
 
         {/* This Week's Highlight */}
-        <div className="px-4 mb-6">
+        <div className="px-4 mb-4">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-medium">This Week's Highlight!</h2>
             <button className="text-sm text-[var(--bb-mahogany)]">See All</button>
@@ -177,20 +186,17 @@ export default function ProductsPage() {
                 '/assets_task_01k3rk2604ex79awdqzxk2z4ff_1756393225_img_1.webp'
               ];
               return (
-                <div key={product.id} className="flex-shrink-0 w-32">
-                  <div className="relative bg-white rounded-lg overflow-hidden border border-gray-200 mb-2">
+                <div key={product.id} className="flex-shrink-0 w-32" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+                  <div className="relative bg-[var(--bb-champagne)] overflow-hidden mb-2">
                     <img 
                       src={product.image || localImages[index]}
                       alt={product.name}
-                      className="w-full h-24 object-cover"
+                      className="w-full h-24 object-contain p-2"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.src = localImages[index];
                       }}
                     />
-                    <button className="absolute top-2 right-2 w-6 h-6 bg-white rounded-full flex items-center justify-center">
-                      <span className="text-gray-400">♡</span>
-                    </button>
                   </div>
                   <div className="text-center">
                     <h3 className="text-xs font-medium mb-1 line-clamp-2">{product.name}</h3>
@@ -203,7 +209,7 @@ export default function ProductsPage() {
         </div>
 
         {/* Store Locator */}
-        <div className="px-4 mb-6">
+        <div className="px-4 mb-4">
           <h3 className="text-base font-medium mb-4">Go look for us at an outlet near you</h3>
           <div className="flex items-center gap-4">
             <div className="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center">
@@ -236,12 +242,12 @@ export default function ProductsPage() {
             <div className="text-xs">SEARCH</div>
           </button>
           <button className="flex-1 py-4 text-center">
-            <div className="text-lg mb-1">📋</div>
+            <div className="text-lg mb-1">📚</div>
             <div className="text-xs">CATEGORY</div>
           </button>
           <button className="flex-1 py-4 text-center">
             <div className="text-lg mb-1">❓</div>
-            <div className="text-xs">?</div>
+            <div className="text-xs">HELP</div>
           </button>
         </div>
 
@@ -319,12 +325,12 @@ export default function ProductsPage() {
             </div>
 
             {/* Featured Aesop-style row inside products page */}
-            <div className="mb-16 -mx-6">
-              <FeaturedRowAesop title="New and notable" subtitle="Explore a collection of long‑standing formulations and recent additions to the range." />
+            <div className="mb-12 -mx-6">
+              <FeaturedRowAesop title="New and notable" subtitle="Explore a collection of long-standing formulations and recent additions to the range." />
             </div>
             
             {/* Products Grid - Rich Brand Layout */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {displayProducts.map((product: any) => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -360,3 +366,9 @@ export default function ProductsPage() {
     </>
   );
 }
+
+
+
+
+
+

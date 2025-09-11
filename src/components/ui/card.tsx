@@ -15,7 +15,7 @@ const cardVariants = cva(
         premium: "bg-bb-champagne border-bb-orange shadow-premium-sm hover:shadow-premium-lg relative before:absolute before:top-0 before:left-0 before:w-full before:h-1 before:bg-bb-orange before:content-['']",
         
         // Product card - Interactive card for product listings
-        product: "bg-bb-secondary border-bb-secondary shadow-wellness-sm hover:shadow-premium-md hover:border-bb-orange group",
+        product: "bg-bb-secondary border-0 shadow-wellness-sm hover:shadow-premium-md group",
         
         // Testimonial card - Styled for customer testimonials
         testimonial: "bg-bb-champagne-100 border-bb-champagne-300 shadow-wellness-sm relative before:absolute before:top-bb-4 before:left-bb-4 before:text-6xl before:text-bb-orange before:content-['\"'] before:font-serif before:leading-none before:opacity-20",
@@ -171,7 +171,7 @@ const CardImage = React.forwardRef<HTMLImageElement, CardImageProps>(
       <img
         ref={ref}
         className={cn(
-          "w-full h-full object-cover transition-transform duration-300 group-hover:scale-105",
+          "w-full h-full object-contain p-bb-4 transition-transform duration-300 group-hover:scale-105",
           className
         )}
         alt={alt}

@@ -1,11 +1,29 @@
 "use client";
 import React from "react";
-import { getFeaturedProducts } from "@/data/products";
+import { getFeaturedProducts, products as allProducts } from "@/data/products";
 
 // A minimal Aesop-like featured row used on homepage and products page
-// Uses simple Tailwind classes already present in the project brand system
-export default function FeaturedRowAesop({ title = "New and notable", subtitle = "Explore a collection of long‑standing formulations and recent additions to the range." }: { title?: string; subtitle?: string }) {
-  const featured = getFeaturedProducts().slice(0, 3);
+// Ensures three items are shown; backfills if the third is missing.
+export default function FeaturedRowAesop({
+  title = "New and notable",
+  subtitle = "Explore a collection of long‑standing formulations and recent additions to the range.",
+}: {
+  title?: string;
+  subtitle?: string;
+}) {
+  // Prefer featured items that have images, then backfill from catalog
+  const preferred = getFeaturedProducts().filter((p) => !!p.image);
+  const take = preferred.slice(0, 3);
+  if (take.length < 3) {
+    const chosen = new Set(take.map((p) => p.id));
+    for (const p of allProducts) {
+      if (take.length >= 3) break;
+      if (!p.image) continue;
+      if (chosen.has(p.id)) continue;
+      take.push(p);
+      chosen.add(p.id);
+    }
+  }
 
   return (
     <section className="bg-[var(--neutral-100)] border-t border-b border-[var(--neutral-300)]/60">
@@ -18,30 +36,34 @@ export default function FeaturedRowAesop({ title = "New and notable", subtitle =
 
         {/* Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {featured.map((p, idx) => (
-            <article key={p.id} className="group">
-              {/* Image */}
-              <div className="relative aspect-[4/5] bg-[var(--neutral-50)] border border-[var(--neutral-300)]/70 flex items-center justify-center">
+          {take.map((p, idx) => (
+            <article key={p.id} className="group flex flex-col h-full" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+              {/* Image: use champagne background to match site */}
+              <div className="relative aspect-[4/5] bg-[var(--bb-champagne)] flex items-center justify-center">
                 {p.image ? (
-                  <img src={p.image} alt={p.name} className="object-contain w-full h-full p-6 transition-transform duration-500 group-hover:scale-105" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                  <img
+                    src={p.image}
+                    alt={p.name}
+                    className="object-contain w-full h-full p-6 transition-transform duration-500 group-hover:scale-105"
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                  />
                 ) : (
                   <div className="w-24 h-24 rounded-full bg-[var(--neutral-200)]" />
                 )}
               </div>
 
-              {/* Meta above title (small label like "Beloved formulation" / "New addition") */}
+              {/* Meta label */}
               <div className="text-[var(--bb-mahogany)] text-sm font-medium mt-3">{idx === 1 ? 'New addition' : 'Beloved formulation'}</div>
 
               {/* Title */}
-              <h3 className="mt-4 text-lg md:text-xl text-[var(--neutral-800)] font-medium">{p.name}</h3>
+              <h3 className="mt-4 text-lg md:text-xl text-[var(--neutral-800)] font-medium text-center" style={{ fontFamily: 'League Spartan, sans-serif' }}>{p.name}</h3>
               {/* Description */}
-              <p className="mt-2 text-[var(--neutral-600)] text-sm">{p.description}</p>
+              <p className="mt-2 text-[var(--neutral-600)] text-sm text-center" style={{ fontFamily: 'League Spartan, sans-serif' }}>{p.description}</p>
 
-
-              {/* Price + Add to cart */}
-              <div className="mt-4 flex items-center justify-between">
-                <div className="text-[var(--neutral-800)] text-lg font-medium">{p.price}</div>
-                <button className="bg-[var(--neutral-800)] text-white px-6 py-3 text-sm tracking-wide hover:bg-black transition-colors">Add to cart</button>
+              {/* Price + Add to cart centered */}
+              <div className="mt-4 flex flex-col items-center gap-3 mt-auto">
+                <div className="text-[var(--neutral-800)] text-lg font-medium" style={{ fontFamily: 'League Spartan, sans-serif' }}>{p.price}</div>
+                <button className="w-full bg-[var(--bb-black-bean)] text-white px-6 py-3 text-sm tracking-wide hover:bg-[var(--bb-black-bean)]/90 transition-colors" style={{ fontFamily: 'League Spartan, sans-serif' }}>Add to cart</button>
               </div>
             </article>
           ))}

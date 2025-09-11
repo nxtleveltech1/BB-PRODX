@@ -11,21 +11,21 @@ export const ProductsSection = () => {
   const featuredProducts = getFeaturedProducts();
 
   return (
-    <section id="products" className="py-20 bg-gradient-wellness">
+    <section id="products" className="py-16 bg-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <div className="inline-flex items-center space-x-2 bg-[#C1581B]/10 rounded-full px-6 py-2 mb-6">
+        <div className="text-center mb-10 animate-fade-in-up">
+          <div className="inline-flex items-center space-x-2 bg-[#C1581B]/10 rounded-full px-5 py-1.5 mb-4">
             <div className="w-6 h-6 rounded-full border border-[#C1581B] flex items-center justify-center">
               <span className="text-[#C1581B] font-bold text-xs">BB</span>
             </div>
-            <span className="text-sm font-medium text-[#C1581B]">Better Being Products</span>
+            <span className="text-xs font-medium text-[#C1581B]">Better Being Products</span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold text-primary mb-6">
+          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-3">
             Natural Wellness
-            <span className="block text-[#C1581B]">Better Being Solutions</span>
+            <span className="block text-[#C1581B] text-2xl md:text-3xl">Better Being Solutions</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base text-gray-600 max-w-2xl mx-auto">
             Each product is meticulously formulated using the finest natural ingredients,
             backed by cutting-edge research and trusted by thousands worldwide.
           </p>
@@ -48,7 +48,7 @@ export const ProductsSection = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {featuredProducts.slice(0, 8).map((product: Product, index: number) => {
             const priceNum = parseFloat(String(product.price).replace(/[^0-9.-]+/g, "")) || 0;
             const originalPriceNum = parseFloat(String(product.originalPrice || "0").replace(/[^0-9.-]+/g, "")) || 0;
@@ -57,8 +57,8 @@ export const ProductsSection = () => {
             return (
               <Card
                 key={product.id}
-                className="relative group hover:shadow-wellness transition-all duration-500 hover:-translate-y-2 border-0 bg-white overflow-hidden"
-                style={{ animationDelay: `${index * 200}ms` }}
+                className="relative group transition-all duration-300 hover:shadow-lg bg-transparent overflow-hidden"
+                style={{ animationDelay: `${index * 120}ms`, fontFamily: 'League Spartan, sans-serif' }}
               >
                 {product.popular && (
                   <div className="absolute top-3 left-3 bg-[#C1581B] text-white px-3 py-1 rounded-full text-sm font-medium z-10">
@@ -68,61 +68,55 @@ export const ProductsSection = () => {
 
                 <CardContent className="p-0">
                   {/* Product Image Container */}
-                  <div className="relative h-64 bg-gradient-to-b from-gray-50 to-gray-100 p-4 flex items-center justify-center">
-                    <img src={product.image} alt={product.name} className="w-full h-full object-contain" />
-                    {/* Better Being Overlay Badge */}
-                    <div className="absolute top-4 right-4 bg-white/90 rounded-lg p-2 shadow-md">
-                      <div className="w-8 h-8 bg-[#C1581B] rounded-full flex items-center justify-center">
-                        <span className="text-white font-bold text-xs">BB</span>
-                      </div>
-                    </div>
+                  <div className="relative w-full aspect-[4/5] bg-[var(--bb-champagne)] flex items-center justify-center">
+                    <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4" />
                   </div>
 
                   {/* Product Info */}
-                  <div className="p-6">
-                    <h3 className="text-2xl font-bold text-primary mb-3">{product.name}</h3>
-                    <p className="text-muted-foreground mb-6">{product.description}</p>
+                  <div className="p-4">
+                    <h3 className="text-lg font-medium text-[var(--bb-black-bean)] mb-2 leading-snug">{product.name}</h3>
+                    <p className="text-sm text-[var(--bb-payne-gray)] mb-4 line-clamp-2">{product.description}</p>
 
                     {/* Benefits */}
-                    <div className="space-y-2 mb-6">
+                    <div className="space-y-1.5 mb-4">
                       {(product.benefits || []).map((benefit, i) => (
-                        <div key={i} className="flex items-center space-x-2 text-sm">
-                          <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-                          <span className="text-foreground">{benefit}</span>
+                        <div key={i} className="flex items-center space-x-2 text-xs">
+                          <div className="w-1.5 h-1.5 bg-[#C1581B] rounded-full" />
+                          <span className="text-gray-700">{benefit}</span>
                         </div>
                       ))}
                     </div>
 
                     {/* Rating */}
-                    <div className="flex items-center space-x-2 mb-6">
-                      <div className="flex text-accent">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-current" />
-                        ))}
-                      </div>
-                      <span className="text-sm text-muted-foreground">
+                    <div className="flex items-center space-x-2 mb-4">
+                      <div className="flex text-[#C1581B]">
+                         {[...Array(5)].map((_, i) => (
+                           <Star key={i} className="w-4 h-4 fill-current" />
+                         ))}
+                       </div>
+                      <span className="text-xs text-gray-600">
                         {product.rating} ({product.reviews?.toLocaleString?.() || 0} reviews)
                       </span>
                     </div>
 
                     {/* Price */}
-                    <div className="flex items-center space-x-3 mb-6">
-                      <span className="text-3xl font-bold text-[#C1581B]">{product.price}</span>
+                    <div className="flex items-center space-x-3 mb-4">
+                      <span className="text-xl font-semibold text-[var(--bb-mahogany)]">{product.price}</span>
                       {product.originalPrice && (
-                        <span className="text-lg text-muted-foreground line-through">{product.originalPrice}</span>
+                        <span className="text-sm text-[var(--bb-payne-gray)] line-through">{product.originalPrice}</span>
                       )}
                       {originalPriceNum > 0 && (
-                        <span className="bg-[#C1581B]/20 text-[#C1581B] px-2 py-1 rounded text-sm font-medium">Save {savePercent}%</span>
+                        <span className="bg-[var(--bb-mahogany)]/10 text-[var(--bb-mahogany)] px-2 py-0.5 rounded text-xs font-medium">Save {savePercent}%</span>
                       )}
                     </div>
 
                     {/* Actions */}
                     <div className="flex space-x-3">
-                      <Button className="flex-1 bg-[#C1581B] hover:bg-[#B34E16] text-white shadow-wellness">
+                      <Button className="flex-1 bg-[var(--bb-black-bean)] hover:bg-[var(--bb-black-bean)]/90 text-white">
                         <ShoppingCart className="w-4 h-4 mr-2" />
-                        Add to Cart
+                        Add to cart
                       </Button>
-                      <Button variant="ghost" size="icon" className="shrink-0 border-[#C1581B] text-[#C1581B] hover:bg-[#C1581B]/10">
+                      <Button variant="ghost" size="icon" className="shrink-0 border-[var(--bb-mahogany)] text-[var(--bb-mahogany)] hover:bg-[var(--bb-mahogany)]/10">
                         <Heart className="w-4 h-4" />
                       </Button>
                     </div>
@@ -134,9 +128,9 @@ export const ProductsSection = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center animate-fade-in-up">
+        <div className="text-center">
           <Link href="/products">
-            <Button size="lg" variant="ghost" className="border-2 border-[#C1581B] text-[#C1581B] hover:bg-[#C1581B] hover:text-white text-lg px-8 py-4">
+            <Button size="lg" variant="ghost" className="border border-[#C1581B] text-[#C1581B] hover:bg-[#C1581B] hover:text-white text-base px-6 py-3">
               View All Better Being Products
             </Button>
           </Link>
