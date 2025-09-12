@@ -1,5 +1,13 @@
 import pool from './database.js';
 
+const slugify = (str) =>
+  (str || '')
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)+/g, '');
+
 // Categories data
 const categories = [
   {
@@ -289,10 +297,7 @@ async function seedDatabase() {
       await client.query('BEGIN');
       
       try {
-        // Temporarily disable foreign key constraints
-        await client.query('SET session_replication_role = replica;');
-        
-        // Clear product-related data
+        // Clear product-related data in FK-safe order (no superuser privileges required)
         await client.query('DELETE FROM product_sizes');
         await client.query('DELETE FROM product_tags');
         await client.query('DELETE FROM product_ingredients');
@@ -301,9 +306,6 @@ async function seedDatabase() {
         await client.query('DELETE FROM subcategories');
         await client.query('DELETE FROM categories');
         
-        // Re-enable foreign key constraints
-        await client.query('SET session_replication_role = DEFAULT;');
-        
         console.log('✅ Existing data cleared successfully');
         
         // Insert fresh data
@@ -311,7 +313,6 @@ async function seedDatabase() {
         await client.query('COMMIT');
         
       } catch (error) {
-        await client.query('SET session_replication_role = DEFAULT;');
         throw error;
       }
     }
@@ -330,7 +331,6 @@ async function seedDatabase() {
   } catch (error) {
     try {
       await client.query('ROLLBACK');
-      await client.query('SET session_replication_role = DEFAULT;');
     } catch (rollbackError) {
       console.error('Error during rollback:', rollbackError);
     }
@@ -342,40 +342,69 @@ async function seedDatabase() {
 }
 
 async function insertSeedData(client) {
-  // Insert categories
+  // Insert categories and build slug->id map
   console.log('📂 Inserting categories...');
+  const categorySlugToId = new Map();
   for (const category of categories) {
-    await client.query(
-      'INSERT INTO categories (id, name, slug, description, icon) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (id) DO NOTHING',
-      [category.id, category.name, category.slug, category.description, category.icon]
+    const slug = category.slug || slugify(category.name);
+    // Insert without specifying id; handle upsert and capture id
+    const ins = await client.query(
+      `INSERT INTO categories (name, slug, description, icon)
+       VALUES ($1, $2, $3, $4)
+       ON CONFLICT (slug) DO NOTHING
+       RETURNING id`,
+      [category.name, slug, category.description, category.icon]
     );
+    let id = ins.rows[0]?.id;
+    if (!id) {
+      const sel = await client.query('SELECT id FROM categories WHERE slug = $1', [slug]);
+      id = sel.rows[0]?.id;
+    }
+    if (id) categorySlugToId.set(slug, id);
   }
   
-  // Insert subcategories
+  // Insert subcategories and build slug->id map
   console.log('📁 Inserting subcategories...');
+  const subcategorySlugToId = new Map();
   for (const subcategory of subcategories) {
-    await client.query(
-      'INSERT INTO subcategories (id, name, slug, description, category_id) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (id) DO NOTHING',
-      [subcategory.id, subcategory.name, subcategory.slug, subcategory.description, subcategory.category_id]
+    const slug = subcategory.slug || slugify(subcategory.name);
+    const categoryId = categorySlugToId.get(subcategory.category_id) || categorySlugToId.get(slugify(subcategory.category_id));
+    const ins = await client.query(
+      `INSERT INTO subcategories (name, slug, description, category_id)
+       VALUES ($1, $2, $3, $4)
+       ON CONFLICT (slug) DO NOTHING
+       RETURNING id`,
+      [subcategory.name, slug, subcategory.description, categoryId]
     );
+    let id = ins.rows[0]?.id;
+    if (!id) {
+      const sel = await client.query('SELECT id FROM subcategories WHERE slug = $1', [slug]);
+      id = sel.rows[0]?.id;
+    }
+    if (id) subcategorySlugToId.set(slug, id);
   }
   
   // Insert products
   console.log('🛍️ Inserting products...');
   for (const product of products) {
-    await client.query(`
-      INSERT INTO products (
-        id, sku, name, description, long_description, price, original_price, 
-        rating, reviews_count, usage_instructions, warnings, category_id, 
-        subcategory_id, image_url, is_popular, is_featured, in_stock, stock_count
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18)
-      ON CONFLICT (id) DO NOTHING
-    `, [
-      product.id, product.sku, product.name, product.description, product.long_description,
-      product.price, product.original_price, product.rating, product.reviews_count,
-      product.usage_instructions, product.warnings, product.category_id, product.subcategory_id,
-      product.image_url, product.is_popular, product.is_featured, product.in_stock, product.stock_count
-    ]);
+    const prodSlug = product.slug || slugify(product.name || product.sku);
+    const categoryId = categorySlugToId.get(product.category_id) || categorySlugToId.get(slugify(product.category_id));
+    const subcategoryId = subcategorySlugToId.get(product.subcategory_id) || subcategorySlugToId.get(slugify(product.subcategory_id));
+    await client.query(
+      `INSERT INTO products (
+         id, sku, name, slug, description, long_description, price, original_price,
+         rating, reviews_count, usage_instructions, warnings, category_id,
+         subcategory_id, image_url, is_popular, is_featured, in_stock, stock_count
+       ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19)
+       ON CONFLICT (id) DO NOTHING`,
+      [
+        product.id, product.sku, product.name, prodSlug, product.description, product.long_description,
+        product.price, product.original_price, product.rating, product.reviews_count,
+        product.usage_instructions, product.warnings, categoryId,
+        subcategoryId, product.image_url, product.is_popular, product.is_featured,
+        product.in_stock, product.stock_count
+      ]
+    );
   }
   
   // Insert product benefits
@@ -425,16 +454,20 @@ async function addNewProducts(client) {
   // Insert categories (skip if they exist)
   for (const category of categories) {
     await client.query(
-      'INSERT INTO categories (id, name, slug, description, icon) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (id) DO NOTHING',
-      [category.id, category.name, category.slug, category.description, category.icon]
+      'INSERT INTO categories (name, slug, description, icon) VALUES ($1, $2, $3, $4) ON CONFLICT (slug) DO NOTHING',
+      [category.name, category.slug || slugify(category.name), category.description, category.icon]
     );
   }
   
   // Insert subcategories (skip if they exist)
   for (const subcategory of subcategories) {
+    // Look up category id by slug
+    const catSlug = subcategory.category_id;
+    const catRow = await client.query('SELECT id FROM categories WHERE slug = $1', [catSlug]);
+    const categoryId = catRow.rows[0]?.id;
     await client.query(
-      'INSERT INTO subcategories (id, name, slug, description, category_id) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (id) DO NOTHING',
-      [subcategory.id, subcategory.name, subcategory.slug, subcategory.description, subcategory.category_id]
+      'INSERT INTO subcategories (name, slug, description, category_id) VALUES ($1, $2, $3, $4) ON CONFLICT (slug) DO NOTHING',
+      [subcategory.name, subcategory.slug || slugify(subcategory.name), subcategory.description, categoryId]
     );
   }
   
@@ -444,19 +477,26 @@ async function addNewProducts(client) {
     const product = products[i];
     const newId = startId + i;
     
-    await client.query(`
-      INSERT INTO products (
-        id, sku, name, description, long_description, price, original_price, 
+    const prodSlug = slugify(product.name || product.sku);
+    // Look up category and subcategory IDs by slug
+    const catRow = await client.query('SELECT id FROM categories WHERE slug = $1', [product.category_id]);
+    const categoryId = catRow.rows[0]?.id;
+    const subRow = await client.query('SELECT id FROM subcategories WHERE slug = $1', [product.subcategory_id]);
+    const subcategoryId = subRow.rows[0]?.id;
+    await client.query(
+      `INSERT INTO products (
+        id, sku, name, slug, description, long_description, price, original_price, 
         rating, reviews_count, usage_instructions, warnings, category_id, 
         subcategory_id, image_url, is_popular, is_featured, in_stock, stock_count
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18)
-      ON CONFLICT (sku) DO NOTHING
-    `, [
-      newId, `${product.sku}-NEW`, product.name, product.description, product.long_description,
-      product.price, product.original_price, product.rating, product.reviews_count,
-      product.usage_instructions, product.warnings, product.category_id, product.subcategory_id,
-      product.image_url, product.is_popular, product.is_featured, product.in_stock, product.stock_count
-    ]);
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19)
+      ON CONFLICT (sku) DO NOTHING`,
+      [
+        newId, `${product.sku}-NEW`, product.name, prodSlug, product.description, product.long_description,
+        product.price, product.original_price, product.rating, product.reviews_count,
+        product.usage_instructions, product.warnings, categoryId, subcategoryId,
+        product.image_url, product.is_popular, product.is_featured, product.in_stock, product.stock_count
+      ]
+    );
     
     // Insert related data with new product ID
     for (const benefit of productBenefits.filter(b => b.product_id === product.id)) {

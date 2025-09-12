@@ -10,13 +10,37 @@ router.get('/', async (req, res) => {
     
     let query = `
       SELECT 
-        p.*,
-        c.name as category_name,
-        sc.name as subcategory_name,
+        p.id,
+        p.sku,
+        p.name,
+        p.slug,
+        p.description,
+        p.long_description AS "longDescription",
+        p.price,
+        p.original_price AS "originalPrice",
+        p.rating,
+        p.reviews_count AS "reviewsCount",
+        p.category_id AS "categoryId",
+        p.subcategory_id AS "subcategoryId",
+        p.image_url AS "imageUrl",
+        p.is_popular AS "isPopular",
+        p.is_featured AS "isFeatured",
+        p.in_stock AS "inStock",
+        p.stock_count AS "stockCount",
+        p.usage_instructions AS "usageInstructions",
+        p.warnings,
+        p.created_at AS "createdAt",
+        p.updated_at AS "updatedAt",
+        c.name as "categoryName",
+        sc.name as "subcategoryName",
         array_agg(DISTINCT pb.benefit) as benefits,
         array_agg(DISTINCT pi.ingredient) as ingredients,
         array_agg(DISTINCT pt.tag) as tags,
-        json_agg(DISTINCT jsonb_build_object('size', ps.size, 'price', ps.price, 'original_price', ps.original_price)) as sizes
+        COALESCE(
+          json_agg(
+            DISTINCT jsonb_build_object('size', ps.size, 'price', ps.price, 'originalPrice', ps.original_price)
+          ) FILTER (WHERE ps.size IS NOT NULL), '[]'
+        ) as sizes
       FROM products p
       LEFT JOIN categories c ON p.category_id = c.id
       LEFT JOIN subcategories sc ON p.subcategory_id = sc.id
@@ -146,13 +170,37 @@ router.get('/:id', async (req, res) => {
     
     const query = `
       SELECT 
-        p.*,
-        c.name as category_name,
-        sc.name as subcategory_name,
+        p.id,
+        p.sku,
+        p.name,
+        p.slug,
+        p.description,
+        p.long_description AS "longDescription",
+        p.price,
+        p.original_price AS "originalPrice",
+        p.rating,
+        p.reviews_count AS "reviewsCount",
+        p.category_id AS "categoryId",
+        p.subcategory_id AS "subcategoryId",
+        p.image_url AS "imageUrl",
+        p.is_popular AS "isPopular",
+        p.is_featured AS "isFeatured",
+        p.in_stock AS "inStock",
+        p.stock_count AS "stockCount",
+        p.usage_instructions AS "usageInstructions",
+        p.warnings,
+        p.created_at AS "createdAt",
+        p.updated_at AS "updatedAt",
+        c.name as "categoryName",
+        sc.name as "subcategoryName",
         array_agg(DISTINCT pb.benefit) as benefits,
         array_agg(DISTINCT pi.ingredient) as ingredients,
         array_agg(DISTINCT pt.tag) as tags,
-        json_agg(DISTINCT jsonb_build_object('size', ps.size, 'price', ps.price, 'original_price', ps.original_price)) as sizes
+        COALESCE(
+          json_agg(
+            DISTINCT jsonb_build_object('size', ps.size, 'price', ps.price, 'originalPrice', ps.original_price)
+          ) FILTER (WHERE ps.size IS NOT NULL), '[]'
+        ) as sizes
       FROM products p
       LEFT JOIN categories c ON p.category_id = c.id
       LEFT JOIN subcategories sc ON p.subcategory_id = sc.id

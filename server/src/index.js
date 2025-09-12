@@ -9,6 +9,7 @@ import cron from 'node-cron';
 // Import routes
 import recommendationsRoutes from './routes/recommendations.js';
 import subscriptionsRoutes from './routes/subscriptions.js';
+import productsRoutes from './routes/products.js';
 import authMiddleware from './middleware/auth.js';
 import errorHandler from './middleware/errorHandler.js';
 import logger from './middleware/logger.js';
@@ -70,6 +71,7 @@ app.use('/api/recommendations', recommendationsRoutes);
 app.use('/api/subscriptions', subscriptionsRoutes);
 import authRoutes from './routes/auth.js';
 app.use('/api/auth', authRoutes);
+app.use('/api/products', productsRoutes);
 
 // Default route
 app.get('/', (req, res) => {
