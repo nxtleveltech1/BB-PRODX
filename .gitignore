@@ -111,9 +111,6 @@ Tmux-Orchestrator/
 # Development artifacts and temporary files
 *.html
 *.pdf
-*.png
-*.jpg
-*.jpeg
 *.json.backup
 *.md.backup
 *.ts.backup
@@ -128,6 +125,20 @@ Tmux-Orchestrator/
 *.pid
 frontend.pid
 server.pid
+
+# IMPORTANT: Ensure images are tracked for deployment
+# Previously, broad patterns ignored images repo-wide causing missing assets on Vercel.
+# Allow images under public/ and src/assets/ to be committed.
+!public/**/*.png
+!public/**/*.jpg
+!public/**/*.jpeg
+!public/**/*.webp
+!public/**/*.svg
+!src/assets/**/*.png
+!src/assets/**/*.jpg
+!src/assets/**/*.jpeg
+!src/assets/**/*.webp
+!src/assets/**/*.svg
 
 # Generated documentation and reports
 OUR_GROUNDS_*.md
