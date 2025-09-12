@@ -17,11 +17,11 @@ export default function Footer() {
         {/* Content */}
         <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-6 py-12">
-            <div className="flex justify-between items-start">
+            <div className="flex flex-col lg:flex-row justify-between items-start gap-10">
               {/* Left Section - Navigation Links with Even Spacing */}
-              <div className="flex flex-1">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 flex-1 w-full">
                 {/* Products Store */}
-                <div className="flex-1">
+                <div className="min-w-0">
                   <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider">Products Store</h4>
                   <ul className="space-y-2">
                     <li><a href="/products" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">All Products</a></li>
@@ -33,7 +33,7 @@ export default function Footer() {
                 </div>
                 
                 {/* Company Links */}
-                <div className="flex-1">
+                <div className="min-w-0">
                   <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider">Company Links</h4>
                   <ul className="space-y-2">
                     <li><a href="/about" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">About Us</a></li>
@@ -45,7 +45,7 @@ export default function Footer() {
                 </div>
                 
                 {/* Support */}
-                <div className="flex-1">
+                <div className="min-w-0">
                   <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider">Support</h4>
                   <ul className="space-y-2">
                     <li><a href="/faq" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">FAQ</a></li>
@@ -57,7 +57,7 @@ export default function Footer() {
                 </div>
                 
                 {/* Contact Us */}
-                <div className="flex-1">
+                <div className="min-w-0">
                   <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider">Contact Us</h4>
                   <ul className="space-y-2">
                     <li><a href="/contact" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Get In Touch</a></li>
@@ -70,14 +70,14 @@ export default function Footer() {
               </div>
               
               {/* Right Section - Newsletter */}
-              <div className="ml-16">
+              <div className="w-full lg:w-auto lg:ml-16 mt-8 lg:mt-0">
                 <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider">Stay Connected</h4>
                 <p className="text-[#7a7771] text-sm mb-4">Subscribe for wellness tips and exclusive offers</p>
-                <div className="flex">
+                <div className="flex w-full max-w-sm">
                   <input 
                     type="email" 
                     placeholder="your@email.com"
-                    className="px-4 py-2 bg-white/60 border border-[#e0ddd6] text-[#7a7771] placeholder-[#b8b5ae] focus:outline-none focus:border-[#b5a642] transition-colors text-sm w-48"
+                    className="px-4 py-2 bg-white/60 border border-[#e0ddd6] text-[#7a7771] placeholder-[#b8b5ae] focus:outline-none focus:border-[#b5a642] transition-colors text-sm flex-1"
                   />
                   <button className="bg-[#b5a642] hover:bg-[#a39638] text-white px-6 py-2 text-sm font-medium transition-colors">
                     Subscribe

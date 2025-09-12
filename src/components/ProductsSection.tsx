@@ -48,7 +48,7 @@ export const ProductsSection = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {featuredProducts.slice(0, 8).map((product: Product, index: number) => {
             const priceNum = parseFloat(String(product.price).replace(/[^0-9.-]+/g, "")) || 0;
             const originalPriceNum = parseFloat(String(product.originalPrice || "0").replace(/[^0-9.-]+/g, "")) || 0;

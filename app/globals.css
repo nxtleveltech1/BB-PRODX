@@ -336,6 +336,7 @@ main, .main-content, [data-page] {
 html, body {
   background-color: var(--bb-champagne);
   color: var(--bb-black-bean);
+  overflow-x: hidden; /* Prevent horizontal scroll on mobile */
 }
 
 /* Advanced Spacing System */
@@ -948,6 +949,17 @@ html {
 @media (max-width: 768px) {
   .desktop-nav {
     display: none;
+  }
+}
+
+/* Mobile header refinements */
+@media (max-width: 640px) {
+  .header-grid-container {
+    padding: 0.5rem 1rem;
+    grid-template-columns: auto 1fr;
+  }
+  .header-logo {
+    max-height: 2.75rem;
   }
 }
 
