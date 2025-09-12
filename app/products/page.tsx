@@ -112,7 +112,7 @@ export default function ProductsPage() {
   return (
     <>
       {/* Mobile View */}
-      <div className="min-h-screen bg-white block md:hidden">
+      <div className="min-h-screen bg-white block md:hidden pb-[calc(env(safe-area-inset-bottom)+72px)]">
         {/* Mobile Header with Menu */}
         <div className="bg-white px-4 py-3 flex items-center justify-between border-b border-gray-100">
           <div className="flex items-center gap-4">
@@ -228,7 +228,7 @@ export default function ProductsPage() {
         </div>
 
         {/* Bottom Navigation */}
-        <div className="fixed bottom-0 left-0 right-0 bg-[var(--bb-mahogany)] text-white flex">
+        <div className="fixed bottom-0 left-0 right-0 bg-[var(--bb-mahogany)] text-white flex pad-safe-bottom">
           <button className="flex-1 py-4 text-center">
             <div className="text-lg mb-1">🏠</div>
             <div className="text-xs">HOME</div>
@@ -326,7 +326,6 @@ export default function ProductsPage() {
     </>
   );
 }
-
 
 
 

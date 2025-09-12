@@ -108,9 +108,9 @@ export default function Footer() {
           {/* Bottom Copyright Bar */}
           <div className="border-t border-[#e0ddd6]/50">
             <div className="max-w-7xl mx-auto px-6 py-4">
-              <div className="flex justify-between items-center text-xs text-[#9e9b96]">
+              <div className="flex flex-wrap justify-between items-center gap-3 text-xs text-[#9e9b96]">
                 <p>© {new Date().getFullYear()} Better Being. All rights reserved.</p>
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-3">
                   <a href="/privacy" className="hover:text-[#7a7771] transition-colors">Privacy Policy</a>
                   <span>•</span>
                   <a href="/terms" className="hover:text-[#7a7771] transition-colors">Terms of Service</a>

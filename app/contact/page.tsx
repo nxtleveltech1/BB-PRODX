@@ -42,7 +42,7 @@ export default function ContactPage() {
       {/* Contact Form Section - Citron Background */}
       <section className="py-16 bg-[var(--bb-citron)]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-24 items-start">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-24 items-start">
             {/* Contact Information */}
             <div className="space-y-12">
               <div className="space-y-8">
@@ -90,7 +90,7 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-[var(--bb-champagne)] p-12 border border-[var(--bb-mahogany)]/10">
+            <div className="bg-[var(--bb-champagne)] p-6 md:p-12 border border-[var(--bb-mahogany)]/10">
               <div className="space-y-6 mb-8">
                 <h3 className="text-2xl font-light text-[var(--bb-black-bean)]" style={{ fontFamily: 'Prata, Georgia, serif' }}>
                   Send us a message
@@ -98,7 +98,7 @@ export default function ContactPage() {
                 <div className="w-16 h-px bg-[var(--bb-mahogany)]"></div>
               </div>
               <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                   <div className="space-y-3">
                     <label className="text-sm font-medium text-[var(--bb-black-bean)] uppercase tracking-wider">First Name</label>
                     <input

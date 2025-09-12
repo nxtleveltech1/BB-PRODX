@@ -19,11 +19,11 @@ export default function AboutPage() {
       {/* Story Section - Citron Background with Brand Imagery */}
       <section className="py-16 bg-[var(--bb-citron)]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-24 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-24 items-center">
             <div className="space-y-8">
               <div className="space-y-6">
                 <p className="text-[var(--bb-black-bean)] text-sm font-medium uppercase tracking-[0.2em] opacity-80">Philosophy</p>
-                <h2 className="text-5xl font-light text-[var(--bb-black-bean)] leading-tight" style={{ fontFamily: 'Prata, Georgia, serif' }}>
+                <h2 className="text-3xl md:text-5xl font-light text-[var(--bb-black-bean)] leading-tight" style={{ fontFamily: 'Prata, Georgia, serif' }}>
                   Rituals for a <em className="text-[var(--bb-mahogany)]">Life Well Lived</em>
                 </h2>
                 <div className="w-16 h-px bg-[var(--bb-mahogany)]"></div>
@@ -70,14 +70,14 @@ export default function AboutPage() {
       {/* Values Section - Champagne Background with Individual Color Cards */}
       <section className="py-16 bg-[var(--bb-champagne)]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 md:mb-20">
             <p className="text-[var(--bb-payne-gray)] text-sm font-medium uppercase tracking-[0.2em] mb-6">Our Commitment</p>
-            <h2 className="text-4xl md:text-5xl font-light text-[var(--bb-black-bean)] max-w-2xl mx-auto leading-tight" style={{ fontFamily: 'Prata, Georgia, serif' }}>
+            <h2 className="text-3xl md:text-5xl font-light text-[var(--bb-black-bean)] max-w-2xl mx-auto leading-tight" style={{ fontFamily: 'Prata, Georgia, serif' }}>
               What We <em className="text-[var(--bb-mahogany)]">Stand For</em>
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {[
               {
                 icon: "🌱",
@@ -137,7 +137,7 @@ export default function AboutPage() {
 
       {/* Creator Section - Split Background with Payne Gray */}
       <section className="py-0">
-        <div className="grid lg:grid-cols-2 min-h-[70vh]">
+        <div className="grid lg:grid-cols-2 min-h-[60vh] md:min-h-[70vh]">
           {/* Image Side with Payne Gray */}
           <div className="bg-[var(--bb-payne-gray)] relative overflow-hidden flex items-center justify-center">
             <img 
@@ -161,10 +161,10 @@ export default function AboutPage() {
 
           {/* Content Side with Mahogany Background */}
           <div className="bg-gradient-to-br from-[var(--bb-mahogany)] to-[var(--bb-black-bean)] flex items-center text-white">
-            <div className="p-16 space-y-10 max-w-lg">
+            <div className="p-8 md:p-16 space-y-8 md:space-y-10 max-w-lg">
               <div className="space-y-8">
                 <p className="text-[var(--bb-citron)] text-sm font-medium uppercase tracking-[0.2em] opacity-90">Creator-Led</p>
-                <h2 className="text-5xl font-light leading-tight" style={{ fontFamily: 'Prata, Georgia, serif' }}>
+                <h2 className="text-3xl md:text-5xl font-light leading-tight" style={{ fontFamily: 'Prata, Georgia, serif' }}>
                   Personal <em className="text-[var(--bb-citron)]">Curation</em>
                 </h2>
                 <div className="flex items-center gap-4">

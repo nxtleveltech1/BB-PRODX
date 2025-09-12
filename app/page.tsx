@@ -46,12 +46,12 @@ export default function HomePage() {
               <div className="space-y-4 fade-in-up" style={{ animationDelay: '0.3s' }}>
                 <h1 className="text-white leading-none" 
                     style={{ 
-                      fontSize: 'clamp(4rem, 10vw, 9rem)', 
+                      fontSize: 'clamp(2.25rem, 8vw, 6rem)', 
                       fontFamily: 'League Spartan, sans-serif', 
                       fontWeight: '900', 
-                      lineHeight: '0.85', 
-                      letterSpacing: '0.05em',
-                      textShadow: '0 8px 32px rgba(0,0,0,0.8)'
+                      lineHeight: '0.95', 
+                      letterSpacing: '0.02em',
+                      textShadow: '0 6px 24px rgba(0,0,0,0.6)'
                     }}>
                   <div className="block">TRANSFORM</div>
                   <div className="block text-[#B5A642] ml-4">YOUR WELLNESS</div>

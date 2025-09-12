@@ -339,6 +339,22 @@ html, body {
   overflow-x: hidden; /* Prevent horizontal scroll on mobile */
 }
 
+/* Media defaults: make media shrink to container */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Avoid header overlap on small screens */
+@media (max-width: 768px) {
+  main { padding-top: 4.25rem; }
+}
+
+/* Safe-area helpers for devices with notches */
+.safe-bottom { padding-bottom: calc(env(safe-area-inset-bottom) + 72px); }
+.pad-safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+
 /* Advanced Spacing System */
 .space-section { padding: 3rem 0; }
 .space-hero { padding: 6rem 0; }
