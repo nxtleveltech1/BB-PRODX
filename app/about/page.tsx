@@ -56,7 +56,7 @@ export default function AboutPage() {
               />
               
               {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--bb-mahogany)]/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--bb-mahogany)]/40 to-transparent pointer-events-none"></div>
               
               {/* Floating Badge */}
               <div className="absolute bottom-6 left-6 bg-[var(--bb-champagne)] text-[var(--bb-black-bean)] px-4 py-2 text-sm uppercase tracking-wider font-medium">

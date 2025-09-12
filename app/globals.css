@@ -1260,7 +1260,7 @@ html {
   inset: 0;
   background: transparent; /* no dimming */
   backdrop-filter: none;
-  z-index: 60;
+  z-index: 900; /* ensure overlay sits below menu */
   animation: overlayFade 0.3s ease-out;
 }
 
@@ -1278,7 +1278,7 @@ html {
   background: transparent; /* no panel background */
   backdrop-filter: none;
   border-left: none;
-  z-index: 70;
+  z-index: 1000; /* ensure menu is above overlay */
   animation: mobileSlide 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 

@@ -29,11 +29,11 @@ export default function HomePage() {
           />
           
           {/* Cinematic Gradient Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/30 to-black/70 z-10"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#2C2B29]/40 via-transparent to-transparent z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/30 to-black/70 z-10 pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#2C2B29]/40 via-transparent to-transparent z-10 pointer-events-none"></div>
           
           {/* Premium Film Grain */}
-          <div className="absolute inset-0 grain-texture opacity-20 z-10"></div>
+          <div className="absolute inset-0 grain-texture opacity-20 z-10 pointer-events-none"></div>
         </div>
         
         {/* Hero Content - Asymmetric Layout */}
