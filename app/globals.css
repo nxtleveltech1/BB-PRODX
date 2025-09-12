@@ -901,9 +901,8 @@ html {
 }
 
 .logo-container:focus {
-  outline: 2px solid var(--bb-champagne);
-  outline-offset: 8px;
-  border-radius: 8px;
+  /* Remove any focus outline/border around the logo */
+  outline: none;
 }
 
 /* Header Logo with Premium Styling */
@@ -912,13 +911,14 @@ html {
   height: auto; /* Preserve aspect ratio */
   width: auto; /* Prevent distortion */
   display: block; /* Remove inline-gap artifacts */
-  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.12));
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none !important; /* Ensure no border */
+  box-shadow: none !important; /* Ensure no box shadow border */
+  filter: none !important; /* Ensure no drop shadow/glow border */
+  transition: none;
 }
 
 .logo-container:hover .header-logo {
-  filter: drop-shadow(0 12px 35px rgba(0, 0, 0, 0.2)) 
-          drop-shadow(0 0 30px rgba(249, 231, 201, 0.3));
+  filter: none !important; /* No hover border/shadow */
 }
 
 /* Logo Glow Effect */

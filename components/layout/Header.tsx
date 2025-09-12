@@ -38,7 +38,7 @@ export default function Header() {
             aria-label="Better Being - Home"
           >
             <img
-              src="/Purple Abstract Lintree Background (1366 x 768 px) (699 x 250 px) (550 x 250 px) (550 x 150 px).png"
+              src="/better-being-logo.png"
               alt="Better Being Logo"
               className="header-logo"
               loading="eager"
