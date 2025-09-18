@@ -20,7 +20,7 @@ const [scrollY, setScrollY] = useState(0);
           <div 
             className="w-full h-full bg-center bg-no-repeat ken-burns"
             style={{
-              backgroundImage: 'url("/Untitled design (3).png")',
+backgroundImage: 'url("/20250902.png")',
               backgroundSize: 'contain',
               backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat',
