@@ -17,16 +17,13 @@ const [scrollY, setScrollY] = useState(0);
       <section className="relative h-[75vh] flex items-center justify-center overflow-hidden bg-[#4c0c00]">
         {/* Hero Background Image - FIXED */}
         <div className="absolute inset-0 z-0">
-          <div 
-            className="w-full h-full bg-center bg-no-repeat ken-burns"
-            style={{
-backgroundImage: 'url("/20250902.png")',
-              backgroundSize: 'contain',
-              backgroundPosition: 'center center',
-              backgroundRepeat: 'no-repeat',
-              transform: `translateY(${scrollY * 0.5}px)`,
-            }}
+          <img
+            src="/20250902.png"
+            alt="Hero"
+            className="w-full h-full object-cover"
+            style={{ transform: `translateY(${scrollY * 0.5}px)` }}
           />
+        </div>
           
           {/* Cinematic Gradient Overlays */}
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/30 to-black/70 z-10 pointer-events-none"></div>
@@ -128,42 +125,30 @@ backgroundImage: 'url("/20250902.png")',
                 <div className="grid grid-cols-2 gap-4">
                   <div className="card-premium overflow-hidden hover-glow fade-in-up rounded-xl" 
                        style={{ animationDelay: '0.6s' }}>
-                    <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
-                      <video 
-                        className="w-full h-full object-cover transition-all duration-700 hover:scale-110"
-                        autoPlay 
-                        muted 
-                        loop 
-                        playsInline
-                        poster="/magnesium-oil-spray.png"
-                      >
-                        <source src="/assets_task_01jsr14121ehrvxkn77ds0ws3x_task_01jsr14121ehrvxkn77ds0ws3x_genid_cd56b6aa-1366-4ce8-81b2-6e9697b76ac4_25_04_26_03_09_529526_videos_00000_642864038_source.mp4" type="video/mp4" />
-                      </video>
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#8B4513]/80 to-transparent"></div>
+<div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
+                      <img 
+                        src="/Promotins/pm2.png" 
+                        alt="Top Sellers"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                       <div className="absolute bottom-4 left-4 right-4">
-                        <h4 className="text-white text-sm font-medium mb-1">Daily Rituals</h4>
-                        <p className="text-white/80 text-xs">Transform routines</p>
+                        <h4 className="text-white text-sm font-medium mb-1">Top Sellers</h4>
                       </div>
                     </div>
                   </div>
                   
                   <div className="card-premium overflow-hidden hover-glow fade-in-up rounded-xl" 
                        style={{ animationDelay: '0.9s' }}>
-                    <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
-                      <video 
-                        className="w-full h-full object-cover transition-all duration-700 hover:scale-110"
-                        autoPlay 
-                        muted 
-                        loop 
-                        playsInline
-                        poster="/magnesium-oil-spray.png"
-                      >
-                        <source src="/assets_task_01jsxgta9xe24apma9csdbte35_task_01jsxgta9xe24apma9csdbte35_genid_cb1e1ba9-b1f0-4d29-8a51-8f15cd9ed07e_25_04_28_06_20_442219_videos_00000_409075772_source.mp4" type="video/mp4" />
-                      </video>
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#2C2B29]/80 to-transparent"></div>
+<div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
+                      <img 
+                        src="/Promotins/pm3.png" 
+                        alt="On Sale"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                       <div className="absolute bottom-4 left-4 right-4">
-                        <h4 className="text-white text-sm font-medium mb-1">Proven Results</h4>
-                        <p className="text-white/80 text-xs">Feel the difference</p>
+                        <h4 className="text-white text-sm font-medium mb-1">On Sale</h4>
                       </div>
                     </div>
                   </div>

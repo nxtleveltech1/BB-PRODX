@@ -125,7 +125,7 @@ backgroundImage: 'url("/hdback.png")',
             className="group inline-flex items-center bg-transparent"
             aria-label="Better Being - Home"
           >
-            <img src="/Translogo.png" alt="Better Being" className="h-12 sm:h-14 w-auto object-contain bg-transparent" />
+<img src="/headerlogo.png" alt="Better Being" className="h-12 sm:h-14 w-auto object-contain bg-transparent" />
           </Link>
 
           {/* Primary Nav - centered on desktop */}
