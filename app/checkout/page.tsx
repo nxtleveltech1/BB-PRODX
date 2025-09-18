@@ -44,7 +44,7 @@ export default function CheckoutPage() {
     getCartSubtotal, 
     getCartTax, 
     getCartShipping, 
-    getCartTotal,
+    /* getCartTotal, */
     getCartCount,
     clearCart 
   } = useCart();
