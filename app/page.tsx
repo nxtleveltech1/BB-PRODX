@@ -31,7 +31,6 @@ const [scrollY, setScrollY] = useState(0);
           
           {/* Premium Film Grain */}
           <div className="absolute inset-0 grain-texture opacity-20 z-10 pointer-events-none"></div>
-        </div>
         
         {/* Hero Content */}
         <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
