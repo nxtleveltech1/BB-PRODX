@@ -74,14 +74,14 @@ export default function CheckoutPage() {
   // Redirect if cart is empty
   if (cartItems.length === 0) {
     return (
-      <div className="min-h-screen bg-[#F9E7C9] flex items-center justify-center">
+      <div className="min-h-screen bg-[var(--bb-champagne)] flex items-center justify-center">
         <div className="text-center">
-          <AlertCircle className="w-16 h-16 text-[#ba7500] mx-auto mb-4" />
-          <h1 className="text-2xl font-bold text-[#ba7500] mb-4">Cart is Empty</h1>
-          <p className="text-gray-600 mb-6">Add some items to your cart before checkout.</p>
+          <AlertCircle className="w-16 h-16 text-[var(--bb-mahogany)] mx-auto mb-4" />
+          <h1 className="text-2xl font-bold text-[var(--bb-mahogany)] mb-4">Cart is Empty</h1>
+          <p className="text-[var(--bb-payne-gray)] mb-6">Add some items to your cart before checkout.</p>
           <Link 
             href="/products"
-            className="bg-[#ba7500] text-white px-6 py-3 rounded-lg hover:bg-[#ba7500]/90 transition-colors"
+            className="btn btn-primary rounded-lg"
           >
             Browse Products
           </Link>
@@ -151,13 +151,13 @@ export default function CheckoutPage() {
     }
   };
 
-  const orderSummary = {
-    subtotal: getCartSubtotal(),
-    tax: getCartTax(),
-    shipping: getCartShipping(),
-    total: getCartTotal(),
-    itemCount: getCartCount()
-  };
+  // Compute order summary with dynamic shipping method
+  const subtotal = getCartSubtotal();
+  const tax = getCartTax();
+  const baseShipping = getCartShipping();
+  const shipping = baseShipping + (form.shippingMethod === 'express' ? 75 : 0);
+  const total = subtotal + tax + shipping;
+  const itemCount = getCartCount();
 
   const steps = [
     { id: 'shipping', label: 'Shipping', icon: Truck },
@@ -166,7 +166,7 @@ export default function CheckoutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F9E7C9] py-8">
+    <div className="min-h-screen bg-[var(--bb-champagne)] py-8">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
@@ -384,6 +384,41 @@ export default function CheckoutPage() {
                     </div>
                   </div>
                   
+                  {/* Shipping Method */}
+                  <div className="space-y-3">
+                    <h3 className="text-md font-semibold text-gray-900">Shipping Method</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <label className={`flex items-center gap-3 p-4 rounded-lg border cursor-pointer ${form.shippingMethod === 'standard' ? 'border-green-500 bg-green-50' : 'border-gray-300 bg-white'}`}>
+                        <input
+                          type="radio"
+                          name="shippingMethod"
+                          value="standard"
+                          checked={form.shippingMethod === 'standard'}
+                          onChange={() => setForm(prev => ({ ...prev, shippingMethod: 'standard' }))}
+                        />
+                        <span className="text-sm text-gray-800">Standard (2-3 days)</span>
+                      </label>
+                      <label className={`flex items-center gap-3 p-4 rounded-lg border cursor-pointer ${form.shippingMethod === 'express' ? 'border-[var(--bb-mahogany)] bg-[var(--bb-champagne)]/60' : 'border-gray-300 bg-white'}`}>
+                        <input
+                          type="radio"
+                          name="shippingMethod"
+                          value="express"
+                          checked={form.shippingMethod === 'express'}
+                          onChange={() => setForm(prev => ({ ...prev, shippingMethod: 'express' }))}
+                        />
+                        <span className="text-sm text-gray-800">Express (1-2 days) + R75</span>
+                      </label>
+                    </div>
+                    <label className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        checked={form.billingAddressSame}
+                        onChange={(e) => setForm(prev => ({ ...prev, billingAddressSame: e.target.checked }))}
+                      />
+                      <span className="text-sm text-gray-700">Billing address is the same as shipping</span>
+                    </label>
+                  </div>
+
                   <div className="flex justify-end mt-8">
                     <button
                       onClick={handleNextStep}
@@ -510,7 +545,7 @@ export default function CheckoutPage() {
                   <div className="space-y-6">
                     {/* Order Items */}
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-4">Order Items ({orderSummary.itemCount})</h3>
+                      <h3 className="font-semibold text-gray-900 mb-4">Order Items ({itemCount})</h3>
                       <div className="space-y-3">
                         {cartItems.map((item) => (
                           <div key={item.id} className="flex justify-between items-center py-3 border-b">
@@ -570,7 +605,7 @@ export default function CheckoutPage() {
                       ) : (
                         <>
                           <Lock className="w-4 h-4" />
-                          Place Order - R{orderSummary.total.toFixed(2)}
+                          Place Order - R{total.toFixed(2)}
                         </>
                       )}
                     </button>
@@ -587,23 +622,23 @@ export default function CheckoutPage() {
               
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between">
-                  <span>Subtotal ({orderSummary.itemCount} items)</span>
-                  <span>R{orderSummary.subtotal.toFixed(2)}</span>
+                  <span>Subtotal ({itemCount} items)</span>
+                  <span>R{subtotal.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Shipping</span>
-                  <span className={orderSummary.shipping === 0 ? 'text-green-600' : ''}>
-                    {orderSummary.shipping === 0 ? 'FREE' : `R${orderSummary.shipping.toFixed(2)}`}
+                  <span className={shipping === 0 ? 'text-green-600' : ''}>
+                    {shipping === 0 ? 'FREE' : `R${shipping.toFixed(2)}`}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span>Tax (15%)</span>
-                  <span>R{orderSummary.tax.toFixed(2)}</span>
+                  <span>R{tax.toFixed(2)}</span>
                 </div>
                 <div className="border-t pt-3">
                   <div className="flex justify-between text-lg font-bold">
                     <span>Total</span>
-                    <span className="text-[#ba7500]">R{orderSummary.total.toFixed(2)}</span>
+                    <span className="text-[var(--bb-mahogany)]">R{total.toFixed(2)}</span>
                   </div>
                 </div>
               </div>

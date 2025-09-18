@@ -1,8 +1,8 @@
 ﻿"use client";
 
 import Link from "next/link";
-import { useQuery } from "@tanstack/react-query";
-import api from "@/services/apiOptimized";
+// import { useQuery } from "@tanstack/react-query";
+// import api from "@/services/apiOptimized";
 import { products } from "@/data/products";
 import FeaturedRowAesop from "@/components/FeaturedRowAesop";
 import { useCart } from "../../contexts/CartContext";
@@ -100,13 +100,14 @@ function ProductCard({ product }: { product: any }) {
 }
 
 export default function ProductsPage() {
-  const { data } = useQuery({
-    queryKey: ["products", { limit: 100 }],
-    queryFn: () => api.getProducts({ limit: 100 }) as Promise<{ products: any[] }>,
-  });
+  // Temporarily disable API call and use local products directly
+  // const { data } = useQuery({
+  //   queryKey: ["products", { limit: 100 }],
+  //   queryFn: () => api.getProducts({ limit: 100 }) as Promise<{ products: any[] }>,
+  // });
 
-  // Use local data as fallback if API fails
-  const displayProducts = data?.products || products;
+  // Always use local products data
+  const displayProducts = products;
 
   // Mobile-specific view - using CSS classes instead of JS width check
   return (
@@ -262,7 +263,7 @@ export default function ProductsPage() {
           {/* Hero image biased to bottom without distortion */}
           <div className="absolute inset-0 z-0 flex items-end justify-center">
             <img
-              src="/Untitled design (3).png"
+              src="/Add a heading (1).png"
               alt="Products hero"
               className="object-contain object-bottom h-full w-auto max-w-[95vw] opacity-80"
             />
@@ -279,7 +280,7 @@ export default function ProductsPage() {
         </section>
 
         {/* Main Content */}
-        <div className="bg-[var(--bb-champagne)]">
+        <div className="bg-[#F9E7C9]">
           <div className="max-w-7xl mx-auto px-6 py-20">
             {/* Filter Bar - Brand Colors */}
             <div className="mb-8" />

@@ -9,8 +9,8 @@
     "prestart": "node -e \"const fs=require('fs'); if(!fs.existsSync('.next')){console.error('❌ Missing .next build output. Run \\\"npm run build\\\" first.'); process.exit(1)}\"",
     "start": "node node_modules/next/dist/bin/next start",
     "lint": "eslint .",
-    "dev:server": "cd server && PORT=8000 npm run dev",
-    "dev:all": "npm run dev & npm run dev:server",
+    "dev:server": "cd server && cross-env PORT=8000 npm run dev",
+    "dev:all": "concurrently -n WEB,API -c green,cyan \"npm run dev\" \"npm run dev:server\"",
     "build:server": "cd server && npm install --production",
     "build:frontend": "node node_modules/next/dist/bin/next build",
     "build:dev": "node node_modules/next/dist/bin/next build",
@@ -128,6 +128,8 @@
     "zustand": "^5.0.7"
   },
   "devDependencies": {
+    "concurrently": "^9.0.1",
+    "cross-env": "^7.0.3",
     "@eslint/js": "^9.9.0",
     "@jridgewell/sourcemap-codec": "^1.5.5",
     "@playwright/test": "^1.55.0",

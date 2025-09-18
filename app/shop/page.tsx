@@ -2,7 +2,7 @@ import { ProductsSection } from '@/components/ProductsSection';
 
 export default function ShopPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-yellow-50">
+    <div className="min-h-screen bg-[#F9E7C9]">
       <main>
         <div className="max-w-7xl mx-auto px-4 py-16">
           <div className="text-center mb-12">

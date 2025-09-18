@@ -1,7 +1,7 @@
 
 export default function RegisterPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-yellow-50">
+    <div className="min-h-screen bg-[#F9E7C9]">
       <main className="flex items-center justify-center py-16">
         <div className="max-w-md w-full mx-auto">
           <div className="bg-white p-8 rounded-2xl shadow-lg">

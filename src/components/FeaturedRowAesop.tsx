@@ -5,8 +5,8 @@ import { getFeaturedProducts, products as allProducts } from "@/data/products";
 // A minimal Aesop-like featured row used on homepage and products page
 // Ensures three items are shown; backfills if the third is missing.
 export default function FeaturedRowAesop({
-  title = "New and notable",
-  subtitle = "Explore a collection of long‑standing formulations and recent additions to the range.",
+title = "Top Seller",
+subtitle = "Our most-loved product right now.",
 }: {
   title?: string;
   subtitle?: string;

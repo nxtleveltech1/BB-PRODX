@@ -12,7 +12,7 @@
 
 :root {
   /* Better Being Brand Colors - Luxury Palette */
-  --bb-mahogany: #8B4513;        /* Rich, sophisticated mahogany */
+  --bb-mahogany: #BB4500;        /* Mahogany Red primary color */
   --bb-citron: #B5A642;          /* Luxurious gold accent */
   --bb-champagne: #F9E7C9;       /* Warm champagne base */
   --bb-black-bean: #2C2B29;      /* Deep charcoal for text */
@@ -1436,5 +1436,5 @@ html {
 }
 
 :root {
-  --bb-hero-surround: #4c0c00;
+  --bb-hero-surround: #BB4500;
 }

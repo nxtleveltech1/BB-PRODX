@@ -25,7 +25,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[var(--bb-champagne)] to-[var(--bb-champagne)]/90">
+    <div className="min-h-screen bg-[#F9E7C9]">
       {/* Hero Section - Image only, no text */}
       <section className="relative min-h-[60vh] bg-[var(--bb-hero-surround)] overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -39,8 +39,8 @@ export default function ContactPage() {
         <div className="h-24"></div>
       </section>
 
-      {/* Contact Form Section - Citron Background */}
-      <section className="py-16 bg-[var(--bb-citron)]">
+      {/* Contact Form Section - Champagne Background */}
+      <section className="py-16 bg-[#F9E7C9]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-24 items-start">
             {/* Contact Information */}
@@ -90,7 +90,7 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-[var(--bb-champagne)] p-6 md:p-12 border border-[var(--bb-mahogany)]/10">
+            <div className="bg-[#F9E7C9] p-6 md:p-12 border border-[var(--bb-mahogany)]/10">
               <div className="space-y-6 mb-8">
                 <h3 className="text-2xl font-light text-[var(--bb-black-bean)]" style={{ fontFamily: 'Prata, Georgia, serif' }}>
                   Send us a message

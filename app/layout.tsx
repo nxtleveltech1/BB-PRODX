@@ -1,6 +1,6 @@
 // Root Layout for Next.js App Router
 import './globals.css'
-import Header from 'components/layout/Header'
+import TopBar from 'components/layout/TopBar'
 import Footer from 'components/layout/Footer'
 import Providers from './providers'
 import { Toaster } from 'sonner'
@@ -22,7 +22,7 @@ export default function RootLayout({
       <body>
         <StackAuthWrapper>
           <Providers>
-            <Header />
+            <TopBar />
             <main>{children}</main>
             <Footer />
             <Toaster richColors position="top-right" />

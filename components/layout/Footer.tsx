@@ -25,10 +25,6 @@ export default function Footer() {
                   <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider">Products Store</h4>
                   <ul className="space-y-2">
                     <li><a href="/products" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">All Products</a></li>
-                    <li><a href="/products?category=adaptogens" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Adaptogens</a></li>
-                    <li><a href="/products?category=minerals" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Minerals</a></li>
-                    <li><a href="/products?category=superfoods" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Superfoods</a></li>
-                    <li><a href="/products?category=wellness" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Wellness</a></li>
                   </ul>
                 </div>
                 
@@ -37,10 +33,6 @@ export default function Footer() {
                   <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider">Company Links</h4>
                   <ul className="space-y-2">
                     <li><a href="/about" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">About Us</a></li>
-                    <li><a href="/our-story" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Our Story</a></li>
-                    <li><a href="/careers" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Careers</a></li>
-                    <li><a href="/press" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Press</a></li>
-                    <li><a href="/wholesale" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Wholesale</a></li>
                   </ul>
                 </div>
                 
@@ -49,10 +41,6 @@ export default function Footer() {
                   <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider">Support</h4>
                   <ul className="space-y-2">
                     <li><a href="/faq" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">FAQ</a></li>
-                    <li><a href="/shipping" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Shipping Info</a></li>
-                    <li><a href="/returns" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Returns</a></li>
-                    <li><a href="/track-order" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Track Order</a></li>
-                    <li><a href="/size-guide" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Size Guide</a></li>
                   </ul>
                 </div>
                 
@@ -61,10 +49,6 @@ export default function Footer() {
                   <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider">Contact Us</h4>
                   <ul className="space-y-2">
                     <li><a href="/contact" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Get In Touch</a></li>
-                    <li><a href="mailto:hello@betterbeing.co.za" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Email Us</a></li>
-                    <li><a href="tel:+27821234567" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Call Us</a></li>
-                    <li><a href="/stores" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Store Locator</a></li>
-                    <li><a href="/chat" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Live Chat</a></li>
                   </ul>
                 </div>
               </div>

@@ -87,10 +87,17 @@ function CartItemComponent({
     <div className="group bg-gradient-to-br from-[var(--bb-champagne)]/40 to-white/80 border-2 border-[var(--bb-mahogany)]/20 hover:border-[var(--bb-mahogany)]/60 rounded-xl p-6 transition-all duration-300 hover:shadow-xl hover:shadow-[var(--bb-mahogany)]/10">
       <div className="flex gap-4">
         {/* Product Image */}
-        <div className="relative w-24 h-24 bg-gradient-to-br from-[var(--bb-citron)]/20 to-[var(--bb-mahogany)]/10 rounded-xl overflow-hidden flex-shrink-0">
-          <div className="w-full h-full bg-gradient-to-br from-[var(--bb-champagne)] to-[var(--bb-citron)]/20 flex items-center justify-center">
-            <ShoppingCart className="w-8 h-8 text-[var(--bb-mahogany)]" />
+        <div className="relative w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 border-2 border-[var(--bb-mahogany)]/20 bg-[var(--bb-champagne)]">
+          {/* Fallback icon */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <ShoppingCart className="w-8 h-8 text-[var(--bb-mahogany)] opacity-60" />
           </div>
+          <img
+            src={item.product_image}
+            alt={item.product_name}
+            className="relative z-10 w-full h-full object-cover"
+            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+          />
         </div>
 
         <div className="flex-1 min-w-0">

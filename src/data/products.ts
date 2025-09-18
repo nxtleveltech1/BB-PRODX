@@ -891,7 +891,7 @@ const allProducts: Product[] = [
       "Not suitable for pregnant or nursing women. Consult your healthcare provider before use.",
     categoryId: "wellness-essentials",
     subcategoryId: "multivitamins",
-    image: "/products/Mag Pure - R299.png",
+    image: "/products/7.png",
     additionalImages: [],
     popular: false,
     featured: false,
@@ -1052,6 +1052,7 @@ const allProducts: Product[] = [
 
 // Only expose products that have new official images and valid price
 const allowedImages = new Set<string>([
+  "/products/7.png",
   "/products/Acidosis - R230.png",
   "/products/Aloe Gel - R139.png",
   "/products/Anti-Viral & Bacterial - R230.png",

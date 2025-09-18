@@ -2,12 +2,12 @@
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#F9E7C9]">
       {/* Hero Section - Image background stretched to fit */}
       <section className="relative min-h-[80vh] bg-[var(--bb-hero-surround)] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/Add a heading (1).png"
+            src="/20250902.png"
             alt="About hero"
             className="w-full h-full object-cover"
           />
@@ -16,8 +16,8 @@ export default function AboutPage() {
         <div className="h-20"></div>
       </section>
 
-      {/* Story Section - Citron Background with Brand Imagery */}
-      <section className="py-16 bg-[var(--bb-citron)]">
+      {/* Story Section - Champagne Background with Brand Imagery */}
+      <section className="py-16 bg-[#F9E7C9]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-24 items-center">
             <div className="space-y-8">
@@ -68,7 +68,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section - Champagne Background with Individual Color Cards */}
-      <section className="py-16 bg-[var(--bb-champagne)]">
+      <section className="py-16 bg-[#F9E7C9]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12 md:mb-20">
             <p className="text-[var(--bb-payne-gray)] text-sm font-medium uppercase tracking-[0.2em] mb-6">Our Commitment</p>

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 
 interface User {
@@ -28,7 +28,7 @@ export function useAuth() {
     isLoading: true,
     isAuthenticated: false,
   });
-  const navigate = useRouter();
+  const router = useRouter();
   const { toast } = useToast();
 
   // Initialize auth state from localStorage
@@ -245,9 +245,9 @@ export function useAuth() {
         title: "Logged out",
         description: logoutAll ? "You have been logged out from all devices." : "You have been successfully logged out.",
       });
-      navigate.push('/');
+      router.push('/');
     }
-  }, [clearAuth, navigate, toast]);
+  }, [clearAuth, router, toast]);
 
   const updateUser = useCallback((updatedUser: Partial<User>) => {
     setAuthState(prev => {

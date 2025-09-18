@@ -720,6 +720,25 @@ export default function ProductDetailPage() {
           </div>
         </div>
       </div>
+
+      {/* Mobile Sticky Buy Bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-bb-mahogany/20 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/75 p-4 lg:hidden">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+          <div className="flex items-baseline gap-2">
+            <span className="text-lg font-bold text-bb-mahogany">R{product.price.toFixed(2)}</span>
+            {hasDiscount && (
+              <span className="text-sm text-bb-payne-gray line-through">R{product.originalPrice!.toFixed(2)}</span>
+            )}
+          </div>
+          <button
+            onClick={handleAddToCart}
+            disabled={!product.inStock}
+            className="bg-[var(--bb-black-bean)] text-white px-5 py-3 rounded-lg font-heading font-semibold disabled:opacity-50"
+          >
+            {product.inStock ? (isInCart ? 'Update Cart' : 'Add to Cart') : 'Out of Stock'}
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
