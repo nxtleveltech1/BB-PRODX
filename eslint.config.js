@@ -4,6 +4,11 @@ import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import unusedImports from "eslint-plugin-unused-imports";
 import tseslint from "typescript-eslint";
+import { FlatCompat } from "@eslint/eslintrc";
+
+const compat = new FlatCompat({
+  baseDirectory: import.meta.dirname,
+});
 
 // Flat config
 export default tseslint.config(
@@ -25,6 +30,10 @@ export default tseslint.config(
       "**/*.backup.*",
     ],
   },
+  // Enable Next.js rules (core-web-vitals)
+  ...compat.config({
+    extends: ["next/core-web-vitals"],
+  }),
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}", "**/*.mjs"],

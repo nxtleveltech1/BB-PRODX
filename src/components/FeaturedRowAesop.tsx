@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { getFeaturedProducts, products as allProducts } from "@/data/products";
+import { products as allProducts } from "@/data/products";
 
 // A minimal Aesop-like featured row used on homepage and products page
 // Ensures three items are shown; backfills if the third is missing.
