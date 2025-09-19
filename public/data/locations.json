@@ -1,0 +1,46 @@
+[
+  {
+    "id": "store-ct-001",
+    "type": "retail",
+    "name": "BetterBeing Flagship",
+    "address": "123 Wellness Ave, Cape Town, South Africa",
+    "phone": "+27 21 555 0101",
+    "website": "https://example.com/flagship",
+    "coordinates": { "lat": -33.9249, "lng": 18.4241 },
+    "region": "ZA"
+  },
+  {
+    "id": "store-jhb-002",
+    "type": "retail",
+    "name": "BetterBeing Sandton",
+    "address": "45 Premium Rd, Sandton, Johannesburg",
+    "phone": "+27 11 555 0202",
+    "website": "https://example.com/sandton",
+    "coordinates": { "lat": -26.1076, "lng": 28.0567 },
+    "region": "ZA"
+  },
+  {
+    "id": "dist-uk-001",
+    "type": "distributor",
+    "vendor": "Wellness Distribution Co.",
+    "agent": "Jane Doe",
+    "name": "Wellness Distribution Co.",
+    "address": "200 High St, London, UK",
+    "phone": "+44 20 7946 0958",
+    "website": "https://wellness-distribution.example.co.uk",
+    "coordinates": { "lat": 51.5074, "lng": -0.1278 },
+    "region": "UK"
+  },
+  {
+    "id": "dist-au-001",
+    "type": "distributor",
+    "vendor": "Oceania Health Agents",
+    "agent": "Liam Nguyen",
+    "name": "Oceania Health Agents",
+    "address": "88 Harbour St, Sydney NSW, Australia",
+    "phone": "+61 2 5550 0303",
+    "website": "https://oceania-health.example.com.au",
+    "coordinates": { "lat": -33.8688, "lng": 151.2093 },
+    "region": "AU"
+  }
+]

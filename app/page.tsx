@@ -91,63 +91,65 @@ const [scrollY, setScrollY] = useState(0);
               </div>
             </div>
             
-            {/* Visual Story Grid - FIXED Layout */}
+            {/* Visual Story Grid - Mosaic 2x2, occupies ~50vh */}
             <div className="lg:col-span-6 relative">
-              <div className="space-y-6">
-                {/* Main Story Visual - Full Width */}
-                <div className="card-premium overflow-hidden hover-glow parallax-hover fade-in-up rounded-2xl" 
-                     style={{ animationDelay: '0.3s' }}>
-                  <div className="aspect-[16/9] relative overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
-                    <video 
-                      className="w-full h-full object-cover transition-all duration-700 hover:scale-110"
-                      autoPlay 
-                      muted 
-                      loop 
-                      playsInline
-                      poster="/20250902.png"
-                    >
-                      <source src="/Home Pg Vid 1.mp4" type="video/mp4" />
-                    </video>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    <div className="absolute bottom-6 left-6 right-6">
-                      <div className="glass-luxury p-4 rounded-xl">
-                        <h3 className="text-white text-xl font-light mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
-                          Natural Ingredients
-                        </h3>
-                        <p className="text-white/90 text-sm font-light">Sourced from nature, powered by science</p>
+              <div className="grid grid-cols-2 grid-rows-2 gap-6 md:h-[50vh]">
+                {/* Top: Natural Ingredients video spans two columns */}
+                <div className="col-span-2">
+                  <div className="card-premium overflow-hidden hover-glow parallax-hover fade-in-up rounded-2xl h-full" style={{ animationDelay: '0.3s' }}>
+                    <div className="relative h-full overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
+                      <video
+                        className="absolute inset-0 w-full h-full object-cover transition-all duration-700 hover:scale-110"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        poster="/20250902.png"
+                      >
+                        <source src="/Home Pg Vid 1.mp4" type="video/mp4" />
+                      </video>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                      <div className="absolute bottom-6 left-6 right-6">
+                        <div className="glass-luxury p-4 rounded-xl">
+                          <h3 className="text-white text-2xl md:text-3xl font-light mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                            Natural Ingredients
+                          </h3>
+                          <p className="text-white/90 text-sm md:text-base font-light">Sourced from nature, powered by science</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                
-                {/* Two Column Grid */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="card-premium overflow-hidden hover-glow fade-in-up rounded-xl" 
-                       style={{ animationDelay: '0.6s' }}>
-<div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
-                      <img 
-                        src="/Promotins/pm2.png" 
+
+                {/* Bottom Left: Top Sellers */}
+                <div>
+                  <div className="card-premium overflow-hidden hover-glow fade-in-up rounded-2xl h-full" style={{ animationDelay: '0.6s' }}>
+                    <div className="relative h-full overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
+                      <img
+                        src="/Promotins/pm2.png"
                         alt="Top Sellers"
-                        className="w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                       <div className="absolute bottom-4 left-4 right-4">
-                        <h4 className="text-white text-sm font-medium mb-1">Top Sellers</h4>
+                        <h4 className="text-white text-base md:text-lg font-medium">Top Sellers</h4>
                       </div>
                     </div>
                   </div>
-                  
-                  <div className="card-premium overflow-hidden hover-glow fade-in-up rounded-xl" 
-                       style={{ animationDelay: '0.9s' }}>
-<div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
-                      <img 
-                        src="/Promotins/pm3.png" 
+                </div>
+
+                {/* Bottom Right: On Sale */}
+                <div>
+                  <div className="card-premium overflow-hidden hover-glow fade-in-up rounded-2xl h-full" style={{ animationDelay: '0.9s' }}>
+                    <div className="relative h-full overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
+                      <img
+                        src="/Promotins/pm3.png"
                         alt="On Sale"
-                        className="w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                       <div className="absolute bottom-4 left-4 right-4">
-                        <h4 className="text-white text-sm font-medium mb-1">On Sale</h4>
+                        <h4 className="text-white text-base md:text-lg font-medium">On Sale</h4>
                       </div>
                     </div>
                   </div>
