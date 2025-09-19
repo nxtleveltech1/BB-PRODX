@@ -263,7 +263,7 @@ export default function ProductsPage() {
           {/* Hero image biased to bottom without distortion */}
           <div className="absolute inset-0 z-0 flex items-end justify-center">
             <img
-              src="/Add a heading (1).png"
+              src="/products-hero.png"
               alt="Products hero"
               className="object-contain object-bottom h-full w-auto max-w-[95vw] opacity-80"
             />
