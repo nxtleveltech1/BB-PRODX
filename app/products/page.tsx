@@ -1,6 +1,7 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
+import { useState } from "react";
 // import { useQuery } from "@tanstack/react-query";
 // import api from "@/services/apiOptimized";
 import { products } from "@/data/products";
@@ -100,6 +101,8 @@ function ProductCard({ product }: { product: any }) {
 }
 
 export default function ProductsPage() {
+  const [isAccordionOpen, setIsAccordionOpen] = useState(false);
+  
   // Temporarily disable API call and use local products directly
   // const { data } = useQuery({
   //   queryKey: ["products", { limit: 100 }],
@@ -285,9 +288,44 @@ export default function ProductsPage() {
             {/* Filter Bar - Brand Colors */}
             <div className="mb-8" />
 
-            {/* Featured Aesop-style row inside products page */}
-            <div className="mb-12 -mx-6">
-              <FeaturedRowAesop title="New and notable" subtitle="Explore a collection of long-standing formulations and recent additions to the range." />
+            {/* Featured Aesop-style accordion */}
+            <div className="mb-12 border-y border-[var(--bb-mahogany)]/20">
+              {/* Accordion Header */}
+              <button 
+                onClick={() => setIsAccordionOpen(!isAccordionOpen)}
+                className="w-full py-6 px-6 flex items-center justify-between bg-[var(--bb-champagne)] hover:bg-[var(--bb-champagne)]/90 transition-colors"
+                aria-expanded={isAccordionOpen}
+                aria-controls="featured-content"
+              >
+                <div className="text-left">
+                  <h2 className="text-2xl md:text-3xl font-semibold uppercase tracking-wide text-[var(--neutral-800)]" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+                    New and Notable
+                  </h2>
+                  <p className="mt-2 text-[var(--neutral-600)] text-sm md:text-base">
+                    Explore a collection of long-standing formulations and recent additions to the range
+                  </p>
+                </div>
+                <div className="ml-4 flex-shrink-0">
+                  <svg 
+                    className={`w-6 h-6 text-[var(--bb-mahogany)] transform transition-transform duration-300 ${isAccordionOpen ? 'rotate-180' : ''}`}
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </button>
+              
+              {/* Accordion Content */}
+              <div 
+                id="featured-content"
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${isAccordionOpen ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'}`}
+              >
+                <div className="-mx-6">
+                  <FeaturedRowAesop title="Top Seller" subtitle="Our most-loved product right now." />
+                </div>
+              </div>
             </div>
             
             {/* Products Grid - Rich Brand Layout */}
