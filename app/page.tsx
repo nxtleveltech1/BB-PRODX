@@ -28,8 +28,8 @@ const [scrollY, setScrollY] = useState(0);
           />
         </div>
           
-          {/* Overlay (solid) — do not cover the transparent header area */}
-          <div className="absolute inset-x-0 bottom-0 top-20 bg-black/50 z-10 pointer-events-none"></div>
+          {/* Overlay (solid) covering full hero */}
+          <div className="absolute inset-0 bg-black/50 z-10 pointer-events-none"></div>
           
           {/* Premium Film Grain */}
           <div className="absolute inset-0 grain-texture opacity-20 z-10 pointer-events-none"></div>

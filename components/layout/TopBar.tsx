@@ -47,7 +47,7 @@ export default function TopBar() {
   return (
     <header
       className={[
-        "sticky top-0 z-50 transition-all relative",
+        "fixed top-0 left-0 right-0 z-50 transition-all",
         "bg-transparent border-transparent shadow-none"
       ].join(" ")}
       role="banner"
