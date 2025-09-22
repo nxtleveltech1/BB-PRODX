@@ -15,10 +15,16 @@ export default {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "1600px",
+        "3xl": "1800px",
       },
     },
     extend: {
+      maxWidth: {
+        // Widescreen adjustments
+        '7xl': '100rem', // 1600px
+        '8xl': '110rem', // 1760px (for future use)
+      },
       fontFamily: {
         sans: ["League Spartan", "system-ui", "sans-serif"],
         serif: ["Playfair Display", "Georgia", "serif"],
