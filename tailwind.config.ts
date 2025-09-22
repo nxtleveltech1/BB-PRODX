@@ -20,11 +20,6 @@ export default {
       },
     },
     extend: {
-      maxWidth: {
-        // Widescreen adjustments
-        '7xl': '100rem', // 1600px
-        '8xl': '110rem', // 1760px (for future use)
-      },
       fontFamily: {
         sans: ["League Spartan", "system-ui", "sans-serif"],
         serif: ["Playfair Display", "Georgia", "serif"],
@@ -423,7 +418,8 @@ export default {
         xs: "475px",
       },
       maxWidth: {
-        "8xl": "88rem",
+        '7xl': '100rem', // 1600px for widescreen
+        '8xl': '110rem', // 1760px (future use)
         "9xl": "96rem",
       },
       zIndex: {
