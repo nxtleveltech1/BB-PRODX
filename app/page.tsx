@@ -94,11 +94,11 @@ const [scrollY, setScrollY] = useState(0);
               </div>
             </div>
             
-            {/* Visual Story Grid - Mosaic 2x2, occupies ~50vh */}
+            {/* Visual Story Grid - Mosaic with 1/3 + 2/3 height split */}
             <div className="lg:col-span-6 relative">
-              <div className="grid grid-cols-2 grid-rows-2 gap-6 md:h-[50vh]">
-                {/* Top: Natural Ingredients video spans two columns */}
-                <div className="col-span-2">
+              <div className="grid grid-cols-2 gap-6 md:h-[66vh]" style={{ gridTemplateRows: '1fr 2fr' }}>
+                {/* Top: Natural Ingredients video spans full width (top third) */}
+                <div className="col-span-2 row-start-1 row-end-2">
                   <div className="card-premium overflow-hidden hover-glow parallax-hover fade-in-up rounded-2xl h-full" style={{ animationDelay: '0.3s' }}>
                     <div className="relative h-full overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
                       <video
@@ -124,8 +124,8 @@ const [scrollY, setScrollY] = useState(0);
                   </div>
                 </div>
 
-                {/* Bottom Left: Top Sellers */}
-                <div>
+                {/* Bottom Left: Top Sellers (bottom two-thirds, left column) */}
+                <div className="row-start-2 col-start-1">
                   <div className="card-premium overflow-hidden hover-glow fade-in-up rounded-2xl h-full" style={{ animationDelay: '0.6s' }}>
                     <div className="relative h-full overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
                       <Image
@@ -145,8 +145,8 @@ const [scrollY, setScrollY] = useState(0);
                   </div>
                 </div>
 
-                {/* Bottom Right: On Sale */}
-                <div>
+                {/* Bottom Right: On Sale (bottom two-thirds, right column) */}
+                <div className="row-start-2 col-start-2">
                   <div className="card-premium overflow-hidden hover-glow fade-in-up rounded-2xl h-full" style={{ animationDelay: '0.9s' }}>
                     <div className="relative h-full overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
                       <Image
@@ -171,8 +171,8 @@ const [scrollY, setScrollY] = useState(0);
         </div>
       </section>
 
-      {/* Rotating Product Section */}
-      <TopSixFlip />
+      {/* Rotating Product Section - no borders between sections */}
+      <TopSixFlip showBorders={false} />
 
       {/* Store Locator block (embedded in the original section container) */}
       <section className="bg-[#F9E7C9] relative overflow-hidden">

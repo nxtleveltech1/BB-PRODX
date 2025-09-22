@@ -48,9 +48,7 @@ export default function TopBar() {
     <header
       className={[
         "sticky top-0 z-50 transition-all relative",
-        scrolled
-          ? "bg-[var(--neutral-50)]/60 supports-[backdrop-filter]:backdrop-blur-md border-b border-[var(--neutral-200)] shadow-[0_2px_10px_rgba(0,0,0,0.04)]"
-          : "bg-transparent border-transparent shadow-none"
+        "bg-transparent border-transparent shadow-none"
       ].join(" ")}
       role="banner"
     >

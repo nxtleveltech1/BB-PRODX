@@ -20,7 +20,7 @@ function byTopSix(input: Product[]): Product[] {
     .slice(0, 6);
 }
 
-export default function TopSixFlip() {
+export default function TopSixFlip({ showBorders = true }: { showBorders?: boolean } = {}) {
   const topSix = React.useMemo(() => byTopSix(allProducts as unknown as Product[]), []);
   const { addItem } = useCart();
 
@@ -59,7 +59,7 @@ export default function TopSixFlip() {
 
   return (
     <section
-      className="bg-[var(--bb-champagne)] border-t border-b border-[var(--bb-mahogany)]/20"
+      className={`bg-[var(--bb-champagne)] ${showBorders ? 'border-t border-b border-[var(--bb-mahogany)]/20' : ''}`}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
