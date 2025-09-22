@@ -47,18 +47,18 @@ export default function TopBar() {
   return (
     <header
       className={[
-        "sticky top-0 z-50 border-b transition-all relative",
+        "sticky top-0 z-50 transition-all relative",
         scrolled
-          ? "bg-[var(--neutral-100)]/95 supports-[backdrop-filter]:backdrop-blur-xl border-[var(--neutral-200)] shadow-[0_4px_20px_rgba(0,0,0,0.06)]"
-          : "bg-[var(--neutral-100)]/85 supports-[backdrop-filter]:backdrop-blur-md border-[var(--neutral-200)]",
+          ? "bg-[var(--neutral-50)]/60 supports-[backdrop-filter]:backdrop-blur-md border-b border-[var(--neutral-200)] shadow-[0_2px_10px_rgba(0,0,0,0.04)]"
+          : "bg-transparent border-transparent shadow-none"
       ].join(" ")}
       role="banner"
     >
-      {/* Subtle neutral hairline */}
-      <div className="h-px w-full" style={{background: "linear-gradient(90deg, rgba(0,0,0,0), var(--neutral-200), rgba(0,0,0,0))"}} />
+      {/* Subtle neutral hairline (disabled for transparent header) */}
+      <div className="hidden" />
 
-      {/* Background: center image at intrinsic size + stretched edge fills */}
-      <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+      {/* Background disabled for transparent header */}
+      <div className="absolute inset-0 z-0 overflow-hidden hidden" aria-hidden="true">
         {/* Left stretch (stretched edge fill, no blur tint) */}
         <div
           className="absolute top-0 left-0 h-full"

@@ -1,5 +1,8 @@
 "use client";
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
+import StoreLocator from 'components/locator/StoreLocator';
+import TopSixFlip from '@/components/TopSixFlip';
 
 export default function HomePage() {
 const [scrollY, setScrollY] = useState(0);
@@ -14,7 +17,7 @@ const [scrollY, setScrollY] = useState(0);
   return (
     <div className="min-h-screen bg-[#F9E7C9]">
       {/* Hero Section - Reduced Size */}
-      <section className="relative h-[75vh] flex items-center justify-center overflow-hidden bg-[#4c0c00]">
+      <section className="relative h-[75vh] flex items-center justify-center overflow-hidden bg-[var(--bb-mahogany)]">
         {/* Hero Background Image - FIXED */}
         <div className="absolute inset-0 z-0">
           <img
@@ -125,10 +128,14 @@ const [scrollY, setScrollY] = useState(0);
                 <div>
                   <div className="card-premium overflow-hidden hover-glow fade-in-up rounded-2xl h-full" style={{ animationDelay: '0.6s' }}>
                     <div className="relative h-full overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
-                      <img
-                        src="/Promotins/pm2.png"
+                      <Image
+                        src="/Block%202.png"
                         alt="Top Sellers"
-                        className="absolute inset-0 w-full h-full object-cover"
+                        fill
+                        priority
+                        sizes="(max-width: 1024px) 50vw, 25vw"
+                        className="object-cover"
+                        style={{ objectPosition: 'center 30%' }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                       <div className="absolute bottom-4 left-4 right-4">
@@ -142,10 +149,14 @@ const [scrollY, setScrollY] = useState(0);
                 <div>
                   <div className="card-premium overflow-hidden hover-glow fade-in-up rounded-2xl h-full" style={{ animationDelay: '0.9s' }}>
                     <div className="relative h-full overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
-                      <img
-                        src="/Promotins/pm3.png"
+                      <Image
+                        src="/Block%203.png"
                         alt="On Sale"
-                        className="absolute inset-0 w-full h-full object-cover"
+                        fill
+                        priority
+                        sizes="(max-width: 1024px) 50vw, 25vw"
+                        className="object-cover"
+                        style={{ objectPosition: 'center 40%' }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                       <div className="absolute bottom-4 left-4 right-4">
@@ -160,28 +171,19 @@ const [scrollY, setScrollY] = useState(0);
         </div>
       </section>
 
-      {/* Find your closest outlet block */}
-      <section className="space-luxury bg-[#F9E7C9] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-          <h2 className="text-5xl lg:text-6xl font-light text-[#2C2B29] leading-tight mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
-            Find your closest outlet
-          </h2>
-          <p className="text-lg text-[#7A7771] max-w-2xl mx-auto mb-10">Search our growing list of trusted stockists near you.</p>
-          <a href="/locator" className="btn btn-primary inline-flex" style={{ backgroundColor: '#BB4500', borderColor: '#BB4500' }}>
-            Locator
-          </a>
+      {/* Rotating Product Section */}
+      <TopSixFlip />
+
+      {/* Store Locator block (embedded in the original section container) */}
+      <section className="bg-[#F9E7C9] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <StoreLocator />
         </div>
       </section>
 
 
-      {/* Philosophy Section - Rich Background */}
-      <section className="space-luxury bg-[#F9E7C9] relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-[#8B4513] rounded-full blur-3xl transform -translate-x-48 -translate-y-48"></div>
-          <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#2C2B29] rounded-full blur-2xl transform translate-x-32 translate-y-32"></div>
-        </div>
-        
+      {/* Stockist Section - Green Gradient */}
+      <section className="space-luxury relative overflow-hidden bg-[linear-gradient(135deg,_#CBD67E_0%,_#A7B958_35%,_#6E7B3B_65%,_#2F3326_100%)]">
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <div className="space-y-12 fade-in-up">
             <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/20 border border-[#2C2B29]/20 rounded-full">
