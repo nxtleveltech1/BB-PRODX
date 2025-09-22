@@ -28,9 +28,8 @@ const [scrollY, setScrollY] = useState(0);
           />
         </div>
           
-          {/* Cinematic Gradient Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/30 to-black/70 z-10 pointer-events-none"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#2C2B29]/40 via-transparent to-transparent z-10 pointer-events-none"></div>
+          {/* Overlay (solid) */}
+          <div className="absolute inset-0 bg-black/50 z-10 pointer-events-none"></div>
           
           {/* Premium Film Grain */}
           <div className="absolute inset-0 grain-texture opacity-20 z-10 pointer-events-none"></div>
@@ -100,7 +99,7 @@ const [scrollY, setScrollY] = useState(0);
                 {/* Top: Natural Ingredients video spans full width (top third) */}
                 <div className="col-span-2 row-start-1 row-end-2">
                   <div className="card-premium overflow-hidden hover-glow parallax-hover fade-in-up rounded-2xl h-full" style={{ animationDelay: '0.3s' }}>
-                    <div className="relative h-full overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
+                    <div className="relative h-full overflow-hidden bg-[#F9E7C9]">
                       <video
                         className="absolute inset-0 w-full h-full object-cover transition-all duration-700 hover:scale-110"
                         autoPlay
@@ -111,7 +110,7 @@ const [scrollY, setScrollY] = useState(0);
                       >
                         <source src="/Home Pg Vid 1.mp4" type="video/mp4" />
                       </video>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                      <div className="absolute inset-0 bg-black/40"></div>
                       <div className="absolute bottom-6 left-6 right-6">
                         <div className="glass-luxury p-4 rounded-xl">
                           <h3 className="text-white text-2xl md:text-3xl font-light mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -127,7 +126,7 @@ const [scrollY, setScrollY] = useState(0);
                 {/* Bottom Left: Top Sellers (bottom two-thirds, left column) */}
                 <div className="row-start-2 col-start-1">
                   <div className="card-premium overflow-hidden hover-glow fade-in-up rounded-2xl h-full" style={{ animationDelay: '0.6s' }}>
-                    <div className="relative h-full overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
+                    <div className="relative h-full overflow-hidden bg-[#F9E7C9]">
                       <Image
                         src="/Block%202.png"
                         alt="Top Sellers"
@@ -148,7 +147,7 @@ const [scrollY, setScrollY] = useState(0);
                 {/* Bottom Right: On Sale (bottom two-thirds, right column) */}
                 <div className="row-start-2 col-start-2">
                   <div className="card-premium overflow-hidden hover-glow fade-in-up rounded-2xl h-full" style={{ animationDelay: '0.9s' }}>
-                    <div className="relative h-full overflow-hidden bg-gradient-to-br from-[#F9E7C9] to-[#f5e1b8]">
+                    <div className="relative h-full overflow-hidden bg-[#F9E7C9]">
                       <Image
                         src="/Block%203.png"
                         alt="On Sale"
@@ -158,7 +157,7 @@ const [scrollY, setScrollY] = useState(0);
                         className="object-cover"
                         style={{ objectPosition: 'center 40%' }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      <div className="absolute inset-0 bg-black/40"></div>
                       <div className="absolute bottom-4 left-4 right-4">
                         <h4 className="text-white text-base md:text-lg font-medium">On Sale</h4>
                       </div>
@@ -182,8 +181,8 @@ const [scrollY, setScrollY] = useState(0);
       </section>
 
 
-      {/* Stockist Section - Green Gradient */}
-      <section className="space-luxury relative overflow-hidden bg-[linear-gradient(135deg,_#CBD67E_0%,_#A7B958_35%,_#6E7B3B_65%,_#2F3326_100%)]">
+      {/* Stockist Section - Solid Green */}
+      <section className="space-luxury relative overflow-hidden bg-[#A7B958]">
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <div className="space-y-12 fade-in-up">
             <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/20 border border-[#2C2B29]/20 rounded-full">

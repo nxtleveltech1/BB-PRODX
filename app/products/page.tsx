@@ -301,12 +301,9 @@ export default function ProductsPage() {
         </div>
 
         {/* Consultation CTA - Dramatic Background */}
-        <section className="py-24 bg-gradient-to-r from-[var(--bb-mahogany)] to-[var(--bb-black-bean)] relative overflow-hidden">
+        <section className="py-24 bg-[var(--bb-mahogany)] relative overflow-hidden">
           {/* Background Elements */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-64 h-64 bg-[var(--bb-citron)] rounded-full blur-2xl transform -translate-x-32 -translate-y-32"></div>
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-[var(--bb-champagne)] rounded-full blur-3xl transform translate-x-48 translate-y-48"></div>
-          </div>
+            <div className="absolute inset-0 opacity-10"></div>
           
           <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
             <div className="space-y-10">
