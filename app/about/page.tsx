@@ -17,7 +17,7 @@ export default function AboutPage() {
         {/* Hero Text (matching home page style) */}
         <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
           <div className="min-h-[80vh] pt-24 flex flex-col items-center justify-center text-center">
-            <h1 className="text-hero text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-6">Products that earn their place in your day</h1>
+            <h1 className="text-hero text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-6">PRODUCTS THAT EARN THEIR PLACE IN YOUR DAY</h1>
           </div>
         </div>
         {/* Keep a spacer for absolute header overlap */}
