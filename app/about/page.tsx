@@ -12,6 +12,15 @@ export default function AboutPage() {
             className="w-full h-full object-cover"
           />
         </div>
+        {/* Subtle overlay for text readability */}
+        <div className="absolute inset-0 bg-black/40 z-10 pointer-events-none"></div>
+        {/* Hero Text (matching home page style) */}
+        <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
+          <div className="min-h-[80vh] pt-24 flex flex-col items-center justify-center text-center">
+            <h1 className="text-hero text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-6">BETTER BEGINS HERE</h1>
+            <p className="text-subhero text-white/90 mb-10">Products that earn their place in your day</p>
+          </div>
+        </div>
         {/* Keep a spacer for absolute header overlap */}
         <div className="h-20"></div>
       </section>
