@@ -114,147 +114,66 @@ export default function ProductsPage() {
   return (
     <>
       {/* Mobile View */}
-      <div className="min-h-screen bg-white block md:hidden pb-[calc(env(safe-area-inset-bottom)+72px)]">
-        {/* Mobile Header with Menu */}
-        <div className="bg-white px-4 py-3 flex items-center justify-between border-b border-gray-100">
-          <div className="flex items-center gap-4">
-            <button className="p-2">
-              <div className="w-6 h-6 flex flex-col justify-center gap-1">
-                <div className="w-full h-0.5 bg-[var(--bb-mahogany)]"></div>
-                <div className="w-full h-0.5 bg-[var(--bb-mahogany)]"></div>
-                <div className="w-full h-0.5 bg-[var(--bb-mahogany)]"></div>
-              </div>
-            </button>
-            <div className="text-2xl font-light text-[var(--bb-mahogany)]" style={{ fontFamily: 'Prata, Georgia, serif' }}>
-              Better Being
-            </div>
-          </div>
-          <div className="w-10 h-10 rounded-full border-2 border-[var(--bb-mahogany)] flex items-center justify-center">
-            <span className="text-[var(--bb-mahogany)] font-bold text-sm">BB</span>
-          </div>
-        </div>
-
-        {/* Category Navigation */}
-        <div className="bg-white px-4 py-2 flex gap-2 overflow-x-auto">
-          <button className="bg-[var(--bb-black-bean)] text-white px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap">
-            SALE!
-          </button>
-          <button className="bg-[var(--bb-mahogany)] text-white px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap">
-            UNDER R250
-          </button>
-          <button className="bg-[var(--bb-black-bean)] text-white px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap">
-            TOP SELLERS
-          </button>
-          <button className="bg-[var(--bb-mahogany)] text-white px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap">
-            SEE ALL
-          </button>
-        </div>
-
-        {/* Free Delivery Banner */}
-        <div className="bg-[var(--bb-citron)] text-center py-2 text-black font-bold text-sm">
-          FREE DELIVERY FOR ORDERS OVER R800
-        </div>
-
-        {/* Featured Products Carousel */}
-        <div className="p-4">
-          <div className="relative bg-gray-100 rounded-lg overflow-hidden mb-4">
-            <img 
-              src="/assets_task_01k3pzrsb6fjmt46d7c18qp9zt_1756339480_img_0.webp" 
-              alt="Featured wellness products" 
-              className="w-full h-48 object-cover"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src = '/assets_task_01jyyj4jt3e9atxgmk5jjt6s6n_1751224862_img_0.webp';
-              }}
+      <div className="block md:hidden bg-[#F9E7C9]">
+        {/* Mobile Hero */}
+        <section className="relative min-h-[56vh] bg-[var(--bb-hero-surround)] overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <img
+              src="/products-hero.png"
+              alt="Shop hero"
+              className="w-full h-full object-cover"
             />
-            <button className="absolute top-4 right-4 bg-white/80 px-3 py-1 rounded text-sm">
-              More {">"}
-            </button>
           </div>
-        </div>
-
-        {/* This Week's Highlight */}
-        <div className="px-4 mb-4">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-medium">This Week's Highlight!</h2>
-            <button className="text-sm text-[var(--bb-mahogany)]">See All</button>
-          </div>
-          
-          <div className="flex gap-4 overflow-x-auto">
-            {displayProducts.slice(0, 3).map((product: any, index: number) => {
-              const localImages = [
-                '/assets_task_01jyyj4jt3e9atxgmk5jjt6s6n_1751224862_img_0.webp',
-                '/assets_task_01k41a33mcfmnbrtp0g4gzy59e_1756685796_img_0.webp',
-                '/assets_task_01k3rk2604ex79awdqzxk2z4ff_1756393225_img_1.webp'
-              ];
-              return (
-                <div key={product.id} className="flex-shrink-0 w-32" style={{ fontFamily: 'League Spartan, sans-serif' }}>
-                  <div className="relative bg-[var(--bb-champagne)] overflow-hidden mb-2">
-                    <img 
-                      src={product.image || localImages[index]}
-                      alt={product.name}
-                      className="w-full h-24 object-contain p-2"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = localImages[index];
-                      }}
-                    />
-                  </div>
-                  <div className="text-center">
-                    <h3 className="text-xs font-medium mb-1 line-clamp-2">{product.name}</h3>
-                    <p className="text-sm font-bold">R{typeof product.price === 'string' ? product.price.replace('R', '') : product.price}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Store Locator */}
-        <div className="px-4 mb-4">
-          <h3 className="text-base font-medium mb-4">Go look for us at an outlet near you</h3>
-          <div className="flex items-center gap-4">
-            <div className="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center">
-              <span className="text-green-600 text-xl">🏪</span>
+          <div className="absolute inset-0 bg-black/40 z-10" />
+          <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
+            <div className="min-h-[56vh] pt-16 flex flex-col items-center justify-center text-center">
+              <h1 className="text-4xl font-light text-white tracking-[0.18em]" style={{ fontFamily: 'Playfair Display, serif' }}>
+                SHOP
+              </h1>
+              <div className="w-16 h-px bg-[var(--bb-citron)] mt-4" />
             </div>
-            <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center">
-              <span className="text-blue-600 text-sm font-bold">takeaLot</span>
-            </div>
-            <div className="w-16 h-16 bg-green-600 rounded-lg flex items-center justify-center">
-              <span className="text-white text-xs font-bold">Faithful to Nature</span>
-            </div>
-            <button className="w-16 h-16 bg-orange-500 rounded-lg flex items-center justify-center">
-              <span className="text-white text-xs">📍 find your local</span>
-            </button>
+          </div>
+        </section>
+
+        {/* Category Chips */}
+        <div className="px-4 py-4 bg-[#F9E7C9] border-b border-[var(--bb-mahogany)]/10 overflow-x-auto">
+          <div className="flex items-center gap-2 min-w-max">
+            {[
+              { label: 'All', href: '/products' },
+              { label: 'Supplements', href: '/products?category=supplements' },
+              { label: 'Skincare', href: '/products?category=skincare' },
+              { label: 'Wellness', href: '/products?category=wellness' },
+              { label: 'Under R250', href: '/products?maxPrice=250' },
+              { label: 'Sale', href: '/products?sale=true' },
+            ].map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="px-4 py-2 rounded-full text-xs uppercase tracking-wider whitespace-nowrap bg-[var(--bb-black-bean)] text-white hover:bg-[var(--bb-mahogany)] transition-colors"
+                style={{ fontFamily: 'League Spartan, sans-serif' }}
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
         </div>
 
-        {/* Bottom Navigation */}
-        <div className="fixed bottom-0 left-0 right-0 bg-[var(--bb-mahogany)] text-white flex pad-safe-bottom">
-          <button className="flex-1 py-4 text-center">
-            <div className="text-lg mb-1">🏠</div>
-            <div className="text-xs">HOME</div>
+        {/* Sort / Filter Bar */}
+        <div className="px-4 py-3 bg-[#F9E7C9] border-b border-[var(--bb-mahogany)]/10 flex items-center justify-between">
+          <button className="text-xs uppercase tracking-wider px-3 py-2 border border-[var(--bb-mahogany)]/20 text-[var(--bb-black-bean)]" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+            Filter
           </button>
-          <button className="flex-1 py-4 text-center">
-            <div className="text-lg mb-1">🛒</div>
-            <div className="text-xs">CART</div>
-          </button>
-          <button className="flex-1 py-4 text-center">
-            <div className="text-lg mb-1">🔍</div>
-            <div className="text-xs">SEARCH</div>
-          </button>
-          <button className="flex-1 py-4 text-center">
-            <div className="text-lg mb-1">📚</div>
-            <div className="text-xs">CATEGORY</div>
-          </button>
-          <button className="flex-1 py-4 text-center">
-            <div className="text-lg mb-1">❓</div>
-            <div className="text-xs">HELP</div>
+          <button className="text-xs uppercase tracking-wider px-3 py-2 border border-[var(--bb-mahogany)]/20 text-[var(--bb-black-bean)]" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+            Sort
           </button>
         </div>
 
-        {/* Bottom padding for fixed navigation */}
-        <div className="h-24"></div>
+        {/* Products Grid */}
+        <div className="px-4 py-6 grid grid-cols-2 gap-4">
+          {displayProducts.map((product: any) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
       </div>
 
       {/* Desktop View */}
