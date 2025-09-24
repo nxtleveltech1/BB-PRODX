@@ -7,7 +7,7 @@ export default function AboutPage() {
       <section className="relative min-h-[80vh] bg-[var(--bb-hero-surround)] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/20250902.png"
+            src="/Platform Graphics/About - Hero Banner.png"
             alt="About hero"
             className="w-full h-full object-cover"
           />

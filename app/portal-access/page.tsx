@@ -5,13 +5,20 @@ export default function PortalAccessPage() {
     <div className="min-h-screen">
       {/* Hero Section - Brand Colors */}
       <section className="relative min-h-[90vh] bg-gradient-to-br from-[var(--bb-mahogany)] via-[var(--bb-black-bean)] to-[var(--bb-payne-gray)] text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/Platform Graphics/outlet hero banner.png"
+            alt="Outlet hero"
+            className="w-full h-full object-cover"
+          />
+        </div>
         {/* Background Elements */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-10 z-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--bb-citron)] rounded-full blur-3xl transform translate-x-32 -translate-y-32"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--bb-champagne)] rounded-full blur-2xl transform -translate-x-16 translate-y-16"></div>
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 flex items-center min-h-[90vh]">
+        <div className="relative z-20 max-w-7xl mx-auto px-6 py-32 flex items-center min-h-[90vh]">
           <div className="max-w-5xl mx-auto text-center space-y-12">
             <p className="text-[var(--bb-citron)] text-sm font-medium uppercase tracking-[0.2em] opacity-90">Portal Access</p>
             <h1 className="text-5xl md:text-6xl font-light leading-[0.95] text-white" style={{ fontFamily: 'Prata, Georgia, serif' }}>

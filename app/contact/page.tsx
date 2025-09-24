@@ -30,7 +30,7 @@ export default function ContactPage() {
       <section className="relative min-h-[60vh] bg-[var(--bb-hero-surround)] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/Add ass heading (1).png"
+            src="/Platform Graphics/Contact Us banner.png"
             alt="Contact hero"
             className="w-full h-full object-cover"
           />

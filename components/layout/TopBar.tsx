@@ -15,8 +15,8 @@ import { useCart } from "../../contexts/CartContext";
 const NAV_LINKS = [
   { href: "/products", label: "Shop" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Help" },
-{ href: "/portal-access", label: "Outlet Application" },
+  { href: "/contact", label: "Contact Us" },
+  { href: "/portal-access", label: "Outlet" },
 ];
 
 export default function TopBar() {

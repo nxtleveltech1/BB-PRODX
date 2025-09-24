@@ -20,7 +20,7 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-6 text-white/80 absolute left-1/2 -translate-x-1/2">
           <Link href="/products" className="hover:text-white transition-colors">Shop</Link>
           <Link href="/about" className="hover:text-white transition-colors">About</Link>
-          <Link href="/contact" className="hover:text-white transition-colors">Help</Link>
+          <Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link>
         </nav>
 
         {/* Actions */}
