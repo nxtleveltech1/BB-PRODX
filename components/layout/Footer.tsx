@@ -14,12 +14,13 @@ export default function Footer() {
       <div className="relative bg-[#F9E7C9]">
         {/* Background Pattern Image */}
         <div 
-          className="absolute inset-0 bg-repeat"
+          className="absolute inset-0 bg-no-repeat"
           style={{
-            backgroundImage: `url('/Purple\\ Abstract\\ Lintree\\ Background\\ (1366\\ x\\ 768\\ px)\\ (5).png')`,
+            backgroundImage: `url('/Platform Graphics/Web Footer.png')`,
+            backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            opacity: 0.08
+            opacity: 1
           }}
         />
         
