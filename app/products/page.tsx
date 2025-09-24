@@ -101,6 +101,79 @@ function ProductCard({ product }: { product: any }) {
   );
 }
 
+function MobileProductCard({ product }: { product: any }) {
+  const { addItem } = useCart();
+  const toNumber = (v: any) => typeof v === 'number' ? v : Number(String(v ?? '').replace(/[^0-9.]/g, '')) || 0;
+  const priceNum = toNumber(product.price);
+  const origNum = product.originalPrice != null ? toNumber(product.originalPrice) : NaN;
+  const onSale = Number.isFinite(origNum) && origNum > priceNum;
+  const discount = onSale ? Math.round(((origNum - priceNum) / origNum) * 100) : 0;
+
+  const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    try {
+      addItem({
+        id: Date.now(),
+        product_id: product.id,
+        quantity: 1,
+        product_name: product.name,
+        product_description: product.description,
+        product_image: product.image || "/placeholder.svg",
+        product_price: typeof product.price === 'string' ? product.price.replace(/^R/, '') : String(product.price),
+        product_original_price: typeof product.originalPrice === 'string' ? product.originalPrice.replace(/^R/, '') : (product.originalPrice ? String(product.originalPrice) : undefined),
+        product_in_stock: product.inStock !== false,
+        product_stock_count: product.stockCount || 1,
+        category_name: product.categoryId || undefined,
+      });
+    } catch (_err) {}
+  };
+
+  return (
+    <div className="bg-white rounded-xl overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.08)] group flex flex-col">
+      <div className="relative aspect-square bg-[var(--bb-champagne)]">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.style.display = 'none';
+          }}
+        />
+        <div className="absolute top-3 left-3 flex gap-2">
+          {product.popular && (
+            <span className="px-2 py-1 text-[10px] uppercase tracking-wider bg-[var(--bb-black-bean)] text-white">Top Seller</span>
+          )}
+          {onSale && (
+            <span className="px-2 py-1 text-[10px] uppercase tracking-wider bg-[var(--bb-citron)] text-[var(--bb-black-bean)]">-{discount}%</span>
+          )}
+        </div>
+      </div>
+      <div className="p-3 flex flex-col gap-2">
+        <h3 className="text-sm font-semibold leading-snug text-[var(--bb-black-bean)] line-clamp-2" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+          {product.name}
+        </h3>
+        <div className="flex items-center gap-2">
+          <span className="text-[var(--bb-mahogany)] font-semibold">{typeof product.price === 'string' ? product.price : `R${product.price}`}</span>
+          {onSale && (
+            <span className="text-xs text-[var(--bb-payne-gray)] line-through">
+              {typeof product.originalPrice === 'string' ? product.originalPrice : `R${product.originalPrice}`}
+            </span>
+          )}
+        </div>
+        <button
+          onClick={handleAddToCart}
+          className="mt-1 w-full bg-[var(--bb-black-bean)] text-white py-2 text-xs tracking-wider uppercase rounded transition-colors hover:bg-[var(--bb-mahogany)]"
+          style={{ fontFamily: 'League Spartan, sans-serif' }}
+        >
+          Add to cart
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export default function ProductsPage() {
   
   // Temporarily disable API call and use local products directly
@@ -115,6 +188,7 @@ export default function ProductsPage() {
 
   const category = searchParams.get("category") || "";
   const saleParam = searchParams.get("sale") === "true";
+  const popularParam = searchParams.get("popular") === "true";
   const maxPriceParam = Number.parseInt(searchParams.get("maxPrice") || "")
   const maxPrice = Number.isFinite(maxPriceParam) ? maxPriceParam : undefined;
   const sort = searchParams.get("sort") || "";
@@ -133,7 +207,8 @@ export default function ProductsPage() {
       const categoryOk = !category || p.categoryId === category;
       const saleOk = !saleParam || isOnSale(p);
       const priceOk = maxPrice === undefined || toNumber(p.price) <= (maxPrice as number);
-      return categoryOk && saleOk && priceOk;
+      const popularOk = !popularParam || p.popular === true;
+      return categoryOk && saleOk && priceOk && popularOk;
     });
 
     const arr = [...base];
@@ -154,7 +229,7 @@ export default function ProductsPage() {
         break;
     }
     return arr;
-  }, [category, saleParam, maxPrice, sort]);
+  }, [category, saleParam, popularParam, maxPrice, sort]);
 
   // UI state for mobile sheets
   const [filterOpen, setFilterOpen] = useState(false);
@@ -180,6 +255,8 @@ export default function ProductsPage() {
     if (draftCategory) params.set("category", draftCategory); else params.delete("category");
     if (draftPrice) params.set("maxPrice", draftPrice); else params.delete("maxPrice");
     if (draftSale) params.set("sale", "true"); else params.delete("sale");
+    // Preserve popular param if already in URL
+    if (popularParam) params.set("popular", "true");
     router.push(`/products?${params.toString()}`);
     setFilterOpen(false);
   };
@@ -220,15 +297,21 @@ export default function ProductsPage() {
           </div>
         </section>
 
+        {/* Micro Banner */}
+        <div className="px-4 py-2 bg-[var(--bb-citron)] text-center text-[var(--bb-black-bean)] text-xs font-bold tracking-wider">
+          FREE DELIVERY FOR ORDERS OVER R800
+        </div>
+
         {/* Category Chips */}
         <div className="px-4 py-4 bg-[#F9E7C9] border-b border-[var(--bb-mahogany)]/10 overflow-x-auto">
           <div className="flex items-center gap-2 min-w-max">
             {[
-              { label: 'All', href: '/products', active: !category && !saleParam && maxPrice === undefined },
+              { label: 'All', href: '/products', active: !category && !saleParam && !popularParam && maxPrice === undefined },
               { label: 'Wellness Essentials', href: '/products?category=wellness-essentials', active: category === 'wellness-essentials' },
               { label: 'Natural Skincare', href: '/products?category=natural-skincare', active: category === 'natural-skincare' },
               { label: 'Digital Wellness', href: '/products?category=digital-products', active: category === 'digital-products' },
               { label: 'Under R250', href: '/products?maxPrice=250', active: maxPrice === 250 },
+              { label: 'Top Sellers', href: '/products?popular=true', active: popularParam },
               { label: 'Sale', href: '/products?sale=true', active: saleParam },
             ].map(({ label, href, active }) => (
               <Link
@@ -256,7 +339,7 @@ export default function ProductsPage() {
         {/* Products Grid */}
         <div className="px-4 py-6 grid grid-cols-2 gap-4">
           {filteredProducts.map((product: any) => (
-            <ProductCard key={product.id} product={product} />
+            <MobileProductCard key={product.id} product={product} />
           ))}
         </div>
         {/* Filter Sheet */}
@@ -308,10 +391,18 @@ export default function ProductsPage() {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3">
                   <label className="flex items-center gap-2 text-[var(--bb-black-bean)]">
                     <input type="checkbox" checked={draftSale} onChange={(e) => setDraftSale(e.target.checked)} />
                     <span className="text-sm" style={{ fontFamily: 'Playfair Display, serif' }}>Sale items only</span>
+                  </label>
+                  <label className="flex items-center gap-2 text-[var(--bb-black-bean)]">
+                    <input type="checkbox" checked={popularParam} onChange={(e) => {
+                      const params = new URLSearchParams(searchParams as any);
+                      if (e.target.checked) params.set('popular', 'true'); else params.delete('popular');
+                      router.push(`/products?${params.toString()}`);
+                    }} />
+                    <span className="text-sm" style={{ fontFamily: 'Playfair Display, serif' }}>Top sellers only</span>
                   </label>
                 </div>
 
