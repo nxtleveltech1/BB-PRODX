@@ -33,30 +33,30 @@ export default function AboutPage() {
               <div className="space-y-6">
                 <p className="text-[var(--bb-black-bean)] text-sm font-medium uppercase tracking-[0.2em] opacity-80">Philosophy</p>
                 <h2 className="text-3xl md:text-5xl font-light text-[var(--bb-black-bean)] leading-tight" style={{ fontFamily: 'Prata, Georgia, serif' }}>
-                  Rituals for a <em className="text-[var(--bb-mahogany)]">Life Well Lived</em>
+                  Born from a Simple Conviction
                 </h2>
                 <div className="w-16 h-px bg-[var(--bb-mahogany)]"></div>
                 <div className="space-y-6 text-lg leading-relaxed text-[var(--bb-black-bean)] font-light">
                   <p>
-                    Better Being was born from a simple belief: wellness shouldn't be complicated. 
-                    In a world of endless supplements and complex regimens, we chose a different path.
+                    Better Being was born from a simple conviction: wellness should work, feel honest, and be
+                    accessible to all. We care—about lives, truth, and impact—and we show it in the way we
+                    source, formulate, and speak. We make products that work and hold to principles that don’t
+                    bend. Built on care. Driven by success.
                   </p>
                   <p>
-                    We curate products that work—adaptogenic herbs for stress, mineral-rich superfoods 
-                    for vitality, and plant medicines for deeper rest. Each product tells a story of 
-                    careful sourcing, traditional wisdom, and modern understanding.
+                    We exist to remove the noise between people and what helps them feel better. No theatrics, no
+                    shortcuts—just thoughtful making, clear language, and products that earn their place in your
+                    day.
                   </p>
-                  <p>
-                    This is wellness without the noise. Products with purpose. Rituals that ground you.
-                  </p>
+                  <p className="italic">- Better Being Founding Team</p>
                 </div>
               </div>
             </div>
             
             <div className="aspect-[4/5] relative overflow-hidden">
               <img 
-                src="/assets_task_01jyyj4jt3e9atxgmk5jjt6s6n_1751224862_img_0.webp"
-                alt="Natural wellness - water droplet on leaf"
+                src="/Platform Graphics/About Philosophy.png"
+                alt="About philosophy"
                 className="w-full h-full object-cover"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
