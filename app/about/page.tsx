@@ -81,61 +81,42 @@ export default function AboutPage() {
           <div className="text-center mb-12 md:mb-20">
             <p className="text-[var(--bb-payne-gray)] text-sm font-medium uppercase tracking-[0.2em] mb-6">Our Commitment</p>
             <h2 className="text-3xl md:text-5xl font-light text-[var(--bb-black-bean)] max-w-2xl mx-auto leading-tight" style={{ fontFamily: 'Prata, Georgia, serif' }}>
-              What We <em className="text-[var(--bb-mahogany)]">Stand For</em>
+              How we think (and make)
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {[
               {
-                icon: "🌱",
-                title: "Thoughtfully Sourced",
-                description: "Every ingredient is carefully selected from ethical suppliers who share our values.",
-                bgColor: "bg-[var(--bb-mahogany)]",
-                textColor: "text-white",
-                accentColor: "text-[var(--bb-citron)]"
+                icon: "/Platform Graphics/lab meets nature icon.png",
+                title: "Lab-meets-nature",
+                description: "We start with evidence, learn from nature, and iterate until the result is both effective and ethical.",
               },
               {
-                icon: "🔬",
-                title: "Science-Backed", 
-                description: "Traditional wisdom meets modern research. We choose what works, backed by evidence.",
-                bgColor: "bg-[var(--bb-black-bean)]",
-                textColor: "text-white",
-                accentColor: "text-[var(--bb-champagne)]"
+                icon: "/Platform Graphics/good only icon.png",
+                title: "Good only",
+                description: "If it doesn’t meet our standard, it doesn’t make the shelf—ingredients, partners, and practices included.",
               },
               {
-                icon: "🏔️",
-                title: "Pure & Potent",
-                description: "No fillers, no shortcuts. Just pure, potent ingredients at therapeutic dosages.",
-                bgColor: "bg-[var(--bb-citron)]",
-                textColor: "text-[var(--bb-black-bean)]",
-                accentColor: "text-[var(--bb-mahogany)]"
+                icon: "/Platform Graphics/deep thinkers bold doers icon.png",
+                title: "Deep thinkers. Bold doers",
+                description: "We ask harder questions, make the brave call, and build what doesn’t exist—then we stand behind the results.",
               },
               {
-                icon: "📖",
-                title: "Story-Driven",
-                description: "Each product has a story. We share the journey from source to shelf transparently.",
-                bgColor: "bg-[var(--bb-payne-gray)]",
-                textColor: "text-white",
-                accentColor: "text-[var(--bb-citron)]"
-              }
-            ].map((value, index) => (
-              <div key={index} className={`${value.bgColor} p-8 group hover:scale-105 transition-all duration-500 relative overflow-hidden`}>
-                {/* Subtle gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                <div className="relative z-10 text-center space-y-6">
-                  <div className="w-16 h-16 mx-auto bg-white/10 group-hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300">
-                    <span className="text-3xl">{value.icon}</span>
-                  </div>
-                  <div className="space-y-4">
-                    <h3 className={`text-xl font-light ${value.textColor} group-hover:${value.accentColor} transition-colors duration-300`} style={{ fontFamily: 'Prata, Georgia, serif' }}>
-                      {value.title}
-                    </h3>
-                    <p className={`${value.textColor} opacity-90 leading-relaxed text-sm`}>
-                      {value.description}
-                    </p>
-                  </div>
+                icon: "/Platform Graphics/accessible by design icon.png",
+                title: "Accessible by design",
+                description: "We build what works and price it with integrity—no hype tax, no bloated margins—so wellness isn’t a luxury; it’s everyday",
+              },
+            ].map((item, index) => (
+              <div key={index} className="bg-white p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div className="flex flex-col items-start text-left space-y-4">
+                  <img src={item.icon} alt={`${item.title} icon`} className="w-12 h-12 object-contain" />
+                  <h3 className="text-xl font-semibold tracking-wide" style={{ fontFamily: 'League Spartan, sans-serif', color: 'var(--bb-black-bean)' }}>
+                    {item.title}
+                  </h3>
+                  <p className="text-base leading-relaxed" style={{ fontFamily: 'Playfair Display, serif', color: 'var(--bb-payne-gray)' }}>
+                    {item.description}
+                  </p>
                 </div>
               </div>
             ))}
