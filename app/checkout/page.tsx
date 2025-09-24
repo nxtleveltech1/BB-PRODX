@@ -159,6 +159,18 @@ export default function CheckoutPage() {
   const total = subtotal + tax + shipping;
   const itemCount = getCartCount();
 
+  // Mobile CTA wiring
+  const mobileCtaLabel = currentStep === 'shipping'
+    ? 'Continue to Payment'
+    : currentStep === 'payment'
+      ? 'Review Order'
+      : `Place Order - R${total.toFixed(2)}`;
+  const mobileCtaAction = () => {
+    if (currentStep === 'shipping') return handleNextStep();
+    if (currentStep === 'payment') return handleNextStep();
+    return handlePlaceOrder();
+  };
+
   const steps = [
     { id: 'shipping', label: 'Shipping', icon: Truck },
     { id: 'payment', label: 'Payment', icon: CreditCard },
@@ -166,7 +178,7 @@ export default function CheckoutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[var(--bb-champagne)] py-8">
+    <div className="min-h-screen bg-[var(--bb-champagne)] py-8 pb-28 md:pb-8">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
@@ -211,6 +223,14 @@ export default function CheckoutPage() {
           </div>
         </div>
 
+        {/* Mobile summary strip */}
+        <div className="md:hidden mb-4 text-sm text-[var(--bb-black-bean)] flex items-center justify-between">
+          <span>
+            Subtotal R{subtotal.toFixed(2)} • Shipping {shipping === 0 ? 'FREE' : `R${shipping.toFixed(2)}`}
+          </span>
+          <span className="font-semibold">Total R{total.toFixed(2)}</span>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Form */}
           <div className="lg:col-span-2">
@@ -220,21 +240,21 @@ export default function CheckoutPage() {
                 <div>
                   <div className="flex items-center gap-3 mb-6">
                     <Truck className="w-6 h-6 text-[var(--bb-mahogany)]" />
-                    <h2 className="text-xl font-bold text-gray-900">Shipping Information</h2>
+                    <h2 className="text-xl font-bold text-[var(--bb-black-bean)]">Shipping Information</h2>
                   </div>
                   
                   <div className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-[var(--bb-black-bean)] mb-2">
                           First Name *
                         </label>
                         <input
                           type="text"
                           value={form.firstName}
                           onChange={(e) => handleInputChange('firstName', e.target.value)}
-                          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ba7500] ${
-                            errors.firstName ? 'border-red-500' : 'border-gray-300'
+                          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--bb-mahogany)] ${
+                            errors.firstName ? 'border-red-500' : 'border-[var(--bb-payne-gray)]/40'
                           }`}
                           placeholder="Enter your first name"
                         />
@@ -244,15 +264,15 @@ export default function CheckoutPage() {
                       </div>
                       
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-[var(--bb-black-bean)] mb-2">
                           Last Name *
                         </label>
                         <input
                           type="text"
                           value={form.lastName}
                           onChange={(e) => handleInputChange('lastName', e.target.value)}
-                          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ba7500] ${
-                            errors.lastName ? 'border-red-500' : 'border-gray-300'
+                          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--bb-mahogany)] ${
+                            errors.lastName ? 'border-red-500' : 'border-[var(--bb-payne-gray)]/40'
                           }`}
                           placeholder="Enter your last name"
                         />
@@ -264,15 +284,15 @@ export default function CheckoutPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-[var(--bb-black-bean)] mb-2">
                           Email Address *
                         </label>
                         <input
                           type="email"
                           value={form.email}
                           onChange={(e) => handleInputChange('email', e.target.value)}
-                          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ba7500] ${
-                            errors.email ? 'border-red-500' : 'border-gray-300'
+                          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--bb-mahogany)] ${
+                            errors.email ? 'border-red-500' : 'border-[var(--bb-payne-gray)]/40'
                           }`}
                           placeholder="Enter your email"
                         />
@@ -282,15 +302,15 @@ export default function CheckoutPage() {
                       </div>
                       
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-[var(--bb-black-bean)] mb-2">
                           Phone Number *
                         </label>
                         <input
                           type="tel"
                           value={form.phone}
                           onChange={(e) => handleInputChange('phone', e.target.value)}
-                          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ba7500] ${
-                            errors.phone ? 'border-red-500' : 'border-gray-300'
+                          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--bb-mahogany)] ${
+                            errors.phone ? 'border-red-500' : 'border-[var(--bb-payne-gray)]/40'
                           }`}
                           placeholder="+27 71 234 5678"
                         />
@@ -301,15 +321,15 @@ export default function CheckoutPage() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-[var(--bb-black-bean)] mb-2">
                         Street Address *
                       </label>
                       <input
                         type="text"
                         value={form.address}
                         onChange={(e) => handleInputChange('address', e.target.value)}
-                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ba7500] ${
-                          errors.address ? 'border-red-500' : 'border-gray-300'
+                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--bb-mahogany)] ${
+                          errors.address ? 'border-red-500' : 'border-[var(--bb-payne-gray)]/40'
                         }`}
                         placeholder="Enter your street address"
                       />
@@ -320,15 +340,15 @@ export default function CheckoutPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-[var(--bb-black-bean)] mb-2">
                           City *
                         </label>
                         <input
                           type="text"
                           value={form.city}
                           onChange={(e) => handleInputChange('city', e.target.value)}
-                          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ba7500] ${
-                            errors.city ? 'border-red-500' : 'border-gray-300'
+                          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--bb-mahogany)] ${
+                            errors.city ? 'border-red-500' : 'border-[var(--bb-payne-gray)]/40'
                           }`}
                           placeholder="City"
                         />
@@ -338,14 +358,14 @@ export default function CheckoutPage() {
                       </div>
                       
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-[var(--bb-black-bean)] mb-2">
                           Province *
                         </label>
                         <select
                           value={form.province}
                           onChange={(e) => handleInputChange('province', e.target.value)}
-                          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ba7500] ${
-                            errors.province ? 'border-red-500' : 'border-gray-300'
+                          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--bb-mahogany)] ${
+                            errors.province ? 'border-red-500' : 'border-[var(--bb-payne-gray)]/40'
                           }`}
                         >
                           <option value="">Select Province</option>
@@ -365,15 +385,15 @@ export default function CheckoutPage() {
                       </div>
                       
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-[var(--bb-black-bean)] mb-2">
                           Postal Code *
                         </label>
                         <input
                           type="text"
                           value={form.postalCode}
                           onChange={(e) => handleInputChange('postalCode', e.target.value)}
-                          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ba7500] ${
-                            errors.postalCode ? 'border-red-500' : 'border-gray-300'
+                          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--bb-mahogany)] ${
+                            errors.postalCode ? 'border-red-500' : 'border-[var(--bb-payne-gray)]/40'
                           }`}
                           placeholder="Postal Code"
                         />
@@ -435,20 +455,20 @@ export default function CheckoutPage() {
                 <div>
                   <div className="flex items-center gap-3 mb-6">
                     <CreditCard className="w-6 h-6 text-[var(--bb-mahogany)]" />
-                    <h2 className="text-xl font-bold text-gray-900">Payment Information</h2>
+                    <h2 className="text-xl font-bold text-[var(--bb-black-bean)]">Payment Information</h2>
                   </div>
                   
                   <div className="space-y-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-[var(--bb-black-bean)] mb-2">
                         Card Number *
                       </label>
                       <input
                         type="text"
                         value={form.cardNumber}
                         onChange={(e) => handleInputChange('cardNumber', e.target.value)}
-                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ba7500] ${
-                          errors.cardNumber ? 'border-red-500' : 'border-gray-300'
+                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--bb-mahogany)] ${
+                          errors.cardNumber ? 'border-red-500' : 'border-[var(--bb-payne-gray)]/40'
                         }`}
                         placeholder="1234 5678 9012 3456"
                         maxLength={19}
@@ -460,15 +480,15 @@ export default function CheckoutPage() {
 
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-[var(--bb-black-bean)] mb-2">
                           Expiry Date *
                         </label>
                         <input
                           type="text"
                           value={form.expiryDate}
                           onChange={(e) => handleInputChange('expiryDate', e.target.value)}
-                          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ba7500] ${
-                            errors.expiryDate ? 'border-red-500' : 'border-gray-300'
+                          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--bb-mahogany)] ${
+                            errors.expiryDate ? 'border-red-500' : 'border-[var(--bb-payne-gray)]/40'
                           }`}
                           placeholder="MM/YY"
                           maxLength={5}
@@ -479,15 +499,15 @@ export default function CheckoutPage() {
                       </div>
                       
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-[var(--bb-black-bean)] mb-2">
                           CVV *
                         </label>
                         <input
                           type="text"
                           value={form.cvv}
                           onChange={(e) => handleInputChange('cvv', e.target.value)}
-                          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ba7500] ${
-                            errors.cvv ? 'border-red-500' : 'border-gray-300'
+                          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--bb-mahogany)] ${
+                            errors.cvv ? 'border-red-500' : 'border-[var(--bb-payne-gray)]/40'
                           }`}
                           placeholder="123"
                           maxLength={4}
@@ -499,15 +519,15 @@ export default function CheckoutPage() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-[var(--bb-black-bean)] mb-2">
                         Cardholder Name *
                       </label>
                       <input
                         type="text"
                         value={form.cardholderName}
                         onChange={(e) => handleInputChange('cardholderName', e.target.value)}
-                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ba7500] ${
-                          errors.cardholderName ? 'border-red-500' : 'border-gray-300'
+                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--bb-mahogany)] ${
+                          errors.cardholderName ? 'border-red-500' : 'border-[var(--bb-payne-gray)]/40'
                         }`}
                         placeholder="Name as it appears on card"
                       />
@@ -520,7 +540,7 @@ export default function CheckoutPage() {
                   <div className="flex justify-between mt-8">
                     <button
                       onClick={() => setCurrentStep('shipping')}
-                      className="text-gray-600 hover:text-gray-800 transition-colors"
+                      className="text-[var(--bb-payne-gray)] hover:text-[var(--bb-black-bean)] transition-colors"
                     >
                       Back to Shipping
                     </button>
@@ -548,12 +568,12 @@ export default function CheckoutPage() {
                       <h3 className="font-semibold text-gray-900 mb-4">Order Items ({itemCount})</h3>
                       <div className="space-y-3">
                         {cartItems.map((item) => (
-                          <div key={item.id} className="flex justify-between items-center py-3 border-b">
+                          <div key={item.id} className="flex justify-between items-center py-3 border-b border-[var(--bb-payne-gray)]/30">
                             <div className="flex-1">
-                              <h4 className="font-medium">{item.product_name}</h4>
-                              <p className="text-gray-600 text-sm">Quantity: {item.quantity}</p>
+                              <h4 className="font-medium text-[var(--bb-black-bean)]">{item.product_name}</h4>
+                              <p className="text-[var(--bb-payne-gray)] text-sm">Quantity: {item.quantity}</p>
                             </div>
-                            <p className="font-semibold">R{(parseFloat(item.product_price) * item.quantity).toFixed(2)}</p>
+                            <p className="font-semibold text-[var(--bb-black-bean)]">R{(parseFloat(item.product_price) * item.quantity).toFixed(2)}</p>
                           </div>
                         ))}
                       </div>
@@ -562,25 +582,25 @@ export default function CheckoutPage() {
                     {/* Shipping Address */}
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-4">Shipping Address</h3>
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <p className="font-medium">{form.firstName} {form.lastName}</p>
-                        <p>{form.address}</p>
-                        <p>{form.city}, {form.province} {form.postalCode}</p>
-                        <p>{form.country}</p>
-                        <p className="text-gray-600 mt-2">{form.email}</p>
-                        <p className="text-gray-600">{form.phone}</p>
+                      <div className="bg-[var(--bb-champagne)]/40 p-4 rounded-lg border border-[var(--bb-mahogany)]/20">
+                        <p className="font-medium text-[var(--bb-black-bean)]">{form.firstName} {form.lastName}</p>
+                        <p className="text-[var(--bb-black-bean)]">{form.address}</p>
+                        <p className="text-[var(--bb-black-bean)]">{form.city}, {form.province} {form.postalCode}</p>
+                        <p className="text-[var(--bb-black-bean)]">{form.country}</p>
+                        <p className="text-[var(--bb-payne-gray)] mt-2">{form.email}</p>
+                        <p className="text-[var(--bb-payne-gray)]">{form.phone}</p>
                       </div>
                     </div>
 
                     {/* Payment Method */}
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-4">Payment Method</h3>
-                      <div className="bg-gray-50 p-4 rounded-lg">
+                      <div className="bg-[var(--bb-champagne)]/40 p-4 rounded-lg border border-[var(--bb-mahogany)]/20">
                         <div className="flex items-center gap-2">
-                          <CreditCard className="w-5 h-5 text-gray-600" />
-                          <p>Card ending in {form.cardNumber.slice(-4)}</p>
+                          <CreditCard className="w-5 h-5 text-[var(--bb-payne-gray)]" />
+                          <p className="text-[var(--bb-black-bean)]">Card ending in {form.cardNumber.slice(-4)}</p>
                         </div>
-                        <p className="text-gray-600">{form.cardholderName}</p>
+                        <p className="text-[var(--bb-payne-gray)]">{form.cardholderName}</p>
                       </div>
                     </div>
                   </div>
@@ -588,7 +608,7 @@ export default function CheckoutPage() {
                   <div className="flex justify-between mt-8">
                     <button
                       onClick={() => setCurrentStep('payment')}
-                      className="text-gray-600 hover:text-gray-800 transition-colors"
+                      className="text-[var(--bb-payne-gray)] hover:text-[var(--bb-black-bean)] transition-colors"
                     >
                       Back to Payment
                     </button>
@@ -599,7 +619,7 @@ export default function CheckoutPage() {
                     >
                       {isProcessing ? (
                         <>
-                          <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent" />
+                          <div className="animate-spin rounded-full h-4 w-4 border-2 border-white/80 border-t-transparent" />
                           Processing...
                         </>
                       ) : (
@@ -655,6 +675,16 @@ export default function CheckoutPage() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Sticky mobile action bar */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 border-t border-[var(--bb-mahogany)]/20 bg-[var(--bb-black-bean)] text-white">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+          <div className="text-sm">Total <span className="font-bold">R{total.toFixed(2)}</span></div>
+          <button onClick={mobileCtaAction} className="px-4 py-2 rounded-lg bg-[var(--bb-mahogany)] hover:bg-[var(--bb-mahogany)]/90 text-white text-sm font-semibold">
+            {mobileCtaLabel}
+          </button>
         </div>
       </div>
     </div>
