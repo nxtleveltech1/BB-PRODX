@@ -7,7 +7,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: 'General Inquiry',
+    subject: 'Meet your match',
     message: ''
   });
 
@@ -54,43 +54,41 @@ export default function ContactPage() {
                 </p>
               </div>
               
-              <div className="space-y-8">
-                {[
-                  {
-                    title: "Product Consultation",
-                    description: "Get personalized recommendations based on your wellness goals and lifestyle.",
-                    icon: "🌱"
-                  },
-                  {
-                    title: "Ingredient Questions", 
-                    description: "Deep dive into sourcing, potency, and the science behind our formulations.",
-                    icon: "🔬"
-                  },
-                  {
-                    title: "Wellness Guidance",
-                    description: "Connect with our practitioners for holistic wellness support and guidance.",
-                    icon: "✨"
-                  }
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start gap-6 p-6 bg-[var(--bb-black-bean)] text-white rounded-none hover:bg-[var(--bb-mahogany)] transition-all duration-300 group">
-                    <div className="w-12 h-12 bg-[var(--bb-citron)] rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-[var(--bb-black-bean)] transition-all duration-300">
-                      <span className="text-xl">{item.icon}</span>
-                    </div>
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-light group-hover:text-[var(--bb-citron)] transition-colors" style={{ fontFamily: 'Prata, Georgia, serif' }}>
-                        {item.title}
-                      </h3>
-                      <p className="text-[var(--bb-champagne)] leading-relaxed text-sm">
-                        {item.description}
-                      </p>
-                    </div>
+              <div className="space-y-6">
+                <div className="p-6 bg-[var(--bb-black-bean)] text-white">
+                  <h3 className="text-xl font-semibold uppercase tracking-wide" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+                    Meet your match
+                  </h3>
+                  <p className="mt-3 text-[var(--bb-champagne)] leading-relaxed" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    Get personalized recommendations based on your wellness goals and lifestyle.
+                  </p>
+                </div>
+                <div className="p-6 bg-[var(--bb-black-bean)] text-white">
+                  <h3 className="text-xl font-semibold uppercase tracking-wide" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+                    Ingredient Questions
+                  </h3>
+                  <p className="mt-3 text-[var(--bb-champagne)] leading-relaxed" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    Deep dive into any specific ingredient and its role in any of our products
+                  </p>
+                </div>
+                <div className="p-6 bg-[var(--bb-black-bean)] text-white">
+                  <h3 className="text-xl font-semibold uppercase tracking-wide" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+                    Become a Stockist
+                  </h3>
+                  <p className="mt-3 text-[var(--bb-champagne)] leading-relaxed" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    Let’s get you on board!
+                  </p>
+                  <div className="pt-4">
+                    <a href="/portal-access" className="inline-block bg-[var(--bb-citron)] hover:bg-[var(--bb-citron)]/90 text-[var(--bb-black-bean)] px-6 py-3 font-medium uppercase tracking-wider transition-colors">
+                      Outlet Application
+                    </a>
                   </div>
-                ))}
+                </div>
               </div>
             </div>
 
             {/* Contact Form */}
-            <div className="bg-[#F9E7C9] p-6 md:p-12 border border-[var(--bb-mahogany)]/10">
+            <div className="bg-[#F9E7C9] p-6 md:px-12 md:py-8 border border-[var(--bb-mahogany)]/10 self-start">
               <div className="space-y-6 mb-8">
                 <h3 className="text-2xl font-light text-[var(--bb-black-bean)]" style={{ fontFamily: 'Prata, Georgia, serif' }}>
                   Send us a message
@@ -143,11 +141,9 @@ export default function ContactPage() {
                     onChange={handleInputChange}
                     className="w-full p-4 border-2 border-[var(--bb-payne-gray)]/20 focus:border-[var(--bb-mahogany)] bg-white text-[var(--bb-black-bean)] transition-colors duration-300 outline-none"
                   >
-                    <option value="Product recommendations">Product recommendations</option>
+                    <option value="Meet your match">Meet your match</option>
                     <option value="Ingredient questions">Ingredient questions</option>
-                    <option value="Wellness consultation">Wellness consultation</option>
-                    <option value="Partnership inquiry">Partnership inquiry</option>
-                    <option value="Other">Other</option>
+                    <option value="Become a Stockist">Become a Stockist</option>
                   </select>
                 </div>
                 
