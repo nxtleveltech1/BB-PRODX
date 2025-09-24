@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { useMemo, useState } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 // import { useQuery } from "@tanstack/react-query";
 // import api from "@/services/apiOptimized";
 import { products } from "@/data/products";
@@ -107,8 +109,91 @@ export default function ProductsPage() {
   //   queryFn: () => api.getProducts({ limit: 100 }) as Promise<{ products: any[] }>,
   // });
 
-  // Always use local products data
-  const displayProducts = products;
+  // Read filters from URL
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const category = searchParams.get("category") || "";
+  const saleParam = searchParams.get("sale") === "true";
+  const maxPriceParam = Number.parseInt(searchParams.get("maxPrice") || "")
+  const maxPrice = Number.isFinite(maxPriceParam) ? maxPriceParam : undefined;
+  const sort = searchParams.get("sort") || "";
+
+  const toNumber = (v: any) =>
+    typeof v === "number" ? v : Number(String(v ?? "").replace(/[^0-9.]/g, "")) || 0;
+
+  const isOnSale = (p: any) => {
+    const priceNum = toNumber(p.price);
+    const orig = p.originalPrice != null ? toNumber(p.originalPrice) : NaN;
+    return Number.isFinite(orig) && orig > priceNum;
+  };
+
+  const filteredProducts = useMemo(() => {
+    const base = products.filter((p: any) => {
+      const categoryOk = !category || p.categoryId === category;
+      const saleOk = !saleParam || isOnSale(p);
+      const priceOk = maxPrice === undefined || toNumber(p.price) <= (maxPrice as number);
+      return categoryOk && saleOk && priceOk;
+    });
+
+    const arr = [...base];
+    switch (sort) {
+      case "price-asc":
+        arr.sort((a, b) => toNumber(a.price) - toNumber(b.price));
+        break;
+      case "price-desc":
+        arr.sort((a, b) => toNumber(b.price) - toNumber(a.price));
+        break;
+      case "name-asc":
+        arr.sort((a, b) => String(a.name).localeCompare(String(b.name)));
+        break;
+      case "name-desc":
+        arr.sort((a, b) => String(b.name).localeCompare(String(a.name)));
+        break;
+      default:
+        break;
+    }
+    return arr;
+  }, [category, saleParam, maxPrice, sort]);
+
+  // UI state for mobile sheets
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [sortOpen, setSortOpen] = useState(false);
+  const [draftCategory, setDraftCategory] = useState<string>(category);
+  const [draftPrice, setDraftPrice] = useState<string>(maxPrice ? String(maxPrice) : "");
+  const [draftSale, setDraftSale] = useState<boolean>(saleParam);
+  const [draftSort, setDraftSort] = useState<string>(sort);
+
+  const openFilter = () => {
+    setDraftCategory(category);
+    setDraftPrice(maxPrice ? String(maxPrice) : "");
+    setDraftSale(saleParam);
+    setFilterOpen(true);
+  };
+  const openSort = () => {
+    setDraftSort(sort);
+    setSortOpen(true);
+  };
+
+  const applyFilters = () => {
+    const params = new URLSearchParams(searchParams as any);
+    if (draftCategory) params.set("category", draftCategory); else params.delete("category");
+    if (draftPrice) params.set("maxPrice", draftPrice); else params.delete("maxPrice");
+    if (draftSale) params.set("sale", "true"); else params.delete("sale");
+    router.push(`/products?${params.toString()}`);
+    setFilterOpen(false);
+  };
+  const resetFilters = () => {
+    setDraftCategory("");
+    setDraftPrice("");
+    setDraftSale(false);
+  };
+  const applySort = () => {
+    const params = new URLSearchParams(searchParams as any);
+    if (draftSort) params.set("sort", draftSort); else params.delete("sort");
+    router.push(`/products?${params.toString()}`);
+    setSortOpen(false);
+  };
 
   // Mobile-specific view - using CSS classes instead of JS width check
   return (
@@ -128,7 +213,7 @@ export default function ProductsPage() {
           <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
             <div className="min-h-[56vh] pt-16 flex flex-col items-center justify-center text-center">
               <h1 className="text-4xl font-light text-white tracking-[0.18em]" style={{ fontFamily: 'Playfair Display, serif' }}>
-                SHOP
+                THE COLLECTION
               </h1>
               <div className="w-16 h-px bg-[var(--bb-citron)] mt-4" />
             </div>
@@ -139,20 +224,20 @@ export default function ProductsPage() {
         <div className="px-4 py-4 bg-[#F9E7C9] border-b border-[var(--bb-mahogany)]/10 overflow-x-auto">
           <div className="flex items-center gap-2 min-w-max">
             {[
-              { label: 'All', href: '/products' },
-              { label: 'Supplements', href: '/products?category=supplements' },
-              { label: 'Skincare', href: '/products?category=skincare' },
-              { label: 'Wellness', href: '/products?category=wellness' },
-              { label: 'Under R250', href: '/products?maxPrice=250' },
-              { label: 'Sale', href: '/products?sale=true' },
-            ].map((item) => (
+              { label: 'All', href: '/products', active: !category && !saleParam && maxPrice === undefined },
+              { label: 'Wellness Essentials', href: '/products?category=wellness-essentials', active: category === 'wellness-essentials' },
+              { label: 'Natural Skincare', href: '/products?category=natural-skincare', active: category === 'natural-skincare' },
+              { label: 'Digital Wellness', href: '/products?category=digital-products', active: category === 'digital-products' },
+              { label: 'Under R250', href: '/products?maxPrice=250', active: maxPrice === 250 },
+              { label: 'Sale', href: '/products?sale=true', active: saleParam },
+            ].map(({ label, href, active }) => (
               <Link
-                key={item.label}
-                href={item.href}
-                className="px-4 py-2 rounded-full text-xs uppercase tracking-wider whitespace-nowrap bg-[var(--bb-black-bean)] text-white hover:bg-[var(--bb-mahogany)] transition-colors"
+                key={label}
+                href={href}
+                className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider whitespace-nowrap transition-colors ${active ? 'bg-[var(--bb-black-bean)] text-white' : 'bg-white text-[var(--bb-black-bean)] border border-[var(--bb-black-bean)]/20'}`}
                 style={{ fontFamily: 'League Spartan, sans-serif' }}
               >
-                {item.label}
+                {label}
               </Link>
             ))}
           </div>
@@ -160,22 +245,117 @@ export default function ProductsPage() {
 
         {/* Sort / Filter Bar */}
         <div className="px-4 py-3 bg-[#F9E7C9] border-b border-[var(--bb-mahogany)]/10 flex items-center justify-between">
-          <button className="text-xs uppercase tracking-wider px-3 py-2 border border-[var(--bb-mahogany)]/20 text-[var(--bb-black-bean)]" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+          <button onClick={openFilter} className="text-xs uppercase tracking-wider px-3 py-2 border border-[var(--bb-mahogany)]/20 text-[var(--bb-black-bean)]" style={{ fontFamily: 'League Spartan, sans-serif' }}>
             Filter
           </button>
-          <button className="text-xs uppercase tracking-wider px-3 py-2 border border-[var(--bb-mahogany)]/20 text-[var(--bb-black-bean)]" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+          <button onClick={openSort} className="text-xs uppercase tracking-wider px-3 py-2 border border-[var(--bb-mahogany)]/20 text-[var(--bb-black-bean)]" style={{ fontFamily: 'League Spartan, sans-serif' }}>
             Sort
           </button>
         </div>
 
         {/* Products Grid */}
         <div className="px-4 py-6 grid grid-cols-2 gap-4">
-          {displayProducts.map((product: any) => (
+          {filteredProducts.map((product: any) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
-      </div>
+        {/* Filter Sheet */}
+        {filterOpen && (
+          <div className="fixed inset-0 z-[60] md:hidden">
+            <div className="absolute inset-0 bg-black/40" onClick={() => setFilterOpen(false)} />
+            <div className="absolute bottom-0 left-0 right-0 bg-[#F9E7C9] rounded-t-2xl p-6 shadow-2xl">
+              <h3 className="text-lg font-semibold text-[var(--bb-black-bean)]" style={{ fontFamily: 'League Spartan, sans-serif' }}>Filter</h3>
+              <div className="mt-4 space-y-6">
+                <div>
+                  <div className="text-xs uppercase tracking-wider text-[var(--bb-mahogany)] mb-2" style={{ fontFamily: 'League Spartan, sans-serif' }}>Category</div>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      { id: '', label: 'All' },
+                      { id: 'wellness-essentials', label: 'Wellness Essentials' },
+                      { id: 'natural-skincare', label: 'Natural Skincare' },
+                      { id: 'digital-products', label: 'Digital Wellness' },
+                    ].map((opt) => (
+                      <button
+                        key={opt.id || 'all'}
+                        onClick={() => setDraftCategory(opt.id)}
+                        className={`px-3 py-2 text-sm rounded-full border ${draftCategory === opt.id ? 'bg-[var(--bb-black-bean)] text-white border-transparent' : 'bg-white text-[var(--bb-black-bean)] border-[var(--bb-black-bean)]/20'}`}
+                        style={{ fontFamily: 'League Spartan, sans-serif' }}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
 
+                <div>
+                  <div className="text-xs uppercase tracking-wider text-[var(--bb-mahogany)] mb-2" style={{ fontFamily: 'League Spartan, sans-serif' }}>Price</div>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    {[
+                      { val: '', label: 'All' },
+                      { val: '250', label: 'Under R250' },
+                      { val: '300', label: 'Under R300' },
+                      { val: '500', label: 'Under R500' },
+                    ].map((p) => (
+                      <button
+                        key={p.label}
+                        onClick={() => setDraftPrice(p.val)}
+                        className={`px-3 py-2 text-sm rounded-full border ${draftPrice === p.val ? 'bg-[var(--bb-black-bean)] text-white border-transparent' : 'bg-white text-[var(--bb-black-bean)] border-[var(--bb-black-bean)]/20'}`}
+                        style={{ fontFamily: 'League Spartan, sans-serif' }}
+                      >
+                        {p.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <label className="flex items-center gap-2 text-[var(--bb-black-bean)]">
+                    <input type="checkbox" checked={draftSale} onChange={(e) => setDraftSale(e.target.checked)} />
+                    <span className="text-sm" style={{ fontFamily: 'Playfair Display, serif' }}>Sale items only</span>
+                  </label>
+                </div>
+
+                <div className="flex items-center justify-between pt-2">
+                  <button onClick={resetFilters} className="text-sm text-[var(--bb-mahogany)] underline" style={{ fontFamily: 'League Spartan, sans-serif' }}>Reset</button>
+                  <div className="flex items-center gap-3">
+                    <button onClick={() => setFilterOpen(false)} className="px-4 py-2 text-sm border border-[var(--bb-black-bean)]/20">Cancel</button>
+                    <button onClick={applyFilters} className="px-4 py-2 text-sm bg-[var(--bb-black-bean)] text-white">Apply</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Sort Sheet */}
+        {sortOpen && (
+          <div className="fixed inset-0 z-[60] md:hidden">
+            <div className="absolute inset-0 bg-black/40" onClick={() => setSortOpen(false)} />
+            <div className="absolute bottom-0 left-0 right-0 bg-[#F9E7C9] rounded-t-2xl p-6 shadow-2xl">
+              <h3 className="text-lg font-semibold text-[var(--bb-black-bean)]" style={{ fontFamily: 'League Spartan, sans-serif' }}>Sort</h3>
+              <div className="mt-4 space-y-2">
+                {[
+                  { val: '', label: 'Default' },
+                  { val: 'price-asc', label: 'Price: Low to High' },
+                  { val: 'price-desc', label: 'Price: High to Low' },
+                  { val: 'name-asc', label: 'Name: A to Z' },
+                  { val: 'name-desc', label: 'Name: Z to A' },
+                ].map((o) => (
+                  <label key={o.val || 'default'} className="flex items-center justify-between py-2">
+                    <span className="text-sm text-[var(--bb-black-bean)]" style={{ fontFamily: 'Playfair Display, serif' }}>{o.label}</span>
+                    <input type="radio" name="sort" checked={draftSort === o.val} onChange={() => setDraftSort(o.val)} />
+                  </label>
+                ))}
+              </div>
+              <div className="flex items-center justify-end gap-3 pt-4">
+                <button onClick={() => { setDraftSort(""); applySort(); }} className="px-4 py-2 text-sm border border-[var(--bb-black-bean)]/20">Clear</button>
+                <button onClick={applySort} className="px-4 py-2 text-sm bg-[var(--bb-black-bean)] text-white">Apply</button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+      
       {/* Desktop View */}
       <div className="min-h-screen hidden md:block">
         {/* Hero Section - Dramatic Brand Colors */}
@@ -212,7 +392,7 @@ export default function ProductsPage() {
             
             {/* Products Grid - Rich Brand Layout */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {displayProducts.map((product: any) => (
+              {filteredProducts.map((product: any) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
