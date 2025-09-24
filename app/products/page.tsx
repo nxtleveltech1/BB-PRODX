@@ -262,11 +262,11 @@ export default function ProductsPage() {
         {/* Hero Section - Dramatic Brand Colors */}
         <section className="relative min-h-[70vh] bg-[var(--bb-hero-surround)] text-white overflow-hidden">
           {/* Hero image biased to bottom without distortion */}
-          <div className="absolute inset-0 z-0 flex items-end justify-center">
+          <div className="absolute inset-0 z-0">
             <img
               src="/products-hero.png"
               alt="Products hero"
-              className="object-contain object-bottom h-full w-auto max-w-[95vw] opacity-80"
+              className="w-full h-full object-cover"
             />
           </div>
           
