@@ -172,7 +172,7 @@ export default function CheckoutPage() {
         <div className="flex items-center justify-between mb-8">
           <Link 
             href="/cart"
-            className="flex items-center gap-2 text-[#ba7500] hover:text-[#ba7500]/80 transition-colors"
+            className="flex items-center gap-2 text-[var(--bb-mahogany)] hover:text-[var(--bb-mahogany)]/80 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             Back to Cart
@@ -187,22 +187,22 @@ export default function CheckoutPage() {
               return (
                 <div key={step.id} className="flex items-center gap-3">
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all ${
-                    isActive ? 'bg-[#ba7500] border-[#ba7500] text-white' : 
-                    isCompleted ? 'bg-green-500 border-green-500 text-white' :
-                    'bg-white border-gray-300 text-gray-400'
+                    isActive ? 'bg-[var(--bb-mahogany)] border-[var(--bb-mahogany)] text-white' : 
+                    isCompleted ? 'bg-[var(--bb-citron)] border-[var(--bb-citron)] text-[var(--bb-black-bean)]' :
+                    'bg-white border-[var(--bb-payne-gray)]/40 text-[var(--bb-payne-gray)]'
                   }`}>
                     <StepIcon className="w-5 h-5" />
                   </div>
                   <span className={`font-medium ${
-                    isActive ? 'text-[#ba7500]' : 
-                    isCompleted ? 'text-green-600' : 
-                    'text-gray-400'
+                    isActive ? 'text-[var(--bb-mahogany)]' : 
+                    isCompleted ? 'text-[var(--bb-citron)]' : 
+                    'text-[var(--bb-payne-gray)]'
                   }`}>
                     {step.label}
                   </span>
                   {index < steps.length - 1 && (
                     <div className={`w-12 h-px ml-3 ${
-                      isCompleted ? 'bg-green-500' : 'bg-gray-300'
+                      isCompleted ? 'bg-[var(--bb-citron)]' : 'bg-[var(--bb-payne-gray)]/40'
                     }`} />
                   )}
                 </div>
@@ -219,7 +219,7 @@ export default function CheckoutPage() {
               {currentStep === 'shipping' && (
                 <div>
                   <div className="flex items-center gap-3 mb-6">
-                    <Truck className="w-6 h-6 text-[#ba7500]" />
+                    <Truck className="w-6 h-6 text-[var(--bb-mahogany)]" />
                     <h2 className="text-xl font-bold text-gray-900">Shipping Information</h2>
                   </div>
                   
@@ -422,7 +422,7 @@ export default function CheckoutPage() {
                   <div className="flex justify-end mt-8">
                     <button
                       onClick={handleNextStep}
-                      className="bg-[#ba7500] text-white px-6 py-3 rounded-lg hover:bg-[#ba7500]/90 transition-colors"
+                      className="bg-[var(--bb-mahogany)] text-white px-6 py-3 rounded-lg hover:bg-[var(--bb-mahogany)]/90 transition-colors"
                     >
                       Continue to Payment
                     </button>
@@ -434,7 +434,7 @@ export default function CheckoutPage() {
               {currentStep === 'payment' && (
                 <div>
                   <div className="flex items-center gap-3 mb-6">
-                    <CreditCard className="w-6 h-6 text-[#ba7500]" />
+                    <CreditCard className="w-6 h-6 text-[var(--bb-mahogany)]" />
                     <h2 className="text-xl font-bold text-gray-900">Payment Information</h2>
                   </div>
                   
@@ -526,7 +526,7 @@ export default function CheckoutPage() {
                     </button>
                     <button
                       onClick={handleNextStep}
-                      className="bg-[#ba7500] text-white px-6 py-3 rounded-lg hover:bg-[#ba7500]/90 transition-colors"
+                      className="bg-[var(--bb-mahogany)] text-white px-6 py-3 rounded-lg hover:bg-[var(--bb-mahogany)]/90 transition-colors"
                     >
                       Review Order
                     </button>
@@ -538,7 +538,7 @@ export default function CheckoutPage() {
               {currentStep === 'review' && (
                 <div>
                   <div className="flex items-center gap-3 mb-6">
-                    <Check className="w-6 h-6 text-[#ba7500]" />
+                    <Check className="w-6 h-6 text-[var(--bb-mahogany)]" />
                     <h2 className="text-xl font-bold text-gray-900">Review Your Order</h2>
                   </div>
                   
@@ -595,7 +595,7 @@ export default function CheckoutPage() {
                     <button
                       onClick={handlePlaceOrder}
                       disabled={isProcessing}
-                      className="bg-[#ba7500] text-white px-8 py-3 rounded-lg hover:bg-[#ba7500]/90 transition-colors disabled:opacity-50 flex items-center gap-2"
+                      className="bg-[var(--bb-mahogany)] text-white px-8 py-3 rounded-lg hover:bg-[var(--bb-mahogany)]/90 transition-colors disabled:opacity-50 flex items-center gap-2"
                     >
                       {isProcessing ? (
                         <>
