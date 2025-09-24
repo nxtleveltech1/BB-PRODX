@@ -16,7 +16,7 @@ const NAV_LINKS = [
   { href: "/products", label: "Shop" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact Us" },
-  { href: "/portal-access", label: "Outlet" },
+  { href: "/portal-access", label: "Stock Better Being" },
 ];
 
 export default function TopBar() {
