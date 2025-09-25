@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useMemo, useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Heart } from "lucide-react";
+import { toast } from "sonner";
 // import { useQuery } from "@tanstack/react-query";
 // import api from "@/services/apiOptimized";
 import { products } from "@/data/products";
@@ -132,8 +133,13 @@ function upsertWishlistEntry(entry: { product_id: number; name: string; image: s
     if (!list.some(it => it.product_id === entry.product_id)) {
       list.push({ id: Date.now(), ...entry });
       localStorage.setItem(WL_KEY, JSON.stringify(list));
+      toast.success("Added to wishlist");
+    } else {
+      toast.info("Already in wishlist");
     }
-  } catch {}
+  } catch {
+    toast.error("Could not update wishlist");
+  }
 }
 
 function MobileProductCard({ product }: { product: any }) {

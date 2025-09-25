@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { useCart } from "../../../contexts/CartContext";
 import { getProductById, getRelatedProducts } from "@/data/products";
+import { toast } from "sonner";
 
 // Mock product data - replace with actual API calls
 const mockProducts = [
@@ -434,10 +435,12 @@ export default function ProductDetailPage() {
                       list.push({ id: Date.now(), product_id: product.id, name: product.name, image: product.images[0], price: product.price });
                       writeWishlist(list);
                       setIsWishlisted(true);
+                      toast.success('Added to wishlist');
                     } else {
                       const list = readWishlist().filter((it: any) => it.product_id !== product.id);
                       writeWishlist(list);
                       setIsWishlisted(false);
+                      toast.info('Removed from wishlist');
                     }
                   }}
                   className={`w-16 h-16 rounded-lg flex items-center justify-center transition-all ${
@@ -710,38 +713,64 @@ export default function ProductDetailPage() {
               const rpImages = [rp.image, ...(rp.additionalImages || [])];
               const rpPrice = typeof rp.price === 'string' ? rp.price : `R${rp.price}`;
               return (
-                <Link
+                <div
                   key={rp.id}
-                  href={`/products/${rp.id}`}
-                  className="group bg-[var(--bb-champagne)] border-2 border-bb-mahogany/20 hover:border-bb-mahogany/60 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-bb-mahogany/10 hover:scale-105"
+                  className="group relative bg-[var(--bb-champagne)] border-2 border-bb-mahogany/20 hover:border-bb-mahogany/60 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-bb-mahogany/10 hover:scale-105"
                 >
-                  <div className="h-48 bg-[var(--bb-champagne)] flex items-center justify-center">
-                    {rpImages.length > 0 ? (
-                      <img src={rpImages[0]} alt={rp.name} className="w-full h-full object-contain p-4" />
-                    ) : (
-                      <Package className="w-16 h-16 text-bb-mahogany" />
-                    )}
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-heading text-lg font-semibold uppercase tracking-wide text-bb-black-bean mb-2 group-hover:text-bb-mahogany transition-colors" style={{ fontFamily: 'League Spartan, sans-serif' }}>
-                      {rp.name}
-                    </h3>
-                    <p className="text-bb-payne-gray text-sm mb-3 line-clamp-2">
-                      {rp.description}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-xl font-bold text-bb-mahogany">
-                        {rpPrice}
-                      </span>
-                      <div className="flex items-center">
-                        <Star className="w-4 h-4 text-bb-citron fill-current" />
-                        <span className="text-sm text-bb-payne-gray ml-1">
-                          {rp.rating}
+                  {/* Wishlist Heart */}
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      try {
+                        const raw = localStorage.getItem(WL_KEY);
+                        const list = raw ? JSON.parse(raw) : [];
+                        if (!list.some((it: any) => it.product_id === rp.id)) {
+                          list.push({ id: Date.now(), product_id: rp.id, name: rp.name, image: rpImages[0], price: rp.price });
+                          localStorage.setItem(WL_KEY, JSON.stringify(list));
+                          toast.success('Added to wishlist');
+                        } else {
+                          toast.info('Already in wishlist');
+                        }
+                      } catch {
+                        toast.error('Could not update wishlist');
+                      }
+                    }}
+                    aria-label="Add to wishlist"
+                    className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 border border-[var(--bb-black-bean)]/10 flex items-center justify-center text-[var(--bb-payne-gray)] hover:text-red-600 hover:bg-red-50"
+                  >
+                    <Heart className="w-4 h-4" />
+                  </button>
+
+                  <Link href={`/products/${rp.id}`} className="block">
+                    <div className="h-48 bg-[var(--bb-champagne)] flex items-center justify-center">
+                      {rpImages.length > 0 ? (
+                        <img src={rpImages[0]} alt={rp.name} className="w-full h-full object-contain p-4" />
+                      ) : (
+                        <Package className="w-16 h-16 text-bb-mahogany" />
+                      )}
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-heading text-lg font-semibold uppercase tracking-wide text-bb-black-bean mb-2 group-hover:text-bb-mahogany transition-colors" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+                        {rp.name}
+                      </h3>
+                      <p className="text-bb-payne-gray text-sm mb-3 line-clamp-2">
+                        {rp.description}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xl font-bold text-bb-mahogany">
+                          {rpPrice}
                         </span>
+                        <div className="flex items-center">
+                          <Star className="w-4 h-4 text-bb-citron fill-current" />
+                          <span className="text-sm text-bb-payne-gray ml-1">
+                            {rp.rating}
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                </div>
               );
             })}
           </div>
