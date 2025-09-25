@@ -687,6 +687,17 @@ export default function CheckoutPage() {
           </button>
         </div>
       </div>
+
+      {/* Processing overlay */}
+      {isProcessing && (
+        <div className="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm flex items-center justify-center">
+          <div className="bg-[var(--bb-champagne)] p-6 rounded-xl border border-[var(--bb-mahogany)]/20 text-center shadow-2xl">
+            <div className="animate-spin rounded-full h-8 w-8 border-2 border-[var(--bb-mahogany)] border-t-transparent mx-auto mb-4" />
+            <div className="text-[var(--bb-black-bean)] font-semibold">Processing your order…</div>
+            <div className="text-[var(--bb-payne-gray)] text-sm mt-1">Please don’t close this window.</div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

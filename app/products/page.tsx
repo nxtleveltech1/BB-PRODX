@@ -303,7 +303,7 @@ export default function ProductsPage() {
         </div>
 
         {/* Category Chips */}
-        <div className="px-4 py-4 bg-[#F9E7C9] border-b border-[var(--bb-mahogany)]/10 overflow-x-auto">
+        <div className="px-4 py-4 bg-[#F9E7C9] border-b border-[var(--bb-mahogany)]/10 overflow-x-auto sticky top-20 z-30">
           <div className="flex items-center gap-2 min-w-max">
             {[
               { label: 'All', href: '/products', active: !category && !saleParam && !popularParam && maxPrice === undefined },

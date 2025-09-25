@@ -16,7 +16,7 @@ export default function Footer() {
         <div 
           className="absolute inset-0 bg-no-repeat"
           style={{
-            backgroundImage: `url('/Platform Graphics/Web Footer.png')`,
+            backgroundImage: "url('/Platform%20Graphics/Web%20Footer.png')",
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             backgroundPosition: 'center',

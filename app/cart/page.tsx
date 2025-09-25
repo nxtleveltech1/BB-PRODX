@@ -267,7 +267,7 @@ export default function CartPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[var(--bb-champagne)] to-[var(--bb-champagne)]/90">
+    <div className="min-h-screen bg-gradient-to-br from-[var(--bb-champagne)] to-[var(--bb-champagne)]/90 pb-28 md:pb-0">
       <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Cart Items */}
@@ -397,6 +397,17 @@ export default function CartPage() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Sticky mobile action bar */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 border-t border-[var(--bb-mahogany)]/20 bg-[var(--bb-black-bean)] text-white">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+          <div className="text-sm">Total <span className="font-bold">R{summary.total.toFixed(2)}</span></div>
+          <Link href="/checkout" className="px-4 py-2 rounded-lg bg-[var(--bb-mahogany)] hover:bg-[var(--bb-mahogany)]/90 text-white text-sm font-semibold flex items-center gap-2">
+            Proceed to Checkout
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </div>
