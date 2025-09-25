@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Heart } from "lucide-react";
 import { toast } from "sonner";
@@ -250,12 +250,15 @@ export default function ProductsPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const category = searchParams.get("category") || "";
-  const saleParam = searchParams.get("sale") === "true";
-  const popularParam = searchParams.get("popular") === "true";
-  const maxPriceParam = Number.parseInt(searchParams.get("maxPrice") || "")
+  // Safe wrapper for nullable searchParams in types
+  const sp = searchParams ?? new URLSearchParams();
+
+  const category = sp.get("category") ?? "";
+  const saleParam = sp.get("sale") === "true";
+  const popularParam = sp.get("popular") === "true";
+  const maxPriceParam = Number.parseInt(sp.get("maxPrice") || "");
   const maxPrice = Number.isFinite(maxPriceParam) ? maxPriceParam : undefined;
-  const sort = searchParams.get("sort") || "";
+  const sort = sp.get("sort") ?? "";
 
   const toNumber = (v: any) =>
     typeof v === "number" ? v : Number(String(v ?? "").replace(/[^0-9.]/g, "")) || 0;
@@ -315,7 +318,7 @@ export default function ProductsPage() {
   };
 
   const applyFilters = () => {
-    const params = new URLSearchParams(searchParams as any);
+    const params = new URLSearchParams(sp.toString());
     if (draftCategory) params.set("category", draftCategory); else params.delete("category");
     if (draftPrice) params.set("maxPrice", draftPrice); else params.delete("maxPrice");
     if (draftSale) params.set("sale", "true"); else params.delete("sale");
@@ -330,7 +333,7 @@ export default function ProductsPage() {
     setDraftSale(false);
   };
   const applySort = () => {
-    const params = new URLSearchParams(searchParams as any);
+    const params = new URLSearchParams(sp.toString());
     if (draftSort) params.set("sort", draftSort); else params.delete("sort");
     router.push(`/products?${params.toString()}`);
     setSortOpen(false);
@@ -486,7 +489,7 @@ export default function ProductsPage() {
                   </label>
                   <label className="flex items-center gap-2 text-[var(--bb-black-bean)]">
                     <input type="checkbox" checked={popularParam} onChange={(e) => {
-                      const params = new URLSearchParams(searchParams as any);
+                      const params = new URLSearchParams(sp.toString());
                       if (e.target.checked) params.set('popular', 'true'); else params.delete('popular');
                       router.push(`/products?${params.toString()}`);
                     }} />
