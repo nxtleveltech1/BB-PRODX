@@ -116,6 +116,12 @@ export default function ProductDetailPage() {
   const [selectedImage, setSelectedImage] = useState(0);
   const [activeTab, setActiveTab] = useState<'description' | 'ingredients' | 'reviews'>('description');
   const [isWishlisted, setIsWishlisted] = useState(false);
+  const WL_KEY = "betterBeing_wishlist";
+
+  const readWishlist = () => {
+    try { return JSON.parse(localStorage.getItem(WL_KEY) || '[]'); } catch { return []; }
+  };
+  const writeWishlist = (list: any[]) => { try { localStorage.setItem(WL_KEY, JSON.stringify(list)); } catch {} };
 
   const idParam = params?.id;
   const productId = Number(idParam ?? NaN);
@@ -145,6 +151,16 @@ export default function ProductDetailPage() {
   });
 
   const product = catalogProduct ? normalized(catalogProduct) : (Number.isNaN(productId) ? undefined : mockProducts.find(p => p.id === productId));
+
+  // Initialize wishlist state
+  if (product && typeof window !== 'undefined' && !isWishlisted) {
+    try {
+      const list = readWishlist();
+      if (list.some((it: any) => it.product_id === product.id)) {
+        setIsWishlisted(true);
+      }
+    } catch {}
+  }
 
   if (!product) {
     return (
@@ -412,7 +428,18 @@ export default function ProductDetailPage() {
                 </button>
                 
                 <button
-                  onClick={() => setIsWishlisted(!isWishlisted)}
+                  onClick={() => {
+                    if (!isWishlisted) {
+                      const list = readWishlist();
+                      list.push({ id: Date.now(), product_id: product.id, name: product.name, image: product.images[0], price: product.price });
+                      writeWishlist(list);
+                      setIsWishlisted(true);
+                    } else {
+                      const list = readWishlist().filter((it: any) => it.product_id !== product.id);
+                      writeWishlist(list);
+                      setIsWishlisted(false);
+                    }
+                  }}
                   className={`w-16 h-16 rounded-lg flex items-center justify-center transition-all ${
                     isWishlisted 
                       ? 'bg-red-100 text-red-600 border-2 border-red-200' 

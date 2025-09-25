@@ -24,6 +24,9 @@ export default function Footer() {
           }}
         />
         
+        {/* Subtle dark overlay for legibility */}
+        <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
+
         {/* Content */}
         <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-6 py-12">

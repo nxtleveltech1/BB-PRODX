@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import { Heart } from "lucide-react";
 // import { useQuery } from "@tanstack/react-query";
 // import api from "@/services/apiOptimized";
 import { products } from "@/data/products";
@@ -42,6 +43,17 @@ function ProductCard({ product }: { product: any }) {
       {/* Product Image */}
       <Link href={`/products/${product.id}`} className="block">
         <div className="relative aspect-square bg-[var(--bb-champagne)] overflow-hidden mb-4">
+          {/* Wishlist heart */}
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              upsertWishlistEntry({ product_id: product.id, name: product.name, image: product.image, price: product.price });
+            }}
+            aria-label="Add to wishlist"
+            className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 border border-[var(--bb-black-bean)]/10 flex items-center justify-center text-[var(--bb-payne-gray)] hover:text-red-600 hover:bg-red-50"
+          >
+            <Heart className="w-4 h-4" />
+          </button>
           {product.image ? (
             <img 
               src={product.image} 
@@ -90,15 +102,38 @@ function ProductCard({ product }: { product: any }) {
             )}
           </div>
         </div>
-        {/* Add to cart pinned at bottom */}
-        <div className="mt-auto w-full">
-          <button onClick={handleAddToCart} className="w-full bg-[var(--bb-hero-surround)] text-white py-3 text-sm tracking-wide uppercase hover:bg-[var(--bb-hero-surround)]/90 transition-colors" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+        {/* Add to cart / wishlist pinned at bottom */}
+        <div className="mt-auto w-full flex gap-2">
+          <button onClick={handleAddToCart} className="flex-1 bg-[var(--bb-hero-surround)] text-white py-3 text-sm tracking-wide uppercase hover:bg-[var(--bb-hero-surround)]/90 transition-colors" style={{ fontFamily: 'League Spartan, sans-serif' }}>
             ADD TO CART
+          </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              upsertWishlistEntry({ product_id: product.id, name: product.name, image: product.image, price: product.price });
+            }}
+            aria-label="Add to wishlist"
+            className="px-3 py-3 rounded bg-white border border-[var(--bb-black-bean)]/20 text-[var(--bb-black-bean)] hover:bg-[var(--bb-champagne)]/60"
+          >
+            <Heart className="w-4 h-4" />
           </button>
         </div>
       </div>
     </div>
   );
+}
+
+const WL_KEY = "betterBeing_wishlist";
+
+function upsertWishlistEntry(entry: { product_id: number; name: string; image: string; price: string | number }) {
+  try {
+    const raw = localStorage.getItem(WL_KEY);
+    const list = raw ? JSON.parse(raw) as any[] : [];
+    if (!list.some(it => it.product_id === entry.product_id)) {
+      list.push({ id: Date.now(), ...entry });
+      localStorage.setItem(WL_KEY, JSON.stringify(list));
+    }
+  } catch {}
 }
 
 function MobileProductCard({ product }: { product: any }) {
@@ -132,6 +167,17 @@ function MobileProductCard({ product }: { product: any }) {
   return (
     <div className="bg-white rounded-xl overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.08)] group flex flex-col">
       <div className="relative aspect-square bg-[var(--bb-champagne)]">
+        {/* Wishlist heart */}
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            upsertWishlistEntry({ product_id: product.id, name: product.name, image: product.image, price: product.price });
+          }}
+          aria-label="Add to wishlist"
+          className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 border border-[var(--bb-black-bean)]/10 flex items-center justify-center text-[var(--bb-payne-gray)] hover:text-red-600 hover:bg-red-50"
+        >
+          <Heart className="w-4 h-4" />
+        </button>
         <img
           src={product.image}
           alt={product.name}
@@ -162,13 +208,25 @@ function MobileProductCard({ product }: { product: any }) {
             </span>
           )}
         </div>
-        <button
-          onClick={handleAddToCart}
-          className="mt-1 w-full bg-[var(--bb-black-bean)] text-white py-2 text-xs tracking-wider uppercase rounded transition-colors hover:bg-[var(--bb-mahogany)]"
-          style={{ fontFamily: 'League Spartan, sans-serif' }}
-        >
-          Add to cart
-        </button>
+        <div className="flex gap-2 mt-1">
+          <button
+            onClick={handleAddToCart}
+            className="flex-1 bg-[var(--bb-black-bean)] text-white py-2 text-xs tracking-wider uppercase rounded transition-colors hover:bg-[var(--bb-mahogany)]"
+            style={{ fontFamily: 'League Spartan, sans-serif' }}
+          >
+            Add to cart
+          </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              upsertWishlistEntry({ product_id: product.id, name: product.name, image: product.image, price: product.price });
+            }}
+            aria-label="Add to wishlist"
+            className="px-3 py-2 rounded bg-white border border-[var(--bb-black-bean)]/20 text-[var(--bb-black-bean)] hover:bg-[var(--bb-champagne)]/60"
+          >
+            <Heart className="w-4 h-4" />
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -335,6 +393,30 @@ export default function ProductsPage() {
             Sort
           </button>
         </div>
+
+        {/* Active Filters Pills (mobile) */}
+        {(category || saleParam || popularParam || maxPrice !== undefined) && (
+          <div className="md:hidden px-4 py-2 bg-[#F9E7C9] border-b border-[var(--bb-mahogany)]/10 flex items-center gap-2 flex-wrap">
+            {category && (
+              <span className="px-3 py-1 text-xs rounded-full bg-white border border-[var(--bb-black-bean)]/20">{category}</span>
+            )}
+            {typeof maxPrice !== 'undefined' && (
+              <span className="px-3 py-1 text-xs rounded-full bg-white border border-[var(--bb-black-bean)]/20">Under R{maxPrice}</span>
+            )}
+            {saleParam && (
+              <span className="px-3 py-1 text-xs rounded-full bg-white border border-[var(--bb-black-bean)]/20">Sale</span>
+            )}
+            {popularParam && (
+              <span className="px-3 py-1 text-xs rounded-full bg-white border border-[var(--bb-black-bean)]/20">Top Sellers</span>
+            )}
+            <button
+              onClick={() => router.push('/products')}
+              className="ml-auto text-xs underline text-[var(--bb-black-bean)]"
+            >
+              Clear all
+            </button>
+          </div>
+        )}
 
         {/* Products Grid */}
         <div className="px-4 py-6 grid grid-cols-2 gap-4">
