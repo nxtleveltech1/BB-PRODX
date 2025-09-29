@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import type { LocatorLocation } from "./LeafletMap";
 
 const DynamicLeafletMap = dynamic(() => import("./LeafletMap"), { ssr: false });
@@ -23,13 +24,29 @@ function haversineKm(a: GeoPoint, b: GeoPoint) {
   return R * c;
 }
 
-export default function StoreLocator() {
+type StoreLocatorProps = {
+  compact?: boolean;
+  initialCenter?: GeoPoint;
+  initialRadius?: number;
+  initialType?: TypeFilter;
+  initialHighlightId?: string | null;
+  initialQuery?: string;
+};
+
+export default function StoreLocator({
+  compact = false,
+  initialCenter,
+  initialRadius,
+  initialType,
+  initialHighlightId,
+  initialQuery,
+}: StoreLocatorProps) {
   const [locations, setLocations] = useState<LocatorLocation[]>([]);
-  const [query, setQuery] = useState("");
-  const [radiusKm, setRadiusKm] = useState<number>(50);
-  const [typeFilter, setTypeFilter] = useState<TypeFilter>("all");
-  const [center, setCenter] = useState<GeoPoint>([-33.9249, 18.4241]); // Default: Cape Town
-  const [highlightId, setHighlightId] = useState<string | null>(null);
+  const [query, setQuery] = useState(initialQuery ?? "");
+  const [radiusKm, setRadiusKm] = useState<number>(initialRadius ?? 50);
+  const [typeFilter, setTypeFilter] = useState<TypeFilter>(initialType ?? "all");
+  const [center, setCenter] = useState<GeoPoint>(initialCenter ?? [-33.9249, 18.4241]); // Default: Cape Town
+  const [highlightId, setHighlightId] = useState<string | null>(initialHighlightId ?? null);
   const [loadingGeo, setLoadingGeo] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -70,7 +87,6 @@ export default function StoreLocator() {
       url.searchParams.set("limit", "1");
       const res = await fetch(url.toString(), {
         headers: {
-          // Browsers set user-agent automatically; including an accept-language helps a bit.
           "Accept-Language": "en",
         },
       });
@@ -119,7 +135,7 @@ export default function StoreLocator() {
         <h1 className="text-4xl lg:text-5xl font-light text-[#2C2B29] mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
           Find your closest outlet
         </h1>
-        <p className="text-[#7A7771] mb-6">Search by area, use your current location, then filter by distance and type.</p>
+        <p className="text-[#7A7771] mb-6">Search by area, use your current location{compact ? '' : ', then filter by distance and type'}.</p>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Controls + Results */}
@@ -141,29 +157,36 @@ export default function StoreLocator() {
                 <button className="btn btn-secondary" onClick={useMyLocation} disabled={loadingGeo}>
                   Use my location
                 </button>
+                {compact && (
+                  <Link href="/outlets" className="btn btn-outline">Open full map</Link>
+                )}
               </div>
 
-              <div className="mb-4">
-                <label className="text-sm text-[#7A7771]">Radius: {radiusKm} km</label>
-                <input
-                  type="range"
-                  min={5}
-                  max={500}
-                  step={5}
-                  value={radiusKm}
-                  onChange={(e) => setRadiusKm(parseInt(e.target.value, 10))}
-                  className="w-full"
-                />
-              </div>
+              {!compact && (
+                <div className="mb-4">
+                  <label className="text-sm text-[#7A7771]">Radius: {radiusKm} km</label>
+                  <input
+                    type="range"
+                    min={5}
+                    max={500}
+                    step={5}
+                    value={radiusKm}
+                    onChange={(e) => setRadiusKm(parseInt(e.target.value, 10))}
+                    className="w-full"
+                  />
+                </div>
+              )}
 
-              <div className="mb-4">
-                <label className="text-sm text-[#7A7771]">Type</label>
-                <select className="input w-full" value={typeFilter} onChange={(e) => setTypeFilter(e.target.value as TypeFilter)}>
-                  <option value="all">All</option>
-                  <option value="retail">Retail stores</option>
-                  <option value="distributor">Distribution points</option>
-                </select>
-              </div>
+              {!compact && (
+                <div className="mb-4">
+                  <label className="text-sm text-[#7A7771]">Type</label>
+                  <select className="input w-full" value={typeFilter} onChange={(e) => setTypeFilter(e.target.value as TypeFilter)}>
+                    <option value="all">All</option>
+                    <option value="retail">Retail stores</option>
+                    <option value="distributor">Distribution points</option>
+                  </select>
+                </div>
+              )}
 
               {error && (
                 <div className="text-red-600 text-sm mb-2">{error}</div>
@@ -195,9 +218,28 @@ export default function StoreLocator() {
                           {l.website && (
                             <a className="btn btn-outline" href={l.website} target="_blank" rel="noopener noreferrer">Website</a>
                           )}
-                          <button className="btn btn-primary" onClick={() => { setCenter([l.coordinates.lat, l.coordinates.lng]); setHighlightId(l.id); }}>
-                            View on map
-                          </button>
+                          {compact ? (
+                            <Link
+                              className="btn btn-primary"
+                              href={{
+                                pathname: "/outlets",
+                                query: {
+                                  lat: String(l.coordinates.lat),
+                                  lng: String(l.coordinates.lng),
+                                  id: l.id,
+                                  q: query || undefined,
+                                  radius: String(radiusKm),
+                                  type: typeFilter,
+                                },
+                              }}
+                            >
+                              View on map
+                            </Link>
+                          ) : (
+                            <button className="btn btn-primary" onClick={() => { setCenter([l.coordinates.lat, l.coordinates.lng]); setHighlightId(l.id); }}>
+                              View on map
+                            </button>
+                          )}
                         </div>
                       </li>
                     ))}
@@ -208,18 +250,21 @@ export default function StoreLocator() {
           </div>
 
           {/* Map */}
-          <div className="lg:col-span-7">
-            <DynamicLeafletMap
-              center={center}
-              radiusKm={radiusKm}
-              markers={filtered}
-              highlightId={highlightId}
-              onMarkerClick={(id) => setHighlightId(id)}
-            />
-            <div className="text-xs text-[#7A7771] mt-2">Map data © OpenStreetMap contributors</div>
-          </div>
+          {!compact && (
+            <div className="lg:col-span-7">
+              <DynamicLeafletMap
+                center={center}
+                radiusKm={radiusKm}
+                markers={filtered}
+                highlightId={highlightId}
+                onMarkerClick={(id) => setHighlightId(id)}
+              />
+              <div className="text-xs text-[#7A7771] mt-2">Map data c OpenStreetMap contributors</div>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 }
+

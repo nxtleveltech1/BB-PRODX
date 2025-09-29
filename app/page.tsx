@@ -176,7 +176,7 @@ const [scrollY, setScrollY] = useState(0);
       {/* Store Locator block (embedded in the original section container) */}
       <section className="bg-[#F9E7C9] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <StoreLocator />
+          <StoreLocator compact />
         </div>
       </section>
 

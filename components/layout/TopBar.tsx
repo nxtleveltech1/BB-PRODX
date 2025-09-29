@@ -54,6 +54,7 @@ export default function TopBar() {
       "/wishlist",
       "/auth",
       "/portal-access",
+      "/outlets",
     ];
     return solidRoutes.some((p) => pathname?.startsWith(p));
   }, [pathname]);
