@@ -40,7 +40,7 @@ export default function ContactPage() {
         {/* Hero Text (matching other pages) */}
         <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
           <div className="min-h-[60vh] pt-24 flex flex-col items-center justify-center text-center">
-            <h1 className="text-hero text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-6">Real people, real replies</h1>
+            <h1 className="text-hero text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-6">REAL PEOPLE, REAL REPLIES</h1>
           </div>
         </div>
         {/* Spacer to account for absolute header */}
