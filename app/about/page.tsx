@@ -3,6 +3,47 @@ import { useRef } from 'react';
 
 export default function AboutPage() {
   const carouselRef = useRef<HTMLDivElement>(null);
+  // Auto-rotate testimonials carousel with graceful looping
+  // Pauses on hover/focus and resumes on leave
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+    let paused = false;
+    let raf: number | null = null;
+    let last = 0;
+    const interval = 3500;
+    const step = () => {
+      const now = Date.now();
+      if (paused || !el) return;
+      if (!last || now - last >= interval) {
+        const card = el.querySelector<HTMLElement('[data-voice-card]')>('[data-voice-card]');
+        const delta = (card?.offsetWidth || 320) + 24; // width + gap
+        const max = el.scrollWidth - el.clientWidth;
+        const next = el.scrollLeft + delta;
+        if (next >= max - 4) {
+          el.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          el.scrollBy({ left: delta, behavior: 'smooth' });
+        }
+        last = now;
+      }
+      raf = window.requestAnimationFrame(step);
+    };
+    const onEnter = () => { paused = true; };
+    const onLeave = () => { paused = false; last = 0; if (!raf) raf = requestAnimationFrame(step); };
+    el.addEventListener('mouseenter', onEnter);
+    el.addEventListener('mouseleave', onLeave);
+    el.addEventListener('focusin', onEnter);
+    el.addEventListener('focusout', onLeave);
+    raf = window.requestAnimationFrame(step);
+    return () => {
+      el.removeEventListener('mouseenter', onEnter);
+      el.removeEventListener('mouseleave', onLeave);
+      el.removeEventListener('focusin', onEnter);
+      el.removeEventListener('focusout', onLeave);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
   return (
     <div className="min-h-screen bg-[#F9E7C9]">
       {/* Hero Section - Image background stretched to fit */}
@@ -187,7 +228,10 @@ export default function AboutPage() {
                 }
               ].map((testimonial, index) => (
                 <div key={index} className="snap-center shrink-0 min-w-[280px] sm:min-w-[360px] lg:min-w-[420px]">
-                  <div className="card-premium rounded-2xl p-8 text-center bg-white/80 backdrop-blur-sm border border-[#E8E2DC] shadow-sm hover:shadow-md transition-shadow">
+                  <div
+                    className="card-premium rounded-2xl p-8 text-center bg-white/80 backdrop-blur-sm border border-[var(--bb-black-bean)]/25 hover:border-[var(--bb-black-bean)]/40 shadow-sm hover:shadow-md transition-all h-[360px] md:h-[380px] lg:h-[400px] flex flex-col justify-between"
+                    data-voice-card
+                  >
                     <div className="flex justify-center gap-2 mb-6" aria-label={`${testimonial.rating} star rating`}>
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <svg key={i} viewBox="0 0 24 24" className="w-5 h-5 text-[#B5A642] drop-shadow-sm" fill="currentColor">
@@ -195,7 +239,7 @@ export default function AboutPage() {
                         </svg>
                       ))}
                     </div>
-                    <blockquote className="text-[#7A7771] italic leading-relaxed mb-8 text-lg max-w-2xl mx-auto">
+                    <blockquote className="text-[#7A7771] italic leading-relaxed mb-8 text-lg max-w-2xl mx-auto line-clamp-5">
                       "{testimonial.text}"
                     </blockquote>
                     <div className="flex flex-col items-center justify-center gap-3">
