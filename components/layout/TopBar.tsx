@@ -44,11 +44,25 @@ export default function TopBar() {
 
   const isActive = (href: string) => (pathname === href) || (href !== "/" && pathname?.startsWith(href));
 
+  // Force a solid header background on utility pages where there's no hero
+  const forceSolid = useMemo(() => {
+    const solidRoutes = [
+      "/cart",
+      "/checkout",
+      "/products",
+      "/account",
+      "/wishlist",
+      "/auth",
+      "/portal-access",
+    ];
+    return solidRoutes.some((p) => pathname?.startsWith(p));
+  }, [pathname]);
+
   return (
     <header
       className={[
         "fixed top-0 left-0 right-0 z-50 transition-all",
-        scrolled
+        (scrolled || forceSolid)
           ? "bg-[#280B0B]/70 supports-[backdrop-filter]:backdrop-blur-md border-b border-white/10 shadow-[0_2px_10px_rgba(0,0,0,0.25)]"
           : "bg-transparent border-transparent shadow-none"
       ].join(" ")}

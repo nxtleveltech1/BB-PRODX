@@ -267,7 +267,7 @@ export default function CartPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[var(--bb-champagne)] to-[var(--bb-champagne)]/90 pb-28 md:pb-0">
+    <div className="min-h-screen bg-gradient-to-br from-[var(--bb-champagne)] to-[var(--bb-champagne)]/90 pt-24 md:pt-28 pb-28 md:pb-0">
       <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Cart Items */}

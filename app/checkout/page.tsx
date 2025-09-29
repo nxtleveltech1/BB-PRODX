@@ -178,7 +178,7 @@ export default function CheckoutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[var(--bb-champagne)] py-8 pb-28 md:pb-8">
+    <div className="min-h-screen bg-[var(--bb-champagne)] pt-24 md:pt-28 pb-28 md:pb-8">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
