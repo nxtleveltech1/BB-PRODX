@@ -40,7 +40,8 @@
     "test:desktop": "playwright test --project=desktop",
     "audit:design-system": "node scripts/design-system-audit.js",
     "update:visual-baselines": "playwright test --project=visual-regression --update-snapshots",
-    "ai:design-iteration": "node scripts/ai-design-iteration.js"
+    "ai:design-iteration": "node scripts/ai-design-iteration.js",
+    "data:agents": "node scripts/generate-locations-from-excel.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.6",
@@ -127,7 +128,8 @@
     "vite-tsconfig-paths": "^5.1.4",
     "web-vitals": "^5.1.0",
     "zod": "^3.25.76",
-    "zustand": "^5.0.7"
+    "zustand": "^5.0.7",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
