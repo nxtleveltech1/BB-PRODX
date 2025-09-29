@@ -26,7 +26,7 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-[#F9E7C9]">
-      {/* Hero Section - Image only, no text */}
+      {/* Hero Section - Image background with overlay + headline */}
       <section className="relative min-h-[60vh] bg-[var(--bb-hero-surround)] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
@@ -34,6 +34,14 @@ export default function ContactPage() {
             alt="Contact hero"
             className="w-full h-full object-cover"
           />
+        </div>
+        {/* Subtle overlay for text readability */}
+        <div className="absolute inset-0 bg-black/40 z-10 pointer-events-none"></div>
+        {/* Hero Text (matching other pages) */}
+        <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
+          <div className="min-h-[60vh] pt-24 flex flex-col items-center justify-center text-center">
+            <h1 className="text-hero text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-6">Real people, real replies</h1>
+          </div>
         </div>
         {/* Spacer to account for absolute header */}
         <div className="h-24"></div>
