@@ -137,9 +137,9 @@ export default function StoreLocator({
         </h1>
         <p className="text-[#7A7771] mb-6">Search by area, use your current location{compact ? '' : ', then filter by distance and type'}.</p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div className={`grid grid-cols-1 ${compact ? '' : 'lg:grid-cols-12'} gap-6`}>
           {/* Controls + Results */}
-          <div className="lg:col-span-5">
+          <div className={`col-span-1 ${compact ? 'lg:col-span-12' : 'lg:col-span-5'}`}>
             <div className="card">
               <div className="flex gap-2 mb-3">
                 <input
@@ -267,4 +267,3 @@ export default function StoreLocator({
     </div>
   );
 }
-
