@@ -25,6 +25,7 @@ export default function OutletsPage() {
         initialType={initialType}
         initialHighlightId={initialHighlightId}
         initialQuery={initialQuery}
+        edgeToEdge
       />
     </div>
   );

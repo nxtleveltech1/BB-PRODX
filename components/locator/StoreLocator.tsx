@@ -31,6 +31,7 @@ type StoreLocatorProps = {
   initialType?: TypeFilter;
   initialHighlightId?: string | null;
   initialQuery?: string;
+  edgeToEdge?: boolean;
 };
 
 export default function StoreLocator({
@@ -40,6 +41,7 @@ export default function StoreLocator({
   initialType,
   initialHighlightId,
   initialQuery,
+  edgeToEdge,
 }: StoreLocatorProps) {
   const [locations, setLocations] = useState<LocatorLocation[]>([]);
   const [query, setQuery] = useState(initialQuery ?? "");
@@ -131,7 +133,7 @@ export default function StoreLocator({
 
   return (
     <div className="space-section">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className={edgeToEdge ? "max-w-7xl mx-auto px-0" : "max-w-6xl mx-auto px-6"}>
         <h1 className="text-4xl lg:text-5xl font-light text-[#2C2B29] mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
           Find your closest outlet
         </h1>
