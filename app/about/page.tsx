@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 
 export default function AboutPage() {
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -16,7 +16,7 @@ export default function AboutPage() {
       const now = Date.now();
       if (paused || !el) return;
       if (!last || now - last >= interval) {
-        const card = el.querySelector<HTMLElement('[data-voice-card]')>('[data-voice-card]');
+        const card = el.querySelector<HTMLElement>('[data-voice-card]');
         const delta = (card?.offsetWidth || 320) + 24; // width + gap
         const max = el.scrollWidth - el.clientWidth;
         const next = el.scrollLeft + delta;
