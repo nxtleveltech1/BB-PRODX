@@ -22,6 +22,8 @@ export interface LeafletMapProps {
   markers: LocatorLocation[];
   highlightId?: string | null;
   onMarkerClick?: (id: string) => void;
+  height?: number | string;
+  className?: string;
 }
 
 const markerIcon = L.icon({
@@ -45,11 +47,13 @@ function MapViewUpdater({ center }: { center: [number, number] }) {
   return null;
 }
 
-export default function LeafletMap({ center, radiusKm = 50, markers, highlightId, onMarkerClick }: LeafletMapProps) {
+export default function LeafletMap({ center, radiusKm = 50, markers, highlightId, onMarkerClick, height, className }: LeafletMapProps) {
   const centerLatLng = useMemo(() => ({ lat: center[0], lng: center[1] }), [center]);
+  const containerHeight = typeof height === 'number' ? `${height}px` : (height || '500px');
 
   return (
-    <div style={{ height: "500px", width: "100%", borderRadius: 12, overflow: "hidden", boxShadow: "var(--shadow-md)" }}>
+    <div className={["rounded-2xl border border-[#E8E2DC] bg-white/80 shadow-md", className || ""].join(" ")}
+         style={{ height: containerHeight, width: "100%", overflow: "hidden" }}>
       <MapContainer
         center={centerLatLng as unknown as LatLngExpression}
         zoom={7}

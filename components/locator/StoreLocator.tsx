@@ -140,7 +140,7 @@ export default function StoreLocator({
         <div className={`grid grid-cols-1 ${compact ? '' : 'lg:grid-cols-12'} gap-6`}>
           {/* Controls + Results */}
           <div className={`col-span-1 ${compact ? 'lg:col-span-12' : 'lg:col-span-5'}`}>
-            <div className="card">
+            <div className="card rounded-2xl border border-[#E8E2DC] bg-white/80 shadow-md p-4 sm:p-6">
               <div className="flex gap-2 mb-3">
                 <input
                   className="input flex-1"
@@ -192,7 +192,7 @@ export default function StoreLocator({
                 <div className="text-red-600 text-sm mb-2">{error}</div>
               )}
 
-              <div className="border-t border-[#E8E2DC] pt-3 max-h-[420px] overflow-auto">
+              <div className="border-t border-[#E8E2DC] pt-3 max-h-[58vh] overflow-auto">
                 {filtered.length === 0 ? (
                   <div className="text-[#7A7771]">No locations found within {radiusKm} km.</div>
                 ) : (
@@ -251,15 +251,16 @@ export default function StoreLocator({
 
           {/* Map */}
           {!compact && (
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7 lg:sticky lg:top-24">
               <DynamicLeafletMap
                 center={center}
                 radiusKm={radiusKm}
                 markers={filtered}
                 highlightId={highlightId}
                 onMarkerClick={(id) => setHighlightId(id)}
+                height="65vh"
               />
-              <div className="text-xs text-[#7A7771] mt-2">Map data c OpenStreetMap contributors</div>
+              <div className="text-xs text-[#7A7771] mt-2">Map data © OpenStreetMap contributors</div>
             </div>
           )}
         </div>
