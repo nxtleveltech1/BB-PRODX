@@ -35,32 +35,32 @@ export default function Footer() {
               <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 flex-1 w-full">
                 {/* Products Store */}
                 <div className="min-w-0">
-                  <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider">Products Store</h4>
-                  <ul className="space-y-2">
+                  <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider" style={{ fontFamily: 'League Spartan, sans-serif' }}>Products Store</h4>
+                  <ul className="space-y-2" style={{ fontFamily: 'Playfair Display, serif' }}>
                     <li><a href="/products" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">All Products</a></li>
                   </ul>
                 </div>
                 
                 {/* Company Links */}
                 <div className="min-w-0">
-                  <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider">Company Links</h4>
-                  <ul className="space-y-2">
+                  <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider" style={{ fontFamily: 'League Spartan, sans-serif' }}>Company Links</h4>
+                  <ul className="space-y-2" style={{ fontFamily: 'Playfair Display, serif' }}>
                     <li><a href="/about" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">About Us</a></li>
                   </ul>
                 </div>
                 
                 {/* Support */}
                 <div className="min-w-0">
-                  <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider">Support</h4>
-                  <ul className="space-y-2">
+                  <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider" style={{ fontFamily: 'League Spartan, sans-serif' }}>Support</h4>
+                  <ul className="space-y-2" style={{ fontFamily: 'Playfair Display, serif' }}>
                     <li><a href="/faq" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">FAQ</a></li>
                   </ul>
                 </div>
                 
                 {/* Contact Us */}
                 <div className="min-w-0">
-                  <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider">Contact Us</h4>
-                  <ul className="space-y-2">
+                  <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider" style={{ fontFamily: 'League Spartan, sans-serif' }}>Contact Us</h4>
+                  <ul className="space-y-2" style={{ fontFamily: 'Playfair Display, serif' }}>
                     <li><a href="/contact" className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">Get In Touch</a></li>
                   </ul>
                 </div>
@@ -68,8 +68,8 @@ export default function Footer() {
               
               {/* Right Section - Newsletter */}
               <div className="w-full lg:w-auto lg:ml-16 mt-8 lg:mt-0">
-                <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider">Stay Connected</h4>
-                <p className="text-[#7a7771] text-sm mb-4">Subscribe for wellness tips and exclusive offers</p>
+                <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider" style={{ fontFamily: 'League Spartan, sans-serif' }}>Stay Connected</h4>
+                <p className="text-[#7a7771] text-sm mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Subscribe for wellness tips and exclusive offers</p>
                 <NewsletterForm />
                 {/* Social Links */}
                 <div className="flex gap-3 mt-4">
