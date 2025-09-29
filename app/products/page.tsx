@@ -8,7 +8,6 @@ import { toast } from "sonner";
 // import { useQuery } from "@tanstack/react-query";
 // import api from "@/services/apiOptimized";
 import { products } from "@/data/products";
-import TopSixFlip from "@/components/TopSixFlip";
 import { useCart } from "../../contexts/CartContext";
 
 function ProductCard({ product }: { product: any }) {
@@ -567,10 +566,7 @@ export default function ProductsPage() {
             {/* Filter Bar - Brand Colors */}
             <div className="mb-8" />
 
-            {/* New and Notable - Flip-through Top Six */}
-            <div className="mb-12">
-              <TopSixFlip />
-            </div>
+            {/* Removed TopSixFlip section per request */}
             
             {/* Products Grid - Rich Brand Layout */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -606,7 +602,6 @@ export default function ProductsPage() {
     </>
   );
 }
-
 
 
 
