@@ -1,12 +1,12 @@
 "use client";
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import StoreLocator from 'components/locator/StoreLocator';
 import TopSixFlip from '@/components/TopSixFlip';
 
 export default function HomePage() {
 const [scrollY, setScrollY] = useState(0);
-  const carouselRef = useRef<HTMLDivElement>(null);
+  
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -260,122 +260,6 @@ const [scrollY, setScrollY] = useState(0);
         </div>
       </section>
 
-      {/* Premium Testimonials & Social Proof Section */}
-      <section className="space-section bg-[#F9E7C9] relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16 fade-in-up">
-            <div className="inline-flex items-center gap-3 px-6 py-3 glass-luxury rounded-full mb-6">
-<div className="w-2 h-2 bg-[#BB4500] rounded-full luxury-glow"></div>
-              <span className="text-[#BB4500] text-sm font-bold uppercase tracking-[0.2em]">Customer Stories</span>
-            </div>
-            
-            <h2 className="text-4xl lg:text-5xl font-light text-[#2C2B29] leading-tight" 
-                style={{ fontFamily: 'Playfair Display, serif' }}>
-              Trusted by Thousands of <span className="text-luxury">Wellness Enthusiasts</span>
-            </h2>
-          </div>
-          
-          {/* Testimonials Carousel */}
-          <div className="relative mb-20">
-            <button
-              type="button"
-              aria-label="Previous testimonials"
-              onClick={() => carouselRef.current?.scrollBy({ left: -320, behavior: 'smooth' })}
-              className="hidden md:flex absolute -left-3 top-1/2 -translate-y-1/2 z-10 h-10 w-10 items-center justify-center rounded-full bg-white/70 border border-[#E8E2DC] shadow hover:bg-white"
-            >
-              <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#2C2B29]" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </button>
-            <div
-              ref={carouselRef}
-              className="hide-scrollbar overflow-x-auto snap-x snap-mandatory flex gap-6 px-1"
-              role="region"
-              aria-label="Testimonials carousel"
-            >
-              {[
-                {
-                  name: "Sarah M.",
-                  location: "Cape Town",
-                  rating: 5,
-                  text: "The magnesium oil spray has completely transformed my recovery routine. No more muscle cramps after workouts!",
-                  avatar: "SM",
-                  verified: true
-                },
-                {
-                  name: "Marcus K.",
-                  location: "Johannesburg",
-                  rating: 5,
-                  text: "Finally found a natural solution that actually works. The quality is outstanding and shipping was super fast.",
-                  avatar: "MK",
-                  verified: true
-                },
-                {
-                  name: "Lisa R.",
-                  location: "Durban",
-                  rating: 5,
-                  text: "Love the transparency about ingredients. These products have become an essential part of my daily wellness routine.",
-                  avatar: "LR",
-                  verified: true
-                }
-              ].map((testimonial, index) => (
-                <div key={index} className="snap-center shrink-0 min-w-[280px] sm:min-w-[360px] lg:min-w-[420px]">
-                  <div className="card-premium p-8 text-center">
-                    <div className="flex justify-center gap-1 mb-6" aria-label={`${testimonial.rating} star rating`}>
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <span key={i} className="text-[#B5A642] text-lg">★</span>
-                      ))}
-                    </div>
-                    <blockquote className="text-[#7A7771] italic leading-relaxed mb-8 text-lg">
-                      "{testimonial.text}"
-                    </blockquote>
-                    <div className="flex items-center justify-center gap-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-[#BB4500] to-[#B5A642] rounded-full flex items-center justify-center text-white font-bold">
-                        {testimonial.avatar}
-                      </div>
-                      <div className="text-left">
-                        <div className="font-medium text-[#2C2B29] flex items-center gap-2">
-                          {testimonial.name}
-                          {testimonial.verified && (
-                            <span className="text-green-600 text-sm" aria-label="Verified customer">✓</span>
-                          )}
-                        </div>
-                        <div className="text-sm text-[#7A7771]">{testimonial.location}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <button
-              type="button"
-              aria-label="Next testimonials"
-              onClick={() => carouselRef.current?.scrollBy({ left: 320, behavior: 'smooth' })}
-              className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 h-10 w-10 items-center justify-center rounded-full bg-white/70 border border-[#E8E2DC] shadow hover:bg-white"
-            >
-              <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#2C2B29]" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </button>
-          </div>
-          
-          {/* Premium Stats */}
-          <div className="grid md:grid-cols-4 gap-8 fade-in-up" style={{ animationDelay: '1s' }}>
-            {[
-              { number: "100,000+", label: "Happy Customers" },
-              { number: "100%", label: "Natural Ingredients" },
-              { number: "5-Star", label: "Average Rating" },
-              { number: "48hr", label: "Fast Delivery" }
-            ].map((stat, index) => (
-              <div key={index} className="text-center p-6 rounded-lg transition-all duration-300 hover:bg-[#F9E7C9]/30 hover-glow">
-                <div className="text-3xl font-light text-[#8B4513] mb-2" 
-                     style={{ fontFamily: 'Playfair Display, serif' }}>
-                  {stat.number}
-                </div>
-                <div className="text-sm text-[#7A7771] uppercase tracking-wide font-medium">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
