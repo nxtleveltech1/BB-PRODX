@@ -187,27 +187,31 @@ export default function AboutPage() {
                 }
               ].map((testimonial, index) => (
                 <div key={index} className="snap-center shrink-0 min-w-[280px] sm:min-w-[360px] lg:min-w-[420px]">
-                  <div className="card-premium p-8 text-center">
-                    <div className="flex justify-center gap-1 mb-6" aria-label={`${testimonial.rating} star rating`}>
+                  <div className="card-premium rounded-2xl p-8 text-center bg-white/80 backdrop-blur-sm border border-[#E8E2DC] shadow-sm hover:shadow-md transition-shadow">
+                    <div className="flex justify-center gap-2 mb-6" aria-label={`${testimonial.rating} star rating`}>
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <span key={i} className="text-[#B5A642] text-lg">★</span>
+                        <svg key={i} viewBox="0 0 24 24" className="w-5 h-5 text-[#B5A642] drop-shadow-sm" fill="currentColor">
+                          <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21 12 17.27z" />
+                        </svg>
                       ))}
                     </div>
-                    <blockquote className="text-[#7A7771] italic leading-relaxed mb-8 text-lg">
+                    <blockquote className="text-[#7A7771] italic leading-relaxed mb-8 text-lg max-w-2xl mx-auto">
                       "{testimonial.text}"
                     </blockquote>
-                    <div className="flex items-center justify-center gap-4">
+                    <div className="flex flex-col items-center justify-center gap-3">
                       <div className="w-12 h-12 bg-gradient-to-br from-[#BB4500] to-[#B5A642] rounded-full flex items-center justify-center text-white font-bold">
                         {testimonial.avatar}
                       </div>
-                      <div className="text-left">
-                        <div className="font-medium text-[#2C2B29] flex items-center gap-2">
+                      <div className="text-center">
+                        <div className="font-medium text-[#2C2B29] flex items-center justify-center gap-2">
                           {testimonial.name}
                           {testimonial.verified && (
-                            <span className="text-green-600 text-sm" aria-label="Verified customer">✓</span>
+                            <span className="px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs border border-green-200">Verified</span>
                           )}
                         </div>
-                        <div className="text-sm text-[#7A7771]">{testimonial.location}</div>
+                        {testimonial.location && (
+                          <div className="text-sm text-[#7A7771]">{testimonial.location}</div>
+                        )}
                       </div>
                     </div>
                   </div>
