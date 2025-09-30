@@ -566,7 +566,10 @@ export default function ProductsPage() {
             {/* Filter Bar - Brand Colors */}
             <div className="mb-8" />
 
-            {/* Removed TopSixFlip section per request */}
+            {/* New and Notable - Flip-through Top Six */}
+            <div className="mb-12">
+              <TopSixFlip />
+            </div>
             
             {/* Products Grid - Rich Brand Layout */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -602,7 +605,6 @@ export default function ProductsPage() {
     </>
   );
 }
-
 
 
 

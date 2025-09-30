@@ -70,12 +70,6 @@ export default function TopSixFlip({ showBorders = true }: { showBorders?: boole
             <h2 className="text-3xl md:text-4xl font-semibold uppercase tracking-wide text-[var(--neutral-800)]" style={{ fontFamily: 'League Spartan, sans-serif' }}>
               New and Notable
             </h2>
-            <p className="mt-2 text-[var(--neutral-600)] text-sm md:text-base">
-              Flip through our top six products—image on the left, details on the right.
-            </p>
-          </div>
-          <div className="hidden md:block text-sm text-[var(--neutral-600)]">
-            {topSix.length} products
           </div>
         </div>
 
