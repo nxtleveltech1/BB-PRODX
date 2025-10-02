@@ -68,13 +68,17 @@ export const ProductsSection = () => {
 
                 <CardContent className="p-0">
                   {/* Product Image Container */}
-                  <div className="relative w-full aspect-square bg-[var(--bb-champagne)] flex items-center justify-center">
-                    <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4" />
-                  </div>
+                  <Link href={`/products/${product.id}`} className="block">
+                    <div className="relative w-full aspect-square bg-[var(--bb-champagne)] flex items-center justify-center">
+                      <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4" />
+                    </div>
+                  </Link>
 
                   {/* Product Info */}
                   <div className="p-4">
-                    <h3 className="text-lg font-semibold uppercase tracking-wide text-[var(--bb-black-bean)] mb-2 leading-snug" style={{ fontFamily: 'League Spartan, sans-serif' }}>{product.name}</h3>
+                    <Link href={`/products/${product.id}`} className="block">
+                      <h3 className="text-lg font-semibold uppercase tracking-wide text-[var(--bb-black-bean)] mb-2 leading-snug" style={{ fontFamily: 'League Spartan, sans-serif' }}>{product.name}</h3>
+                    </Link>
                     <p className="text-sm text-[var(--bb-payne-gray)] mb-4 line-clamp-2">{product.description}</p>
 
                     {/* Benefits */}

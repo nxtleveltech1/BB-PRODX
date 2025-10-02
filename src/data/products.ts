@@ -1,4 +1,5 @@
 import type { Product, Category } from "@/types/product";
+import { catalogueEnrichment } from "./catalogue_enrichment";
 // Re-export types so consumers can `import type { Product } from "@/data/products"`
 export type { Product, Category } from "@/types/product";
 
@@ -1050,6 +1051,22 @@ const allProducts: Product[] = [
   },
 ];
 
+const enrichedProducts: Product[] = allProducts.map((product) => {
+  const enrichment = catalogueEnrichment[product.name];
+  if (!enrichment) {
+    return product;
+  }
+
+  return {
+    ...product,
+    ...enrichment,
+    longDescription: enrichment.longDescription ?? product.longDescription,
+    benefits: enrichment.benefits ?? product.benefits,
+    ingredients: enrichment.ingredients ?? product.ingredients,
+    usage: enrichment.usage ?? product.usage,
+  };
+});
+
 // Only expose products that have new official images and valid price
 const allowedImages = new Set<string>([
   "/products/7.png",
@@ -1080,7 +1097,7 @@ const allowedImages = new Set<string>([
   "/products/Womans Algorithm - R230.png",
 ]);
 
-export const products: Product[] = allProducts.filter(
+export const products: Product[] = enrichedProducts.filter(
   (p) => allowedImages.has(p.image) && typeof p.price === 'string' && p.price.trim().length > 0,
 );
 

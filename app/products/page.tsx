@@ -12,6 +12,7 @@ import TopSixFlip from "@/components/TopSixFlip";
 import { useCart } from "../../contexts/CartContext";
 
 function ProductCard({ product }: { product: any }) {
+  const router = useRouter();
   const { addItem } = useCart();
   const hasDiscount = product.originalPrice && product.originalPrice !== product.price;
   const price = typeof product.price === 'string' ? product.price : `R${product.price}`;
@@ -38,58 +39,66 @@ function ProductCard({ product }: { product: any }) {
       // no-op: provider shows toast
     }
   };
+
+  const handleProductClick = () => {
+    router.push(`/products/${product.id}`);
+  };
   
   return (
     <div className="group flex flex-col h-full transition-all duration-300 hover:shadow-lg" style={{ fontFamily: 'League Spartan, sans-serif' }}>
       {/* Product Image */}
-      <Link href={`/products/${product.id}`} className="block">
-        <div className="relative aspect-square bg-[var(--bb-champagne)] overflow-hidden mb-4">
-          {/* Wishlist heart */}
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              upsertWishlistEntry({ product_id: product.id, name: product.name, image: product.image, price: product.price });
+      <div 
+        className="relative aspect-square bg-[var(--bb-champagne)] overflow-hidden mb-4 cursor-pointer"
+        onClick={handleProductClick}
+      >
+        {/* Wishlist heart */}
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            upsertWishlistEntry({ product_id: product.id, name: product.name, image: product.image, price: product.price });
+          }}
+          aria-label="Add to wishlist"
+          className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 border border-[var(--bb-black-bean)]/10 flex items-center justify-center text-[var(--bb-payne-gray)] hover:text-red-600 hover:bg-red-50 transition-all"
+        >
+          <Heart className="w-4 h-4" />
+        </button>
+        {product.image ? (
+          <img 
+            src={product.image} 
+            alt={product.name}
+            className="w-full h-full object-contain p-4 pointer-events-none"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
             }}
-            aria-label="Add to wishlist"
-            className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 border border-[var(--bb-black-bean)]/10 flex items-center justify-center text-[var(--bb-payne-gray)] hover:text-red-600 hover:bg-red-50"
-          >
-            <Heart className="w-4 h-4" />
-          </button>
-          {product.image ? (
-            <img 
-              src={product.image} 
-              alt={product.name}
-              className="w-full h-full object-contain p-4"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-              }}
-            />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[var(--bb-mahogany)]/20 to-[var(--bb-citron)]/20 flex items-center justify-center">
-                <span className="text-3xl">🌿</span>
-              </div>
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center pointer-events-none">
+            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[var(--bb-mahogany)]/20 to-[var(--bb-citron)]/20 flex items-center justify-center">
+              <span className="text-3xl">🌿</span>
             </div>
-          )}
-          {/* Stock Status Badge */}
-          {!product.inStock && (
-            <div className="absolute top-4 left-4">
-              <span className="bg-[var(--bb-black-bean)] text-white px-3 py-1 text-xs uppercase tracking-wider">
-                Sold Out
-              </span>
-            </div>
-          )}
-        </div>
-      </Link>
+          </div>
+        )}
+        {/* Stock Status Badge */}
+        {!product.inStock && (
+          <div className="absolute top-4 left-4 pointer-events-none">
+            <span className="bg-[var(--bb-black-bean)] text-white px-3 py-1 text-xs uppercase tracking-wider">
+              Sold Out
+            </span>
+          </div>
+        )}
+      </div>
 
       {/* Product Info */}
       <div className="flex flex-col flex-1 items-center text-center gap-3 px-2" style={{ fontFamily: 'League Spartan, sans-serif' }}>
-        <Link href={`/products/${product.id}`} className="block">
-          <h3 className="text-lg font-semibold uppercase tracking-wide text-[var(--bb-black-bean)] group-hover:text-[var(--bb-mahogany)] transition-colors duration-300 leading-tight" style={{ fontFamily: 'League Spartan, sans-serif' }}>
-            {product.name}
-          </h3>
-        </Link>
+        <h3 
+          className="text-lg font-semibold uppercase tracking-wide text-[var(--bb-black-bean)] group-hover:text-[var(--bb-mahogany)] transition-colors duration-300 leading-tight cursor-pointer" 
+          style={{ fontFamily: 'League Spartan, sans-serif' }}
+          onClick={handleProductClick}
+        >
+          {product.name}
+        </h3>
         <p className="text-sm text-[var(--bb-payne-gray)] leading-relaxed line-clamp-2 max-w-[26ch]">
           {product.description}
         </p>
@@ -105,16 +114,21 @@ function ProductCard({ product }: { product: any }) {
         </div>
         {/* Add to cart / wishlist pinned at bottom */}
         <div className="mt-auto w-full flex gap-2">
-          <button onClick={handleAddToCart} className="flex-1 bg-[var(--bb-hero-surround)] text-white py-3 text-sm tracking-wide uppercase hover:bg-[var(--bb-hero-surround)]/90 transition-colors" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+          <button 
+            onClick={handleAddToCart} 
+            className="flex-1 bg-[var(--bb-hero-surround)] text-white py-3 text-sm tracking-wide uppercase hover:bg-[var(--bb-hero-surround)]/90 transition-all active:scale-95" 
+            style={{ fontFamily: 'League Spartan, sans-serif' }}
+          >
             ADD TO CART
           </button>
           <button
             onClick={(e) => {
               e.preventDefault();
+              e.stopPropagation();
               upsertWishlistEntry({ product_id: product.id, name: product.name, image: product.image, price: product.price });
             }}
             aria-label="Add to wishlist"
-            className="px-3 py-3 rounded bg-white border border-[var(--bb-black-bean)]/20 text-[var(--bb-black-bean)] hover:bg-[var(--bb-champagne)]/60"
+            className="px-3 py-3 rounded bg-white border border-[var(--bb-black-bean)]/20 text-[var(--bb-black-bean)] hover:bg-[var(--bb-champagne)]/60 transition-all active:scale-95"
           >
             <Heart className="w-4 h-4" />
           </button>
@@ -143,6 +157,7 @@ function upsertWishlistEntry(entry: { product_id: number; name: string; image: s
 }
 
 function MobileProductCard({ product }: { product: any }) {
+  const router = useRouter();
   const { addItem } = useCart();
   const toNumber = (v: any) => typeof v === 'number' ? v : Number(String(v ?? '').replace(/[^0-9.]/g, '')) || 0;
   const priceNum = toNumber(product.price);
@@ -170,68 +185,83 @@ function MobileProductCard({ product }: { product: any }) {
     } catch (_err) {}
   };
 
+  const handleProductClick = () => {
+    router.push(`/products/${product.id}`);
+  };
+
   return (
-    <div className="bg-white rounded-xl overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.08)] group flex flex-col">
-      <div className="relative aspect-square bg-[var(--bb-champagne)]">
-        {/* Wishlist heart */}
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            upsertWishlistEntry({ product_id: product.id, name: product.name, image: product.image, price: product.price });
-          }}
-          aria-label="Add to wishlist"
-          className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 border border-[var(--bb-black-bean)]/10 flex items-center justify-center text-[var(--bb-payne-gray)] hover:text-red-600 hover:bg-red-50"
+    <div className="group block">
+      <div className="bg-white rounded-xl overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.08)] flex flex-col">
+        <div 
+          className="relative aspect-square bg-[var(--bb-champagne)] cursor-pointer"
+          onClick={handleProductClick}
         >
-          <Heart className="w-4 h-4" />
-        </button>
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
-          onError={(e) => {
-            const target = e.target as HTMLImageElement;
-            target.style.display = 'none';
-          }}
-        />
-        <div className="absolute top-3 left-3 flex gap-2">
-          {product.popular && (
-            <span className="px-2 py-1 text-[10px] uppercase tracking-wider bg-[var(--bb-black-bean)] text-white">Top Seller</span>
-          )}
-          {onSale && (
-            <span className="px-2 py-1 text-[10px] uppercase tracking-wider bg-[var(--bb-citron)] text-[var(--bb-black-bean)]">-{discount}%</span>
-          )}
-        </div>
-      </div>
-      <div className="p-3 flex flex-col gap-2">
-        <h3 className="text-sm font-semibold leading-snug text-[var(--bb-black-bean)] line-clamp-2" style={{ fontFamily: 'League Spartan, sans-serif' }}>
-          {product.name}
-        </h3>
-        <div className="flex items-center gap-2">
-          <span className="text-[var(--bb-mahogany)] font-semibold">{typeof product.price === 'string' ? product.price : `R${product.price}`}</span>
-          {onSale && (
-            <span className="text-xs text-[var(--bb-payne-gray)] line-through">
-              {typeof product.originalPrice === 'string' ? product.originalPrice : `R${product.originalPrice}`}
-            </span>
-          )}
-        </div>
-        <div className="flex gap-2 mt-1">
-          <button
-            onClick={handleAddToCart}
-            className="flex-1 bg-[var(--bb-black-bean)] text-white py-2 text-xs tracking-wider uppercase rounded transition-colors hover:bg-[var(--bb-mahogany)]"
-            style={{ fontFamily: 'League Spartan, sans-serif' }}
-          >
-            Add to cart
-          </button>
+          {/* Wishlist heart */}
           <button
             onClick={(e) => {
               e.preventDefault();
+              e.stopPropagation();
               upsertWishlistEntry({ product_id: product.id, name: product.name, image: product.image, price: product.price });
             }}
             aria-label="Add to wishlist"
-            className="px-3 py-2 rounded bg-white border border-[var(--bb-black-bean)]/20 text-[var(--bb-black-bean)] hover:bg-[var(--bb-champagne)]/60"
+            className="absolute top-3 right-3 z-10 w-10 h-10 rounded-full bg-white/90 border border-[var(--bb-black-bean)]/10 flex items-center justify-center text-[var(--bb-payne-gray)] hover:text-red-600 hover:bg-red-50 active:bg-red-100"
           >
             <Heart className="w-4 h-4" />
           </button>
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105 pointer-events-none"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
+            }}
+          />
+          <div className="absolute top-3 left-3 flex gap-2 pointer-events-none">
+            {product.popular && (
+              <span className="px-2 py-1 text-[10px] uppercase tracking-wider bg-[var(--bb-black-bean)] text-white">Top Seller</span>
+            )}
+            {onSale && (
+              <span className="px-2 py-1 text-[10px] uppercase tracking-wider bg-[var(--bb-citron)] text-[var(--bb-black-bean)]">-{discount}%</span>
+            )}
+          </div>
+        </div>
+        <div className="p-3 flex flex-col gap-2">
+          <h3 
+            className="text-sm font-semibold leading-snug text-[var(--bb-black-bean)] line-clamp-2 cursor-pointer hover:text-[var(--bb-mahogany)]" 
+            style={{ fontFamily: 'League Spartan, sans-serif' }}
+            onClick={handleProductClick}
+          >
+            {product.name}
+          </h3>
+          <div className="flex items-center gap-2">
+            <span className="text-[var(--bb-mahogany)] font-semibold">{typeof product.price === 'string' ? product.price : `R${product.price}`}</span>
+            {onSale && (
+              <span className="text-xs text-[var(--bb-payne-gray)] line-through">
+                {typeof product.originalPrice === 'string' ? product.originalPrice : `R${product.originalPrice}`}
+              </span>
+            )}
+          </div>
+          <div className="flex gap-2 mt-1">
+            <button
+              onClick={handleAddToCart}
+              className="flex-1 bg-[var(--bb-black-bean)] text-white py-2.5 text-xs tracking-wider uppercase rounded transition-colors hover:bg-[var(--bb-mahogany)] active:scale-95"
+              style={{ fontFamily: 'League Spartan, sans-serif' }}
+            >
+              Add to cart
+            </button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                upsertWishlistEntry({ product_id: product.id, name: product.name, image: product.image, price: product.price });
+              }}
+              aria-label="Add to wishlist"
+              className="px-3 py-2.5 rounded bg-white border border-[var(--bb-black-bean)]/20 text-[var(--bb-black-bean)] hover:bg-[var(--bb-champagne)]/60 active:scale-95"
+            >
+              <Heart className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -606,5 +636,3 @@ export default function ProductsPage() {
     </>
   );
 }
-
-

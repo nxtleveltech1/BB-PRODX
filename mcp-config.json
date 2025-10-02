@@ -16,7 +16,7 @@
         "PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD": "false",
         "DEBUG": "playwright:*"
       },
-      "cwd": "BetterBeingWEB",
+      "cwd": ".",
       "settings": {
         "timeout": 60000,
         "viewport": {
@@ -43,7 +43,7 @@
         "SCREENSHOT_DIR": "test-results/design-screenshots",
         "REPORT_DIR": "design-iteration-reports"
       },
-      "cwd": "BetterBeingWEB",
+      "cwd": ".",
       "settings": {
         "autorun": false,
         "iterationThreshold": 0.8,
@@ -67,7 +67,7 @@
         "CI": "false",
         "PLAYWRIGHT_TEST_BASE_URL": "http://localhost:5173"
       },
-      "cwd": "BetterBeingWEB",
+      "cwd": ".",
       "settings": {
         "threshold": 0.2,
         "updateSnapshots": false,
@@ -88,7 +88,7 @@
         "BASE_URL": "http://localhost:5173",
         "COMPONENT_TESTING": "true"
       },
-      "cwd": "BetterBeingWEB",
+      "cwd": ".",
       "settings": {
         "isolatedComponents": true,
         "storybook": false,

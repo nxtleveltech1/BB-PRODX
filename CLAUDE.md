@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. For Codex CLI setup and MCP integration see `CODEX_SETUP.md`.
 
 ## Development Commands
 

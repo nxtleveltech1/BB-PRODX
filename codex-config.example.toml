@@ -1,0 +1,60 @@
+# Example Codex CLI configuration for the Better Being project.
+# Copy the relevant sections into ~/.codex/config.toml or include this file with
+# `codex --config-file`. Adjust credentials (API keys) and paths as needed.
+
+model = "gpt-5-codex"
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+experimental_use_rmcp_client = true
+
+[sandbox_workspace_write]
+network_access = false
+
+[mcp_servers.playwright]
+command = "npx"
+args = ["@microsoft/playwright-mcp", "--browser", "chromium", "--headless", "false"]
+env = {
+  NODE_ENV = "development",
+  BASE_URL = "http://localhost:5173",
+  PLAYWRIGHT_BROWSERS_PATH = "./node_modules/playwright/.local-browsers",
+  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = "false",
+  DEBUG = "playwright:*"
+}
+
+[mcp_servers.playwright_design_workflow]
+command = "node"
+args = ["scripts/ai-design-iteration.js"]
+env = {
+  NODE_ENV = "development",
+  BASE_URL = "http://localhost:5173",
+  DESIGN_ITERATION_MODE = "ai-native",
+  OUTPUT_DIR = "ai-design-analysis",
+  SCREENSHOT_DIR = "test-results/design-screenshots",
+  REPORT_DIR = "design-iteration-reports"
+}
+
+[mcp_servers.playwright_visual_regression]
+command = "npx"
+args = ["playwright", "test", "--project=visual-regression", "--reporter=json"]
+env = {
+  NODE_ENV = "development",
+  BASE_URL = "http://localhost:5173",
+  CI = "false",
+  PLAYWRIGHT_TEST_BASE_URL = "http://localhost:5173"
+}
+
+[mcp_servers.playwright_component_testing]
+command = "npx"
+args = ["playwright", "test", "--project=component-visual", "--headed"]
+env = {
+  NODE_ENV = "development",
+  BASE_URL = "http://localhost:5173",
+  COMPONENT_TESTING = "true"
+}
+
+[profiles.full_auto_design]
+model = "gpt-5-codex"
+approval_policy = "never"
+sandbox_mode = "workspace-write"
+
+# Launch Codex with this profile via: codex --profile full_auto_design

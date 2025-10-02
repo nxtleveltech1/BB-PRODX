@@ -149,7 +149,7 @@ function ParallaxStack() {
           transition={{ type: 'spring', stiffness: 120, damping: 18, delay: i * 0.08 }}
           style={{ zIndex: 20 - i }}
         >
-          <Link href={`/product/${p.id}`} className="block">
+          <Link href={`/products/${p.id}`} className="block">
             <Card className="overflow-hidden rounded-3xl border border-black/5 bg-white/80 shadow-xl backdrop-blur transition-transform hover:shadow-2xl">
               <div className="relative h-56 w-full bg-gradient-to-b from-gray-50 to-white">
                 <img

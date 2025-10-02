@@ -1,0 +1,108 @@
+/* Mobile Touch Improvements for Product Cards */
+
+/* Prevent tap highlight on mobile */
+@media (max-width: 768px) {
+  /* Remove tap highlight on iOS */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Improve touch target sizes for mobile */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Prevent text selection on double tap */
+  .group {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Make interactive elements more responsive on touch */
+  button,
+  [role="button"],
+  a {
+    touch-action: manipulation;
+  }
+
+  /* Ensure proper click areas for product cards */
+  .product-card-mobile {
+    position: relative;
+  }
+
+  /* Prevent accidental zooming */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  /* Add visual feedback for touch interactions */
+  button:active,
+  .clickable:active {
+    opacity: 0.8;
+    transform: scale(0.98);
+  }
+
+  /* Improve scrolling performance */
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* Ensure buttons inside cards don't conflict with card clicks */
+  .card-action-button {
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Add padding for easier touch targets */
+  .touch-target {
+    position: relative;
+    padding: 8px;
+  }
+
+  .touch-target::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+  }
+}
+
+/* Improve focus states for accessibility */
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--bb-mahogany);
+  outline-offset: 2px;
+}
+
+/* Ensure smooth transitions don't affect touch responsiveness */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    transition-duration: 0.1s !important;
+  }
+}
+
+/* Prevent iOS bounce effect on fixed elements */
+.fixed {
+  -webkit-overflow-scrolling: auto;
+}
+
+/* Improve performance for product grids on mobile */
+@media (max-width: 768px) {
+  .grid {
+    will-change: scroll-position;
+  }
+
+  /* Hardware acceleration for smooth scrolling */
+  .product-grid-mobile {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
