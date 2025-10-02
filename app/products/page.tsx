@@ -191,10 +191,21 @@ function MobileProductCard({ product }: { product: any }) {
 
   return (
     <div className="group block">
-      <div className="bg-white rounded-xl overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.08)] flex flex-col">
-        <div 
-          className="relative aspect-square bg-[var(--bb-champagne)] cursor-pointer"
-          onClick={handleProductClick}
+      <div
+        className="bg-white rounded-xl overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.08)] flex flex-col cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--bb-mahogany)] focus:ring-offset-2"
+        onClick={handleProductClick}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleProductClick();
+          }
+        }}
+        role="link"
+        tabIndex={0}
+        aria-label={product.name}
+      >
+        <div
+          className="relative aspect-square bg-[var(--bb-champagne)]"
         >
           {/* Wishlist heart */}
           <button
@@ -227,10 +238,9 @@ function MobileProductCard({ product }: { product: any }) {
           </div>
         </div>
         <div className="p-3 flex flex-col gap-2">
-          <h3 
-            className="text-sm font-semibold leading-snug text-[var(--bb-black-bean)] line-clamp-2 cursor-pointer hover:text-[var(--bb-mahogany)]" 
+          <h3
+            className="text-sm font-semibold leading-snug text-[var(--bb-black-bean)] line-clamp-2 group-hover:text-[var(--bb-mahogany)]"
             style={{ fontFamily: 'League Spartan, sans-serif' }}
-            onClick={handleProductClick}
           >
             {product.name}
           </h3>
