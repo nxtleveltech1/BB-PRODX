@@ -6,8 +6,10 @@ import { Star, ShoppingCart, Heart } from "lucide-react";
 import { getFeaturedProducts } from "@/data/products";
 import type { Product } from "@/types/product";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export const ProductsSection = () => {
+  const router = useRouter();
   const featuredProducts = getFeaturedProducts();
 
   return (
@@ -57,8 +59,17 @@ export const ProductsSection = () => {
             return (
               <Card
                 key={product.id}
-                className="relative group transition-all duration-300 hover:shadow-lg bg-transparent overflow-hidden"
+                className="relative group transition-all duration-300 hover:shadow-lg bg-transparent overflow-hidden cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--bb-mahogany)] focus-visible:ring-offset-2"
                 style={{ animationDelay: `${index * 120}ms`, fontFamily: 'League Spartan, sans-serif' }}
+                role="link"
+                tabIndex={0}
+                onClick={() => router.push(`/products/${product.id}`)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    router.push(`/products/${product.id}`);
+                  }
+                }}
               >
                 {product.popular && (
                   <div className="absolute top-3 left-3 bg-[#C1581B] text-white px-3 py-1 rounded-full text-sm font-medium z-10">
@@ -68,17 +79,13 @@ export const ProductsSection = () => {
 
                 <CardContent className="p-0">
                   {/* Product Image Container */}
-                  <Link href={`/products/${product.id}`} className="block">
-                    <div className="relative w-full aspect-square bg-[var(--bb-champagne)] flex items-center justify-center">
-                      <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4" />
-                    </div>
-                  </Link>
+                  <div className="relative w-full aspect-square bg-[var(--bb-champagne)] flex items-center justify-center">
+                    <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4 pointer-events-none" />
+                  </div>
 
                   {/* Product Info */}
                   <div className="p-4">
-                    <Link href={`/products/${product.id}`} className="block">
-                      <h3 className="text-lg font-semibold uppercase tracking-wide text-[var(--bb-black-bean)] mb-2 leading-snug" style={{ fontFamily: 'League Spartan, sans-serif' }}>{product.name}</h3>
-                    </Link>
+                    <h3 className="text-lg font-semibold uppercase tracking-wide text-[var(--bb-black-bean)] mb-2 leading-snug group-hover:text-[var(--bb-mahogany)]" style={{ fontFamily: 'League Spartan, sans-serif' }}>{product.name}</h3>
                     <p className="text-sm text-[var(--bb-payne-gray)] mb-4 line-clamp-2">{product.description}</p>
 
                     {/* Benefits */}
@@ -116,11 +123,19 @@ export const ProductsSection = () => {
 
                     {/* Actions */}
                     <div className="flex space-x-3">
-                      <Button className="flex-1 bg-[var(--bb-black-bean)] hover:bg-[var(--bb-black-bean)]/90 text-white">
+                      <Button
+                        className="flex-1 bg-[var(--bb-black-bean)] hover:bg-[var(--bb-black-bean)]/90 text-white"
+                        onClick={(event) => event.stopPropagation()}
+                      >
                         <ShoppingCart className="w-4 h-4 mr-2" />
                         Add to cart
                       </Button>
-                      <Button variant="ghost" size="icon" className="shrink-0 border-[var(--bb-mahogany)] text-[var(--bb-mahogany)] hover:bg-[var(--bb-mahogany)]/10">
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="shrink-0 border-[var(--bb-mahogany)] text-[var(--bb-mahogany)] hover:bg-[var(--bb-mahogany)]/10"
+                        onClick={(event) => event.stopPropagation()}
+                      >
                         <Heart className="w-4 h-4" />
                       </Button>
                     </div>
