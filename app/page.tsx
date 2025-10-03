@@ -99,7 +99,7 @@ const [scrollY, setScrollY] = useState(0);
 
 
       {/* Stockist Section - Solid Green */}
-      <section className="space-luxury relative overflow-hidden bg-[#A7B958]">
+      <section className="space-luxury relative overflow-hidden bg-[#B5A642]">
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <div className="space-y-12 fade-in-up">
             <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/20 border border-[#2C2B29]/20 rounded-full">
@@ -156,21 +156,6 @@ const [scrollY, setScrollY] = useState(0);
                   </button>
                 </div>
                 <p className="mt-3 text-xs text-[#7A7771]">No spam—unsubscribe any time.</p>
-                
-                <div className="flex items-center justify-center gap-6 mt-6 text-sm text-[#7A7771]">
-                  <div className="trust-signal px-3 py-1 bg-white/20 rounded-full">
-                    <span className="text-green-600 text-xs">✓</span>
-                    <span className="ml-1">No spam</span>
-                  </div>
-                  <div className="trust-signal px-3 py-1 bg-white/20 rounded-full">
-                    <span className="text-green-600 text-xs">✓</span>
-                    <span className="ml-1">Unsubscribe anytime</span>
-                  </div>
-                  <div className="trust-signal px-3 py-1 bg-white/20 rounded-full">
-                    <span className="text-green-600 text-xs">✓</span>
-                    <span className="ml-1">Weekly tips</span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

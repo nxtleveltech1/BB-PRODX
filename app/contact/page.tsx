@@ -235,96 +235,100 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Social Media Section */}
-      <section className="py-16 bg-gradient-to-br from-[var(--bb-black-bean)] to-[var(--bb-mahogany)] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute -top-24 right-0 w-72 h-72 bg-[var(--bb-citron)] rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-32 left-0 w-[28rem] h-[28rem] bg-[var(--bb-champagne)] rounded-full blur-3xl"></div>
-        </div>
+      {/* Social Media Section - Redesigned */}
+      <section className="py-24 bg-[#F9E7C9] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/60 rounded-full mb-6">
+              <Instagram className="w-4 h-4 text-[var(--bb-mahogany)]" />
+              <span className="text-[var(--bb-mahogany)] text-sm font-bold uppercase tracking-[0.2em]">@dotbetterbeing</span>
+            </div>
+            <h2 className="text-5xl lg:text-6xl font-light text-[var(--bb-black-bean)] leading-tight mb-6" 
+                style={{ fontFamily: 'Playfair Display, serif' }}>
+              Follow Our <span className="italic text-[var(--bb-mahogany)]">Journey</span>
+            </h2>
+            <div className="w-24 h-px bg-[var(--bb-mahogany)] mx-auto mb-8"></div>
+            <p className="text-xl text-[var(--bb-payne-gray)] max-w-3xl mx-auto font-light leading-relaxed">
+              Join our community for daily wellness rituals, behind-the-scenes moments, and expert insights you can save and revisit.
+            </p>
+          </div>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6">
-          <div className="grid lg:grid-cols-[1.05fr_1fr] gap-12 items-start">
-            <div className="space-y-8 text-left text-white">
-              <div className="space-y-4">
-                <p className="text-xs uppercase tracking-[0.4em] text-white/60" style={{ fontFamily: 'League Spartan, sans-serif' }}>@dotbetterbeing</p>
-                <h3 className="text-4xl font-light leading-tight" style={{ fontFamily: 'Prata, Georgia, serif' }}>
-                  Stay connected with the Better Being community
-                </h3>
-                <p className="text-white/80 text-lg leading-relaxed" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  Follow <span className="text-[var(--bb-citron)] font-semibold">@dotbetterbeing</span> for daily nervous system practices, behind-the-scenes studio moments and education you can save for your personal protocol library.
-                </p>
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-4">
-                {connectionPrompts.map(prompt => {
-                  const Icon = prompt.icon;
-                  return (
-                    <div key={prompt.id} className="p-4 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-sm flex gap-4 items-start">
-                      <div className="w-12 h-12 rounded-full bg-white/15 flex items-center justify-center">
-                        <Icon className="w-5 h-5 text-[var(--bb-citron)]" />
-                      </div>
-                      <div className="space-y-1">
-                        <p className="text-sm font-semibold tracking-wide uppercase text-white" style={{ fontFamily: 'League Spartan, sans-serif' }}>{prompt.title}</p>
-                        <p className="text-sm text-white/70 leading-relaxed">{prompt.description}</p>
-                      </div>
+          {/* Featured Content Grid */}
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {socialHighlights.map(highlight => {
+              const Icon = highlight.icon;
+              return (
+                <a
+                  key={highlight.id}
+                  href={highlight.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                >
+                  {/* Gradient Accent Bar */}
+                  <div className="h-2 bg-gradient-to-r from-[var(--bb-mahogany)] via-[var(--bb-citron)] to-[var(--bb-mahogany)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  <div className="p-8">
+                    {/* Icon */}
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--bb-mahogany)]/10 to-[var(--bb-citron)]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <Icon className="w-8 h-8 text-[var(--bb-mahogany)]" />
                     </div>
-                  );
-                })}
-              </div>
+                    
+                    {/* Label */}
+                    <span className="text-xs uppercase tracking-[0.3em] text-[var(--bb-mahogany)] font-bold mb-3 block">
+                      {highlight.label}
+                    </span>
+                    
+                    {/* Title */}
+                    <h3 className="text-2xl font-light text-[var(--bb-black-bean)] leading-tight mb-4" 
+                        style={{ fontFamily: 'Playfair Display, serif' }}>
+                      {highlight.title}
+                    </h3>
+                    
+                    {/* Description */}
+                    <p className="text-[var(--bb-payne-gray)] leading-relaxed mb-6">
+                      {highlight.description}
+                    </p>
+                    
+                    {/* Arrow */}
+                    <div className="flex items-center gap-2 text-[var(--bb-mahogany)] font-semibold group-hover:gap-4 transition-all duration-300">
+                      <span className="text-sm uppercase tracking-wider">View on Instagram</span>
+                      <ArrowUpRight className="w-5 h-5" />
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
 
-              <div className="flex flex-wrap gap-4 pt-4">
+          {/* CTA Section */}
+          <div className="bg-gradient-to-br from-[var(--bb-black-bean)] to-[var(--bb-mahogany)] rounded-3xl p-12 text-center relative overflow-hidden">
+            {/* Decorative Elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--bb-citron)] rounded-full blur-3xl opacity-20"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--bb-champagne)] rounded-full blur-3xl opacity-20"></div>
+            
+            <div className="relative z-10">
+              <h3 className="text-3xl lg:text-4xl font-light text-white leading-tight mb-4" 
+                  style={{ fontFamily: 'Playfair Display, serif' }}>
+                Ready to join the community?
+              </h3>
+              <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+                Get daily inspiration, practical wellness tips, and be part of a supportive community committed to better being.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
                   href="https://www.instagram.com/dotbetterbeing/"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 bg-[var(--bb-citron)] text-[var(--bb-black-bean)] px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-[var(--bb-citron)]/90 transition-all"
+                  className="inline-flex items-center gap-3 bg-[var(--bb-citron)] text-[var(--bb-black-bean)] px-8 py-4 text-base font-bold uppercase tracking-wider hover:bg-[var(--bb-citron)]/90 transition-all rounded-lg hover:scale-105 transform duration-300"
                   style={{ fontFamily: 'League Spartan, sans-serif' }}
                 >
-                  <Instagram className="w-4 h-4" />
+                  <Instagram className="w-5 h-5" />
                   Follow @dotbetterbeing
                 </a>
-                <a
-                  href="mailto:hello@betterbeing.co.za?subject=Social%20media%20collaboration"
-                  className="inline-flex items-center gap-2 border border-white/40 text-white px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-white/10 transition-all"
-                  style={{ fontFamily: 'League Spartan, sans-serif' }}
-                >
-                  <Share2 className="w-4 h-4" />
-                  Submit a feature idea
-                </a>
               </div>
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-6">
-              {socialHighlights.map(highlight => {
-                const Icon = highlight.icon;
-                return (
-                  <div
-                    key={highlight.id}
-                    className={`relative rounded-3xl border border-white/10 bg-gradient-to-br ${highlight.accent} p-6 shadow-[0_10px_30px_rgba(0,0,0,0.12)] flex flex-col gap-4 h-full`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <span className="text-xs uppercase tracking-[0.4em] text-white/70" style={{ fontFamily: 'League Spartan, sans-serif' }}>{highlight.label}</span>
-                    </div>
-                    <h4 className="text-xl font-light text-white leading-snug" style={{ fontFamily: 'Prata, Georgia, serif' }}>{highlight.title}</h4>
-                    <p className="text-sm text-white/80 leading-relaxed">{highlight.description}</p>
-                    <div className="pt-2 mt-auto">
-                      <a
-                        href={highlight.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-white transition-colors"
-                        style={{ fontFamily: 'League Spartan, sans-serif' }}
-                      >
-                        Open on Instagram
-                        <ArrowUpRight className="w-4 h-4" />
-                      </a>
-                    </div>
-                  </div>
-                );
-              })}
             </div>
           </div>
         </div>
