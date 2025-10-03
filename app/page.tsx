@@ -37,22 +37,12 @@ const [scrollY, setScrollY] = useState(0);
         {/* Hero Content */}
         <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
           <div className="h-[75vh] pt-24 flex flex-col items-center justify-center text-center">
-            <h1 className="text-hero text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-6">BETTER BEGINS HERE</h1>
+            <h1 className="text-hero text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-6" style={{ letterSpacing: '0.05em' }}>BETTER BEGINS HERE</h1>
             <p className="text-subhero text-white/90 mb-10">Products that work, principles that hold</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="/products" className="btn btn-primary" style={{ backgroundColor: '#BB4500', borderColor: '#BB4500' }}>
                 Shop Collection
               </a>
-            </div>
-          </div>
-        </div>
-        
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 fade-in-up" style={{ animationDelay: '1.8s' }}>
-          <div className="flex flex-col items-center text-white/70">
-            <span className="text-xs uppercase tracking-wider mb-3 font-medium">Scroll to Explore</span>
-            <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-bounce"></div>
             </div>
           </div>
         </div>
