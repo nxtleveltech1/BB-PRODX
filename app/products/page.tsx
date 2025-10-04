@@ -388,18 +388,17 @@ export default function ProductsPage() {
         <section className="relative min-h-[56vh] bg-[var(--bb-hero-surround)] overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img
-              src="/products-hero.png"
+              src="/Platform Graphics/ChatGPT Image Sep 10, 2025 at 09_55_21 AM.png"
               alt="Shop hero"
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="absolute inset-0 bg-black/40 z-10" />
+          <div className="absolute inset-0 bg-black/50 z-10 pointer-events-none" />
           <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
             <div className="min-h-[56vh] pt-16 flex flex-col items-center justify-center text-center">
-              <h1 className="text-4xl font-light text-white tracking-[0.18em]" style={{ fontFamily: 'Playfair Display, serif' }}>
-                THE COLLECTION
+              <h1 className="text-4xl font-light text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]" style={{ fontFamily: 'Playfair Display, serif', letterSpacing: '0.05em' }}>
+                THE BETTER WAY - NATURAL, NO COMPROMISE
               </h1>
-              <div className="w-16 h-px bg-[var(--bb-citron)] mt-4" />
             </div>
           </div>
         </section>
@@ -582,18 +581,24 @@ export default function ProductsPage() {
       <div className="min-h-screen hidden md:block">
         {/* Hero Section - Dramatic Brand Colors */}
         <section className="relative min-h-[70vh] bg-[var(--bb-hero-surround)] text-white overflow-hidden">
-          {/* Hero image biased to bottom without distortion */}
+          {/* Hero image */}
           <div className="absolute inset-0 z-0">
             <img
-              src="/products-hero.png"
-              alt="Products hero"
+              src="/Platform Graphics/ChatGPT Image Sep 10, 2025 at 09_55_21 AM.png"
+              alt="Shop hero"
               className="w-full h-full object-cover"
             />
           </div>
           
-          <div className="relative z-10 max-w-7xl mx-auto px-6 pt-8 pb-6 flex items-end min-h-[70vh]">
-            <div className="max-w-4xl w-full">
-              {/* Hero text removed per request */}
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/50 z-10 pointer-events-none"></div>
+          
+          {/* Hero Content */}
+          <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
+            <div className="min-h-[70vh] pt-24 flex flex-col items-center justify-center text-center">
+              <h1 className="text-hero text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]" style={{ letterSpacing: '0.05em' }}>
+                THE BETTER WAY - NATURAL, NO COMPROMISE
+              </h1>
             </div>
           </div>
           
