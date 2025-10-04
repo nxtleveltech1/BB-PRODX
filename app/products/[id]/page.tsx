@@ -292,29 +292,6 @@ export default function ProductDetailPage() {
               </div>
             </div>
 
-            {/* Thumbnail Images */}
-            <div className="flex gap-3 overflow-x-auto">
-              {product.images.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedImage(index)}
-                  className={`flex-shrink-0 w-20 h-20 bg-gradient-to-br from-white/80 to-bb-champagne/40 border-2 rounded-lg overflow-hidden transition-all ${
-                    selectedImage === index 
-                      ? 'border-bb-mahogany shadow-lg' 
-                      : 'border-bb-mahogany/20 hover:border-bb-mahogany/60'
-                  }`}
-                >
-                  <div className="w-full h-full bg-[var(--bb-champagne)] flex items-center justify-center">
-                    <img
-                      src={product.images[index]}
-                      alt={`${product.name} thumbnail ${index + 1}`}
-                      className="w-full h-full object-contain p-2"
-                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                    />
-                  </div>
-                </button>
-              ))}
-            </div>
           </div>
 
           {/* Product Info */}
@@ -325,18 +302,13 @@ export default function ProductDetailPage() {
                 <span className="bg-bb-citron/20 text-bb-payne-gray px-3 py-1 rounded-lg text-sm border border-bb-citron/30">
                   {product.category}
                 </span>
-                {product.featured && (
-                  <span className="bg-bb-mahogany/10 text-bb-mahogany px-3 py-1 rounded-lg text-sm border border-bb-mahogany/30">
-                    Featured
-                  </span>
-                )}
               </div>
 
               <h1 className="text-4xl font-heading font-bold text-bb-black-bean mb-4">
                 {product.name}
               </h1>
 
-              {/* Rating */}
+              {/* Rating - Moved above title */}
               <div className="flex items-center gap-3 mb-4">
                 <div className="flex items-center">
                   {[...Array(5)].map((_, i) => (
@@ -369,18 +341,9 @@ export default function ProductDetailPage() {
               </div>
 
               {/* Short Description */}
-              <p className="text-bb-payne-gray text-lg leading-relaxed mb-6">
+              <p className="text-bb-payne-gray text-lg leading-relaxed">
                 {product.description}
               </p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {product.tags.map((tag: string) => (
-                  <span key={tag} className="bg-bb-champagne/60 text-bb-black-bean px-3 py-1 rounded-lg text-sm border border-bb-mahogany/10">
-                    {tag}
-                  </span>
-                ))}
-              </div>
             </div>
 
             {/* Add to Cart Section */}
@@ -477,35 +440,19 @@ export default function ProductDetailPage() {
             </div>
 
             {/* Trust Signals */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="flex items-center gap-3 p-4 bg-white/60 rounded-xl border border-bb-mahogany/20">
-                <Shield className="w-6 h-6 text-green-600" />
-                <div>
-                  <p className="font-medium text-bb-black-bean">Lab Tested</p>
-                  <p className="text-sm text-bb-payne-gray">Third-party verified</p>
-                </div>
-              </div>
-              
+            <div className="flex flex-col gap-3">
               <div className="flex items-center gap-3 p-4 bg-white/60 rounded-xl border border-bb-mahogany/20">
                 <Truck className="w-6 h-6 text-blue-600" />
                 <div>
                   <p className="font-medium text-bb-black-bean">Free Shipping</p>
-                  <p className="text-sm text-bb-payne-gray">On orders over R500</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-3 p-4 bg-white/60 rounded-xl border border-bb-mahogany/20">
-                <Award className="w-6 h-6 text-bb-citron" />
-                <div>
-                  <p className="font-medium text-bb-black-bean">Premium Quality</p>
-                  <p className="text-sm text-bb-payne-gray">Ethically sourced</p>
+                  <p className="text-sm text-bb-payne-gray">On orders over R800</p>
                 </div>
               </div>
               
               <div className="flex items-center gap-3 p-4 bg-white/60 rounded-xl border border-bb-mahogany/20">
                 <Clock className="w-6 h-6 text-purple-600" />
                 <div>
-                  <p className="font-medium text-bb-black-bean">2-3 Day Delivery</p>
+                  <p className="font-medium text-bb-black-bean">24-48 Hrs Orders Dispatched</p>
                   <p className="text-sm text-bb-payne-gray">Fast & reliable</p>
                 </div>
               </div>
@@ -561,19 +508,21 @@ export default function ProductDetailPage() {
                   </div>
 
                   {/* Benefits */}
-                  <div>
-                    <h3 className="text-2xl font-heading font-bold text-bb-black-bean mb-4">
-                      Key Benefits
-                    </h3>
-                    <div className="grid md:grid-cols-2 gap-3">
-                      {product.benefits.map((benefit: string, index: number) => (
-                        <div key={index} className="flex items-center gap-3 p-3 bg-green-50 rounded-lg border border-green-200">
-                          <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                          <span className="text-bb-black-bean">{benefit}</span>
-                        </div>
-                      ))}
+                  {product.benefits && product.benefits.length > 0 && (
+                    <div>
+                      <h3 className="text-2xl font-heading font-bold text-bb-black-bean mb-4">
+                        Key Benefits
+                      </h3>
+                      <ul className="space-y-2">
+                        {product.benefits.map((benefit: string, index: number) => (
+                          <li key={index} className="flex items-start gap-2 text-bb-black-bean">
+                            <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                            <span>{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  </div>
+                  )}
 
                   {/* Certifications */}
                   <div>
