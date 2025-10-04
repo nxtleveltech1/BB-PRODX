@@ -1099,9 +1099,41 @@ const allowedImages = new Set<string>([
   "/products/Womans Algorithm - R230.png",
 ]);
 
-export const products: Product[] = enrichedProducts.filter(
-  (p) => allowedImages.has(p.image) && typeof p.price === 'string' && p.price.trim().length > 0,
-);
+// Display order based on catalogue image layout
+const displayOrder: { [key: number]: number } = {
+  1: 1,   // Go Go Pain
+  4: 2,   // Raw Probiotic
+  5: 3,   // Bronchial Relief
+  20: 4,  // Better Belly
+  23: 5,  // Better Grow
+  26: 6,  // Gut Fix Plastic
+  16: 7,  // Anti-Viral
+  37: 8,  // Woman's Algorithm
+  36: 9,  // Stress & Anxiety
+  34: 10, // Prostate
+  33: 11, // Premium Collagen
+  21: 12, // Better Biota Pets
+  25: 13, // Facial Cleanser
+  19: 14, // Aloe Gel
+  35: 15, // Skin Therapy
+  24: 16, // Day Care
+  2: 17,  // Night Care
+  7: 18,  // Eye Repair
+  32: 19, // Mag Sleep
+  27: 20, // Mag Active Muscle
+  31: 21, // Mag Pure
+  30: 22, // Mag Mental Clarity
+  29: 23, // Mag Arthritis
+  28: 24, // Mag Anti Hairloss
+};
+
+export const products: Product[] = enrichedProducts
+  .filter((p) => allowedImages.has(p.image) && typeof p.price === 'string' && p.price.trim().length > 0)
+  .sort((a, b) => {
+    const orderA = displayOrder[a.id] ?? 9999;
+    const orderB = displayOrder[b.id] ?? 9999;
+    return orderA - orderB;
+  });
 
 export const getProductsByCategory = (categoryId: string): Product[] => {
   return products.filter((product) => product.categoryId === categoryId);
