@@ -118,10 +118,6 @@ const [scrollY, setScrollY] = useState(0);
       <section className="space-luxury relative overflow-hidden bg-[#B5A642]">
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <div className="space-y-12 fade-in-up">
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/20 border border-[#2C2B29]/20 rounded-full">
-              <div className="w-2 h-2 bg-[#2C2B29] rounded-full"></div>
-              <span className="text-[#2C2B29] text-sm font-bold uppercase tracking-[0.2em]">Philosophy</span>
-            </div>
             <h2 className="text-5xl lg:text-6xl font-light text-[#2C2B29] leading-tight" 
                 style={{ fontFamily: 'Playfair Display, serif' }}>
               Become a Better Being <span className="not-italic text-[#BB4500]">Stockist</span>
