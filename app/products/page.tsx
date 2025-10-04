@@ -608,12 +608,9 @@ export default function ProductsPage() {
 
         {/* Main Content */}
         <div className="bg-[#F9E7C9]">
-          <div className="max-w-7xl mx-auto px-6 py-20">
-            {/* Filter Bar - Brand Colors */}
-            <div className="mb-8" />
-
-            {/* New and Notable - Flip-through Top Six */}
-            <div className="mb-12">
+          <div className="max-w-7xl mx-auto px-6 py-8">
+            {/* Monthly Favourites - Flip-through Top Six */}
+            <div className="mb-8">
               <TopSixFlip />
             </div>
             

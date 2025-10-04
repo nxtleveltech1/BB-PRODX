@@ -68,7 +68,7 @@ export default function TopSixFlip({ showBorders = true }: { showBorders?: boole
         <div className="flex items-end justify-between mb-10">
           <div>
             <h2 className="text-3xl md:text-4xl font-semibold uppercase tracking-wide text-[var(--neutral-800)]" style={{ fontFamily: 'League Spartan, sans-serif' }}>
-              New and Notable
+              Monthly Favourites
             </h2>
           </div>
         </div>
