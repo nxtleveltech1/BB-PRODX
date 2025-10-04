@@ -75,7 +75,9 @@ export const categories: Category[] = [
   },
 ];
 
+// Product order matches the visual layout from brand imagery
 const allProducts: Product[] = [
+  // Row 1: Oils and Bottles
   {
     id: 1,
     sku: "OG-GOG-001",
