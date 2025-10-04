@@ -397,7 +397,7 @@ export default function ProductsPage() {
           <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
             <div className="min-h-[56vh] pt-16 flex flex-col items-center justify-center text-center">
               <h1 className="text-4xl font-light text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]" style={{ fontFamily: 'Playfair Display, serif', letterSpacing: '0.05em' }}>
-                THE BETTER WAY - NATURAL, NO COMPROMISE
+                THE BETTER WAY NATURAL, NO COMPROMISE
               </h1>
             </div>
           </div>
@@ -597,7 +597,7 @@ export default function ProductsPage() {
           <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
             <div className="min-h-[70vh] pt-24 flex flex-col items-center justify-center text-center">
               <h1 className="text-hero text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]" style={{ letterSpacing: '0.05em' }}>
-                THE BETTER WAY - NATURAL, NO COMPROMISE
+                THE BETTER WAY NATURAL, NO COMPROMISE
               </h1>
             </div>
           </div>
