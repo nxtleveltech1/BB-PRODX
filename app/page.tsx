@@ -55,34 +55,50 @@ const [scrollY, setScrollY] = useState(0);
         <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-gradient-to-r from-[#8B4513]/10 to-transparent rounded-full blur-2xl"></div>
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-16 items-center">
-            {/* Content - Asymmetric 6 columns */}
-            <div className="lg:col-span-6 space-y-8">
-              <div className="fade-in-up">
-                <div className="inline-flex items-center gap-3 px-6 py-3 glass-luxury rounded-full mb-8">
-                  <div className="w-2 h-2 bg-[#B5A642] rounded-full luxury-glow"></div>
-<span className="text-[#BB4500] text-sm font-bold uppercase tracking-[0.2em]">Experience Wellness</span>
-                </div>
-                
-                <h2 className="text-5xl lg:text-6xl font-light leading-tight text-[#2C2B29] mb-8" 
-                    style={{ fontFamily: 'Playfair Display, serif' }}>
-                  Your Journey to <span className="text-luxury">Better Being</span>
-                </h2>
-                
-                <div className="w-24 h-px bg-gradient-to-r from-[#8B4513] to-[#B5A642] mb-8"></div>
-                
-                
-                <div className="flex flex-col sm:flex-row gap-6">
-<a href="/products" className="btn-premium hover-glow focus-premium group" style={{ backgroundColor: '#BB4500', borderColor: '#BB4500' }}>
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            {/* Left Content */}
+            <div className="space-y-8 fade-in-up">
+              <div className="inline-flex items-center gap-3 px-6 py-3 glass-luxury rounded-full">
+                <div className="w-2 h-2 bg-[#B5A642] rounded-full luxury-glow"></div>
+                <span className="text-[#BB4500] text-sm font-bold uppercase tracking-[0.2em]">Experience Wellness</span>
+              </div>
+              
+              <h2 className="text-5xl lg:text-6xl font-light leading-tight text-[#2C2B29]" 
+                  style={{ fontFamily: 'Playfair Display, serif' }}>
+                Your Journey to <span className="text-luxury">Better Being</span>
+              </h2>
+              
+              <div className="w-24 h-px bg-gradient-to-r from-[#8B4513] to-[#B5A642]"></div>
+            </div>
+            
+            {/* Right Content - Button Area */}
+            <div className="flex items-center justify-center lg:justify-end fade-in-up" style={{ animationDelay: '0.2s' }}>
+              <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 lg:p-12 shadow-lg border border-[#BB4500]/10 hover:shadow-2xl transition-all duration-500 hover:scale-105 group">
+                <div className="text-center space-y-6">
+                  <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-[#BB4500]/10 to-[#B5A642]/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-10 h-10 text-[#BB4500]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-light text-[#2C2B29]" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    Discover Our Collection
+                  </h3>
+                  <p className="text-[#7A7771] leading-relaxed max-w-xs mx-auto">
+                    Explore premium wellness products designed to support your journey to better being.
+                  </p>
+                  <a 
+                    href="/products" 
+                    className="inline-flex items-center gap-3 bg-[#BB4500] hover:bg-[#2C2B29] text-white px-8 py-4 font-medium uppercase tracking-wider transition-all duration-300 rounded-lg group-hover:gap-4"
+                    style={{ fontFamily: 'League Spartan, sans-serif' }}
+                  >
                     <span>Explore Collection</span>
-                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </a>
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
       </section>
