@@ -18,6 +18,9 @@ function ProductCard({ product }: { product: any }) {
   const price = typeof product.price === 'string' ? product.price : `R${product.price}`;
   const originalPrice = typeof product.originalPrice === 'string' ? product.originalPrice : `R${product.originalPrice}`;
   
+  // Identify pots that need 75% scaling
+  const isPot = ['Aloe Gel', 'Skin Therapy', 'Day Care', 'Night Care', 'Eye Repair'].includes(product.name);
+  
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
@@ -51,23 +54,11 @@ function ProductCard({ product }: { product: any }) {
         className="relative aspect-square bg-[var(--bb-champagne)] overflow-hidden mb-4 cursor-pointer"
         onClick={handleProductClick}
       >
-        {/* Wishlist heart */}
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            upsertWishlistEntry({ product_id: product.id, name: product.name, image: product.image, price: product.price });
-          }}
-          aria-label="Add to wishlist"
-          className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 border border-[var(--bb-black-bean)]/10 flex items-center justify-center text-[var(--bb-payne-gray)] hover:text-red-600 hover:bg-red-50 transition-all"
-        >
-          <Heart className="w-4 h-4" />
-        </button>
         {product.image ? (
           <img 
             src={product.image} 
             alt={product.name}
-            className="w-full h-full object-contain p-4 pointer-events-none"
+            className={`w-full h-full object-contain p-4 pointer-events-none transition-transform hover:scale-105 ${isPot ? 'scale-75' : ''}`}
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.style.display = 'none';
@@ -112,25 +103,21 @@ function ProductCard({ product }: { product: any }) {
             )}
           </div>
         </div>
-        {/* Add to cart / wishlist pinned at bottom */}
+        {/* Two buttons: Read more + Add to cart */}
         <div className="mt-auto w-full flex gap-2">
+          <button 
+            onClick={handleProductClick}
+            className="flex-1 bg-white border-2 border-[var(--bb-black-bean)] text-[var(--bb-black-bean)] py-3 text-sm tracking-wide uppercase hover:bg-[var(--bb-black-bean)] hover:text-white transition-all active:scale-95" 
+            style={{ fontFamily: 'League Spartan, sans-serif' }}
+          >
+            READ MORE
+          </button>
           <button 
             onClick={handleAddToCart} 
             className="flex-1 bg-[var(--bb-hero-surround)] text-white py-3 text-sm tracking-wide uppercase hover:bg-[var(--bb-hero-surround)]/90 transition-all active:scale-95" 
             style={{ fontFamily: 'League Spartan, sans-serif' }}
           >
             ADD TO CART
-          </button>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              upsertWishlistEntry({ product_id: product.id, name: product.name, image: product.image, price: product.price });
-            }}
-            aria-label="Add to wishlist"
-            className="px-3 py-3 rounded bg-white border border-[var(--bb-black-bean)]/20 text-[var(--bb-black-bean)] hover:bg-[var(--bb-champagne)]/60 transition-all active:scale-95"
-          >
-            <Heart className="w-4 h-4" />
           </button>
         </div>
       </div>
@@ -164,6 +151,9 @@ function MobileProductCard({ product }: { product: any }) {
   const origNum = product.originalPrice != null ? toNumber(product.originalPrice) : NaN;
   const onSale = Number.isFinite(origNum) && origNum > priceNum;
   const discount = onSale ? Math.round(((origNum - priceNum) / origNum) * 100) : 0;
+  
+  // Identify pots that need 75% scaling
+  const isPot = ['Aloe Gel', 'Skin Therapy', 'Day Care', 'Night Care', 'Eye Repair'].includes(product.name);
 
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -207,22 +197,10 @@ function MobileProductCard({ product }: { product: any }) {
         <div
           className="relative aspect-square bg-[var(--bb-champagne)]"
         >
-          {/* Wishlist heart */}
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              upsertWishlistEntry({ product_id: product.id, name: product.name, image: product.image, price: product.price });
-            }}
-            aria-label="Add to wishlist"
-            className="absolute top-3 right-3 z-10 w-10 h-10 rounded-full bg-white/90 border border-[var(--bb-black-bean)]/10 flex items-center justify-center text-[var(--bb-payne-gray)] hover:text-red-600 hover:bg-red-50 active:bg-red-100"
-          >
-            <Heart className="w-4 h-4" />
-          </button>
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105 pointer-events-none"
+            className={`w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105 pointer-events-none ${isPot ? 'scale-75' : ''}`}
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.style.display = 'none';
@@ -254,22 +232,18 @@ function MobileProductCard({ product }: { product: any }) {
           </div>
           <div className="flex gap-2 mt-1">
             <button
+              onClick={handleProductClick}
+              className="flex-1 bg-white border-2 border-[var(--bb-black-bean)] text-[var(--bb-black-bean)] py-2.5 text-xs tracking-wider uppercase rounded transition-colors hover:bg-[var(--bb-black-bean)] hover:text-white active:scale-95"
+              style={{ fontFamily: 'League Spartan, sans-serif' }}
+            >
+              Read more
+            </button>
+            <button
               onClick={handleAddToCart}
               className="flex-1 bg-[var(--bb-black-bean)] text-white py-2.5 text-xs tracking-wider uppercase rounded transition-colors hover:bg-[var(--bb-mahogany)] active:scale-95"
               style={{ fontFamily: 'League Spartan, sans-serif' }}
             >
               Add to cart
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                upsertWishlistEntry({ product_id: product.id, name: product.name, image: product.image, price: product.price });
-              }}
-              aria-label="Add to wishlist"
-              className="px-3 py-2.5 rounded bg-white border border-[var(--bb-black-bean)]/20 text-[var(--bb-black-bean)] hover:bg-[var(--bb-champagne)]/60 active:scale-95"
-            >
-              <Heart className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -408,29 +382,31 @@ export default function ProductsPage() {
           FREE DELIVERY FOR ORDERS OVER R800
         </div>
 
-        {/* Category Chips */}
-        <div className="px-4 py-4 bg-[#F9E7C9] border-b border-[var(--bb-mahogany)]/10 overflow-x-auto sticky top-20 z-30">
-          <div className="flex items-center gap-2 min-w-max">
-            {[
-              { label: 'All', href: '/products', active: !category && !saleParam && !popularParam && maxPrice === undefined },
-              { label: 'Wellness Essentials', href: '/products?category=wellness-essentials', active: category === 'wellness-essentials' },
-              { label: 'Natural Skincare', href: '/products?category=natural-skincare', active: category === 'natural-skincare' },
-              { label: 'Digital Wellness', href: '/products?category=digital-products', active: category === 'digital-products' },
-              { label: 'Under R250', href: '/products?maxPrice=250', active: maxPrice === 250 },
-              { label: 'Top Sellers', href: '/products?popular=true', active: popularParam },
-              { label: 'Sale', href: '/products?sale=true', active: saleParam },
-            ].map(({ label, href, active }) => (
-              <Link
-                key={label}
-                href={href}
-                className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider whitespace-nowrap transition-colors ${active ? 'bg-[var(--bb-black-bean)] text-white' : 'bg-white text-[var(--bb-black-bean)] border border-[var(--bb-black-bean)]/20'}`}
-                style={{ fontFamily: 'League Spartan, sans-serif' }}
-              >
-                {label}
-              </Link>
-            ))}
+        {/* Category Chips - Hidden for launch */}
+        {false && (
+          <div className="px-4 py-4 bg-[#F9E7C9] border-b border-[var(--bb-mahogany)]/10 overflow-x-auto sticky top-20 z-30">
+            <div className="flex items-center gap-2 min-w-max">
+              {[
+                { label: 'All', href: '/products', active: !category && !saleParam && !popularParam && maxPrice === undefined },
+                { label: 'Wellness Essentials', href: '/products?category=wellness-essentials', active: category === 'wellness-essentials' },
+                { label: 'Natural Skincare', href: '/products?category=natural-skincare', active: category === 'natural-skincare' },
+                { label: 'Digital Wellness', href: '/products?category=digital-products', active: category === 'digital-products' },
+                { label: 'Under R250', href: '/products?maxPrice=250', active: maxPrice === 250 },
+                { label: 'Top Sellers', href: '/products?popular=true', active: popularParam },
+                { label: 'Sale', href: '/products?sale=true', active: saleParam },
+              ].map(({ label, href, active }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider whitespace-nowrap transition-colors ${active ? 'bg-[var(--bb-black-bean)] text-white' : 'bg-white text-[var(--bb-black-bean)] border border-[var(--bb-black-bean)]/20'}`}
+                  style={{ fontFamily: 'League Spartan, sans-serif' }}
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Sort / Filter Bar */}
         <div className="px-4 py-3 bg-[#F9E7C9] border-b border-[var(--bb-mahogany)]/10 flex items-center justify-between">

@@ -46,8 +46,8 @@ export default function AboutPage() {
   }, []);
   return (
     <div className="min-h-screen bg-[#F9E7C9]">
-      {/* Hero Section - Image background stretched to fit */}
-      <section className="relative min-h-[80vh] bg-[var(--bb-hero-surround)] overflow-hidden">
+      {/* Hero Section - Canonical Format */}
+      <section className="relative min-h-[var(--hero-min-h-desktop)] md:min-h-[var(--hero-min-h-tablet)] sm:min-h-[var(--hero-min-h-mobile)] bg-[var(--bb-hero-surround)] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/Platform Graphics/About - Hero Banner.png"
@@ -59,12 +59,21 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-black/40 z-10 pointer-events-none"></div>
         {/* Hero Text (matching home page style) */}
         <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
-          <div className="min-h-[80vh] pt-24 flex flex-col items-center justify-center text-center">
-            <h1 className="text-hero text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-6">PRODUCTS THAT EARN THEIR PLACE IN YOUR DAY</h1>
+          <div className="min-h-[var(--hero-min-h-desktop)] md:min-h-[var(--hero-min-h-tablet)] sm:min-h-[var(--hero-min-h-mobile)] flex flex-col items-center justify-center text-center py-24">
+            <h1 
+              className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-6"
+              style={{ 
+                fontFamily: 'League Spartan, sans-serif',
+                fontWeight: 900,
+                fontSize: 'var(--hero-font-size)',
+                lineHeight: 'var(--hero-lineheight)',
+                letterSpacing: 'var(--hero-letterspacing)'
+              }}
+            >
+              PRODUCTS THAT EARN THEIR PLACE IN YOUR DAY
+            </h1>
           </div>
         </div>
-        {/* Keep a spacer for absolute header overlap */}
-        <div className="h-20"></div>
       </section>
 
       {/* Story Section - Champagne Background with Brand Imagery */}
