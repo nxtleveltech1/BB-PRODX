@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import StoreLocator from "components/locator/StoreLocator";
+import StoreLocator from "@/components/locator/StoreLocator";
 
 export default function OutletsPage() {
   const sp = useSearchParams();

@@ -1,11 +1,10 @@
 // Root Layout for Next.js App Router
 import './globals.css'
-import TopBar from 'components/layout/TopBar'
-import Footer from 'components/layout/Footer'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
 import Providers from './providers'
 import { Toaster } from 'sonner'
 import StackAuthWrapper from './StackAuthWrapper'
-import MobileTabBar from 'components/mobile/MobileTabBar'
 
 export default function RootLayout({
   children,
@@ -33,16 +32,9 @@ export default function RootLayout({
       <body>
         <StackAuthWrapper>
           <Providers>
-            <TopBar />
-            <main className="pb-[calc(env(safe-area-inset-bottom)+72px)] md:pb-0">{children}</main>
+            <Header />
+            <main className="pb-4 md:pb-0">{children}</main>
             <Footer />
-            {/* Mobile bottom navigation */}
-            <div className="md:hidden">
-              {/* Render only on small screens; component handles fixed positioning and safe area */}
-              {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-              {/* @ts-ignore - path uses root components alias */}
-              <MobileTabBar />
-            </div>
             <Toaster richColors position="top-right" />
           </Providers>
         </StackAuthWrapper>

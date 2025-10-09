@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import StoreLocator from 'components/locator/StoreLocator';
 import TopSixFlip from '@/components/TopSixFlip';
 import SocialMediaWall from '@/components/SocialMediaWall';
 
@@ -118,12 +117,8 @@ const [scrollY, setScrollY] = useState(0);
       {/* Rotating Product Section - no borders between sections */}
       <TopSixFlip showBorders={false} />
 
-      {/* Store Locator block (embedded in the original section container) */}
-      <section className="bg-[#F9E7C9] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <StoreLocator compact />
-        </div>
-      </section>
+      {/* Store Locator placeholder - coming soon */}
+      {/* <StoreLocator compact /> */}
 
 
       {/* Stockist Section - Solid Green */}
