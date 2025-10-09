@@ -312,6 +312,12 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: var(--tracking-wide);
 }
 
+/* Uppercase heading utility (preserves SEO/accessibility) */
+.u-heading-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
 /* Page background utility */
 .page-background {
   background-color: var(--bb-champagne) !important;

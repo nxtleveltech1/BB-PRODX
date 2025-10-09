@@ -123,7 +123,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12 md:mb-20">
             <p className="text-[var(--bb-payne-gray)] text-sm font-medium uppercase tracking-[0.2em] mb-6">Our Commitment</p>
-            <h2 className="text-3xl md:text-5xl font-light text-[var(--bb-black-bean)] max-w-2xl mx-auto leading-tight" style={{ fontFamily: 'Prata, Georgia, serif' }}>
+            <h2 className="u-heading-uppercase text-3xl md:text-5xl font-light text-[var(--bb-black-bean)] max-w-2xl mx-auto leading-tight" style={{ fontFamily: 'Prata, Georgia, serif' }}>
               How we think (and make)
             </h2>
           </div>
@@ -138,23 +138,23 @@ export default function AboutPage() {
               {
                 icon: "/Platform Graphics/good only icon.png",
                 title: "Good only",
-                description: "If it doesn’t meet our standard, it doesn’t make the shelf—ingredients, partners, and practices included.",
+                description: "If it doesn't meet our standard, it doesn't make the shelf—ingredients, partners, and practices included.",
               },
               {
                 icon: "/Platform Graphics/deep thinkers bold doers icon.png",
                 title: "Deep thinkers. Bold doers",
-                description: "We ask harder questions, make the brave call, and build what doesn’t exist—then we stand behind the results.",
+                description: "We ask harder questions, make the brave call, and build what doesn't yet exist.",
               },
               {
                 icon: "/Platform Graphics/accessible by design icon.png",
                 title: "Accessible by design",
-                description: "We build what works and price it with integrity—no hype tax, no bloated margins—so wellness isn’t a luxury; it’s everyday",
+                description: "We build with integrity—no hype tax, no bloated margins—so that wellness isn't a luxury.",
               },
             ].map((item, index) => (
               <div key={index} className="bg-white p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
                 <div className="flex flex-col items-start text-left space-y-4">
                   <img src={item.icon} alt={`${item.title} icon`} className="w-12 h-12 object-contain" />
-                  <h3 className="text-xl font-semibold tracking-wide" style={{ fontFamily: 'League Spartan, sans-serif', color: 'var(--bb-black-bean)' }}>
+                  <h3 className="u-heading-uppercase text-xl font-semibold tracking-wide" style={{ fontFamily: 'League Spartan, sans-serif', color: 'var(--bb-black-bean)' }}>
                     {item.title}
                   </h3>
                   <p className="text-base leading-relaxed" style={{ fontFamily: 'Playfair Display, serif', color: 'var(--bb-payne-gray)' }}>
@@ -176,7 +176,7 @@ export default function AboutPage() {
               <span className="text-[#BB4500] text-sm font-bold uppercase tracking-[0.2em]">Customer Stories</span>
             </div>
             
-            <h2 className="text-4xl lg:text-5xl font-light text-[#2C2B29] leading-tight" 
+            <h2 className="u-heading-uppercase text-4xl lg:text-5xl font-light text-[#2C2B29] leading-tight" 
                 style={{ fontFamily: 'Playfair Display, serif' }}>
               Voices from the Community
             </h2>
@@ -203,27 +203,19 @@ export default function AboutPage() {
             >
               {[
                 {
-                  name: "Suré Tredoux",
+                  name: "Helen Saayman",
                   location: "",
                   rating: 5,
-                  text: "Being part of the Better Being community feels uplifting and authentic. The products are 100% natural, and I’ve experienced for myself that it really and truly works. What I love most is that it’s more than just products, it’s a space where people share, support, and inspire each other to live in a healthier, more natural way.",
-                  avatar: "ST",
+                  text: "At Better Being, I'm lucky enough to work alongside an incredible team that makes everything tick. From the very first tub of Go Go Pain to the growing range we have today, creativity and quiet wisdom has been the foundation of it all.\n\nThe founders have compassion and vision that inspires everyone around them. They dream big while keeping people at the centre.\n\nTogether, this team brings energy, creativity, and heart into everything we do. Working with them is not just a job—it's a joy.",
+                  avatar: "HS",
                   verified: true
                 },
                 {
-                  name: "Chelsea Kruser",
+                  name: "Lynne Grant",
                   location: "",
                   rating: 5,
-                  text: "What I really appreciate about Better Being is how genuinely committed the company is to people’s health and well-being. The products are 100% natural, and that makes a real difference in a world where so many options are full of chemicals. The team behind it all is passionate, thoughtful, and truly cares about creating something that helps people and supports the community.",
-                  avatar: "CK",
-                  verified: true
-                },
-                {
-                  name: "Elna Flawn",
-                  location: "",
-                  rating: 5,
-                  text: "It's a privilege being part of the Better Being team—a really positive & dynamic environment to be around, continually innovating with new products. I look forward to everyday, assisting in getting our all natural products to our customers, and getting positive feedback on how it made a difference in their lives.",
-                  avatar: "EF",
+                  text: "Being part of the Better Being team is both a privilege and a passion for me. My journey with the company began at a personal level experiencing one of their products for myself, with incredible success, giving me a genuine belief in the quality of the products and the ethos of the company.\n\nToday I am proud to represent their range across the Eastern Cape. This is deeply meaningful as I know I am sharing products that can make a difference in people's lives.\n\nWhat the company stands for resonates with me: Better Being is not just a name, it is about living and supporting wellness in every sense—physically, emotionally and holistically.",
+                  avatar: "LG",
                   verified: true
                 }
               ].map((testimonial, index) => (
@@ -239,7 +231,7 @@ export default function AboutPage() {
                         </svg>
                       ))}
                     </div>
-                    <blockquote className="text-[#7A7771] italic leading-relaxed mb-8 text-lg max-w-2xl mx-auto line-clamp-5">
+                    <blockquote className="text-[#7A7771] italic leading-relaxed mb-8 text-lg max-w-2xl mx-auto whitespace-pre-line">
                       "{testimonial.text}"
                     </blockquote>
                     <div className="flex flex-col items-center justify-center gap-3">
@@ -247,7 +239,7 @@ export default function AboutPage() {
                         {testimonial.avatar}
                       </div>
                       <div className="text-center">
-                        <div className="font-medium text-[#2C2B29] flex items-center justify-center gap-2">
+                        <div className="u-heading-uppercase font-medium text-[#2C2B29] flex items-center justify-center gap-2">
                           {testimonial.name}
                           {testimonial.verified && (
                             <span className="px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs border border-green-200">Verified</span>
@@ -271,26 +263,6 @@ export default function AboutPage() {
               <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#2C2B29]" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </button>
           </div>
-          
-          {/* Premium Stats */}
-          <div className="grid md:grid-cols-4 gap-8 fade-in-up" style={{ animationDelay: '1s' }}>
-            {[
-              { number: "100,000+", label: "Happy Customers" },
-              { number: "100%", label: "Natural Ingredients" },
-              { number: "5-Star", label: "Average Rating" },
-              { number: "48hr", label: "Fast Delivery" }
-            ].map((stat, index) => (
-              <div key={index} className="text-center p-6 rounded-lg transition-all duration-300 hover:bg-[#F9E7C9]/30 hover-glow">
-                <div className="text-3xl font-light text-[#8B4513] mb-2" 
-                     style={{ fontFamily: 'Playfair Display, serif' }}>
-                  {stat.number}
-                </div>
-                <div className="text-sm text-[#7A7771] uppercase tracking-wide font-medium">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -298,7 +270,7 @@ export default function AboutPage() {
       <section className="py-16 bg-[#F9E7C9]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-5xl font-light text-[var(--bb-black-bean)] max-w-3xl mx-auto leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="u-heading-uppercase text-3xl md:text-5xl font-light text-[var(--bb-black-bean)] max-w-3xl mx-auto leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
               What we aim to (and continue to) achieve
             </h2>
           </div>
@@ -323,7 +295,7 @@ export default function AboutPage() {
               }
             ].map((block, idx) => (
               <div key={idx} className="bg-[var(--bb-black-bean)] p-8 transition-shadow duration-300">
-                <h3 className="text-xl font-semibold tracking-wide mb-3" style={{ fontFamily: 'League Spartan, sans-serif', color: 'var(--bb-champagne)' }}>
+                <h3 className="u-heading-uppercase text-xl font-semibold tracking-wide mb-3" style={{ fontFamily: 'League Spartan, sans-serif', color: 'var(--bb-champagne)' }}>
                   {block.title}
                 </h3>
                 <p className="text-base leading-relaxed" style={{ fontFamily: 'Playfair Display, serif', color: 'var(--bb-champagne)' }}>
