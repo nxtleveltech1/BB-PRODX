@@ -104,9 +104,9 @@ export default function ContactPage() {
                     <label className="text-sm font-medium text-[var(--bb-black-bean)] uppercase tracking-wider">First Name</label>
                     <input
                       type="text"
-                      name="name"
+                      name="firstName"
                       required
-                      value={formData.name}
+                      value={formData.firstName}
                       onChange={handleInputChange}
                       className="w-full p-4 border-2 border-[var(--bb-payne-gray)]/20 focus:border-[var(--bb-mahogany)] bg-white text-[var(--bb-black-bean)] transition-colors duration-300 outline-none"
                       placeholder="Your first name"
@@ -117,6 +117,8 @@ export default function ContactPage() {
                     <input
                       type="text"
                       name="lastName"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
                       className="w-full p-4 border-2 border-[var(--bb-payne-gray)]/20 focus:border-[var(--bb-mahogany)] bg-white text-[var(--bb-black-bean)] transition-colors duration-300 outline-none"
                       placeholder="Your last name"
                     />
