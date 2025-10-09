@@ -1444,4 +1444,12 @@ html {
 
 :root {
   --bb-hero-surround: #BB4500;
+  
+  /* Global Hero Typography Tokens (canonical reference from Home) */
+  --hero-font-size: clamp(4rem, 10vw, 9rem);
+  --hero-letterspacing: -0.03em; /* ~88pt tracking */
+  --hero-lineheight: 0.85;
+  --hero-min-h-desktop: 75vh;
+  --hero-min-h-tablet: 60vh;
+  --hero-min-h-mobile: 50vh;
 }

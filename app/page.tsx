@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import StoreLocator from 'components/locator/StoreLocator';
 import TopSixFlip from '@/components/TopSixFlip';
+import SocialMediaWall from '@/components/SocialMediaWall';
 
 export default function HomePage() {
 const [scrollY, setScrollY] = useState(0);
@@ -16,9 +17,9 @@ const [scrollY, setScrollY] = useState(0);
 
   return (
     <div className="min-h-screen bg-[#F9E7C9]">
-      {/* Hero Section - Reduced Size */}
-      <section className="relative h-[75vh] flex items-center justify-center overflow-hidden bg-[var(--bb-mahogany)]">
-        {/* Hero Background Image - FIXED */}
+      {/* Hero Section - Canonical Reference */}
+      <section className="relative min-h-[var(--hero-min-h-desktop)] md:min-h-[var(--hero-min-h-tablet)] sm:min-h-[var(--hero-min-h-mobile)] flex items-center justify-center overflow-hidden bg-[var(--bb-mahogany)]">
+        {/* Hero Background Image */}
         <div className="absolute inset-0 z-0">
           <img
             src="/20250902.png"
@@ -34,10 +35,21 @@ const [scrollY, setScrollY] = useState(0);
           {/* Premium Film Grain */}
           <div className="absolute inset-0 grain-texture opacity-20 z-10 pointer-events-none"></div>
         
-        {/* Hero Content */}
+        {/* Hero Content - Centered with proper spacing */}
         <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
-          <div className="h-[75vh] pt-24 flex flex-col items-center justify-center text-center">
-            <h1 className="text-hero text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-6" style={{ letterSpacing: '0.05em' }}>BETTER BEGINS HERE</h1>
+          <div className="min-h-[var(--hero-min-h-desktop)] md:min-h-[var(--hero-min-h-tablet)] sm:min-h-[var(--hero-min-h-mobile)] flex flex-col items-center justify-center text-center py-24">
+            <h1 
+              className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-6"
+              style={{ 
+                fontFamily: 'League Spartan, sans-serif',
+                fontWeight: 900,
+                fontSize: 'var(--hero-font-size)',
+                lineHeight: 'var(--hero-lineheight)',
+                letterSpacing: 'var(--hero-letterspacing)'
+              }}
+            >
+              BETTER BEGINS HERE
+            </h1>
             <p className="text-subhero text-white/90 mb-10">Products that work, principles that hold</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="/products" className="btn btn-primary" style={{ backgroundColor: '#BB4500', borderColor: '#BB4500' }}>
@@ -124,7 +136,7 @@ const [scrollY, setScrollY] = useState(0);
             </h2>
             <div className="w-24 h-px bg-[#2C2B29] mx-auto"></div>
             <p className="text-xl leading-relaxed text-[#2C2B29]/90 max-w-3xl mx-auto font-light">
-              Stock a wellness range your shoppers trust. Clear margins, simple MOQs, fast reorders, and launch/training support—so your shelves move and your team feels confident.
+              Stock a wellness range your shoppers trust. Clear margins, simple MOQs, fast reorders, and launch/training support — so that products fly off of your shelves and your team feels confident.
             </p>
             <div className="pt-8">
               <a href="/portal-access" className="btn btn-primary" style={{ backgroundColor: '#BB4500', borderColor: '#BB4500' }}>
@@ -173,6 +185,9 @@ const [scrollY, setScrollY] = useState(0);
           </div>
         </div>
       </section>
+
+      {/* Social Media Wall */}
+      <SocialMediaWall handle="betterbeing" />
 
     </div>
   );
