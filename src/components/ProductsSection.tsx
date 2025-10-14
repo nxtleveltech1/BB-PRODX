@@ -1,4 +1,4 @@
-'use client';
+"K:\.ProductionDevelopmentENV\BB-PRODX\BB-PRODX\docs\capture_251013_165659.png"'use client';
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";

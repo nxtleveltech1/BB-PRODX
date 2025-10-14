@@ -780,7 +780,7 @@ const allProducts: Product[] = [
   {
     id: 27,
     sku: "OG-MAM-027",
-    name: "Mag Active Muscle",
+    name: "Therapeutic Magnesium Oil Spray: Active Muscle Recovery",
     description: "Magnesium support for active muscles and recovery.",
     longDescription: "Magnesium complex designed to support muscle function and recovery.",
     price: "R299",
@@ -805,7 +805,7 @@ const allProducts: Product[] = [
   {
     id: 28,
     sku: "OG-MAH-028",
-    name: "Mag Anti Hairloss",
+    name: "Therapeutic Magnesium Oil Spray: Anti-Hair Loss",
     description: "Magnesium-based support aimed at hair strength and health.",
     longDescription: "Nutrient support with magnesium to help maintain healthy hair.",
     price: "R299",
@@ -830,7 +830,7 @@ const allProducts: Product[] = [
   {
     id: 29,
     sku: "OG-MAJ-029",
-    name: "Mag Arthritis & Joint",
+    name: "Therapeutic Magnesium Oil Spray: Arthritis & Joint",
     description: "Magnesium-focused support for joint comfort and mobility.",
     longDescription: "Nutrient support featuring magnesium to aid joint comfort and mobility.",
     price: "R299",
@@ -855,7 +855,7 @@ const allProducts: Product[] = [
   {
     id: 30,
     sku: "OG-MMC-030",
-    name: "Mag Mental Clarity",
+    name: "Therapeutic Magnesium Oil Spray: Mental Clarity",
     description: "Magnesium blend to support focus and mental clarity.",
     longDescription: "Supports cognitive performance and calm focus with a magnesium blend.",
     price: "R299",
@@ -880,7 +880,7 @@ const allProducts: Product[] = [
   {
     id: 31,
     sku: "OG-MPU-031",
-    name: "Mag Pure",
+    name: "Therapeutic Magnesium Oil Spray: Pure",
     description: "Pure magnesium support for daily wellness.",
     longDescription: "Simple and pure magnesium complex for everyday nutrient support.",
     price: "R299",
@@ -905,7 +905,7 @@ const allProducts: Product[] = [
   {
     id: 32,
     sku: "OG-MSL-032",
-    name: "Mag Sleep",
+    name: "Therapeutic Magnesium Oil Spray: Sleep Therapy",
     description: "Magnesium support aimed at restful sleep and relaxation.",
     longDescription: "Magnesium blend designed to support relaxation and healthy sleep cycles.",
     price: "R299",
@@ -1119,12 +1119,12 @@ const displayOrder: { [key: number]: number } = {
   24: 16, // Day Care
   2: 17,  // Night Care
   7: 18,  // Eye Repair
-  32: 19, // Mag Sleep
-  27: 20, // Mag Active Muscle
-  31: 21, // Mag Pure
-  30: 22, // Mag Mental Clarity
-  29: 23, // Mag Arthritis
-  28: 24, // Mag Anti Hairloss
+  32: 19, // Therapeutic Magnesium Oil Spray: Sleep Therapy
+  27: 20, // Therapeutic Magnesium Oil Spray: Active Muscle Recovery
+  31: 21, // Therapeutic Magnesium Oil Spray: Pure
+  30: 22, // Therapeutic Magnesium Oil Spray: Mental Clarity
+  29: 23, // Therapeutic Magnesium Oil Spray: Arthritis & Joint
+  28: 24, // Therapeutic Magnesium Oil Spray: Anti-Hair Loss
 };
 
 export const products: Product[] = enrichedProducts

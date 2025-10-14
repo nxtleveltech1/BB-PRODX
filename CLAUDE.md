@@ -167,6 +167,50 @@ Copy `.env.example` to `.env` and configure:
 ### AI Design Integration
 The project includes an AI-native design workflow using Playwright MCP for visual testing and design iteration. See `AI-DESIGN-WORKFLOW-README.md` for detailed usage.
 
+## Issue Tracking with Beads (bd)
+
+**We track work in Beads instead of Markdown.** Use the `bd` tool for all issue management and task tracking.
+
+### Quick Start
+```bash
+# Find ready work to claim
+./beads/bd.exe ready --json | jq '.[0]'
+
+# Create issues during work
+./beads/bd.exe create "Discovered bug" -t bug -p 0 --json
+
+# Link discovered work back to parent
+./beads/bd.exe dep add <new-id> <parent-id> --type discovered-from
+
+# Update status
+./beads/bd.exe update <issue-id> --status in_progress --json
+
+# Complete work
+./beads/bd.exe close <issue-id> --reason "Implemented" --json
+```
+
+### Agent Workflow
+1. **Start sessions**: Run `./beads/bd.exe ready --json` to find unblocked work
+2. **Claim work**: Update issue status to `in_progress` 
+3. **Create issues**: File new issues for discovered work automatically
+4. **Link dependencies**: Use `discovered-from` type for work found during execution
+5. **Complete work**: Close issues with implementation details
+
+### Key Commands
+- `./beads/bd.exe ready --json` - Get ready work (no blockers)
+- `./beads/bd.exe create "Title" -t <type> -p <priority> --json` - Create issue
+- `./beads/bd.exe update <id> --status in_progress --json` - Claim work
+- `./beads/bd.exe dep add <child> <parent> --type discovered-from` - Link discovery
+- `./beads/bd.exe close <id> --reason "Done" --json` - Complete work
+
+### Dependency Types
+- `blocks` - Hard blocker (affects ready work)
+- `related` - Soft connection (context only)
+- `parent-child` - Epic/subtask hierarchy  
+- `discovered-from` - Work discovered while executing
+
+**Always use `--json` flags for programmatic integration.**
+
 ### Deployment
 Configured for Vercel deployment with:
 - Frontend served from root

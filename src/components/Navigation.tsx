@@ -236,6 +236,23 @@ export const Navigation = () => {
                       </NavigationMenuLink>
                     </Link>
                   </NavigationMenuItem>
+
+                  {/* Stock Better Being */}
+                  <NavigationMenuItem>
+                    <Link href="/portal-access">
+                      <NavigationMenuLink 
+                        className={cn(
+                          "relative group font-heading text-sm uppercase tracking-brand px-4 py-2 rounded-md transition-all duration-300 font-medium",
+                          isActive("/portal-access") 
+                            ? "text-accent-600 bg-accent-50" 
+                            : "text-muted-foreground hover:text-accent-600 hover:bg-accent-50/50"
+                        )}
+                      >
+                        Stock Better Being
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-accent-500 to-success-500 group-hover:w-full transition-all duration-300" />
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
             </nav>
@@ -431,6 +448,15 @@ export const Navigation = () => {
                   )}
                 >
                   Contact
+                </Link>
+                <Link 
+                  href="/portal-access" 
+                  className={cn(
+                    "text-base font-heading uppercase tracking-brand transition-colors py-2 px-3 rounded-lg",
+                    isActive("/portal-access") ? "text-accent-600 bg-accent-50" : "text-foreground hover:text-accent-600 hover:bg-accent-50/50"
+                  )}
+                >
+                  Stock Better Being
                 </Link>
                 <Link 
                   href="/checkout" 

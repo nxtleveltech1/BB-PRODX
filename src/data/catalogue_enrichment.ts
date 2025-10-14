@@ -377,7 +377,7 @@ export const catalogueEnrichment: Record<string, Partial<Product>> = {
     usage:
       "Covers ~50 m^2. Dilute 1:300 in water and apply once per season."
   },
-  "Mag Pure": {
+  "Therapeutic Magnesium Oil Spray: Pure": {
     longDescription:
       "High-purity magnesium oil spray with MSM and rosewater to soften the magnesium tingle.",
     ingredients: ["Elemental magnesium", "MSM", "Rosewater", "Dead Sea salt"],
@@ -390,7 +390,7 @@ export const catalogueEnrichment: Record<string, Partial<Product>> = {
     ],
     usage: "10 sprays twice daily onto skin."
   },
-  "Mag Active Muscle": {
+  "Therapeutic Magnesium Oil Spray: Active Muscle Recovery": {
     longDescription:
       "Magnesium oil spray with essential oils to reduce pain and speed up recovery.",
     ingredients: [
@@ -411,7 +411,7 @@ export const catalogueEnrichment: Record<string, Partial<Product>> = {
       "Support bruising recovery"
     ]
   },
-  "Mag Arthritis & Joint": {
+  "Therapeutic Magnesium Oil Spray: Arthritis & Joint": {
     longDescription:
       "Magnesium oil spray with targeted botanicals to help reduce joint pain and inflammation.",
     ingredients: [
@@ -433,7 +433,7 @@ export const catalogueEnrichment: Record<string, Partial<Product>> = {
       "Ease osteoarthritis knee pain"
     ]
   },
-  "Mag Anti Hairloss": {
+  "Therapeutic Magnesium Oil Spray: Anti-Hair Loss": {
     longDescription:
       "Magnesium oil spray with MSM, vitamin E and botanicals to stimulate hair growth and reduce hair loss.",
     ingredients: [
@@ -462,7 +462,7 @@ export const catalogueEnrichment: Record<string, Partial<Product>> = {
     ],
     usage: "10 sprays onto scalp as needed."
   },
-  "Mag Mental Clarity": {
+  "Therapeutic Magnesium Oil Spray: Mental Clarity": {
     longDescription:
       "Uplifting blend to improve focus, concentration and mood while reducing mental fatigue.",
     ingredients: ["Elemental magnesium", "MSM", "Rosewater", "Geranium", "Lemon", "Peppermint", "Rosemary", "Dead Sea salt"],
@@ -474,7 +474,7 @@ export const catalogueEnrichment: Record<string, Partial<Product>> = {
     ],
     usage: "10 sprays twice daily onto skin."
   },
-  "Mag Sleep": {
+  "Therapeutic Magnesium Oil Spray: Sleep Therapy": {
     longDescription:
       "Calming blend to ease stress and promote a restful night's sleep.",
     ingredients: [
