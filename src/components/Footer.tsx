@@ -55,9 +55,14 @@ export const Footer = () => {
               <Button variant="ghost" size="icon" className="text-primary-foreground/80 hover:text-accent hover:bg-primary-foreground/10">
                 <Facebook className="w-5 h-5" />
               </Button>
-              <Button variant="ghost" size="icon" className="text-primary-foreground/80 hover:text-accent hover:bg-primary-foreground/10">
+              <a 
+                href="https://www.instagram.com/the.betterbeing/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-10 h-10 text-primary-foreground/80 hover:text-accent hover:bg-primary-foreground/10 rounded-md transition-colors"
+              >
                 <Instagram className="w-5 h-5" />
-              </Button>
+              </a>
               <Button variant="ghost" size="icon" className="text-primary-foreground/80 hover:text-accent hover:bg-primary-foreground/10">
                 <Twitter className="w-5 h-5" />
               </Button>

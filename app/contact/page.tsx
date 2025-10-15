@@ -167,7 +167,7 @@ export default function ContactPage() {
       </section>
 
       {/* Social Media Wall */}
-      <SocialMediaWall handle="betterbeing" />
+      <SocialMediaWall handle="the.betterbeing" />
     </div>
   );
 }

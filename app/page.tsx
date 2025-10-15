@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import TopSixFlip from '@/components/TopSixFlip';
 import SocialMediaWall from '@/components/SocialMediaWall';
+import StoreLocator from '@/components/locator/StoreLocator';
 
 export default function HomePage() {
 const [scrollY, setScrollY] = useState(0);
@@ -117,8 +118,8 @@ const [scrollY, setScrollY] = useState(0);
       {/* Rotating Product Section - no borders between sections */}
       <TopSixFlip showBorders={false} />
 
-      {/* Store Locator placeholder - coming soon */}
-      {/* <StoreLocator compact /> */}
+      {/* Store Locator */}
+      <StoreLocator compact />
 
 
       {/* Stockist Section - Solid Green */}
@@ -182,7 +183,7 @@ const [scrollY, setScrollY] = useState(0);
       </section>
 
       {/* Social Media Wall */}
-      <SocialMediaWall handle="betterbeing" />
+      <SocialMediaWall handle="the.betterbeing" />
 
     </div>
   );
