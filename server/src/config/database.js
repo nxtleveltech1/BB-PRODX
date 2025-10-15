@@ -6,7 +6,13 @@ import { dirname, join } from 'path';
 // Load env from server/.env reliably regardless of CWD
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-dotenv.config({ path: join(__dirname, '../../.env') });
+
+// Load from root .env.local first, fallback to server/.env
+const rootEnvPath = join(__dirname, '../../../../.env.local');
+const serverEnvPath = join(__dirname, '../../.env');
+
+dotenv.config({ path: rootEnvPath });
+dotenv.config({ path: serverEnvPath });
 
 const { Pool } = pg;
 

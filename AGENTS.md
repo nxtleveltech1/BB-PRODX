@@ -1,5 +1,7 @@
 # Repository Guidelines
 
+> Note for AI Agents: This repository enforces global Cursor rules via `cursor.rules.neon.md` at the repo root. Please read and follow those rules when generating code, diffs, and documentation.
+
 ## Project Structure & Module Organization
 - Frontend: Next.js (TypeScript) in `app/` (routes) with shared code in `src/` (`components/`, `hooks/`, `services/`, `styles/`). Static assets in `public/` and `src/assets/`.
 - Backend: Express API in `server/` (entry: `server/src/index.js`). API routes are under `server/src/routes/` and mount at `/api/*`.

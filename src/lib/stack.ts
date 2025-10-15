@@ -1,8 +1,9 @@
 import { StackClientApp } from '@stackframe/stack';
+import { clientEnv } from '@/lib/env-client';
 
 // Read public env at build time (Next.js inlines these in client bundles)
-const projectId = process.env.NEXT_PUBLIC_STACK_PROJECT_ID;
-const publishableKey = process.env.NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY;
+const projectId = clientEnv.NEXT_PUBLIC_STACK_PROJECT_ID;
+const publishableKey = clientEnv.NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY;
 
 declare global {
    

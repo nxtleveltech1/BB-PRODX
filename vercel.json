@@ -4,6 +4,6 @@
     "NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY": "st_tcuTCuGSEeaE_pk",
     "STACK_SECRET_SERVER_KEY": "st_tcuTCuGSEeaE_sk"
   },
-  "buildCommand": "npm run vercel-build",
+  "buildCommand": "pnpm run vercel-build",
   "outputDirectory": ".next"
 }
