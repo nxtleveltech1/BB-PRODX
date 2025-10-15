@@ -1,4 +1,4 @@
-"K:\.ProductionDevelopmentENV\BB-PRODX\BB-PRODX\docs\capture_251013_165659.png"'use client';
+'use client';
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -38,8 +38,8 @@ export const ProductsSection = () => {
         {/* Featured Image */}
         <div className="relative mb-16 animate-scale-in">
           <div className="relative overflow-hidden rounded-3xl shadow-floating">
-            <img 
-              src="/all_prouct_shots-1.webp" 
+            <img
+              src="/all_prouct_shots-1.webp"
               alt="Premium wellness products showcase"
               className="w-full h-64 md:h-96 object-cover"
             />
@@ -82,7 +82,7 @@ export const ProductsSection = () => {
                 <CardContent className="p-0">
                   {/* Product Image Container */}
                   <div className="relative w-full aspect-square bg-[var(--bb-champagne)] flex items-center justify-center">
-                    <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4 pointer-events-none" />
+                    <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4" />
                   </div>
 
                   {/* Product Info */}
@@ -162,3 +162,4 @@ export const ProductsSection = () => {
 };
 
 export default ProductsSection;
+

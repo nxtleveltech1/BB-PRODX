@@ -9,7 +9,7 @@ import { toast } from "sonner";
 // import api from "@/services/apiOptimized";
 import { products } from "@/data/products";
 import TopSixFlip from "@/components/TopSixFlip";
-import { useCart } from "../../contexts/CartContext";
+import { useCart } from "@/contexts/CartContext";
 
 function ProductCard({ product }: { product: any }) {
   const router = useRouter();
@@ -572,7 +572,7 @@ export default function ProductsPage() {
           {/* Hero Content */}
           <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
             <div className="min-h-[70vh] pt-24 flex flex-col items-center justify-center text-center">
-              <h1 className="text-hero text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]" style={{ letterSpacing: '0.05em' }}>
+              <h1 className="text-hero text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
                 THE BETTER WAY NATURAL, NO COMPROMISE
               </h1>
             </div>

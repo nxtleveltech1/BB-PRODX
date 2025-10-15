@@ -6,7 +6,7 @@ import { products as allProducts } from "@/data/products";
 import type { Product } from "@/types/product";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Star } from "lucide-react";
-import { useCart } from "../../contexts/CartContext";
+import { useCart } from "@/contexts/CartContext";
 
 function byTopSix(input: Product[]): Product[] {
   // Priority: popular first, then featured, then by reviews desc
@@ -22,7 +22,7 @@ function byTopSix(input: Product[]): Product[] {
 
 export default function TopSixFlip({ showBorders = true }: { showBorders?: boolean } = {}) {
   const topSix = React.useMemo(() => byTopSix(allProducts as unknown as Product[]), []);
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
 
   const [api, setApi] = React.useState<any>(null);
   const [paused, setPaused] = React.useState(false);
@@ -39,18 +39,10 @@ export default function TopSixFlip({ showBorders = true }: { showBorders?: boole
     e.preventDefault();
     e.stopPropagation();
     try {
-      addItem({
-        id: Date.now(),
-        product_id: product.id,
+      // Use API-backed cart provider
+      addToCart({
+        productId: product.id,
         quantity: 1,
-        product_name: product.name,
-        product_description: product.description,
-        product_image: product.image || "/placeholder.svg",
-        product_price: String((product.price || "").toString().replace(/^R/, "")),
-        product_original_price: product.originalPrice ? String(product.originalPrice).replace(/^R/, "") : undefined,
-        product_in_stock: product.inStock !== false,
-        product_stock_count: product.stockCount || 1,
-        category_name: product.categoryId || undefined,
       });
     } catch (_err) {
       // no-op: provider shows toast

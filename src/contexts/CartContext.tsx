@@ -31,6 +31,7 @@ interface CartContextType {
   cartItems: CartItem[];
   cartSummary: CartSummary;
   isLoading: boolean;
+  getCartCount: () => number;
   addToCart: (data: AddToCartData) => void;
   updateCartItem: (cartItemId: number, quantity: number) => void;
   removeFromCart: (cartItemId: number) => void;
@@ -41,7 +42,8 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 // API functions
-const API_BASE: string = (import.meta.env.VITE_API_URL as string) || '/api';
+// Use Next.js public env var if provided; otherwise rely on frontend rewrite to backend at /api
+const API_BASE: string = (process.env.NEXT_PUBLIC_API_URL as string | undefined) || '/api';
 
 const cartApi = {
   getCart: async (): Promise<CartItem[]> => {
@@ -209,6 +211,14 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     cartItems,
     cartSummary,
     isLoading,
+    getCartCount: () => {
+      if (typeof cartSummary?.totalQuantity === 'number') return cartSummary.totalQuantity;
+      try {
+        return Array.isArray(cartItems) ? cartItems.reduce((s, i) => s + (Number(i.quantity) || 0), 0) : 0;
+      } catch {
+        return 0;
+      }
+    },
     addToCart: addToCartMutation.mutate,
     updateCartItem: (cartItemId: number, quantity: number) =>
       updateCartMutation.mutate({ cartItemId, quantity }),

@@ -372,9 +372,10 @@ img, video {
 .text-hero {
   font-family: 'League Spartan', sans-serif;
   font-weight: 900;
-  font-size: clamp(4rem, 10vw, 9rem);
-  line-height: 0.85;
-  letter-spacing: -0.03em;
+  /* Use global hero tokens to ensure consistent spacing across pages */
+  font-size: var(--hero-font-size, clamp(4rem, 10vw, 9rem));
+  line-height: var(--hero-lineheight, 0.85);
+  letter-spacing: var(--hero-letterspacing, -0.03em);
 }
 
 .text-subhero {
@@ -867,12 +868,13 @@ html {
 .header-grid-container {
   display: grid;
   /* Adjust proportions to pull right zone left and center nav */
-  grid-template-columns: [logo-start] auto [logo-end] 0.5fr [nav-start] auto [nav-end] 0.5fr; /* add right phantom to balance */
+  grid-template-columns: [logo-start] auto [logo-end] 0.25fr [nav-start] auto [nav-end] 0.5fr; /* bring nav closer to logo */
   align-items: center;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0.75rem 2.5rem; /* slightly larger header for bigger items */
+  /* Slightly more left inset to pull logo inwards */
+  padding: 0.75rem 1.25rem 0.75rem 3.75rem;
   position: relative;
   gap: 0.75rem;
 }
@@ -892,16 +894,15 @@ html {
 /* Navigation Zone - Perfectly centered with balanced layout */
 .header-nav-zone {
   grid-column: nav-start / nav-end;
-  display: flex;
-  flex-direction: row;
+  /* Split nav (left) and actions (right) while keeping nav centered */
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  justify-content: center; /* Center the entire nav content */
-  gap: 1rem; /* Pull actions closer to center */
+  gap: 1rem;
   position: relative;
   z-index: 60;
-  /* Ensure consistent height and alignment */
   min-height: fit-content;
-  padding: 0.5rem; /* Subtle padding for visual balance */
+  padding: 0.5rem 0.75rem 0.5rem 0.5rem;
 }
 
 /* Logo Container with Sophisticated Hover Effects */
@@ -920,9 +921,8 @@ html {
 
 /* removed hover glow for logo */
 
-.logo-container:hover {
-  transform: translateY(-4px) scale(1.02);
-}
+/* Disable hover effects for logo */
+.logo-container:hover { transform: none; }
 
 .logo-container:focus {
   /* Remove any focus outline/border around the logo */
@@ -931,13 +931,14 @@ html {
 
 /* Header Logo with Premium Styling */
 .header-logo {
-  max-height: 4rem; /* Increase logo height (~64px) */
+  max-height: 3.5rem; /* Slightly smaller logo */
   height: auto; /* Preserve aspect ratio */
   width: auto; /* Prevent distortion */
   display: block; /* Remove inline-gap artifacts */
   border: none !important; /* Ensure no border */
   box-shadow: none !important; /* Ensure no box shadow border */
-  filter: none !important; /* Ensure no drop shadow/glow border */
+  /* No color filter; new asset already in champagne */
+  filter: none !important;
   transition: none;
 }
 
@@ -967,6 +968,8 @@ html {
   border: none; /* remove border */
   /* Center the navigation in the available space */
   justify-content: center;
+  position: relative; /* allow subtle vertical nudge */
+  top: 2px; /* nudge down to better center with logo */
 }
 
 @media (max-width: 768px) {
@@ -991,7 +994,7 @@ html {
   position: relative;
   color: var(--bb-champagne);
   font-family: 'League Spartan', sans-serif;
-  font-size: 0.95rem; /* increase nav text size */
+  font-size: 1.1rem; /* larger nav text */
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -1008,9 +1011,8 @@ html {
   content: none; /* remove underline effect */
 }
 
-.nav-link:hover {
-  color: var(--bb-citron); /* simple color change only */
-}
+/* No hover effects for top bar */
+.nav-link:hover { color: inherit; }
 
 /* underline effect removed; no hover before */
 
@@ -1052,10 +1054,34 @@ html {
   align-items: center;
   gap: 1.5rem; /* Increased spacing for better visual separation */
   margin: 0;
-  justify-content: center;
+  justify-content: flex-end; /* Move actions outward to the right */
+  justify-self: end; /* Pin to the right edge of header content */
+  padding-right: 0.25rem; /* Nudge a bit further right */
   /* Ensure perfect vertical alignment */
   height: fit-content;
+  position: relative;
+  top: 2px; /* visually center with the logo */
 }
+
+/* Unified action icon buttons (search, wishlist, instagram) */
+.header-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  color: var(--bb-champagne);
+  text-decoration: none;
+  line-height: 1;
+}
+
+.header-icon-button svg { /* override per-icon size classes */
+  width: 1.35rem;
+  height: 1.35rem;
+  stroke-width: 1.75;
+}
+
+/* No hover effects for action icons */
+.header-icon-button:hover { color: inherit; }
 
 /* Cart Link Styling */
 .cart-link {
@@ -1073,9 +1099,13 @@ html {
   cursor: pointer;
 }
 
-.cart-link:hover {
-  color: var(--bb-citron);
+.cart-link svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke-width: 1.75;
 }
+
+.cart-link:hover { color: inherit; }
 
 .cart-link:focus {
   outline: none;
@@ -1117,9 +1147,8 @@ html {
   z-index: -1;
 }
 
-.cart-link:hover .action-glow {
-  opacity: 1;
-}
+/* Disable glow effect entirely */
+.action-glow { display: none; }
 
 /* Account Button Styling */
 .account-dropdown-container {
@@ -1135,7 +1164,7 @@ html {
   border: none;
   color: var(--bb-champagne);
   font-family: 'Inter', sans-serif;
-  font-size: 0.7rem;
+  font-size: 1rem; /* slightly larger to match icon scale */
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -1148,12 +1177,16 @@ html {
   box-shadow: none;
 }
 
+.account-button svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  stroke-width: 1.75;
+}
+
 /* remove decorative background fill on account button */
 .account-button::before { content: none; }
 
-.account-button:hover {
-  color: var(--bb-citron);
-}
+.account-button:hover { color: inherit; }
 
 /* removed hover fill effect */
 
@@ -1250,9 +1283,7 @@ html {
   }
 }
 
-.mobile-menu-button:hover {
-  color: var(--bb-citron);
-}
+.mobile-menu-button:hover { color: inherit; }
 
 .mobile-menu-button:focus {
   outline: none;

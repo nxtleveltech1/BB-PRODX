@@ -10,9 +10,16 @@ export default function Header() {
   const [showAccountMenu, setShowAccountMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 12);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   const { user, isLoading: isUserLoading, logout } = useAuth();
@@ -23,12 +30,17 @@ export default function Header() {
   const closeMobileMenu = () => setShowMobileMenu(false);
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 bg-gradient-to-b from-black/90 via-black/70 to-transparent text-white">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 text-white transition-colors duration-200 ${
+        scrolled ? 'bg-black/85 backdrop-blur-sm shadow-[0_6px_16px_rgba(0,0,0,0.25)]' : 'bg-gradient-to-b from-black/90 via-black/70 to-transparent'
+      }`}
+      data-scrolled={scrolled}
+    >
       <div className="header-grid-container">
         <div className="header-logo-zone">
           <Link href="/" className="logo-container group" aria-label="Better Being - Home">
             <img
-              src="/better-being-logo.png"
+              src="/Untitled%20design%20(1).png"
               alt="Better Being Logo"
               className="header-logo"
               loading="eager"
@@ -60,6 +72,12 @@ export default function Header() {
               <Heart className="w-4 h-4" />
             </Link>
 
+            <Link href="/cart" className="cart-link group" aria-label={`Shopping cart ${cartCount > 0 ? `with ${cartCount} items` : "empty"}`}>
+              <ShoppingCart className="w-4 h-4" />
+              {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+            </Link>
+
+            {/* Sign in/account moved to the end */}
             <div className="account-dropdown-container">
               <button
                 onClick={() => setShowAccountMenu(!showAccountMenu)}
@@ -112,21 +130,6 @@ export default function Header() {
                 </>
               )}
             </div>
-
-            <Link
-              href="https://www.instagram.com/the.betterbeing/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="header-icon-button"
-            >
-              <Instagram className="w-4 h-4" />
-            </Link>
-
-            <Link href="/cart" className="cart-link group" aria-label={`Shopping cart ${cartCount > 0 ? `with ${cartCount} items` : "empty"}`}>
-              <ShoppingCart className="w-4 h-4" />
-              {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
-            </Link>
 
             <button
               className="mobile-menu-button lg:hidden"
