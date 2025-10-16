@@ -17,4 +17,4 @@ export {
   getRelatedProducts,
   type Product,
   type Category
-} from "@/data/products";
+} from "@/src/data/products";
