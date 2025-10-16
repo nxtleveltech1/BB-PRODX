@@ -3,7 +3,8 @@
 import React, { Suspense } from "react"
 import * as Sentry from "@sentry/nextjs"
 
-const SentryErrorBoundary = Sentry.withProfiler(Sentry.ErrorBoundary)
+// Use Sentry.ErrorBoundary directly - withProfiler is not available in current SDK
+const SentryErrorBoundary = Sentry.ErrorBoundary
 
 interface SentryProviderProps {
   children: React.ReactNode

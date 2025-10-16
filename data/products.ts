@@ -69,5 +69,8 @@ export async function getProductsByCategory(category: string) {
 // Re-export mock products for backward compatibility
 export { mockProducts };
 
+// Export 'products' as an alias for mockProducts (for components expecting this named export)
+export const products = mockProducts;
+
 // Export default for backward compatibility
 export default mockProducts;

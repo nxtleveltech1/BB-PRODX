@@ -6,7 +6,8 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { toast } from "sonner";
 // import { useQuery } from "@tanstack/react-query";
 // import api from "@/services/apiOptimized";
-import { products } from "@/data/products";
+// Import mock products directly since this is a client component
+import { mockProducts as products } from "@/data/mock-products";
 import TopSixFlip from "@/components/TopSixFlip";
 import { useCart } from "@/contexts/CartContext";
 
