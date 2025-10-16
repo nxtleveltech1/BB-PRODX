@@ -14,7 +14,7 @@
 :root {
   /* Better Being Brand Colors - Luxury Palette */
   --bb-mahogany: #BB4500;        /* Mahogany Red primary color */
-  --bb-citron: #B5A642;          /* Luxurious gold accent */
+  --bb-citron: #C4C240;          /* Luxurious gold accent */
   --bb-champagne: #F9E7C9;       /* Warm champagne base */
   --bb-black-bean: #2C2B29;      /* Deep charcoal for text */
   --bb-payne-gray: #7A7771;      /* Sophisticated gray */
@@ -131,7 +131,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Prata", Georgia, serif;
+  font-family: "Playfair Display", Georgia, serif;
   letter-spacing: var(--tracking-tight);
   font-weight: 400;
   line-height: 1.2;
@@ -140,7 +140,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Refined Typography Scale */
 .text-display {
-  font-family: "Prata", Georgia, serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   line-height: 1.1;
   letter-spacing: var(--tracking-tight);
@@ -1470,12 +1470,8 @@ html {
 }
 
 :root {
-  --bb-hero-surround: var(--bb-mahogany);
-}
-
-:root {
   --bb-hero-surround: #BB4500;
-  
+
   /* Global Hero Typography Tokens (canonical reference from Home) */
   --hero-font-size: clamp(4rem, 10vw, 9rem);
   --hero-letterspacing: -0.03em; /* ~88pt tracking */
