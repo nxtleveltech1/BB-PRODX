@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import TopSixFlip from '@/components/TopSixFlip';
 import SocialMediaWall from '@/components/SocialMediaWall';
 import StoreLocator from '@/components/locator/StoreLocator';
@@ -57,6 +58,16 @@ const [scrollY, setScrollY] = useState(0);
             </div>
           </div>
         </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 fade-in-up" style={{ animationDelay: '1.8s' }}>
+          <div className="flex flex-col items-center text-white/70">
+            <span className="text-xs uppercase tracking-wider mb-3 font-medium">Scroll to Explore</span>
+            <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-bounce"></div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Sophisticated Story Section - Modern Layout */}
@@ -64,49 +75,105 @@ const [scrollY, setScrollY] = useState(0);
         {/* Background Elements */}
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-l from-[#F9E7C9]/30 to-transparent rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-gradient-to-r from-[#8B4513]/10 to-transparent rounded-full blur-2xl"></div>
-        
+
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            {/* Left Content */}
-            <div className="space-y-8 fade-in-up">
-              <div className="inline-flex items-center gap-3 px-6 py-3 glass-luxury rounded-full">
-                <div className="w-2 h-2 bg-[#B5A642] rounded-full luxury-glow"></div>
-                <span className="text-[#BB4500] text-sm font-bold uppercase tracking-[0.2em]">Experience Wellness</span>
-              </div>
-              
-              <h2 className="text-5xl lg:text-6xl font-light leading-tight text-[#2C2B29]" 
-                  style={{ fontFamily: 'Playfair Display, serif' }}>
-                Your Journey to <span className="text-luxury">Better Being</span>
-              </h2>
-              
-              <div className="w-24 h-px bg-gradient-to-r from-[#8B4513] to-[#B5A642]"></div>
-            </div>
-            
-            {/* Right Content - Button Area */}
-            <div className="flex items-center justify-center lg:justify-end fade-in-up" style={{ animationDelay: '0.2s' }}>
-              <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 lg:p-12 shadow-lg border border-[#BB4500]/10 hover:shadow-2xl transition-all duration-500 hover:scale-105 group">
-                <div className="text-center space-y-6">
-                  <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-[#BB4500]/10 to-[#B5A642]/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <svg className="w-10 h-10 text-[#BB4500]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-light text-[#2C2B29]" style={{ fontFamily: 'Playfair Display, serif' }}>
-                    Discover Our Collection
-                  </h3>
-                  <p className="text-[#7A7771] leading-relaxed max-w-xs mx-auto">
-                    Explore premium wellness products designed to support your journey to better being.
-                  </p>
-                  <a 
-                    href="/products" 
-                    className="inline-flex items-center gap-3 bg-[#BB4500] hover:bg-[#2C2B29] text-white px-8 py-4 font-medium uppercase tracking-wider transition-all duration-300 rounded-lg group-hover:gap-4"
-                    style={{ fontFamily: 'League Spartan, sans-serif' }}
-                  >
+          <div className="grid lg:grid-cols-12 gap-16 items-center">
+            {/* Content - Asymmetric 6 columns */}
+            <div className="lg:col-span-6 space-y-8">
+              <div className="fade-in-up">
+                <div className="inline-flex items-center gap-3 px-6 py-3 glass-luxury rounded-full mb-8">
+                  <div className="w-2 h-2 bg-[#B5A642] rounded-full luxury-glow"></div>
+                  <span className="text-[#BB4500] text-sm font-bold uppercase tracking-[0.2em]">Experience Wellness</span>
+                </div>
+
+                <h2 className="text-5xl lg:text-6xl font-light leading-tight text-[#2C2B29] mb-8"
+                    style={{ fontFamily: 'Playfair Display, serif' }}>
+                  Your Journey to <span className="text-luxury">Better Being</span>
+                </h2>
+
+                <div className="w-24 h-px bg-gradient-to-r from-[#8B4513] to-[#B5A642] mb-8"></div>
+
+                <div className="flex flex-col sm:flex-row gap-6">
+                  <a href="/products" className="btn-premium hover-glow focus-premium group" style={{ backgroundColor: '#BB4500', borderColor: '#BB4500' }}>
                     <span>Explore Collection</span>
-                    <svg className="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Visual Story Grid - Mosaic with 1/3 + 2/3 height split */}
+            <div className="lg:col-span-6 relative">
+              <div className="grid grid-cols-2 gap-6 md:h-[66vh]" style={{ gridTemplateRows: '1fr 2fr' }}>
+                {/* Top: Natural Ingredients video spans full width (top third) */}
+                <div className="col-span-2 row-start-1 row-end-2">
+                  <div className="card-premium overflow-hidden hover-glow parallax-hover fade-in-up rounded-2xl h-full" style={{ animationDelay: '0.3s' }}>
+                    <div className="relative h-full overflow-hidden bg-[#F9E7C9]">
+                      <video
+                        className="absolute inset-0 w-full h-full object-cover transition-all duration-700 hover:scale-110"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        poster="/20250902.png"
+                      >
+                        <source src="/Home Pg Vid 1.mp4" type="video/mp4" />
+                      </video>
+                      <div className="absolute inset-0 bg-black/40"></div>
+                      <div className="absolute bottom-6 left-6 right-6">
+                        <div className="glass-luxury p-4 rounded-xl">
+                          <h3 className="text-white text-2xl md:text-3xl font-light mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                            Natural Ingredients
+                          </h3>
+                          <p className="text-white/90 text-sm md:text-base font-light">Sourced from nature, powered by science</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Left: Top Sellers (bottom two-thirds, left column) */}
+                <div className="row-start-2 col-start-1">
+                  <div className="card-premium overflow-hidden hover-glow fade-in-up rounded-2xl h-full" style={{ animationDelay: '0.6s' }}>
+                    <div className="relative h-full overflow-hidden bg-[#F9E7C9]">
+                      <Image
+                        src="/Block%202.png"
+                        alt="Top Sellers"
+                        fill
+                        priority
+                        sizes="(max-width: 1024px) 50vw, 25vw"
+                        className="object-cover"
+                        style={{ objectPosition: 'center 30%' }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <h4 className="text-white text-base md:text-lg font-medium">Top Sellers</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Right: On Sale (bottom two-thirds, right column) */}
+                <div className="row-start-2 col-start-2">
+                  <div className="card-premium overflow-hidden hover-glow fade-in-up rounded-2xl h-full" style={{ animationDelay: '0.9s' }}>
+                    <div className="relative h-full overflow-hidden bg-[#F9E7C9]">
+                      <Image
+                        src="/Block%203.png"
+                        alt="On Sale"
+                        fill
+                        priority
+                        sizes="(max-width: 1024px) 50vw, 25vw"
+                        className="object-cover"
+                        style={{ objectPosition: 'center 40%' }}
+                      />
+                      <div className="absolute inset-0 bg-black/40"></div>
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <h4 className="text-white text-base md:text-lg font-medium">On Sale</h4>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -175,6 +242,21 @@ const [scrollY, setScrollY] = useState(0);
                   </button>
                 </div>
                 <p className="mt-3 text-xs text-[#7A7771]">No spam—unsubscribe any time.</p>
+
+                <div className="flex items-center justify-center gap-6 mt-6 text-sm text-[#7A7771]">
+                  <div className="trust-signal px-3 py-1 bg-white/20 rounded-full">
+                    <span className="text-green-600 text-xs">✓</span>
+                    <span className="ml-1">No spam</span>
+                  </div>
+                  <div className="trust-signal px-3 py-1 bg-white/20 rounded-full">
+                    <span className="text-green-600 text-xs">✓</span>
+                    <span className="ml-1">Unsubscribe anytime</span>
+                  </div>
+                  <div className="trust-signal px-3 py-1 bg-white/20 rounded-full">
+                    <span className="text-green-600 text-xs">✓</span>
+                    <span className="ml-1">Weekly tips</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
