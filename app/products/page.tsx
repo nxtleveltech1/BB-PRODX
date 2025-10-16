@@ -6,8 +6,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { toast } from "sonner";
 // import { useQuery } from "@tanstack/react-query";
 // import api from "@/services/apiOptimized";
-// Import mock products directly since this is a client component
-import { mockProducts as products } from "@/data/mock-products";
+import { products } from "@/data/products";
 import TopSixFlip from "@/components/TopSixFlip";
 import { useCart } from "@/contexts/CartContext";
 
@@ -572,7 +571,7 @@ export default function ProductsPage() {
           {/* Hero Content */}
           <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
             <div className="min-h-[70vh] pt-24 flex flex-col items-center justify-center text-center">
-              <h1 className="text-hero text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
+              <h1 className="text-hero text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]" style={{ letterSpacing: '0.05em' }}>
                 THE BETTER WAY NATURAL, NO COMPROMISE
               </h1>
             </div>

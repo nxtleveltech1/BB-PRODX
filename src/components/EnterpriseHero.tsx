@@ -207,7 +207,8 @@ interface TrustBadgesProps {
   }>;
 }
 
-const TrustBadges: React.FC<TrustBadgesProps> = ({ badges }) => (
+const TrustBadges: React.FC<TrustBadgesProps> = ({ badges }) => {
+  return (
     <div className="flex flex-wrap justify-center gap-4 mb-8">
       {badges.map((badge, index) => (
         <div
@@ -223,6 +224,7 @@ const TrustBadges: React.FC<TrustBadgesProps> = ({ badges }) => (
       ))}
     </div>
   );
+};
 
 export const EnterpriseHero: React.FC = () => {
   const [currentCampaign, setCurrentCampaign] = useState(0);
