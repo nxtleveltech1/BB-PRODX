@@ -53,65 +53,65 @@ export function cn(...inputs: ClassValue[]) {
 
 ### Frontend Development
 ```bash
-npm run dev                 # Start Next.js development server
-npm run build              # Production build  
-npm run start              # Start production server
-npm run lint               # Run ESLint
+pnpm run dev                 # Start Next.js development server
+pnpm run build              # Production build  
+pnpm run start              # Start production server
+pnpm run lint               # Run ESLint
 ```
 
 ### Full-Stack Development
 ```bash
-npm run dev:all            # Start both frontend and backend servers
-npm run dev:server         # Start backend server only (port 8000)
-npm run install:all        # Install dependencies for both frontend and backend
+pnpm run dev:all            # Start both frontend and backend servers
+pnpm run dev:server         # Start backend server only (port 8000)
+pnpm run install:all        # Install dependencies for both frontend and backend
 ```
 
 ### Backend Server
 ```bash
 cd server
-npm run dev                # Start Express server with nodemon
-npm run start              # Start production server
-npm run migrate            # Run database migrations
-npm run seed               # Seed database with initial data
-npm run db:optimize        # Run migrations and seed
+pnpm run dev                # Start Express server with nodemon
+pnpm run start              # Start production server
+pnpm run migrate            # Run database migrations
+pnpm run seed               # Seed database with initial data
+pnpm run db:optimize        # Run migrations and seed
 ```
 
 ### Testing
 ```bash
-npm run test               # Run Vitest unit tests
-npm run test:run           # Run tests once
-npm run test:coverage      # Generate test coverage
-npm run test:ui            # Open Vitest UI
-npm run test:watch         # Watch mode
+pnpm run test               # Run Vitest unit tests
+pnpm run test:run           # Run tests once
+pnpm run test:coverage      # Generate test coverage
+pnpm run test:ui            # Open Vitest UI
+pnpm run test:watch         # Watch mode
 
 # Visual/E2E Testing  
-npm run test:visual        # Visual regression tests
-npm run test:mobile        # Mobile viewport tests
-npm run test:desktop       # Desktop viewport tests
-npm run test:component-visual # Component visual tests
-npm run update:visual-baselines # Update visual test baselines
+pnpm run test:visual        # Visual regression tests
+pnpm run test:mobile        # Mobile viewport tests
+pnpm run test:desktop       # Desktop viewport tests
+pnpm run test:component-visual # Component visual tests
+pnpm run update:visual-baselines # Update visual test baselines
 ```
 
 ### AI Design Workflow
 ```bash
-npm run ai:design-iteration    # Run AI design analysis
-npm run audit:design-system    # Design system compliance audit
-npm run test:design-capture    # Capture design screenshots
-npm run test:design-validation # Full design validation suite
+pnpm run ai:design-iteration    # Run AI design analysis
+pnpm run audit:design-system    # Design system compliance audit
+pnpm run test:design-capture    # Capture design screenshots
+pnpm run test:design-validation # Full design validation suite
 ```
 
 ### Performance & Optimization
 ```bash
-npm run build:analyze      # Bundle analysis
-npm run optimize:images    # Optimize image assets
-npm run optimize:all       # Full optimization pipeline
-npm run performance:audit  # Lighthouse performance audit
+pnpm run build:analyze      # Bundle analysis
+pnpm run optimize:images    # Optimize image assets
+pnpm run optimize:all       # Full optimization pipeline
+pnpm run performance:audit  # Lighthouse performance audit
 ```
 
 ### Deployment
 ```bash
-npm run vercel-build       # Vercel deployment build
-npm run build:optimized    # Optimized production build
+pnpm run vercel-build       # Vercel deployment build
+pnpm run build:optimized    # Optimized production build
 ```
 
 ## 🧱 Stack & Framework Conventions
@@ -295,10 +295,10 @@ Create `.env.local` and validate with Zod:
 - `STRIPE_SECRET_KEY` - Stripe secret key
 
 ### Development Workflow
-1. Install dependencies: `npm run install:all`
+1. Install dependencies: `pnpm run install:all`
 2. Set up environment: Copy `.env.example` to `.env`
-3. Initialize database: `cd server && npm run migrate && npm run seed`
-4. Start development: `npm run dev:all`
+3. Initialize database: `cd server && pnpm run migrate && pnpm run seed`
+4. Start development: `pnpm run dev:all`
 
 ### 🧪 Testing
 
@@ -454,10 +454,10 @@ When making design changes:
 
 ### Visual Validation Commands
 ```bash
-npm run test:visual           # Visual regression testing
-npm run test:design-capture   # Capture current design state  
-npm run ai:design-iteration   # AI-powered design analysis
-npm run audit:design-system   # Brand compliance check
+pnpm run test:visual           # Visual regression testing
+pnpm run test:design-capture   # Capture current design state  
+pnpm run ai:design-iteration   # AI-powered design analysis
+pnpm run audit:design-system   # Brand compliance check
 ```
 
 ### Acceptance Criteria for Design Changes

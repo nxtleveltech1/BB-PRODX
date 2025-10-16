@@ -3,8 +3,7 @@ import React from 'react';
 /**
  * Demo component showcasing the brand gradient and shadow utilities
  */
-export const BrandUtilitiesDemo: React.FC = () => {
-  return (
+export const BrandUtilitiesDemo: React.FC = () => (
     <div className="p-8 space-y-8 bg-gray-50 min-h-screen">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-gradient-brand text-4xl font-bold text-center mb-8">
@@ -227,6 +226,5 @@ export const BrandUtilitiesDemo: React.FC = () => {
       </div>
     </div>
   );
-};
 
 export default BrandUtilitiesDemo;

@@ -107,8 +107,7 @@ export const AuthValidation = {
   /**
    * Validate login credentials
    */
-  validateLogin: (credentials: LoginCredentials) => {
-    return validateForm(credentials as unknown as Record<string, unknown>, {
+  validateLogin: (credentials: LoginCredentials) => validateForm(credentials as unknown as Record<string, unknown>, {
       email: [
         ValidationRules.required('Email is required'),
         ValidationRules.email(),
@@ -117,14 +116,12 @@ export const AuthValidation = {
         ValidationRules.required('Password is required'),
         ValidationRules.minLength(6, 'Password must be at least 6 characters'),
       ],
-    });
-  },
+    }),
 
   /**
    * Validate registration data
    */
-  validateRegistration: (data: RegisterData) => {
-    return validateForm(data as unknown as Record<string, unknown>, {
+  validateRegistration: (data: RegisterData) => validateForm(data as unknown as Record<string, unknown>, {
       firstName: [
         ValidationRules.required('First name is required'),
         ValidationRules.minLength(2, 'First name must be at least 2 characters'),
@@ -160,26 +157,22 @@ export const AuthValidation = {
           return null;
         },
       ],
-    });
-  },
+    }),
 
   /**
    * Validate password reset request
    */
-  validatePasswordReset: (email: string) => {
-    return validateForm({ email }, {
+  validatePasswordReset: (email: string) => validateForm({ email }, {
       email: [
         ValidationRules.required('Email is required'),
         ValidationRules.email(),
       ],
-    });
-  },
+    }),
 
   /**
    * Validate new password
    */
-  validateNewPassword: (password: string, confirmPassword: string) => {
-    return validateForm({ password, confirmPassword }, {
+  validateNewPassword: (password: string, confirmPassword: string) => validateForm({ password, confirmPassword }, {
       password: [
         ValidationRules.required('Password is required'),
         ValidationRules.strongPassword(),
@@ -193,8 +186,7 @@ export const AuthValidation = {
           return null;
         },
       ],
-    });
-  },
+    }),
 };
 
 /**

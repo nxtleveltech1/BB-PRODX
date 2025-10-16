@@ -2,8 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Leaf, Heart, Shield } from 'lucide-react';
 
-export const HeroSectionTailwind = () => {
-  return (
+export const HeroSectionTailwind = () => (
     <section className="relative min-h-screen bg-gradient-to-br from-emerald-50 via-white to-green-50 flex items-center justify-center overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-emerald-500/5"></div>
@@ -89,6 +88,5 @@ export const HeroSectionTailwind = () => {
       </div>
     </section>
   );
-};
 
 export default HeroSectionTailwind;

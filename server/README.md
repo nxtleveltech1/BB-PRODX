@@ -46,7 +46,7 @@ GET    /api/recommendations/demo       # Demo data and documentation
 
 ### Prerequisites
 - Node.js 18+
-- npm (preferred for this repo)
+- pnpm (preferred for this repo)
 - Git
 
 ### Quick Start
@@ -54,7 +54,7 @@ GET    /api/recommendations/demo       # Demo data and documentation
 1. **Clone and Navigate**
    ```bash
    cd server
-   npm install
+   pnpm install
    ```
 
 2. **Environment Configuration**
@@ -65,7 +65,7 @@ GET    /api/recommendations/demo       # Demo data and documentation
 
 3. **Start Development Server**
    ```bash
-   npm run dev
+   pnpm run dev
    ```
 
 4. **Verify Installation**
@@ -376,7 +376,7 @@ curl "http://localhost:3001/api/recommendations/daily?mood=4&energy=3&sleepQuali
 NODE_ENV=production
 
 # Use PM2 for process management
-npm install -g pm2
+pnpm add -g pm2
 pm2 start src/index.js --name "wellness-api"
 
 # Monitor
@@ -389,7 +389,7 @@ pm2 logs wellness-api
 FROM node:18-alpine
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci --only=production
+RUN corepack enable && corepack prepare pnpm@10.18.3 --activate && pnpm install --prod --frozen-lockfile=false
 COPY src ./src
 EXPOSE 3001
 CMD ["node", "src/index.js"]
@@ -460,7 +460,7 @@ kill -9 <PID>
 
 ### Debug Mode
 ```bash
-DEBUG=* npm run dev
+DEBUG=* pnpm run dev
 ```
 
 ### Support Contacts

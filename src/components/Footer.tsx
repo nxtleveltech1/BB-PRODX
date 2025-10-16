@@ -2,8 +2,7 @@ import { Mail, MapPin, Facebook, Instagram, Twitter, Youtube } from "lucide-reac
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-export const Footer = () => {
-  return (
+export const Footer = () => (
     <footer className="bg-primary text-primary-foreground text-center">
       {/* Newsletter Section */}
       <div className="border-b border-primary-foreground/20">
@@ -150,4 +149,3 @@ export const Footer = () => {
       </div>
     </footer>
   );
-};

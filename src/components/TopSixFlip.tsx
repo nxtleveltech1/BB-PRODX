@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { products as allProducts } from "@/data/products";
+import { default as allProducts } from "@/data/mock-products";
 import type { Product } from "@/types/product";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Star } from "lucide-react";

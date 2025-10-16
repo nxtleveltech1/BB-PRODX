@@ -747,24 +747,18 @@ export const products: Product[] = [
 ];
 
 // Helper function to get products by category
-export const getProductsByCategory = (categoryId: string, subcategoryId?: string): Product[] => {
-  return products.filter(product => {
+export const getProductsByCategory = (categoryId: string, subcategoryId?: string): Product[] => products.filter(product => {
     if (subcategoryId) {
       return product.categoryId === categoryId && product.subcategoryId === subcategoryId;
     }
     return product.categoryId === categoryId;
   });
-};
 
 // Helper function to get featured products
-export const getFeaturedProducts = (): Product[] => {
-  return products.filter(product => product.featured);
-};
+export const getFeaturedProducts = (): Product[] => products.filter(product => product.featured);
 
 // Helper function to get popular products
-export const getPopularProducts = (): Product[] => {
-  return products.filter(product => product.popular);
-};
+export const getPopularProducts = (): Product[] => products.filter(product => product.popular);
 
 // Helper function to search products
 export const searchProducts = (query: string): Product[] => {
@@ -778,14 +772,10 @@ export const searchProducts = (query: string): Product[] => {
 };
 
 // Helper function to get product by ID
-export const getProductById = (id: number): Product | undefined => {
-  return products.find(product => product.id === id);
-};
+export const getProductById = (id: number): Product | undefined => products.find(product => product.id === id);
 
 // Helper function to get products by tag
-export const getProductsByTag = (tag: string): Product[] => {
-  return products.filter(product => product.tags.includes(tag));
-};
+export const getProductsByTag = (tag: string): Product[] => products.filter(product => product.tags.includes(tag));
 
 // Helper function to get related products
 export const getRelatedProducts = (productId: number, limit: number = 4): Product[] => {

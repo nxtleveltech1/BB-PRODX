@@ -5,7 +5,6 @@
  * Run this before build or start to ensure all required environment variables are set
  */
 
-import { z } from 'zod';
 import dotenv from 'dotenv';
 import { existsSync } from 'fs';
 import { join } from 'path';

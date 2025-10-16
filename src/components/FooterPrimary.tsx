@@ -8,8 +8,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-const FooterPrimary = () => {
-  return (
+const FooterPrimary = () => (
     <footer className="relative overflow-hidden bg-[#4a4a4a]">
       {/* Background Image Layer */}
       <div
@@ -171,7 +170,6 @@ const FooterPrimary = () => {
       </div>
     </footer>
   );
-};
 
 export default FooterPrimary;
 export { FooterPrimary };

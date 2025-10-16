@@ -162,32 +162,24 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     dispatch({ type: 'CLEAR_CART' });
   };
 
-  const getCartCount = (): number => {
-    return state.items.reduce((total, item) => total + item.quantity, 0);
-  };
+  const getCartCount = (): number => state.items.reduce((total, item) => total + item.quantity, 0);
 
-  const getCartSubtotal = (): number => {
-    return state.items.reduce((total, item) => 
+  const getCartSubtotal = (): number => state.items.reduce((total, item) => 
       total + (parseFloat(item.product_price) * item.quantity), 0
     );
-  };
 
-  const getCartTax = (): number => {
-    return getCartSubtotal() * 0.15; // 15% tax
-  };
+  const getCartTax = (): number => 
+     getCartSubtotal() * 0.15 // 15% tax
+  ;
 
   const getCartShipping = (): number => {
     const subtotal = getCartSubtotal();
     return subtotal >= 500 ? 0 : 50; // Free shipping over R500
   };
 
-  const getCartTotal = (): number => {
-    return getCartSubtotal() + getCartTax() + getCartShipping();
-  };
+  const getCartTotal = (): number => getCartSubtotal() + getCartTax() + getCartShipping();
 
-  const isItemInCart = (productId: number): boolean => {
-    return state.items.some(item => item.product_id === productId);
-  };
+  const isItemInCart = (productId: number): boolean => state.items.some(item => item.product_id === productId);
 
   const getItemQuantity = (productId: number): number => {
     const item = state.items.find(item => item.product_id === productId);

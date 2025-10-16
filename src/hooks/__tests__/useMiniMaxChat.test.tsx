@@ -15,9 +15,7 @@ vi.mock('@/services/minimax', () => ({
 }));
 
 // Create a wrapper component for testing
-const TestWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return <div>{children}</div>;
-};
+const TestWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => <div>{children}</div>;
 
 describe('useMiniMaxChat', () => {
   beforeEach(() => {

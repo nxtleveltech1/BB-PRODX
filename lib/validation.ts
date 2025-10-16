@@ -116,8 +116,7 @@ export function withValidation<T>(schema: ZodSchema<T>) {
 export function validateAction<T>(schema: ZodSchema<T>) {
   return <R>(
     action: (data: T) => Promise<R>
-  ) => {
-    return async (rawData: unknown): Promise<R> => {
+  ) => async (rawData: unknown): Promise<R> => {
       const validationResult = schema.safeParse(rawData);
 
       if (!validationResult.success) {
@@ -128,7 +127,6 @@ export function validateAction<T>(schema: ZodSchema<T>) {
 
       return action(validationResult.data);
     };
-  };
 }
 
 // Type guard for checking if value is defined

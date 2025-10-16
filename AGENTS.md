@@ -9,14 +9,14 @@
 - Scripts: Utility scripts in `scripts/` (e.g., `optimize-images.js`). Deployment configs: `next.config.mjs`, `vercel.json`.
 
 ## Build, Test, and Development Commands
-- Dev (frontend): `npm run dev` — start Next.js locally.
-- Dev (backend): `npm run dev:server` — start Express API (default `PORT=3001`).
-- Dev (both): `npm run dev:all` — run frontend and backend together.
-- Build/Start: `npm run build` then `npm start` — production build and serve.
-- Lint: `npm run lint` — ESLint via `eslint.config.js`.
-- Unit tests: `npm test` (Vitest), `npm run test:coverage`, `npm run test:ui`.
-- Playwright: `npm run playwright:install` (once), then examples like `npm run test:mobile`, `npm run test:desktop`, `npm run test:visual`.
-- Data: `npm run db:init`, `npm run db:seed` (execute from project root; runs in `server/`).
+- Dev (frontend): `pnpm run dev` — start Next.js locally.
+- Dev (backend): `pnpm run dev:server` — start Express API (default `PORT=3001`).
+- Dev (both): `pnpm run dev:all` — run frontend and backend together.
+- Build/Start: `pnpm run build` then `pnpm start` — production build and serve.
+- Lint: `pnpm run lint` — ESLint via `eslint.config.js`.
+- Unit tests: `pnpm test` (Vitest), `pnpm run test:coverage`, `pnpm run test:ui`.
+- Playwright: `pnpm run playwright:install` (once), then examples like `pnpm run test:mobile`, `pnpm run test:desktop`, `pnpm run test:visual`.
+- Data: `pnpm run db:init`, `pnpm run db:seed` (execute from project root; runs in `server/`).
 
 ## Coding Style & Naming Conventions
 - Language: TypeScript, React 19, Next.js 15, Tailwind CSS.

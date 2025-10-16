@@ -163,9 +163,7 @@ export function useSearchOptimized<T extends SearchableItem>({
           // Apply remaining terms
           if (terms.length > 1) {
             const remainingTerms = terms.slice(1);
-            result = result.filter(item => {
-              return remainingTerms.every(term => {
-                return searchFields.some(field => {
+            result = result.filter(item => remainingTerms.every(term => searchFields.some(field => {
                   const value = item[field];
                   if (typeof value === 'string') {
                     const searchText = caseSensitive ? value : value.toLowerCase();
@@ -178,9 +176,7 @@ export function useSearchOptimized<T extends SearchableItem>({
                     });
                   }
                   return false;
-                });
-              });
-            });
+                })));
           }
         }
       }

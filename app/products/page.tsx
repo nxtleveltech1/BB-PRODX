@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { Heart } from "lucide-react";
 import { toast } from "sonner";
 // import { useQuery } from "@tanstack/react-query";
 // import api from "@/services/apiOptimized";

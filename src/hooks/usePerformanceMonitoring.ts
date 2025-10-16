@@ -216,9 +216,7 @@ export const usePerformanceMonitoring = (options: PerformanceOptions = {}) => {
   }, [enableReporting, reportEndpoint, sampleRate]);
 
   // Get current metrics
-  const getMetrics = useCallback((): Partial<PerformanceMetrics> => {
-    return { ...metricsRef.current };
-  }, []);
+  const getMetrics = useCallback((): Partial<PerformanceMetrics> => ({ ...metricsRef.current }), []);
 
   // Performance score calculation
   const calculatePerformanceScore = useCallback((): number => {

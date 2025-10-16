@@ -221,8 +221,7 @@ export const Quote: React.FC<QuoteProps> = ({
   authorTitle,
   className,
   ...props
-}) => {
-  return (
+}) => (
     <blockquote className={cn('bb-quote', className)}>
       <Text 
         variant="body-lg" 
@@ -243,6 +242,5 @@ export const Quote: React.FC<QuoteProps> = ({
       )}
     </blockquote>
   );
-};
 
 export default Text;

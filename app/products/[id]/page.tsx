@@ -10,7 +10,6 @@ import {
   Plus,
   Minus,
   ArrowLeft,
-  Shield,
   Truck,
   Award,
   Clock,

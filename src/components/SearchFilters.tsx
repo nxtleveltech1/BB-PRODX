@@ -69,11 +69,9 @@ const SearchFilters: React.FC<SearchFiltersProps> = ({
     onFiltersChange(clearedFilters);
   };
 
-  const activeFilterCount = useMemo(() => {
-    return Object.keys(filters).filter(key => 
+  const activeFilterCount = useMemo(() => Object.keys(filters).filter(key => 
       filters[key as keyof ProductFilters] !== undefined
-    ).length;
-  }, [filters]);
+    ).length, [filters]);
 
   return (
     <div className={cn('space-y-4', className)}>

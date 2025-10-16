@@ -85,6 +85,7 @@ const envSchema = z.object({
 
   // Node Environment
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
+  NEXT_PUBLIC_ENV: z.enum(['development', 'production']).optional(),
 
   // Next.js Configuration
   NEXT_PUBLIC_BASE_URL: z.string().url().optional(),

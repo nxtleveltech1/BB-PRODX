@@ -119,9 +119,7 @@ const StarRating: React.FC<{
 };
 
 // Review Stats Component
-const ReviewStatsCard: React.FC<{ stats: ReviewStats }> = ({ stats }) => {
-
-  return (
+const ReviewStatsCard: React.FC<{ stats: ReviewStats }> = ({ stats }) => (
     <Card>
       <CardHeader>
         <CardTitle>Customer Reviews</CardTitle>
@@ -191,7 +189,6 @@ const ReviewStatsCard: React.FC<{ stats: ReviewStats }> = ({ stats }) => {
       </CardContent>
     </Card>
   );
-};
 
 // Write Review Dialog
 const WriteReviewDialog: React.FC<{ productId: string; productName: string }> = ({ 

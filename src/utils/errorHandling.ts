@@ -394,9 +394,7 @@ export const getErrorMessage = (code: string, fallback?: string): string => {
 /**
  * API response helper
  */
-export const isApiError = <T>(response: APIResponse<T>): response is APIResponse<T> & { success: false } => {
-  return !response.success;
-};
+export const isApiError = <T>(response: APIResponse<T>): response is APIResponse<T> & { success: false } => !response.success;
 
 export const unwrapApiResponse = <T>(response: APIResponse<T>): T => {
   if (isApiError(response)) {

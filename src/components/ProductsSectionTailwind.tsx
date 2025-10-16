@@ -17,8 +17,7 @@ const featuredProducts = products.slice(0, 3).map((p: any, i: number) => ({
   featured: true
 }));
 
-export const ProductsSectionTailwind = () => {
-  return (
+export const ProductsSectionTailwind = () => (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -117,6 +116,5 @@ export const ProductsSectionTailwind = () => {
       </div>
     </section>
   );
-};
 
 export default ProductsSectionTailwind;

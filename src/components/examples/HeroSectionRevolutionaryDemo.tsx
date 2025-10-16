@@ -1,8 +1,7 @@
 import React from "react";
 import HeroSectionRevolutionary from "../HeroSectionRevolutionary";
 
-const HeroSectionRevolutionaryDemo = () => {
-  return (
+const HeroSectionRevolutionaryDemo = () => (
     <div className="min-h-screen bg-black">
       <HeroSectionRevolutionary />
 
@@ -98,6 +97,5 @@ const HeroSectionRevolutionaryDemo = () => {
       </section>
     </div>
   );
-};
 
 export default HeroSectionRevolutionaryDemo;

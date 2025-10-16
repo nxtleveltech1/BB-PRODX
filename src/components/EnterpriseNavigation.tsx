@@ -217,8 +217,7 @@ interface MegaMenuProps {
   }>;
 }
 
-const MegaMenu: React.FC<MegaMenuProps> = ({ categories }) => {
-  return (
+const MegaMenu: React.FC<MegaMenuProps> = ({ categories }) => (
     <NavigationMenu className="hidden lg:flex">
       <NavigationMenuList>
         {categories.map((category) => (
@@ -309,7 +308,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ categories }) => {
       </NavigationMenuList>
     </NavigationMenu>
   );
-};
 
 export const EnterpriseNavigation: React.FC = () => {
   const { cartItems } = useCart();

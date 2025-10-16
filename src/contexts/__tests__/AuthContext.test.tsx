@@ -66,13 +66,11 @@ const TestComponent = () => {
   );
 };
 
-const renderWithAuthProvider = () => {
-  return render(
+const renderWithAuthProvider = () => render(
     <AuthProvider>
       <TestComponent />
     </AuthProvider>
   );
-};
 
 describe('AuthContext', () => {
   beforeEach(() => {

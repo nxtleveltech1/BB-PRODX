@@ -4,7 +4,8 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import Providers from './providers'
 import { Toaster } from 'sonner'
-import StackAuthWrapper from './StackAuthWrapper'
+import { SessionProvider } from '@/components/auth/session-provider'
+import { SentryProvider } from '@/lib/sentry-provider'
 
 export default function RootLayout({
   children,
@@ -32,14 +33,16 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossOrigin="" />
       </head>
       <body>
-        <StackAuthWrapper>
-          <Providers>
-            <Header />
-            <main className="pb-4 md:pb-0">{children}</main>
-            <Footer />
-            <Toaster richColors position="top-right" />
-          </Providers>
-        </StackAuthWrapper>
+        <SentryProvider>
+          <SessionProvider>
+            <Providers>
+              <Header />
+              <main className="pb-4 md:pb-0">{children}</main>
+              <Footer />
+              <Toaster richColors position="top-right" />
+            </Providers>
+          </SessionProvider>
+        </SentryProvider>
       </body>
     </html>
   )

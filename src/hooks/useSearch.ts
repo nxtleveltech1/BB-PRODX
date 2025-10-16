@@ -72,9 +72,7 @@ export function useSearch<T extends SearchableItem>({
       const query = caseSensitive ? debouncedQuery : debouncedQuery.toLowerCase();
       const terms = query.split(/\s+/).filter(term => term.length > 0);
 
-      result = result.filter(item => {
-        return terms.every(term => {
-          return searchFields.some(field => {
+      result = result.filter(item => terms.every(term => searchFields.some(field => {
             const value = item[field];
             if (typeof value === 'string') {
               const searchText = caseSensitive ? value : value.toLowerCase();
@@ -87,9 +85,7 @@ export function useSearch<T extends SearchableItem>({
               });
             }
             return false;
-          });
-        });
-      });
+          })));
     }
 
     // Apply filters

@@ -26,11 +26,18 @@ const nextConfig = {
     if (target) {
       return [
         {
+          // NextAuth routes should NOT be proxied - they run locally in Next.js
+          source: '/api/auth/:path*',
+          destination: '/api/auth/:path*',
+        },
+        {
+          // All other /api routes are proxied to the backend
           source: '/api/:path*',
           destination: `${target}/:path*`,
         },
       ];
     }
+    // If no target, auth routes still work locally
     return [];
   },
   async headers() {

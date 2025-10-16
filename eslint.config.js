@@ -69,10 +69,24 @@ export default tseslint.config(
       ],
       // Turn off base TS rule to avoid duplicate reports
       "@typescript-eslint/no-unused-vars": "off",
-      "@typescript-eslint/no-explicit-any": "off",
+      // Enforce no 'any' types for better type safety
+      "@typescript-eslint/no-explicit-any": "error",
       "@typescript-eslint/no-this-alias": "off",
+      // Enforce explicit return types on exported functions
+      "@typescript-eslint/explicit-function-return-type": ["warn", {
+        allowExpressions: true,
+        allowTypedFunctionExpressions: true,
+        allowHigherOrderFunctions: true,
+        allowDirectConstAssertionInArrowFunctions: true,
+      }],
+      // Prefer const and arrow functions
+      "prefer-const": "error",
+      "no-var": "error",
+      "arrow-body-style": ["warn", "as-needed"],
       // Minor cosmetic rule
       "no-useless-escape": "warn",
+      // Console statements should use proper logging
+      "no-console": ["warn", { allow: ["warn", "error"] }],
       // Too noisy for this codebase; prefer manual review
       "react-hooks/exhaustive-deps": "off",
     },

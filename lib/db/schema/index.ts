@@ -1,0 +1,148 @@
+// Central export point for all database schemas
+// This file aggregates all table definitions and relations
+
+// User schemas
+export {
+  users,
+  userSessions,
+  usersRelations,
+  userSessionsRelations,
+  type User,
+  type NewUser,
+  type UserSession,
+  type NewUserSession,
+} from './user';
+
+// NextAuth schemas
+export {
+  accounts,
+  sessions,
+  verificationTokens,
+  type Account,
+  type NewAccount,
+  type Session,
+  type NewSession,
+  type VerificationToken,
+  type NewVerificationToken,
+} from './auth';
+
+// Product schemas
+export {
+  categories,
+  subcategories,
+  products,
+  productBenefits,
+  productIngredients,
+  productTags,
+  productSizes,
+  categoriesRelations,
+  subcategoriesRelations,
+  productsRelations,
+  productBenefitsRelations,
+  productIngredientsRelations,
+  productTagsRelations,
+  productSizesRelations,
+  type Category,
+  type NewCategory,
+  type Subcategory,
+  type NewSubcategory,
+  type Product,
+  type NewProduct,
+  type ProductBenefit,
+  type NewProductBenefit,
+  type ProductIngredient,
+  type NewProductIngredient,
+  type ProductTag,
+  type NewProductTag,
+  type ProductSize,
+  type NewProductSize,
+} from './product';
+
+// Order schemas
+export {
+  orders,
+  orderItems,
+  ordersRelations,
+  orderItemsRelations,
+  generateOrderNumber,
+  type Order,
+  type NewOrder,
+  type OrderItem,
+  type NewOrderItem,
+  type Address,
+  type ProductSnapshot,
+} from './order';
+
+// Cart schemas
+export {
+  cart,
+  wishlist,
+  cartRelations,
+  wishlistRelations,
+  type CartItem,
+  type NewCartItem,
+  type WishlistItem,
+  type NewWishlistItem,
+  type CartWithProduct,
+  type WishlistWithProduct,
+} from './cart';
+
+// Review schemas
+export {
+  reviews,
+  reviewVotes,
+  reviewsRelations,
+  reviewVotesRelations,
+  type Review,
+  type NewReview,
+  type ReviewVote,
+  type NewReviewVote,
+  type ReviewWithUser,
+  type ReviewStats,
+} from './review';
+
+
+// Export helper types for common queries
+export interface DatabaseSchema {
+  users: typeof users;
+  userSessions: typeof userSessions;
+  categories: typeof categories;
+  subcategories: typeof subcategories;
+  products: typeof products;
+  productBenefits: typeof productBenefits;
+  productIngredients: typeof productIngredients;
+  productTags: typeof productTags;
+  productSizes: typeof productSizes;
+  orders: typeof orders;
+  orderItems: typeof orderItems;
+  cart: typeof cart;
+  wishlist: typeof wishlist;
+  reviews: typeof reviews;
+  reviewVotes: typeof reviewVotes;
+}
+
+// Common query result types
+export interface ProductWithDetails extends Product {
+  category?: Category | null;
+  subcategory?: Subcategory | null;
+  benefits?: ProductBenefit[];
+  ingredients?: ProductIngredient[];
+  tags?: ProductTag[];
+  sizes?: ProductSize[];
+  reviews?: Review[];
+}
+
+export interface OrderWithItems extends Order {
+  items: (OrderItem & {
+    product: Product;
+  })[];
+  user: User;
+}
+
+export interface UserWithProfile extends User {
+  sessions?: UserSession[];
+  orders?: Order[];
+  cartItems?: CartItem[];
+  wishlistItems?: WishlistItem[];
+  reviews?: Review[];
+}

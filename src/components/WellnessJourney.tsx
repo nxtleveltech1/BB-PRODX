@@ -44,8 +44,7 @@ const testimonial = {
   results: ["300% more energy", "Better sleep quality", "Improved focus", "Enhanced mood"]
 };
 
-export const WellnessJourney = () => {
-  return (
+export const WellnessJourney = () => (
     <section id="wellness" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
@@ -175,4 +174,3 @@ export const WellnessJourney = () => {
       </div>
     </section>
   );
-};

@@ -16,7 +16,7 @@ You now have a complete AI-powered wellness recommendations engine with the foll
 ### 1. Install Dependencies
 ```bash
 cd server
-npm install
+pnpm install
 ```
 
 ### 2. Setup Environment
@@ -27,13 +27,13 @@ cp .env.example .env
 
 ### 3. Start the Server
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 ### 4. Test the API
 ```bash
 # In another terminal
-npm run test
+pnpm run test
 ```
 
 ## 🔗 **API Endpoints Ready**
@@ -149,11 +149,11 @@ Every API call is logged with:
 
 ### Available Commands
 ```bash
-npm run dev          # Start development server with hot reload
-npm run start        # Start production server  
-npm run test         # Run comprehensive API tests
-npm run demo         # Run API demonstration
-npm run lint         # Code linting and formatting
+pnpm run dev          # Start development server with hot reload
+pnpm run start        # Start production server  
+pnpm run test         # Run comprehensive API tests
+pnpm run demo         # Run API demonstration
+pnpm run lint         # Code linting and formatting
 ```
 
 ### Debug and Testing
@@ -196,9 +196,9 @@ kill -9 <PID>
 ### API Tests Failing
 ```bash
 # Make sure server is running first
-npm run dev
+pnpm run dev
 # Then in another terminal
-npm run test
+pnpm run test
 ```
 
 ### Rate Limiting Issues

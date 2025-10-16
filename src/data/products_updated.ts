@@ -511,17 +511,11 @@ export const products: Product[] = [
 ];
 
 // Utility functions
-export const getProductsByCategory = (categoryId: string): Product[] => {
-  return products.filter(product => product.categoryId === categoryId);
-};
+export const getProductsByCategory = (categoryId: string): Product[] => products.filter(product => product.categoryId === categoryId);
 
-export const getFeaturedProducts = (): Product[] => {
-  return products.filter(product => product.featured);
-};
+export const getFeaturedProducts = (): Product[] => products.filter(product => product.featured);
 
-export const getPopularProducts = (): Product[] => {
-  return products.filter(product => product.popular);
-};
+export const getPopularProducts = (): Product[] => products.filter(product => product.popular);
 
 export const searchProducts = (query: string): Product[] => {
   const lowerQuery = query.toLowerCase();
@@ -532,13 +526,9 @@ export const searchProducts = (query: string): Product[] => {
   );
 };
 
-export const getProductById = (id: number): Product | undefined => {
-  return products.find(product => product.id === id);
-};
+export const getProductById = (id: number): Product | undefined => products.find(product => product.id === id);
 
-export const getProductsByTag = (tag: string): Product[] => {
-  return products.filter(product => product.tags.includes(tag));
-};
+export const getProductsByTag = (tag: string): Product[] => products.filter(product => product.tags.includes(tag));
 
 export const getRelatedProducts = (productId: number, limit: number = 4): Product[] => {
   const product = getProductById(productId);

@@ -4,7 +4,7 @@ services:
     env: node
     plan: free
     region: oregon
-    buildCommand: pnpm install && pnpm run build
+    buildCommand: pnpm install --frozen-lockfile=false && pnpm run build
     startCommand: pnpm run start
     envVars:
       - key: NEXT_PUBLIC_STACK_PROJECT_ID

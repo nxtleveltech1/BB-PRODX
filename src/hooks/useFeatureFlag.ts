@@ -34,8 +34,7 @@ export type FeatureFlag = keyof typeof FEATURE_FLAGS;
  * @param flag - The feature flag to check
  * @returns boolean indicating if the feature is enabled
  */
-export const useFeatureFlag = (flag: FeatureFlag): boolean => {
-  return useMemo(() => {
+export const useFeatureFlag = (flag: FeatureFlag): boolean => useMemo(() => {
     // Check environment variables first (allows runtime overrides)
     const envOverride = process.env[`VITE_FEATURE_${flag}`];
     if (envOverride !== undefined) {
@@ -45,7 +44,6 @@ export const useFeatureFlag = (flag: FeatureFlag): boolean => {
     // Fall back to default configuration
     return FEATURE_FLAGS[flag];
   }, [flag]);
-};
 
 /**
  * Hook to get multiple feature flags at once
@@ -54,8 +52,7 @@ export const useFeatureFlag = (flag: FeatureFlag): boolean => {
  */
 export const useFeatureFlags = <T extends FeatureFlag[]>(
   flags: T
-): Record<FeatureFlag, boolean> => {
-  return useMemo(() => {
+): Record<FeatureFlag, boolean> => useMemo(() => {
     const result = {} as Record<FeatureFlag, boolean>;
     for (const flag of flags) {
       const envOverride = process.env[`VITE_FEATURE_${flag}`];
@@ -65,7 +62,6 @@ export const useFeatureFlags = <T extends FeatureFlag[]>(
     }
     return result;
   }, [flags]);
-};
 
 /**
  * Component wrapper for conditional feature rendering

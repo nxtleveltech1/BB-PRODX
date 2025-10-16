@@ -13,8 +13,8 @@ Steps:
    - DATABASE_URL
    - JWT_SECRET, JWT_REFRESH_SECRET
    - STRIPE_PUBLISHABLE_KEY, STRIPE_SECRET_KEY (if used)
-5. Build Command: npm install && npm run build
-6. Start Command: npm run start (Next.js production server)
+5. Build Command: pnpm install && pnpm run build
+6. Start Command: pnpm run start (Next.js production server)
 
 Notes:
 - Health check path is '/'.

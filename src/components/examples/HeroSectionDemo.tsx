@@ -37,8 +37,7 @@ import HeroSectionEnhanced from "../HeroSectionEnhanced";
  * - "Transform Your Life Naturally."
  */
 
-const HeroSectionDemo = () => {
-  return (
+const HeroSectionDemo = () => (
     <div className="min-h-screen">
       {/* Hero Section Implementation */}
       <HeroSectionEnhanced />
@@ -155,6 +154,5 @@ const HeroSectionDemo = () => {
       </div>
     </div>
   );
-};
 
 export default HeroSectionDemo;

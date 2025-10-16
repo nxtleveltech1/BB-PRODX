@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import TopSixFlip from '@/components/TopSixFlip';
 import SocialMediaWall from '@/components/SocialMediaWall';
 import StoreLocator from '@/components/locator/StoreLocator';
