@@ -14,14 +14,14 @@ export default function RetailStorePage() {
         
         <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
           <div className="min-h-[var(--hero-min-h-tablet)] flex flex-col items-center justify-center text-center py-24">
-            <h1 
+            <h1
               className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-6"
-              style={{ 
+              style={{
                 fontFamily: 'League Spartan, sans-serif',
                 fontWeight: 900,
-                fontSize: 'var(--hero-font-size)',
+                fontSize: 'clamp(3rem, 8vw, 7rem)',
                 lineHeight: 'var(--hero-lineheight)',
-                letterSpacing: 'var(--hero-letterspacing)'
+                letterSpacing: '0.1em'
               }}
             >
               RETAIL STORE

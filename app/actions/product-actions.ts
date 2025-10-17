@@ -35,15 +35,21 @@ export const createProduct = async (
       productName: input.name,
     })
 
+    // Generate slug and SKU
+    const slug = input.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+    const sku = `PROD-${Date.now()}-${Math.random().toString(36).substr(2, 5).toUpperCase()}`
+
     const newProduct = await db
       .insert(products)
       .values({
+        sku,
         name: input.name,
+        slug,
         description: input.description,
         price: typeof input.price === "string" ? input.price : String(input.price),
-        category: input.category,
+        categoryId: input.category ? parseInt(input.category) : null,
         imageUrl: input.imageUrl,
-        stock: input.stock || 0,
+        stockCount: input.stock || 0,
       })
       .returning()
 
@@ -86,12 +92,12 @@ export const updateProduct = async (
         ...(input.price !== undefined && {
           price: typeof input.price === "string" ? input.price : String(input.price)
         }),
-        ...(input.category && { category: input.category }),
+        ...(input.category && { categoryId: parseInt(input.category) }),
         ...(input.imageUrl && { imageUrl: input.imageUrl }),
-        ...(input.stock !== undefined && { stock: input.stock }),
+        ...(input.stock !== undefined && { stockCount: input.stock }),
         updatedAt: new Date(),
       })
-      .where(eq(products.id, productId))
+      .where(eq(products.id, parseInt(productId)))
       .returning()
 
     if (!updated[0]) {
@@ -133,7 +139,7 @@ export const deleteProduct = async (
 
     const deleted = await db
       .delete(products)
-      .where(eq(products.id, productId))
+      .where(eq(products.id, parseInt(productId)))
       .returning()
 
     if (!deleted[0]) {
@@ -178,7 +184,7 @@ export const updateProductStock = async (
 
     // Get current stock
     const product = await db.query.products.findFirst({
-      where: eq(products.id, productId),
+      where: eq(products.id, parseInt(productId)),
     })
 
     if (!product) {
@@ -188,7 +194,7 @@ export const updateProductStock = async (
       }
     }
 
-    const newStock = (product.stock || 0) + quantity
+    const newStock = (product.stockCount || 0) + quantity
 
     if (newStock < 0) {
       return {
@@ -200,10 +206,10 @@ export const updateProductStock = async (
     const updated = await db
       .update(products)
       .set({
-        stock: newStock,
+        stockCount: newStock,
         updatedAt: new Date(),
       })
-      .where(eq(products.id, productId))
+      .where(eq(products.id, parseInt(productId)))
       .returning()
 
     // Invalidate product cache
@@ -243,7 +249,7 @@ export const bulkUpdatePrices = async (
             price: typeof price === "string" ? price : String(price),
             updatedAt: new Date(),
           })
-          .where(eq(products.id, id))
+          .where(eq(products.id, parseInt(id)))
           .returning()
       )
     )

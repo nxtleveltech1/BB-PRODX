@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export function useAuth(requireAuth = false) {
-  const { data: session, status } = useSession();
+  const { data: session, status, signOut } = useSession();
   const router = useRouter();
 
   const isLoading = status === "loading";
@@ -18,12 +18,31 @@ export function useAuth(requireAuth = false) {
     }
   }, [isLoading, requireAuth, isAuthenticated, router]);
 
+  const logout = async () => {
+    try {
+      await signOut({
+        callbackUrl: "/",
+        redirect: true,
+      });
+      return { success: true };
+    } catch (error) {
+      console.error("Logout error:", error);
+      // Fallback: redirect manually if signOut fails
+      router.push("/");
+      return {
+        success: false,
+        error: error instanceof Error ? error.message : "Logout failed",
+      };
+    }
+  };
+
   return {
     user,
     session,
     isLoading,
     isAuthenticated,
     status,
+    logout,
   };
 }
 

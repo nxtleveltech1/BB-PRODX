@@ -10,6 +10,7 @@ import cron from 'node-cron';
 import recommendationsRoutes from './routes/recommendations.js';
 import subscriptionsRoutes from './routes/subscriptions.js';
 import productsRoutes from './routes/products.js';
+import instagramRoutes from './routes/instagram.js';
 import authMiddleware from './middleware/auth.js';
 import errorHandler from './middleware/errorHandler.js';
 import logger from './middleware/logger.js';
@@ -69,6 +70,7 @@ app.get('/health', (req, res) => {
 // API routes
 app.use('/api/recommendations', recommendationsRoutes);
 app.use('/api/subscriptions', subscriptionsRoutes);
+app.use('/api/instagram', instagramRoutes);
 import authRoutes from './routes/auth.js';
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productsRoutes);

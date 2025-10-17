@@ -7,7 +7,9 @@ const nextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'raw.githubusercontent.com' },
       { protocol: 'https', hostname: 'images.unsplash.com' },
-      { protocol: 'https', hostname: 'github.com' }
+      { protocol: 'https', hostname: 'github.com' },
+      { protocol: 'https', hostname: 'scontent.cdninstagram.com' },
+      { protocol: 'https', hostname: '**.cdninstagram.com' }
     ]
   },
   typescript: {

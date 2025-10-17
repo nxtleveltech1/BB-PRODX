@@ -1,12 +1,15 @@
 import { defineConfig } from 'drizzle-kit';
-import { env } from './lib/env';
+import { config } from 'dotenv';
+
+// Load backend environment variables for database setup
+config({ path: './server/.env' });
 
 export default defineConfig({
   schema: './lib/db/schema',
   out: './db/migrations',
   dialect: 'postgresql',
   dbCredentials: {
-    url: env.DATABASE_URL,
+    url: process.env.DATABASE_URL!,
   },
   verbose: true,
   strict: true,
@@ -16,10 +19,10 @@ export default defineConfig({
     schema: 'drizzle',
   },
   // Include shadow database for safe migrations if configured
-  ...(env.SHADOW_DATABASE_URL && {
+  ...(process.env.SHADOW_DATABASE_URL && {
     dbCredentials: {
-      url: env.DATABASE_URL,
-      shadowDatabaseUrl: env.SHADOW_DATABASE_URL,
+      url: process.env.DATABASE_URL!,
+      shadowDatabaseUrl: process.env.SHADOW_DATABASE_URL,
     },
   }),
 });

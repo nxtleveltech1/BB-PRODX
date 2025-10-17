@@ -97,7 +97,7 @@ export default async function DashboardPage() {
             <div>
               <p className="text-sm font-medium text-muted-foreground">Verified</p>
               <p className="font-medium">
-                {user?.emailVerified ? "Yes" : "No"}
+                {user?.email ? "Yes" : "No"}
               </p>
             </div>
           </div>

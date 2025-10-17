@@ -40,7 +40,7 @@ export async function GET(request: NextRequest) {
     // Build query conditions
     const conditions = []
     if (category) {
-      conditions.push(eq(products.category, category))
+      conditions.push(eq(products.categoryId, parseInt(category)))
     }
     if (search) {
       conditions.push(like(products.name, `%${search}%`))
@@ -127,14 +127,20 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Generate slug and SKU
+    const slug = body.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+    const sku = `PROD-${Date.now()}-${Math.random().toString(36).substr(2, 5).toUpperCase()}`
+
     // Insert product
     const newProduct = await db.insert(products).values({
+      sku,
       name: body.name,
+      slug,
       description: body.description,
       price: body.price,
-      category: body.category,
+      categoryId: body.category ? parseInt(body.category) : null,
       imageUrl: body.imageUrl,
-      stock: body.stock || 0,
+      stockCount: body.stock || 0,
     }).returning()
 
     addBreadcrumb("Product created", "api", "info", {

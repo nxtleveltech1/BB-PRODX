@@ -1,3 +1,8 @@
+import { config } from 'dotenv';
+
+// Load backend environment variables for seeding
+config({ path: './server/.env' });
+
 import { db } from './client-edge';
 import {
   users,

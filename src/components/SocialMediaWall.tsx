@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Instagram } from 'lucide-react';
+import Image from 'next/image';
 
 interface InstagramPost {
   id: string;
@@ -22,18 +23,19 @@ export default function SocialMediaWall({ handle, count = 4 }: SocialMediaWallPr
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    // Try to fetch Instagram posts
-    // In production, this would call an API route that handles Instagram Basic Display API
-    // For now, we'll use fallback placeholders
     const fetchPosts = async () => {
       try {
-        // const response = await fetch(`/api/instagram?count=${count}`);
-        // const data = await response.json();
-        // setPosts(data.posts || []);
-        
-        // Fallback to placeholder data
-        setError(true);
+        const response = await fetch(`/api/instagram?count=${count}`);
+        const data = await response.json();
+
+        if (data.posts && data.posts.length > 0) {
+          setPosts(data.posts);
+          setError(false);
+        } else {
+          setError(true);
+        }
       } catch (err) {
+        console.error('Failed to fetch Instagram posts:', err);
         setError(true);
       } finally {
         setLoading(false);
@@ -43,39 +45,39 @@ export default function SocialMediaWall({ handle, count = 4 }: SocialMediaWallPr
     fetchPosts();
   }, [count]);
 
-  // Placeholder posts for when API is not available
-  const placeholderPosts = [
+  // Fallback posts with wellness-themed images
+  const fallbackPosts = [
     {
       id: '1',
-      caption: 'Wellness begins with small, intentional steps every day.',
-      media_url: '/Platform%20Graphics/About%20-%20Hero%20Banner.png',
-      permalink: `https://www.instagram.com/${handle}/`,
+      caption: 'Discover natural wellness solutions that support your journey to better being. 🌿✨ #BetterBeing #Wellness',
+      media_url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop&crop=center',
+      permalink: 'https://www.instagram.com/p/DEq8yFGINfp/',
       media_type: 'IMAGE' as const,
     },
     {
       id: '2',
-      caption: 'Natural ingredients, powerful results.',
-      media_url: '/Platform%20Graphics/Agent.png',
-      permalink: `https://www.instagram.com/${handle}/`,
+      caption: 'Premium wellness products designed for your daily rituals. Quality ingredients, sustainable practices. 💚',
+      media_url: 'https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=400&h=400&fit=crop&crop=center',
+      permalink: 'https://www.instagram.com/p/DEeGFCYIbh7/',
       media_type: 'IMAGE' as const,
     },
     {
       id: '3',
-      caption: 'Join our community on the journey to better being.',
-      media_url: '/Platform%20Graphics/outlet%20hero%20banner.png',
-      permalink: `https://www.instagram.com/${handle}/`,
+      caption: 'Your wellness journey starts with the right choices. Choose products that nourish both body and mind. 🌸',
+      media_url: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=400&fit=crop&crop=center',
+      permalink: 'https://www.instagram.com/p/DDzbQamoJK5/',
       media_type: 'IMAGE' as const,
     },
     {
       id: '4',
-      caption: 'Premium wellness products you can trust.',
-      media_url: '/Platform%20Graphics/Contact%20Us%20banner.png',
-      permalink: `https://www.instagram.com/${handle}/`,
+      caption: 'Experience the difference that premium, natural wellness products can make in your daily routine. ✨',
+      media_url: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=400&fit=crop&crop=center',
+      permalink: 'https://www.instagram.com/p/DDxJ0F3IjY5/',
       media_type: 'IMAGE' as const,
     },
   ];
 
-  const displayPosts = error || posts.length === 0 ? placeholderPosts : posts;
+  const displayPosts = error || posts.length === 0 ? fallbackPosts : posts;
 
   // Extract first 8-12 words for aria-label
   const getExcerpt = (caption?: string) => {
@@ -84,12 +86,38 @@ export default function SocialMediaWall({ handle, count = 4 }: SocialMediaWallPr
     return words.join(' ') + (caption.split(/\s+/).length > 12 ? '...' : '');
   };
 
+  if (loading) {
+    return (
+      <section className="space-section bg-[#F9E7C9] relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2
+              className="text-4xl lg:text-5xl font-light text-[#2C2B29] leading-tight mb-4"
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            >
+              Social Media Wall
+            </h2>
+            <div className="inline-flex items-center gap-2 text-[#BB4500] text-lg font-medium">
+              <Instagram className="w-5 h-5 animate-pulse" />
+              <span>@{handle}</span>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            {[...Array(count)].map((_, index) => (
+              <div key={index} className="aspect-square bg-[#2C2B29]/10 rounded-lg animate-pulse" />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="space-section bg-[#F9E7C9] relative">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 
+          <h2
             className="text-4xl lg:text-5xl font-light text-[#2C2B29] leading-tight mb-4"
             style={{ fontFamily: 'Playfair Display, serif' }}
           >
@@ -106,43 +134,34 @@ export default function SocialMediaWall({ handle, count = 4 }: SocialMediaWallPr
           </a>
         </div>
 
-        {/* Instagram Grid */}
+        {/* Instagram Posts Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          {displayPosts.slice(0, count).map((post, index) => (
+          {displayPosts.slice(0, count).map((post) => (
             <a
-              key={post.id || index}
+              key={post.id}
               href={post.permalink}
               target="_blank"
               rel="noopener noreferrer"
+              className="group block aspect-square overflow-hidden rounded-lg bg-[#2C2B29]/5 hover:shadow-lg transition-all duration-300"
               aria-label={getExcerpt(post.caption)}
-              className="group relative aspect-square overflow-hidden bg-[#2C2B29]/5 rounded-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#BB4500] focus:ring-offset-2"
             >
-              {/* Placeholder background gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#BB4500]/10 to-[#B5A642]/10" />
-              
-              {/* Instagram icon overlay */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 z-10">
-                <Instagram className="w-12 h-12 text-white" />
-              </div>
-
-              {/* Image (if available) */}
-              {post.media_url && (
-                <img
+              <div className="relative w-full h-full">
+                <Image
                   src={post.media_url}
-                  alt={post.caption || 'Instagram post'}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                  }}
+                  alt={getExcerpt(post.caption)}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                 />
-              )}
+                {/* Overlay for better hover effect */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
 
-              {/* Caption preview */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                <p className="text-white text-sm line-clamp-2">
-                  {post.caption || 'View on Instagram'}
-                </p>
+                {/* Instagram icon overlay */}
+                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-full p-2">
+                    <Instagram className="w-4 h-4 text-[#BB4500]" />
+                  </div>
+                </div>
               </div>
             </a>
           ))}
@@ -154,7 +173,7 @@ export default function SocialMediaWall({ handle, count = 4 }: SocialMediaWallPr
             href={`https://www.instagram.com/${handle}/`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-[#BB4500] hover:bg-[#2C2B29] text-white px-8 py-4 font-medium uppercase tracking-wider transition-all duration-300 rounded-lg"
+            className="inline-flex items-center gap-3 bg-[#BB4500] hover:bg-[#2C2B29] text-white px-8 py-4 font-medium uppercase tracking-wider transition-all duration-300 rounded-lg hover:gap-4"
             style={{ fontFamily: 'League Spartan, sans-serif' }}
           >
             <Instagram className="w-5 h-5" />
