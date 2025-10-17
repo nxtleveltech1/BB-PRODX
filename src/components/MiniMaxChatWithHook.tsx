@@ -1,6 +1,6 @@
 // MiniMax Chat Example Component using the useMiniMaxChat hook
 import React, { useEffect, useRef } from 'react';
-import { useMiniMaxChat } from '@/hooks/useMiniMaxChat';
+import { useMiniMaxChat } from '../hooks/useMiniMaxChat';
 
 const MiniMaxChatWithHook: React.FC = () => {
   const [input, setInput] = React.useState('');

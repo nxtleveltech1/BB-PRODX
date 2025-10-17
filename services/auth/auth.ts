@@ -2,7 +2,6 @@ import NextAuth from "next-auth";
 import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
-import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { db } from "@/lib/db/client-node";
 import * as schema from "@/lib/db/schema";
 import { env } from "@/lib/env";
@@ -12,12 +11,7 @@ import { z } from "zod";
 
 // Define the auth config
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  adapter: DrizzleAdapter(db, {
-    usersTable: schema.users,
-    accountsTable: schema.accounts,
-    sessionsTable: schema.sessions,
-    verificationTokensTable: schema.verificationTokens,
-  }),
+  // No adapter needed for JWT strategy - sessions stored in tokens, not database
 
   session: {
     strategy: "jwt", // Use JWT for session management

@@ -12,8 +12,11 @@ const NavigationPrimary = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
-  const { user, logout } = useAuth();
-  const { cartItems } = useCart();
+  const auth = useAuth() as any;
+  const cart = useCart() as any;
+  const user = auth?.user || null;
+  const logout = auth?.logout || (() => {});
+  const cartItems = cart?.state?.items || [];
 
   useEffect(() => {
     const handleScroll = () => {

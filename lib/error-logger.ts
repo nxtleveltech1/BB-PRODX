@@ -84,32 +84,29 @@ export const getRequestId = async (): Promise<string> => {
   }
 }
 
-// Performance tracking utilities
-export const startTransaction = (name: string, op: string) => Sentry.startTransaction({
-    name,
-    op,
-  })
-
+// Performance tracking utilities (using Sentry v8+ API)
 export const measurePerformance = async <T,>(
   name: string,
   operation: () => Promise<T>
 ): Promise<T> => {
-  const transaction = startTransaction(name, "function")
-
-  try {
-    const result = await operation()
-    transaction.setStatus("ok")
-    return result
-  } catch (error) {
-    transaction.setStatus("internal_error")
-    logError(error, {
-      endpoint: name,
-      severity: "error",
-    })
-    throw error
-  } finally {
-    transaction.finish()
-  }
+  return await Sentry.startSpan(
+    {
+      name,
+      op: "function",
+    },
+    async () => {
+      try {
+        const result = await operation()
+        return result
+      } catch (error) {
+        logError(error, {
+          endpoint: name,
+          severity: "error",
+        })
+        throw error
+      }
+    }
+  )
 }
 
 // User context helper

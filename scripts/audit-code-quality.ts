@@ -60,7 +60,7 @@ const auditCodeQuality = async () => {
     let hasIssues = false
 
     // Check for 'any' types
-    const anyMatches = content.matchAll(patterns.anyTypes)
+    const anyMatches = Array.from(content.matchAll(patterns.anyTypes))
     for (const match of anyMatches) {
       const lineNum = content.substring(0, match.index).split("\n").length
       issues.push({
@@ -74,7 +74,7 @@ const auditCodeQuality = async () => {
     }
 
     // Check for function declarations
-    const functionMatches = content.matchAll(patterns.functionDecls)
+    const functionMatches = Array.from(content.matchAll(patterns.functionDecls))
     for (const match of functionMatches) {
       const lineNum = content.substring(0, match.index).split("\n").length
       // Skip if it's a React component or interface method
@@ -92,7 +92,7 @@ const auditCodeQuality = async () => {
     }
 
     // Check for var declarations
-    const varMatches = content.matchAll(patterns.varDecls)
+    const varMatches = Array.from(content.matchAll(patterns.varDecls))
     for (const match of varMatches) {
       const lineNum = content.substring(0, match.index).split("\n").length
       issues.push({
@@ -107,7 +107,7 @@ const auditCodeQuality = async () => {
 
     // Check for console statements
     if (!file.includes(".test.") && !file.includes(".spec.")) {
-      const consoleMatches = content.matchAll(patterns.consoleLog)
+      const consoleMatches = Array.from(content.matchAll(patterns.consoleLog))
       for (const match of consoleMatches) {
         const lineNum = content.substring(0, match.index).split("\n").length
         issues.push({
@@ -122,7 +122,7 @@ const auditCodeQuality = async () => {
     }
 
     // Check for TODO comments
-    const todoMatches = content.matchAll(patterns.todoComments)
+    const todoMatches = Array.from(content.matchAll(patterns.todoComments))
     for (const match of todoMatches) {
       const lineNum = content.substring(0, match.index).split("\n").length
       issues.push({
@@ -137,7 +137,7 @@ const auditCodeQuality = async () => {
 
     // Check for inline styles in TSX files
     if (file.endsWith(".tsx")) {
-      const styleMatches = content.matchAll(patterns.inlineStyles)
+      const styleMatches = Array.from(content.matchAll(patterns.inlineStyles))
       for (const match of styleMatches) {
         const lineNum = content.substring(0, match.index).split("\n").length
         issues.push({
@@ -152,7 +152,7 @@ const auditCodeQuality = async () => {
     }
 
     // Check for magic numbers
-    const magicMatches = content.matchAll(patterns.magicNumbers)
+    const magicMatches = Array.from(content.matchAll(patterns.magicNumbers))
     for (const match of magicMatches) {
       const lineNum = content.substring(0, match.index).split("\n").length
       const line = lines[lineNum - 1]

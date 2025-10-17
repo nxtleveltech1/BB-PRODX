@@ -1,6 +1,20 @@
 // Central export point for all database schemas
 // This file aggregates all table definitions and relations
 
+import type { User, UserSession } from './user';
+import type { Order, OrderItem } from './order';
+import type {
+  Product,
+  Category,
+  Subcategory,
+  ProductBenefit,
+  ProductIngredient,
+  ProductTag,
+  ProductSize,
+} from './product';
+import type { Review } from './review';
+import type { CartItem, WishlistItem } from './cart';
+
 // User schemas
 export {
   users,
@@ -100,26 +114,6 @@ export {
   type ReviewWithUser,
   type ReviewStats,
 } from './review';
-
-
-// Export helper types for common queries
-export interface DatabaseSchema {
-  users: typeof users;
-  userSessions: typeof userSessions;
-  categories: typeof categories;
-  subcategories: typeof subcategories;
-  products: typeof products;
-  productBenefits: typeof productBenefits;
-  productIngredients: typeof productIngredients;
-  productTags: typeof productTags;
-  productSizes: typeof productSizes;
-  orders: typeof orders;
-  orderItems: typeof orderItems;
-  cart: typeof cart;
-  wishlist: typeof wishlist;
-  reviews: typeof reviews;
-  reviewVotes: typeof reviewVotes;
-}
 
 // Common query result types
 export interface ProductWithDetails extends Product {

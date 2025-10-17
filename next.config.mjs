@@ -19,6 +19,13 @@ const nextConfig = {
     // Temporarily ignore ESLint during builds to avoid blocking on config availability in CI
     ignoreDuringBuilds: true,
   },
+  // Skip output file tracing to avoid sharp permission issues on Windows
+  experimental: {
+    outputFileTracingIncludes: {},
+    outputFileTracingExcludes: {
+      '*': ['**/@img/**', '**/sharp/**'],
+    },
+  },
   async rewrites() {
     let target = process.env.NEXT_PUBLIC_API_URL;
     // In development, default to local backend if not set

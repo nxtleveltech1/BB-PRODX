@@ -6,7 +6,7 @@ import { LogOut } from "lucide-react";
 import { toast } from "sonner";
 
 interface SignOutButtonProps {
-  variant?: "default" | "outline" | "ghost" | "destructive";
+  variant?: "primary" | "secondary" | "tertiary" | "destructive" | "ghost" | "link" | "outline";
   showIcon?: boolean;
   className?: string;
 }

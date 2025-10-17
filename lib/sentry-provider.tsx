@@ -22,16 +22,16 @@ export function SentryProvider({ children }: SentryProviderProps) {
             <p className="text-gray-600 mb-4">
               We've been notified and are working to fix it.
             </p>
-            {process.env.NODE_ENV === "development" && error && (
+            {process.env.NODE_ENV === "development" && error ? (
               <details className="text-left text-sm text-gray-500 mb-4">
                 <summary className="cursor-pointer font-medium">
                   Error details (development only)
                 </summary>
                 <pre className="mt-2 p-2 bg-gray-100 rounded overflow-auto">
-                  {error.message || "Unknown error"}
+                  {(error as Error).message || "Unknown error"}
                 </pre>
               </details>
-            )}
+            ) : null}
             <button
               onClick={resetError}
               className="px-4 py-2 bg-honey-400 text-white rounded-md hover:bg-honey-500 transition-colors"

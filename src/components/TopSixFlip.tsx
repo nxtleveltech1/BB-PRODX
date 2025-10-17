@@ -22,7 +22,7 @@ function byTopSix(input: Product[]): Product[] {
 
 export default function TopSixFlip({ showBorders = true }: { showBorders?: boolean } = {}) {
   const topSix = React.useMemo(() => byTopSix(allProducts as unknown as Product[]), []);
-  const { addToCart } = useCart();
+  const { addItem } = useCart();
 
   const [api, setApi] = React.useState<any>(null);
   const [paused, setPaused] = React.useState(false);
@@ -39,10 +39,18 @@ export default function TopSixFlip({ showBorders = true }: { showBorders?: boole
     e.preventDefault();
     e.stopPropagation();
     try {
-      // Use API-backed cart provider
-      addToCart({
-        productId: product.id,
+      // Use root CartContext with localStorage
+      addItem({
+        id: product.id,
+        product_id: product.id,
         quantity: 1,
+        product_name: product.name,
+        product_description: product.description || '',
+        product_image: product.image || '',
+        product_price: product.price,
+        product_original_price: product.originalPrice,
+        product_in_stock: true,
+        product_stock_count: 100,
       });
     } catch (_err) {
       // no-op: provider shows toast

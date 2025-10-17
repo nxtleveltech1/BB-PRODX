@@ -30,7 +30,7 @@ export const Navigation = () => {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const router = useRouter();
   const { handleAnchorClick: _handleAnchorClick } = useScrollToSection();
-  const { cartSummary } = useCart();
+  const { getCartCount } = useCart();
   const { user, isAuthenticated, logout } = useAuth();
 
   useEffect(() => {
@@ -59,7 +59,7 @@ export const Navigation = () => {
   }, [router.pathname]);
 
   // Cart count comes from cart context
-  const cartCount = cartSummary?.totalQuantity || 0;
+  const cartCount = getCartCount();
 
   const isActive = (path: string) => router.pathname === path;
 
@@ -285,22 +285,22 @@ export const Navigation = () => {
               {/* Account/Auth Section */}
               {isAuthenticated && user ? (
                 <div className="relative" data-user-menu>
-                  <Button 
-                    variant="ghost" 
+                  <Button
+                    variant="ghost"
                     size="sm"
                     onClick={() => setShowUserMenu(!showUserMenu)}
                     className="text-muted-foreground hover:text-primary-600 hover:bg-primary-50/50 glass-primary font-heading uppercase text-xs tracking-brand transition-all duration-300 hover:scale-105 shadow-floating"
                   >
                     <UserCircle className="w-4 h-4 mr-2" />
-                    {user.firstName}
+                    {user.name || user.email?.split("@")[0] || "User"}
                     <ChevronDown className="w-3 h-3 ml-1" />
                   </Button>
-                  
+
                   {showUserMenu && (
                     <div className="absolute right-0 top-full mt-2 w-48 bg-background border border-border/50 rounded-lg shadow-premium backdrop-blur-xl z-50">
                       <div className="p-2">
                         <div className="px-3 py-2 text-sm border-b border-border/30 mb-2">
-                          <p className="font-medium text-foreground">{user.firstName} {user.lastName}</p>
+                          <p className="font-medium text-foreground">{user.name}</p>
                           <p className="text-xs text-muted-foreground truncate">{user.email}</p>
                         </div>
                         <Link 

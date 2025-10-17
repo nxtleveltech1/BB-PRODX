@@ -1,7 +1,7 @@
 // MiniMax Chat Example Component
 import React, { useState, useRef } from 'react';
-import { miniMaxService } from '@/services/minimax';
-import type { MiniMaxMessage } from '@/types';
+import { miniMaxService } from '../services/minimax';
+import type { MiniMaxMessage } from '../types';
 
 const MiniMaxChatExample: React.FC = () => {
   const [messages, setMessages] = useState<MiniMaxMessage[]>([

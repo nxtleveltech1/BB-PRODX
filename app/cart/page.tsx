@@ -11,7 +11,7 @@ import {
   Clock,
   X,
 } from "lucide-react";
-import { useCart } from "@/contexts/CartContext";
+import { useCart } from "../../contexts/CartContext";
 
 // Mock cart data - would be replaced with actual API calls
 const _mockCartItems = [

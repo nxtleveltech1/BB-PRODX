@@ -1,11 +1,9 @@
 // Root Layout for Next.js App Router
 import './globals.css'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
 import Providers from './providers'
-import { Toaster } from 'sonner'
 import { SessionProvider } from '@/components/auth/session-provider'
 import { SentryProvider } from '@/lib/sentry-provider'
+import { ClientLayoutWrapper } from './client-layout-wrapper'
 
 export default function RootLayout({
   children,
@@ -36,10 +34,7 @@ export default function RootLayout({
         <SentryProvider>
           <SessionProvider>
             <Providers>
-              <Header />
-              <main className="pb-4 md:pb-0">{children}</main>
-              <Footer />
-              <Toaster richColors position="top-right" />
+              <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
             </Providers>
           </SessionProvider>
         </SentryProvider>

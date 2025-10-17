@@ -1,9 +1,11 @@
 "use client";
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import TopSixFlip from '@/components/TopSixFlip';
+import dynamic from 'next/dynamic';
 import SocialMediaWall from '@/components/SocialMediaWall';
 import StoreLocator from '@/components/locator/StoreLocator';
+
+const TopSixFlip = dynamic(() => import('@/components/TopSixFlip'), { ssr: false });
 
 export default function HomePage() {
 const [scrollY, setScrollY] = useState(0);

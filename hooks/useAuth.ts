@@ -1,11 +1,11 @@
 "use client";
 
-import { useSession } from "next-auth/react";
+import { useSession, signOut as nextAuthSignOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export function useAuth(requireAuth = false) {
-  const { data: session, status, signOut } = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
 
   const isLoading = status === "loading";
@@ -20,7 +20,7 @@ export function useAuth(requireAuth = false) {
 
   const logout = async () => {
     try {
-      await signOut({
+      await nextAuthSignOut({
         callbackUrl: "/",
         redirect: true,
       });

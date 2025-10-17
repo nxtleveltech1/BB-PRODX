@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { ChevronDown, ShoppingCart, User, Menu, X, Search, Heart } from "lucide-react";
-import { useCart } from "@/contexts/CartContext";
+import { useCart } from "../../../contexts/CartContext";
 import { useAuth } from "@/lib/useAuth";
 
 export default function Header() {
@@ -88,7 +88,7 @@ export default function Header() {
               >
                 <User className="w-4 h-4" />
                 <span className="account-text">
-                  {showUserState && user ? `${user.firstName ?? ""} ${user.lastName ?? ""}`.trim() || user.email?.split("@")[0] || "Sign In" : "Sign In"}
+                  {showUserState && user ? user.name || user.email?.split("@")[0] || "Sign In" : "Sign In"}
                 </span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${showAccountMenu ? "rotate-180" : ""}`} />
               </button>

@@ -32,7 +32,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Badge } from '@/components/ui/badge';
-import { useCart } from '@/contexts/CartContext';
+import { useCart } from '../contexts/CartContext';
 import { useAuth } from '@/hooks/useAuth';
 import { cn } from '@/lib/utils';
 
@@ -497,7 +497,7 @@ export const EnterpriseNavigation: React.FC = () => {
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="sm" className="text-white/90 hover:text-white hover:bg-white/10">
                     <User className="w-4 h-4 mr-1" />
-                    {isAuthenticated ? user?.firstName || 'Account' : 'Sign In'}
+                    {isAuthenticated ? user?.name || 'Account' : 'Sign In'}
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56">

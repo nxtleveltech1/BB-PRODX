@@ -20,7 +20,7 @@ import {
   Leaf,
   Share2
 } from "lucide-react";
-import { useCart } from "@/contexts/CartContext";
+import { useCart } from "../../../contexts/CartContext";
 import { getProductById, getRelatedProducts } from "@/data/products";
 import { toast } from "sonner";
 

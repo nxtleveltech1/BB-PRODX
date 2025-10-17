@@ -292,7 +292,8 @@ export const RecommendationEngine: React.FC<RecommendationEngineProps> = ({
   context = 'homepage'
 }) => {
   const { user } = useAuth();
-  const { addToCart } = useCart();
+  const cart = useCart() as any;
+  const addToCart = cart?.addItem || (() => {});
   const [recommendations, setRecommendations] = useState<{
     personalized: Recommendation[];
     trending: Recommendation[];
@@ -417,8 +418,15 @@ export const RecommendationEngine: React.FC<RecommendationEngineProps> = ({
 
   const handleAddToCart = (product: Product) => {
     addToCart({
-      productId: parseInt(product.id),
-      quantity: 1
+      id: parseInt(product.id),
+      product_id: parseInt(product.id),
+      quantity: 1,
+      product_name: product.name,
+      product_description: '',
+      product_image: product.image,
+      product_price: product.price.toString(),
+      product_in_stock: product.inStock,
+      product_stock_count: 100
     });
   };
 

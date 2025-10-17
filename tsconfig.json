@@ -25,23 +25,48 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./*"
+        "./*",
+        "./src/*"
       ],
       "@/components/*": [
         "./components/*",
         "./src/components/*"
       ],
       "@/lib/*": [
-        "./lib/*"
+        "./lib/*",
+        "./src/lib/*"
       ],
       "@/hooks/*": [
-        "./hooks/*"
+        "./hooks/*",
+        "./src/hooks/*"
       ],
       "@/data/*": [
-        "./data/*"
+        "./data/*",
+        "./src/data/*"
       ],
       "@/services/*": [
-        "./services/*"
+        "./services/*",
+        "./src/services/*"
+      ],
+      "@/utils/*": [
+        "./utils/*",
+        "./src/utils/*"
+      ],
+      "@/types/*": [
+        "./types/*",
+        "./src/types/*"
+      ],
+      "@/contexts/*": [
+        "./contexts/*",
+        "./src/contexts/*"
+      ],
+      "@/providers/*": [
+        "./providers/*",
+        "./src/providers/*"
+      ],
+      "@/layouts/*": [
+        "./layouts/*",
+        "./src/layouts/*"
       ]
     }
   },

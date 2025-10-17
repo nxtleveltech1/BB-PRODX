@@ -30,7 +30,7 @@ export const CACHE_TAGS = {
 export const getCachedUser = cache(async (userId: string) => {
   try {
     const user = await db.query.users.findFirst({
-      where: eq(users.id, userId),
+      where: eq(users.id, parseInt(userId, 10)),
     })
     return user
   } catch (error) {
@@ -80,11 +80,11 @@ export const getCachedProducts = unstable_cache(
 )
 
 // Pattern 3: Cached product detail with tag-based invalidation
-export const getCachedProductById = unstable_cache(
-  async (productId: string) => {
+export const getCachedProductById = (productId: string) => unstable_cache(
+  async () => {
     try {
       const product = await db.query.products.findFirst({
-        where: eq(products.id, productId),
+        where: eq(products.id, parseInt(productId, 10)),
       })
       return product
     } catch (error) {
@@ -95,19 +95,19 @@ export const getCachedProductById = unstable_cache(
       return null
     }
   },
-  ["product-detail"],
+  [`product-detail-${productId}`],
   {
     revalidate: CACHE_TIMES.PRODUCTS,
-    tags: [(id: string) => CACHE_TAGS.PRODUCT_DETAIL(id)],
+    tags: [CACHE_TAGS.PRODUCT_DETAIL(productId), CACHE_TAGS.PRODUCTS],
   }
-)
+)()
 
 // Pattern 4: User orders with user-specific caching
-export const getCachedUserOrders = unstable_cache(
-  async (userId: string) => {
+export const getCachedUserOrders = (userId: string) => unstable_cache(
+  async () => {
     try {
       const userOrders = await db.query.orders.findMany({
-        where: eq(orders.userId, userId),
+        where: eq(orders.userId, parseInt(userId, 10)),
         orderBy: [desc(orders.createdAt)],
       })
       return userOrders
@@ -119,12 +119,12 @@ export const getCachedUserOrders = unstable_cache(
       return []
     }
   },
-  ["user-orders"],
+  [`user-orders-${userId}`],
   {
     revalidate: CACHE_TIMES.SHORT,
-    tags: [(userId: string) => CACHE_TAGS.USER(userId), CACHE_TAGS.ORDERS],
+    tags: [CACHE_TAGS.USER(userId), CACHE_TAGS.ORDERS],
   }
-)
+)()
 
 // Pattern 5: Dashboard stats with short cache
 export const getCachedStats = unstable_cache(

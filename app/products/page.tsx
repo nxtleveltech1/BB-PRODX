@@ -8,7 +8,7 @@ import { toast } from "sonner";
 // import api from "@/services/apiOptimized";
 import { products } from "@/data/products";
 import TopSixFlip from "@/components/TopSixFlip";
-import { useCart } from "@/contexts/CartContext";
+import { useCart } from "../../contexts/CartContext";
 
 function ProductCard({ product }: { product: any }) {
   const router = useRouter();

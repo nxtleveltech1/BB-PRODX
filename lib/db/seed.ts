@@ -32,13 +32,13 @@ async function seedDatabase() {
     console.log('Creating users...');
     const hashedPassword = await bcrypt.hash('password123', 10);
 
-    const [adminUser, testUser] = await db.insert(users).values([
+    const usersToInsert = [
       {
         email: 'admin@betterbeing.com',
         password: hashedPassword,
         firstName: 'Admin',
         lastName: 'User',
-        emailVerified: true,
+        emailVerified: new Date(), // Changed from boolean to Date
         marketingConsent: true,
       },
       {
@@ -46,16 +46,18 @@ async function seedDatabase() {
         password: hashedPassword,
         firstName: 'Test',
         lastName: 'User',
-        emailVerified: true,
+        emailVerified: new Date(), // Changed from boolean to Date
         marketingConsent: false,
       },
-    ]).returning();
+    ];
+    const insertedUsers = await db.insert(users).values(usersToInsert).returning();
+    const [adminUser, testUser] = insertedUsers;
 
     console.log(`✅ Created ${2} users`);
 
     // Seed categories
     console.log('Creating categories...');
-    const [supplementsCat, skincarecat, fitnesscat, nutritionCat] = await db.insert(categories).values([
+    const insertedCategories = await db.insert(categories).values([
       {
         name: 'Supplements',
         slug: 'supplements',
@@ -81,12 +83,13 @@ async function seedDatabase() {
         icon: '🥗',
       },
     ]).returning();
+    const [supplementsCat, skincarecat, fitnesscat, nutritionCat] = insertedCategories;
 
     console.log(`✅ Created ${4} categories`);
 
     // Seed subcategories
     console.log('Creating subcategories...');
-    const [vitamins, minerals, probiotics] = await db.insert(subcategories).values([
+    const insertedSubcategories = await db.insert(subcategories).values([
       {
         categoryId: supplementsCat.id,
         name: 'Vitamins',
@@ -106,6 +109,7 @@ async function seedDatabase() {
         description: 'Support digestive health',
       },
     ]).returning();
+    const [vitamins, minerals, probiotics] = insertedSubcategories;
 
     console.log(`✅ Created ${3} subcategories`);
 

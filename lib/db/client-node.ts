@@ -1,9 +1,8 @@
 import { drizzle } from 'drizzle-orm/node-postgres';
-import pg from 'pg';
+import { Pool } from 'pg';
+import type * as pg from 'pg';
 import { env } from '@/lib/env';
 import * as schema from './schema';
-
-const { Pool } = pg;
 
 // Configuration for Node.js PostgreSQL pool
 const poolConfig = {
@@ -39,7 +38,7 @@ function getPool(): pg.Pool {
 
     // Set up event listeners for monitoring
     pool.on('connect', (client) => {
-      if (env.NODE_ENV === 'development') {
+      if (env.NODE_ENV === 'development' && pool) {
         console.log(`✅ Database pool connection established. Total: ${pool.totalCount}`);
       }
 
@@ -53,7 +52,7 @@ function getPool(): pg.Pool {
       });
     });
 
-    pool.on('error', (err) => {
+    pool.on('error', (err: Error & { code?: string }) => {
       console.error('❌ Unexpected database pool error:', err.message);
       if (err.code === 'ECONNRESET' || err.code === 'ENOTFOUND') {
         console.log('🔄 Pool will attempt to reconnect automatically...');
@@ -61,7 +60,7 @@ function getPool(): pg.Pool {
     });
 
     pool.on('remove', () => {
-      if (env.NODE_ENV === 'development') {
+      if (env.NODE_ENV === 'development' && pool) {
         console.log(`📤 Connection removed from pool. Idle: ${pool.idleCount}/${pool.totalCount}`);
       }
     });
@@ -159,7 +158,7 @@ export async function closePool(): Promise<void> {
 
 // Transaction helper with proper typing
 export async function transaction<T>(
-  fn: (tx: typeof db) => Promise<T>
+  fn: (tx: any) => Promise<T>
 ): Promise<T> {
   const client = await getPool().connect();
 
