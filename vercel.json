@@ -5,5 +5,7 @@
     "STACK_SECRET_SERVER_KEY": "st_tcuTCuGSEeaE_sk"
   },
   "buildCommand": "pnpm run vercel-build",
-  "outputDirectory": ".next"
+  "installCommand": "pnpm install --no-frozen-lockfile",
+  "outputDirectory": ".next",
+  "framework": "nextjs"
 }

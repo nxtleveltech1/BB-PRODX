@@ -41,7 +41,6 @@
     "better-being"
   ],
   "author": "Better Being Team",
-  "license": "MIT"
-,
-  "packageManager": "pnpm@10.18.3"
+  "license": "MIT",
+  "packageManager": "pnpm@9.15.0"
 }
