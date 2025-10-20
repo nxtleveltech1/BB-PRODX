@@ -1,4 +1,9 @@
 // Next.js Configuration for ES Modules
+import { fileURLToPath } from 'url'
+import path from 'path'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
@@ -19,13 +24,12 @@ const nextConfig = {
     // Temporarily ignore ESLint during builds to avoid blocking on config availability in CI
     ignoreDuringBuilds: true,
   },
-  // Skip output file tracing to avoid sharp permission issues on Windows
-  experimental: {
-    outputFileTracingIncludes: {},
-    outputFileTracingExcludes: {
-      '*': ['**/@img/**', '**/sharp/**'],
-    },
+// Skip output file tracing to avoid sharp permission issues on Windows
+  outputFileTracingIncludes: {},
+  outputFileTracingExcludes: {
+    '*': ['**/@img/**', '**/sharp/**'],
   },
+  outputFileTracingRoot: __dirname,
   async rewrites() {
     let target = process.env.NEXT_PUBLIC_API_URL;
     // In development, default to local backend if not set

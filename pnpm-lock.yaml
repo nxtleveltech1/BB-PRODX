@@ -300,6 +300,9 @@ importers:
       '@types/leaflet':
         specifier: ^1.9.20
         version: 1.9.21
+      '@types/minimatch':
+        specifier: ^6.0.0
+        version: 6.0.0
       '@types/node':
         specifier: ^22.18.0
         version: 22.18.10
