@@ -83,7 +83,7 @@ export default function AboutPage() {
             <div className="space-y-8">
               <div className="space-y-6">
                 <p className="text-[var(--bb-black-bean)] text-sm font-medium uppercase tracking-[0.2em] opacity-80">Philosophy</p>
-                <h2 className="text-3xl md:text-5xl font-light text-[var(--bb-black-bean)] leading-tight" style={{ fontFamily: 'Prata, Georgia, serif' }}>
+                <h2 className="text-3xl md:text-5xl font-light text-[var(--bb-black-bean)] leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
                   Born from a Simple Conviction
                 </h2>
                 <div className="w-16 h-px bg-[var(--bb-mahogany)]"></div>
@@ -132,7 +132,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12 md:mb-20">
             <p className="text-[var(--bb-payne-gray)] text-sm font-medium uppercase tracking-[0.2em] mb-6">Our Commitment</p>
-            <h2 className="u-heading-uppercase text-3xl md:text-5xl font-light text-[var(--bb-black-bean)] max-w-2xl mx-auto leading-tight" style={{ fontFamily: 'Prata, Georgia, serif' }}>
+            <h2 className="u-heading-uppercase text-3xl md:text-5xl font-light text-[var(--bb-black-bean)] max-w-2xl mx-auto leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
               How we think (and make)
             </h2>
           </div>

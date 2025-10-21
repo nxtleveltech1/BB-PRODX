@@ -605,7 +605,7 @@ export default function ProductsPage() {
           
           <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
             <div className="space-y-10">
-              <h3 className="text-4xl font-light text-white leading-tight" style={{ fontFamily: 'Prata, Georgia, serif' }}>
+              <h3 className="text-4xl font-light text-white leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
                 Need <em className="text-[var(--bb-citron)]">Guidance?</em>
               </h3>
               <p className="text-xl leading-relaxed text-white/80 max-w-2xl mx-auto font-light">

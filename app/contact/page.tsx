@@ -65,7 +65,7 @@ export default function ContactPage() {
             {/* Contact Information */}
             <div className="space-y-12">
               <div className="space-y-8">
-                <h2 className="text-4xl font-light text-[var(--bb-black-bean)] leading-tight" style={{ fontFamily: 'Prata, Georgia, serif' }}>
+                <h2 className="text-4xl font-light text-[var(--bb-black-bean)] leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
                   Let's Start a <em className="text-[var(--bb-mahogany)]">Conversation</em>
                 </h2>
                 <p className="text-lg text-[var(--bb-black-bean)] opacity-80 leading-relaxed font-light">
@@ -93,7 +93,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div className="bg-[#F9E7C9] p-6 md:px-12 md:py-8 border border-[var(--bb-mahogany)]/10 self-start">
               <div className="space-y-6 mb-8">
-                <h3 className="text-2xl font-light text-[var(--bb-black-bean)]" style={{ fontFamily: 'Prata, Georgia, serif' }}>
+                <h3 className="text-2xl font-light text-[var(--bb-black-bean)]" style={{ fontFamily: 'Playfair Display, serif' }}>
                   Send us a message
                 </h3>
                 <div className="w-16 h-px bg-[var(--bb-mahogany)]"></div>
