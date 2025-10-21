@@ -48,7 +48,7 @@ export default function PortalAccessPage() {
       </section>
 
       {/* Path Selection Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#F9E7C9]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <GradientCard
