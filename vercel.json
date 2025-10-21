@@ -4,8 +4,8 @@
     "NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY": "st_tcuTCuGSEeaE_pk",
     "STACK_SECRET_SERVER_KEY": "st_tcuTCuGSEeaE_sk"
   },
-  "buildCommand": "pnpm run vercel-build",
-  "installCommand": "npm i -g pnpm@10.18.3 && pnpm install --no-frozen-lockfile",
+  "buildCommand": "npx -y pnpm@10.18.3 run vercel-build",
+  "installCommand": "npx -y pnpm@10.18.3 install --no-frozen-lockfile",
   "outputDirectory": ".next",
   "framework": "nextjs"
 }
