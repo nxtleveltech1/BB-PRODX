@@ -53,6 +53,7 @@
     "data:sync:locations": "node scripts/sync-locations.mjs",
     "data:sync:instagram": "node scripts/sync-instagram.mjs",
     "audit:code": "tsx scripts/audit-code-quality.ts",
+    "db:compare": "node scripts/compare-db-row-counts.mjs",
     "quality:check": "pnpm run lint && pnpm run audit:code && pnpm run test:run",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\""
   },

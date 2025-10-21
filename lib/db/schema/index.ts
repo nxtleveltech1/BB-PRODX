@@ -12,6 +12,7 @@ import type {
   ProductTag,
   ProductSize,
 } from './product';
+import type { ProductImage } from './product-images';
 import type { Review } from './review';
 import type { CartItem, WishlistItem } from './cart';
 
@@ -72,6 +73,14 @@ export {
   type NewProductSize,
 } from './product';
 
+// Product Images schemas
+export {
+  productImages,
+  productImagesRelations,
+  type ProductImage,
+  type NewProductImage,
+} from './product-images';
+
 // Order schemas
 export {
   orders,
@@ -130,6 +139,7 @@ export interface ProductWithDetails extends Product {
   ingredients?: ProductIngredient[];
   tags?: ProductTag[];
   sizes?: ProductSize[];
+  images?: ProductImage[];
   reviews?: Review[];
 }
 
