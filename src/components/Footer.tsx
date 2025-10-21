@@ -130,19 +130,19 @@ export const Footer = () => (
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-primary-foreground/20">
+      <div className="bg-[var(--bb-black-bean)] border-t border-white/10">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-primary-foreground/80 text-sm">
-              © 2024 Better Being. All rights reserved. Nature's wisdom, your wellness.
+            <div className="text-[var(--bb-citron)] text-sm uppercase tracking-wide">
+              © 2024 BETTER BEING. ALL RIGHTS RESERVED. NATURE'S WISDOM, YOUR WELLNESS.
             </div>
-            <div className="flex flex-wrap gap-6 text-sm text-primary-foreground/80">
-              <a href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</a>
-              <a href="/terms" className="hover:text-accent transition-colors">Terms of Service</a>
-              <a href="/refund-policy" className="hover:text-accent transition-colors">Refund Policy</a>
-              <a href="/marketing" className="hover:text-accent transition-colors">Marketing Partners</a>
-              <a href="/investors-pool" className="hover:text-accent transition-colors">Investors</a>
-              <a href="/tech" className="hover:text-accent transition-colors">Technology</a>
+            <div className="flex flex-wrap gap-6 text-sm text-[var(--bb-citron)] uppercase tracking-wide">
+              <a href="/privacy" className="hover:text-white transition-colors">PRIVACY POLICY</a>
+              <a href="/terms" className="hover:text-white transition-colors">TERMS OF SERVICE</a>
+              <a href="/refund-policy" className="hover:text-white transition-colors">REFUND POLICY</a>
+              <a href="/marketing" className="hover:text-white transition-colors">MARKETING PARTNERS</a>
+              <a href="/investors-pool" className="hover:text-white transition-colors">INVESTORS</a>
+              <a href="/tech" className="hover:text-white transition-colors">TECHNOLOGY</a>
             </div>
           </div>
         </div>
