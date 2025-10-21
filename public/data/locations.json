@@ -20,6 +20,18 @@
     }
   },
   {
+    "id": "retail-adale-snyman",
+    "type": "retail",
+    "name": "AdÃ©le Snyman",
+    "address": "20 Disa Avenue, Upington, Northern Cape, South Africa",
+    "phone": "836452212",
+    "agent": "AdÃ©le Snyman",
+    "coordinates": {
+      "lat": -28.4342245,
+      "lng": 21.263418
+    }
+  },
+  {
     "id": "distributor-adele-snyman",
     "type": "distributor",
     "name": "Adéle Snyman",
@@ -132,6 +144,14 @@
     }
   },
   {
+    "id": "retail-annique-nell",
+    "type": "retail",
+    "name": "Annique Nell",
+    "address": "3 Middel Street, Klipdam, Kuilsrivier, South Africa",
+    "phone": "836617163",
+    "agent": "Annique Nell"
+  },
+  {
     "id": "distributor-antoinette-odendaal",
     "type": "distributor",
     "name": "Antoinette Odendaal",
@@ -176,6 +196,14 @@
     }
   },
   {
+    "id": "retail-beacon-ilse-kwikspar",
+    "type": "retail",
+    "name": "Beacon Ilse Kwikspar",
+    "address": "Beacon Isle Crescent, Plettenberg bay, Plettenberg Bay, South Africa",
+    "phone": "737087430(Wellman)445331555(Maria),Onthefloor(Sanele):0794291255",
+    "agent": "Beacon Ilse Kwikspar"
+  },
+  {
     "id": "retail-beacon-isle-kwikspar",
     "type": "retail",
     "name": "Beacon Isle Kwikspar*",
@@ -184,12 +212,32 @@
     "agent": "Beacon Isle Kwikspar*"
   },
   {
+    "id": "retail-belle-maree",
+    "type": "retail",
+    "name": "BELLE MAREE",
+    "address": "CROSSWAYS VILLAGE, EAST LONDON, South Africa",
+    "phone": "832651146",
+    "agent": "BELLE MAREE"
+  },
+  {
     "id": "retail-belle-maree-health-beauty",
     "type": "retail",
     "name": "Belle Maree Health & Beauty",
     "address": "Unit A Office Park, Crosways Village Centre Schafli Road, Kwelera, East London, Eastern Cape, 5259, South Africa",
     "phone": "0832651146",
     "agent": "Belle Maree Health & Beauty"
+  },
+  {
+    "id": "retail-benice-grove",
+    "type": "retail",
+    "name": "Benice Grove",
+    "address": "25 Fletcher Street, Bredasdorp, Bredasdorp, South Africa",
+    "phone": "27828102603",
+    "agent": "Benice Grove",
+    "coordinates": {
+      "lat": -34.5289423,
+      "lng": 20.0415914
+    }
   },
   {
     "id": "distributor-benice-grove",
@@ -241,7 +289,11 @@
     "name": "Bio-Sil",
     "address": "59 Lascelles Road, Germiston/Edenvale, Johannesburg, Gauteng, 1609, South Africa",
     "phone": "0116155504",
-    "agent": "Bio-Sil"
+    "agent": "Bio-Sil",
+    "coordinates": {
+      "lat": -26.1980369,
+      "lng": 28.1183497
+    }
   },
   {
     "id": "retail-blue-crane-farmstall",
@@ -284,12 +336,32 @@
     "agent": "Bruno's Curio and Biltong*"
   },
   {
+    "id": "retail-brunos-deli-biltong",
+    "type": "retail",
+    "name": "Bruno's Deli & Biltong",
+    "address": "N2 Stormriver Bridge, Stormriver, South Africa",
+    "phone": "0745683902(Rina)",
+    "agent": "Bruno's Deli & Biltong"
+  },
+  {
     "id": "retail-buildingthetrustsbp-toh",
     "type": "retail",
     "name": "BuildingTheTrustSBP-Toh",
     "address": "3 Selbysteeg, Bredasdorp, Bredasdorp, Overberg, Western Cape, 7280, South Africa",
     "phone": "0844782831",
-    "agent": "BuildingTheTrustSBP-Toh"
+    "agent": "BuildingTheTrustSBP-Toh",
+    "coordinates": {
+      "lat": -34.5321365,
+      "lng": 20.0362708
+    }
+  },
+  {
+    "id": "retail-bulbi-health",
+    "type": "retail",
+    "name": "Bulbi Health",
+    "address": "77 Bland StreetMossel Bay, Mossel Bay, South Africa",
+    "phone": "813357085",
+    "agent": "Bulbi Health"
   },
   {
     "id": "retail-bulbi-health-6",
@@ -309,7 +381,11 @@
     "name": "Carike Laroque",
     "address": "94 Crestwood Drive, Lonehill, Johannesburg, Gauteng, 2062, South Africa",
     "phone": "0832787708",
-    "agent": "Carike Laroque"
+    "agent": "Carike Laroque",
+    "coordinates": {
+      "lat": -26.0148149,
+      "lng": 28.0268685
+    }
   },
   {
     "id": "distributor-carmen-pretorius",
@@ -436,12 +512,32 @@
     "agent": "Creatief Me Pty Ltd"
   },
   {
+    "id": "retail-creatief-me-pty-ltd-diamond-t-winkel-askham-pty-ltd",
+    "type": "retail",
+    "name": "Creatief Me Pty Ltd (Diamond T Winkel Askham Pty Ltd)",
+    "address": "1 Main Street, Askham, South Africa",
+    "phone": "0825668119",
+    "agent": "Creatief Me Pty Ltd (Diamond T Winkel Askham Pty Ltd)"
+  },
+  {
     "id": "distributor-cynthia-duigan",
     "type": "distributor",
     "name": "Cynthia Duigan",
     "address": "Powerbrake, C/O Soloman Mahlangu and R104, Willow Park Manor, N4 Gateway Industrial Park, Pretoria, Gauteng, 0184, South Africa",
     "phone": "0834145776",
     "agent": "Cynthia Duigan"
+  },
+  {
+    "id": "retail-dallas-fell",
+    "type": "retail",
+    "name": "Dallas Fell",
+    "address": "6 Symonds Lane, George, George, South Africa",
+    "phone": "448732005",
+    "agent": "Dallas Fell",
+    "coordinates": {
+      "lat": -33.9540253,
+      "lng": 22.4618038
+    }
   },
   {
     "id": "distributor-dallas-fell",
@@ -466,6 +562,14 @@
     "address": "100 Midas Avenue, Olympus AH, Midrand, Pretoria, Gauteng, 0184, South Africa",
     "phone": "0674120019",
     "agent": "David Bergh"
+  },
+  {
+    "id": "retail-dawn-davis",
+    "type": "retail",
+    "name": "Dawn Davis",
+    "address": "Unit 95, Aloe Ridge 2, Edenvale, Gauteng, Edenvale, South Africa",
+    "phone": "0662495225",
+    "agent": "Dawn Davis"
   },
   {
     "id": "distributor-des-attwood-10",
@@ -608,6 +712,18 @@
     }
   },
   {
+    "id": "retail-e-coetzee-apteek",
+    "type": "retail",
+    "name": "E Coetzee Apteek",
+    "address": "72 York Street, George, George, South Africa",
+    "phone": "448743188",
+    "agent": "E Coetzee Apteek",
+    "coordinates": {
+      "lat": -33.9981658,
+      "lng": 22.4452526
+    }
+  },
+  {
     "id": "retail-e-coetzee-pharmacy-17",
     "type": "retail",
     "name": "E Coetzee Pharmacy*",
@@ -652,6 +768,14 @@
     "agent": "Elaine Van Coller"
   },
   {
+    "id": "retail-elephant-walk-farm-stall",
+    "type": "retail",
+    "name": "Elephant Walk Farm Stall",
+    "address": "N2 Highway Harkerville, Plettenberg Bay, 6604, Harkerville, South Africa",
+    "phone": "445327833/839285126",
+    "agent": "Elephant Walk Farm Stall"
+  },
+  {
     "id": "retail-elephant-walk-farmstall",
     "type": "retail",
     "name": "Elephant Walk Farmstall*",
@@ -693,7 +817,11 @@
     "name": "Elroy Opperman",
     "address": "81 Sleigh Street, Langebaan, Cape Town, Western Cape, 7357, South Africa",
     "phone": "0828350898",
-    "agent": "Elroy Opperman"
+    "agent": "Elroy Opperman",
+    "coordinates": {
+      "lat": -33.0909912,
+      "lng": 18.0336421
+    }
   },
   {
     "id": "retail-emagenes",
@@ -728,6 +856,18 @@
     "agent": "Eulene Duncan"
   },
   {
+    "id": "retail-fanies-apteek",
+    "type": "retail",
+    "name": "Fanies Apteek",
+    "address": "93 Marsh Street, Mossel Bay, South Africa",
+    "phone": "446911505(Office)0824182795(Corlia)",
+    "agent": "Fanies Apteek",
+    "coordinates": {
+      "lat": -34.18255,
+      "lng": 22.1433586
+    }
+  },
+  {
     "id": "retail-fanies-apteek-21",
     "type": "retail",
     "name": "Fanies Apteek*",
@@ -752,12 +892,40 @@
     }
   },
   {
+    "id": "retail-feed-me-green-2",
+    "type": "retail",
+    "name": "Feed Me Green",
+    "address": "3 Lake Pleasant Rd, Groenvallei, Sedgefield, South Africa",
+    "phone": "27824379776",
+    "agent": "Feed Me Green"
+  },
+  {
     "id": "retail-feed-me-green",
     "type": "retail",
     "name": "Feed Me Green*",
     "address": "3 Lake Pleasant Rd, Groenvallei, Sedgefield, Garden Route, Western Cape, 6572, South Africa",
     "phone": "27824379776",
     "agent": "Feed Me Green*"
+  },
+  {
+    "id": "retail-finding-health",
+    "type": "retail",
+    "name": "Finding Health",
+    "address": "489 Prince Afred Street, pietermaritzburg, South Africa",
+    "phone": "834773786",
+    "agent": "Finding Health"
+  },
+  {
+    "id": "retail-float-wellness-sa",
+    "type": "retail",
+    "name": "Float Wellness SA",
+    "address": "77 Musgrave Road, Durban, 4091, Durban, South Africa",
+    "phone": "725172116",
+    "agent": "Float Wellness SA",
+    "coordinates": {
+      "lat": -29.8390984,
+      "lng": 31.0042024
+    }
   },
   {
     "id": "retail-fraaikem-apteek",
@@ -788,12 +956,28 @@
     }
   },
   {
+    "id": "retail-fresh-and-more",
+    "type": "retail",
+    "name": "Fresh and more",
+    "address": "2 Thabo Mbeki Dr, Mokopane, Limpopo 0601, Mokopane, South Africa",
+    "phone": "836329672",
+    "agent": "Fresh and more",
+    "coordinates": {
+      "lat": -24.2971632,
+      "lng": 28.9475822
+    }
+  },
+  {
     "id": "distributor-frianke-paxton",
     "type": "distributor",
     "name": "Frianke Paxton",
     "address": "54, 7th Street,, Chartwell, Johannesburg, Gauteng, 2055, South Africa",
     "phone": "27790381889",
-    "agent": "Frianke Paxton"
+    "agent": "Frianke Paxton",
+    "coordinates": {
+      "lat": -26.0148149,
+      "lng": 28.0268685
+    }
   },
   {
     "id": "distributor-frikkie-mouton",
@@ -820,12 +1004,32 @@
     "agent": "Gail Klinkert"
   },
   {
+    "id": "retail-gail-klinkert-bsr",
+    "type": "retail",
+    "name": "Gail Klinkert (BSR)",
+    "address": "Fishhoek, Fishhoek, South Africa",
+    "phone": "825523370",
+    "agent": "Gail Klinkert (BSR)"
+  },
+  {
     "id": "distributor-gayle-fahrenfort",
     "type": "distributor",
     "name": "Gayle Fahrenfort",
     "address": "1 Forest Glade, Tokai Road, Tokai, Cape Town, Western Cape, 7966, South Africa",
     "phone": "27832355532",
     "agent": "Gayle Fahrenfort"
+  },
+  {
+    "id": "retail-geneva-apteek",
+    "type": "retail",
+    "name": "Geneva Apteek",
+    "address": "75 Stander Street, George, George, South Africa",
+    "phone": "448712879",
+    "agent": "Geneva Apteek",
+    "coordinates": {
+      "lat": -33.9619859,
+      "lng": 22.4947377
+    }
   },
   {
     "id": "retail-geneva-pharmacy-24",
@@ -880,12 +1084,32 @@
     "agent": "Grounded"
   },
   {
+    "id": "retail-hartenbos-spar-2",
+    "type": "retail",
+    "name": "Hartenbos Spar",
+    "address": "7 Kompanje Ave, Hartenbos, Mossel Bay, 6500, Hartenbos, South Africa",
+    "phone": "446951530(Rietteopdievloer:0848109314)",
+    "agent": "Hartenbos Spar"
+  },
+  {
     "id": "retail-hartenbos-spar",
     "type": "retail",
     "name": "Hartenbos Spar*",
     "address": "7 Kompanje Ave, Hartenbos, Garden Route, Western Cape, 6500, South Africa",
     "phone": "0446951530",
     "agent": "Hartenbos Spar*"
+  },
+  {
+    "id": "retail-hcc-cupping-clinic",
+    "type": "retail",
+    "name": "HCC Cupping Clinic",
+    "address": "74 5th Ave Linden, Johannesburg, Johannesburg, South Africa",
+    "phone": "0846574665",
+    "agent": "HCC Cupping Clinic",
+    "coordinates": {
+      "lat": -26.1402054,
+      "lng": 27.9849723
+    }
   },
   {
     "id": "retail-hcc-health-25",
@@ -916,12 +1140,28 @@
     "agent": "Health & Herbal"
   },
   {
+    "id": "retail-health-living-2",
+    "type": "retail",
+    "name": "Health & Living",
+    "address": "3rd street knysna road, George, George, South Africa",
+    "phone": "448710765/0836288639",
+    "agent": "Health & Living"
+  },
+  {
     "id": "retail-health-living",
     "type": "retail",
     "name": "Health & Living *",
     "address": "Paddagat Centre, Courtenay St, George, Garden Route, Western Cape, 6529, South Africa",
     "phone": "0836288639",
     "agent": "Health & Living *"
+  },
+  {
+    "id": "retail-health-and-herbal",
+    "type": "retail",
+    "name": "Health and Herbal",
+    "address": "Marine Walk, Salta Boulevard, Salta Blvd, Sibaya, Durban, 4320, Durban, South Africa",
+    "phone": "837028511(Savannah-newassistant:0736754805)",
+    "agent": "Health and Herbal"
   },
   {
     "id": "retail-health-buddy-26",
@@ -948,6 +1188,14 @@
     }
   },
   {
+    "id": "retail-healthy-life-health-shop",
+    "type": "retail",
+    "name": "Healthy Life Health Shop",
+    "address": "Shop 1, Noel Centre, Main St, Plettenberg Bay, Plettenberg Bay, South Africa",
+    "phone": "0782553304",
+    "agent": "Healthy Life Health Shop"
+  },
+  {
     "id": "retail-healthy-life",
     "type": "retail",
     "name": "Healthy Life*",
@@ -965,6 +1213,18 @@
     "coordinates": {
       "lat": -33.8355819,
       "lng": 18.4999513
+    }
+  },
+  {
+    "id": "retail-heatherpark-spar",
+    "type": "retail",
+    "name": "Heatherpark Spar",
+    "address": "Witfontein Road, George, George, South Africa",
+    "phone": "0718987805(Zoleka)/448700911",
+    "agent": "Heatherpark Spar",
+    "coordinates": {
+      "lat": -33.9529036,
+      "lng": 22.42282
     }
   },
   {
@@ -1016,6 +1276,14 @@
     "agent": "Hillcrest Kwikspar"
   },
   {
+    "id": "retail-hoekwil-country-cafa",
+    "type": "retail",
+    "name": "Hoekwil Country CafÃ©",
+    "address": "Duiwe Rivier Rd Hoekwil, Hoekwil, South Africa",
+    "phone": "448501037/0824650995(Claire0766500620)(Ellestine0661884491)",
+    "agent": "Hoekwil Country CafÃ©"
+  },
+  {
     "id": "retail-hoekwil-country-cafe",
     "type": "retail",
     "name": "Hoekwil Country Cafe*",
@@ -1030,6 +1298,14 @@
     "address": "19 Bantam Drive, Blairgowrie, Johannesburg, Gauteng, 2194, South Africa",
     "phone": "0825653197",
     "agent": "Holistic Womb Wellness"
+  },
+  {
+    "id": "retail-holly-jay-roothman",
+    "type": "retail",
+    "name": "Holly Jay Roothman",
+    "address": "37 Lily Ave, Northcliff, Johannesburg, South Africa",
+    "phone": "650414370",
+    "agent": "Holly Jay Roothman"
   },
   {
     "id": "distributor-hope-komane",
@@ -1060,6 +1336,14 @@
     }
   },
   {
+    "id": "retail-image-focussed-aesthetics",
+    "type": "retail",
+    "name": "Image focussed aesthetics",
+    "address": "2 Eaton Avenue, Bryanston, Sandton, Johannesburg, South Africa",
+    "phone": "827000847",
+    "agent": "Image focussed aesthetics"
+  },
+  {
     "id": "retail-impala-fruit-and-veg-32",
     "type": "retail",
     "name": "Impala Fruit and Veg",
@@ -1070,6 +1354,14 @@
       "lat": -26.13585,
       "lng": 27.9753956
     }
+  },
+  {
+    "id": "retail-ina-van-aswegen",
+    "type": "retail",
+    "name": "Ina van Aswegen",
+    "address": "54 Troupand Street, Phalaborwa, Phalaborwa, South Africa",
+    "phone": "760594232",
+    "agent": "Ina van Aswegen"
   },
   {
     "id": "distributor-ingrid-landsberg",
@@ -1208,7 +1500,8 @@
     "type": "distributor",
     "name": "Karen Leygonie",
     "address": "Kraal Kraft Complex, Rocky Drift, White River, Mpumalanga, 1240, South Africa",
-    "agent": "Karen Leygonie"
+    "agent": "Karen Leygonie",
+    "phone": "839519518"
   },
   {
     "id": "distributor-karin-manthe-38",
@@ -1239,6 +1532,30 @@
     "agent": "Kathy Heapy"
   },
   {
+    "id": "retail-kathy-heapy-bsr",
+    "type": "retail",
+    "name": "Kathy Heapy (BSR)",
+    "address": "38 Whisken Avenue, Crowthorne, Johannesburg, Johannesburg, South Africa",
+    "phone": "832294652",
+    "agent": "Kathy Heapy (BSR)",
+    "coordinates": {
+      "lat": -25.9842447,
+      "lng": 28.0809316
+    }
+  },
+  {
+    "id": "retail-kc-pharmacy",
+    "type": "retail",
+    "name": "KC Pharmacy",
+    "address": "19 Main Street, Knysna, Knysna, South Africa",
+    "phone": "443825222",
+    "agent": "KC Pharmacy",
+    "coordinates": {
+      "lat": -33.9459388,
+      "lng": 22.9346509
+    }
+  },
+  {
     "id": "distributor-keith-law-39",
     "type": "distributor",
     "name": "Keith Law",
@@ -1259,12 +1576,68 @@
     "agent": "Kleinkrantz Superette*"
   },
   {
+    "id": "retail-klinicare-blooms",
+    "type": "retail",
+    "name": "KLINICARE BLOOMS",
+    "address": "CAPE ROAD, NEWON PARK, South Africa",
+    "phone": "413641424",
+    "agent": "KLINICARE BLOOMS",
+    "coordinates": {
+      "lat": -33.9472552,
+      "lng": 25.565569
+    }
+  },
+  {
+    "id": "retail-klinicare-lorraine",
+    "type": "retail",
+    "name": "KLINICARE LORRAINE",
+    "address": "CIRCULAR DRIVE, PE, South Africa",
+    "phone": "413641424",
+    "agent": "KLINICARE LORRAINE"
+  },
+  {
+    "id": "retail-klinicare-summerstrand",
+    "type": "retail",
+    "name": "KLINICARE SUMMERSTRAND",
+    "address": "SUMMERSTRAND, PORT ELIZABETH, South Africa",
+    "phone": "413641424",
+    "agent": "KLINICARE SUMMERSTRAND",
+    "coordinates": {
+      "lat": -33.99,
+      "lng": 25.6616667
+    }
+  },
+  {
+    "id": "retail-klinimed",
+    "type": "retail",
+    "name": "KLINIMED",
+    "address": "4TH AVE NEWTON PARK, PORT ELIZABETH, South Africa",
+    "phone": "413641424",
+    "agent": "KLINIMED",
+    "coordinates": {
+      "lat": -33.9472552,
+      "lng": 25.565569
+    }
+  },
+  {
     "id": "retail-kloof-street-kwikspar-40",
     "type": "retail",
     "name": "Kloof Street Kwikspar",
     "address": "26 Kloof Street,, Cape Town, Western Cape, Gardens, 8001, South Africa",
     "phone": "021 422 1577",
     "agent": "Kloof Street Kwikspar",
+    "coordinates": {
+      "lat": -33.9280711,
+      "lng": 18.4125194
+    }
+  },
+  {
+    "id": "retail-kloofstreet-kwikspar",
+    "type": "retail",
+    "name": "Kloofstreet KwikSpar",
+    "address": "26 Kloof Street, Gardens, South Africa",
+    "phone": "836352187",
+    "agent": "Kloofstreet KwikSpar",
     "coordinates": {
       "lat": -33.9280711,
       "lng": 18.4125194
@@ -1283,12 +1656,32 @@
     }
   },
   {
+    "id": "retail-knysna-health-shop",
+    "type": "retail",
+    "name": "Knysna Health Shop",
+    "address": "Broadwalk Centre, 52 Waterfront Drive, Knysna, Knysna, South Africa",
+    "phone": "444920522/0626071634",
+    "agent": "Knysna Health Shop"
+  },
+  {
     "id": "retail-knysna-health",
     "type": "retail",
     "name": "Knysna Health*",
     "address": "Shop 4, Broadwalk Centre, 52 Waterfront Drive, Knysna, Garden Route, Western Cape, 6570, South Africa",
     "phone": "626071634",
     "agent": "Knysna Health*"
+  },
+  {
+    "id": "retail-knysna-super-spar",
+    "type": "retail",
+    "name": "Knysna Super Spar",
+    "address": "42 Main Road, Knysna, Knysna, South Africa",
+    "phone": "443826417(Essieaccounts),0734276531(CharlenePOorders:",
+    "agent": "Knysna Super Spar",
+    "coordinates": {
+      "lat": -34.0347709,
+      "lng": 23.0447427
+    }
   },
   {
     "id": "retail-knysna-super-spar-42",
@@ -1319,6 +1712,18 @@
     "agent": "La Willia"
   },
   {
+    "id": "retail-leanne-curson",
+    "type": "retail",
+    "name": "Leanne Curson",
+    "address": "29 Wag n bietjie Ave, Clubview, Pretoria, Pretoria, South Africa",
+    "phone": "846431147",
+    "agent": "Leanne Curson",
+    "coordinates": {
+      "lat": -25.8228534,
+      "lng": 28.1603935
+    }
+  },
+  {
     "id": "distributor-leanne-cursons",
     "type": "distributor",
     "name": "Leanne Cursons",
@@ -1332,7 +1737,11 @@
     "name": "Lieben Health",
     "address": "Shop 7, The Village Square, 5 Van Riebeeck Street, Stillbaai, Cape Town, Western Cape, 6674, South Africa",
     "phone": "0637687031",
-    "agent": "Lieben Health"
+    "agent": "Lieben Health",
+    "coordinates": {
+      "lat": -34.3697692,
+      "lng": 21.4047985
+    }
   },
   {
     "id": "retail-lime-fusion-43",
@@ -1364,7 +1773,11 @@
     "name": "Lorna Loveday",
     "address": "104 Stantiazicht, 218 Langenhoven Street, Constantia Park, Pretoria, Gauteng, 0180, South Africa",
     "phone": "0824049709",
-    "agent": "Lorna Loveday"
+    "agent": "Lorna Loveday",
+    "coordinates": {
+      "lat": -25.8041015,
+      "lng": 28.2842034
+    }
   },
   {
     "id": "distributor-louise-larsen",
@@ -1373,6 +1786,14 @@
     "address": "16 Nolengeni Ridge, Uvango, Margate, Kwa Zulu Natal, 4275, South Africa",
     "phone": "0848666355",
     "agent": "Louise Larsen"
+  },
+  {
+    "id": "retail-louise-larsen-bsr-uvongo",
+    "type": "retail",
+    "name": "Louise Larsen (BSR Uvongo)",
+    "address": "16 Nolengeni Road, Uvongo, Margate, 4270, Uvongo, South Africa",
+    "phone": "848666355",
+    "agent": "Louise Larsen (BSR Uvongo)"
   },
   {
     "id": "distributor-lyn-bauer-45",
@@ -1472,7 +1893,11 @@
     "name": "Maria Calaca",
     "address": "11 Jurgens Avenue,, Strubenvale, Johannesburg, Gauteng, 1559, South Africa",
     "phone": "0785117177",
-    "agent": "Maria Calaca"
+    "agent": "Maria Calaca",
+    "coordinates": {
+      "lat": -26.2581438,
+      "lng": 28.4723407
+    }
   },
   {
     "id": "distributor-maria-du-plessis",
@@ -1496,7 +1921,11 @@
     "name": "Marie Hurter",
     "address": "9B Voortrekker Street,, Uniondale, Cape Town, Western Cape, 6460, South Africa",
     "phone": "27825154322",
-    "agent": "Marie Hurter"
+    "agent": "Marie Hurter",
+    "coordinates": {
+      "lat": -33.6610245,
+      "lng": 23.1130189
+    }
   },
   {
     "id": "distributor-mariet-bigham",
@@ -1504,7 +1933,11 @@
     "name": "Mariet Bigham",
     "address": "Hobos Hide, 119 Larsens Road,, Muldersdrift, Krugersdorp, Gauteng, 1747, South Africa",
     "phone": "27845688056",
-    "agent": "Mariet Bigham"
+    "agent": "Mariet Bigham",
+    "coordinates": {
+      "lat": -26.0915852,
+      "lng": 28.0020276
+    }
   },
   {
     "id": "distributor-marina-botha-50",
@@ -1543,6 +1976,14 @@
     "agent": "Maryna van der Merwe"
   },
   {
+    "id": "retail-maryna-van-der-merwe-homeopath",
+    "type": "retail",
+    "name": "Maryna van der Merwe (Homeopath)",
+    "address": "Aan de Hawequa Estate no 7, Hanepootstraat, Wellington, South Africa",
+    "phone": "832352369",
+    "agent": "Maryna van der Merwe (Homeopath)"
+  },
+  {
     "id": "distributor-may-smith-ehlers-51",
     "type": "distributor",
     "name": "May Smith-Ehlers",
@@ -1563,12 +2004,28 @@
     "agent": "Maz Tissink"
   },
   {
+    "id": "retail-mc-agencies-2",
+    "type": "retail",
+    "name": "MC Agencies",
+    "address": "Queens Hotel Building, Baron van Reede Street, Oudtshoorn, South Africa",
+    "phone": "27833112146",
+    "agent": "MC Agencies"
+  },
+  {
     "id": "retail-mc-agencies",
     "type": "retail",
     "name": "MC Agencies*",
     "address": "Wellbeing Health Shop, Queens Hotel Building, Baron van Reede Street, Oudtshoorn, Cape Town, Western Cape, 6620, South Africa",
     "phone": "27833112146",
     "agent": "MC Agencies*"
+  },
+  {
+    "id": "retail-mega-store",
+    "type": "retail",
+    "name": "Mega Store",
+    "address": "14 Industrie Road, Mossel Bay, Mossel Bay, South Africa",
+    "phone": "0613741501",
+    "agent": "Mega Store"
   },
   {
     "id": "retail-mega-store-mossel-bay",
@@ -1585,6 +2042,14 @@
     "address": "10 Lotus Place, Simon Road, Lotus River, Cape Town, Western Cape, 7941, South Africa",
     "phone": "0685153855",
     "agent": "Melanie Arendse"
+  },
+  {
+    "id": "retail-melk-and-heuning",
+    "type": "retail",
+    "name": "Melk and heuning",
+    "address": "137 PÃªrel Avenue, Orania, Northern cape, Orania, South Africa",
+    "phone": "827702765",
+    "agent": "Melk and heuning"
   },
   {
     "id": "retail-melk-heuning-52",
@@ -1619,6 +2084,14 @@
     "agent": "Moira Carelsen"
   },
   {
+    "id": "retail-moira-carelson",
+    "type": "retail",
+    "name": "Moira Carelson",
+    "address": "474 Grysbok Street, Waterkloof Ridge, Pretoria, South Africa",
+    "phone": "760730210",
+    "agent": "Moira Carelson"
+  },
+  {
     "id": "distributor-mojaji-lekame",
     "type": "distributor",
     "name": "Mojaji Lekame",
@@ -1635,6 +2108,22 @@
     "agent": "MYMR Ltd"
   },
   {
+    "id": "retail-nabeela-hajee",
+    "type": "retail",
+    "name": "Nabeela Hajee",
+    "address": "90 Scorpio Drive, Ext 9 Lenasia, Johannesburg, South Africa",
+    "phone": "760364039",
+    "agent": "Nabeela Hajee"
+  },
+  {
+    "id": "retail-name",
+    "type": "retail",
+    "name": "Name",
+    "address": "Address, suburb, South Africa",
+    "phone": "Number",
+    "agent": "Name"
+  },
+  {
     "id": "retail-nature-s-niche-54",
     "type": "retail",
     "name": "Nature's Niche",
@@ -1645,6 +2134,14 @@
       "lat": -26.1514516,
       "lng": 27.9997838
     }
+  },
+  {
+    "id": "retail-natures-nook-2",
+    "type": "retail",
+    "name": "Nature's Nook",
+    "address": "32a Langeberg Mall, Louis Fourie Road, Mossel Bay, Mossel Bay, South Africa",
+    "phone": "720552873",
+    "agent": "Nature's Nook"
   },
   {
     "id": "retail-natures-own-pharmacy",
@@ -1669,6 +2166,14 @@
     "address": "32a Langeberg Mall, Louis Fourie Road, Voorbaai, Mossel Bay, Garden Route, Western Cape, 6506, South Africa",
     "phone": "0790609288",
     "agent": "Natures Nook*"
+  },
+  {
+    "id": "retail-natures-own-pharmacy-2",
+    "type": "retail",
+    "name": "NATURES OWN PHARMACY",
+    "address": "PERRIDGEVALE SHOPPING CENTRE, PORT ELIZABETH, South Africa",
+    "phone": "0413638555",
+    "agent": "NATURES OWN PHARMACY"
   },
   {
     "id": "retail-natures-way-health-shop",
@@ -1715,12 +2220,32 @@
     "agent": "Organa's*"
   },
   {
+    "id": "retail-organic-heart",
+    "type": "retail",
+    "name": "ORGANIC HEART",
+    "address": "96 DA GAMA ROAD, JEFFREYS BAY, South Africa",
+    "phone": "0844437583",
+    "agent": "ORGANIC HEART",
+    "coordinates": {
+      "lat": -34.0354905,
+      "lng": 24.9302122
+    }
+  },
+  {
     "id": "retail-organic-heart-pty-ltd",
     "type": "retail",
     "name": "Organic Heart (Pty) Ltd",
     "address": "96 Da Gama Road,, Ferreira Town, Jeffery's bay. Eastern Cape, 6330, South Africa",
     "phone": "0844437583",
     "agent": "Organic Heart (Pty) Ltd"
+  },
+  {
+    "id": "retail-organic-wellness-2",
+    "type": "retail",
+    "name": "Organic Wellness",
+    "address": "Harry Mann Square, 112 York St, George Central, George, 6531, George, South Africa",
+    "phone": "0846013000",
+    "agent": "Organic Wellness"
   },
   {
     "id": "retail-organic-wellness",
@@ -1737,6 +2262,14 @@
     "address": "57 Adderley Street,, Oudtshoorn, Oudtshoorn, Western Cape, 6620, South Africa",
     "phone": "0693414991",
     "agent": "Oudtshoorn Fietse"
+  },
+  {
+    "id": "retail-overberg-wellness",
+    "type": "retail",
+    "name": "Overberg Wellness",
+    "address": "7 Marine Square College Road, Hermanus, South Africa",
+    "phone": "27825786817(0726106176)",
+    "agent": "Overberg Wellness"
   },
   {
     "id": "retail-overberg-wellness-pty-ltd",
@@ -1775,12 +2308,32 @@
     "agent": "Pepper Tree"
   },
   {
+    "id": "retail-pepper-tree-coffee-shop",
+    "type": "retail",
+    "name": "Pepper Tree Coffee Shop",
+    "address": "5 Louw St, Philadelphia, Cape Town, 7304, Cape Town, South Africa",
+    "phone": "847073177",
+    "agent": "Pepper Tree Coffee Shop",
+    "coordinates": {
+      "lat": -33.6665024,
+      "lng": 18.5820103
+    }
+  },
+  {
     "id": "retail-pharma-warehouse-pharmacy",
     "type": "retail",
     "name": "Pharma Warehouse Pharmacy*",
     "address": "Shop 7B, Witfontein Rd,, Heather Park, Garden Route, Western Cape, 6529, South Africa",
     "phone": "448707181",
     "agent": "Pharma Warehouse Pharmacy*"
+  },
+  {
+    "id": "retail-pharma-wharehouse-pharmacy",
+    "type": "retail",
+    "name": "Pharma Wharehouse Pharmacy",
+    "address": "Witfontein Rd, Healtherpark, George, George, South Africa",
+    "phone": "0448707181(Lizette:0732537850)",
+    "agent": "Pharma Wharehouse Pharmacy"
   },
   {
     "id": "retail-piquet-collective-accrue-ventures-pty-ltd",
@@ -1796,7 +2349,23 @@
     "name": "Pizza World",
     "address": "161 Main Road,, Kleinmond, Cape Town, Western Cape, 7195, South Africa",
     "phone": "27721565894",
-    "agent": "Pizza World"
+    "agent": "Pizza World",
+    "coordinates": {
+      "lat": -34.3388857,
+      "lng": 19.008751
+    }
+  },
+  {
+    "id": "retail-plett-medicine-depot-2",
+    "type": "retail",
+    "name": "Plett Medicine Depot",
+    "address": "12 High Street, Plettenberg bay, Plettenberg Bay, South Africa",
+    "phone": "0445332278(Annelizeonfloor:0721729685)",
+    "agent": "Plett Medicine Depot",
+    "coordinates": {
+      "lat": -34.0542252,
+      "lng": 23.3705293
+    }
   },
   {
     "id": "retail-plett-medicine-depot",
@@ -1819,6 +2388,18 @@
     }
   },
   {
+    "id": "retail-protea-apteek",
+    "type": "retail",
+    "name": "Protea Apteek",
+    "address": "92 York Street, George, George, South Africa",
+    "phone": "0448743124/655543362",
+    "agent": "Protea Apteek",
+    "coordinates": {
+      "lat": -33.9981658,
+      "lng": 22.4452526
+    }
+  },
+  {
     "id": "retail-protea-pharmacy-58",
     "type": "retail",
     "name": "Protea Pharmacy *",
@@ -1829,6 +2410,14 @@
       "lat": -33.9777569,
       "lng": 22.4419278
     }
+  },
+  {
+    "id": "retail-provincial-pharmcy",
+    "type": "retail",
+    "name": "PROVINCIAL PHARMCY",
+    "address": "84 WESTBOURNE PHARMACY, PORT ELIZABETH, South Africa",
+    "phone": "0413737631",
+    "agent": "PROVINCIAL PHARMCY"
   },
   {
     "id": "retail-provincial-westbourne-pharmacy-59",
@@ -1849,6 +2438,14 @@
     "address": "White House, Langgewacht Farm, Fraaigelen Road, Kuils River, Cape Town, Western Cape, 7646, South Africa",
     "phone": "0846760402",
     "agent": "PS 20 Holdings t/a Life Edit"
+  },
+  {
+    "id": "retail-psy-noetics-2",
+    "type": "retail",
+    "name": "Psy Noetics",
+    "address": "5 The Meadows, Rietvlei Rd, Plett, 6400, Plettenberg Bay, South Africa",
+    "phone": "614134000",
+    "agent": "Psy Noetics"
   },
   {
     "id": "retail-psy-noetics",
@@ -1885,6 +2482,22 @@
     "address": "L7 Middelrietvlei Road, Moerasrivier,, Blanco, Garden Route, Western Cape, 6531, South Africa",
     "phone": "0812581725",
     "agent": "Red Barn Farms*"
+  },
+  {
+    "id": "retail-redbarn",
+    "type": "retail",
+    "name": "Redbarn",
+    "address": "Middelrietvlei Road, George, George, South Africa",
+    "phone": "0812581725",
+    "agent": "Redbarn"
+  },
+  {
+    "id": "retail-redberry-farmstall-2",
+    "type": "retail",
+    "name": "Redberry Farmstall",
+    "address": "R404 , Geelhoutboom Road, George, George, South Africa",
+    "phone": "0833482129/0448707123",
+    "agent": "Redberry Farmstall"
   },
   {
     "id": "retail-redberry-farmstall",
@@ -1935,12 +2548,36 @@
     }
   },
   {
+    "id": "retail-ress-van-zyl-pharmacy",
+    "type": "retail",
+    "name": "Ress van Zyl Pharmacy",
+    "address": "83 Hibernia St, George Central, George, 6530, George, South Africa",
+    "phone": "0448732392",
+    "agent": "Ress van Zyl Pharmacy",
+    "coordinates": {
+      "lat": -33.9595178,
+      "lng": 22.4582334
+    }
+  },
+  {
     "id": "retail-retail-h-and-h-pharmacy-group",
     "type": "retail",
     "name": "Retail H and H Pharmacy Group",
     "address": "Shop 75, Killarney Mall,, Killarney, Johannesburg, Gauteng, 2913, South Africa",
     "phone": "116461911",
     "agent": "Retail H and H Pharmacy Group"
+  },
+  {
+    "id": "retail-retail-h-and-h-pharmacy-group-originally-killarney-pharmacy",
+    "type": "retail",
+    "name": "RETAIL H AND H PHARMACY GROUP (Originally: Killarney Pharmacy)",
+    "address": "Killarney, Johannesburg, South Africa",
+    "phone": "836626370",
+    "agent": "RETAIL H AND H PHARMACY GROUP (Originally: Killarney Pharmacy)",
+    "coordinates": {
+      "lat": -26.166751,
+      "lng": 28.0504636
+    }
   },
   {
     "id": "distributor-riana-pretorius",
@@ -1957,6 +2594,18 @@
     "address": "15 Viney street,, Bailliepark, Porchefstroom, North West, 2531, South Africa",
     "phone": "27720736022",
     "agent": "Rinel Burger"
+  },
+  {
+    "id": "retail-riviera-supermarket",
+    "type": "retail",
+    "name": "Riviera  Supermarket",
+    "address": "19 Main Road, Knysna, Knysna, South Africa",
+    "phone": "0619682490",
+    "agent": "Riviera  Supermarket",
+    "coordinates": {
+      "lat": -34.0347709,
+      "lng": 23.0447427
+    }
   },
   {
     "id": "retail-riviera-supermarket-63",
@@ -2059,6 +2708,18 @@
     "agent": "Scholim Hirschfield"
   },
   {
+    "id": "retail-schuin-villa-pharmacy",
+    "type": "retail",
+    "name": "SCHUIN VILLA PHARMACY",
+    "address": "322 CAPE ROAD, NEWTON PARK, South Africa",
+    "phone": "0413929919",
+    "agent": "SCHUIN VILLA PHARMACY",
+    "coordinates": {
+      "lat": -33.9486094,
+      "lng": 25.5623513
+    }
+  },
+  {
     "id": "retail-schuin-villa-pharmacy-pty-ltd-66",
     "type": "retail",
     "name": "Schuin-Villa Pharmacy (PTY) Ltd",
@@ -2079,6 +2740,18 @@
     "agent": "Secunda Kwekery"
   },
   {
+    "id": "retail-sedgefield-pharmacy",
+    "type": "retail",
+    "name": "Sedgefield Pharmacy",
+    "address": "49 Main Service Rd, Sedgefield, 6573, Sedgefield, South Africa",
+    "phone": "443431628(0732220243Velma)",
+    "agent": "Sedgefield Pharmacy",
+    "coordinates": {
+      "lat": -34.0131171,
+      "lng": 22.8002295
+    }
+  },
+  {
     "id": "retail-sedgefield-pharmacy-67",
     "type": "retail",
     "name": "Sedgefield Pharmacy*",
@@ -2097,6 +2770,14 @@
     "address": "118 14th Avenue,, Fairlands, Johannesburg, Gauteng, 2195, South Africa",
     "phone": "0828434607",
     "agent": "Seven Seas Fisheries"
+  },
+  {
+    "id": "retail-shabby-fufu",
+    "type": "retail",
+    "name": "Shabby Fufu",
+    "address": "Hakerville, Harkerville, South Africa",
+    "phone": "440015140",
+    "agent": "Shabby Fufu"
   },
   {
     "id": "retail-shabby-fufu-farmstall-68",
@@ -2147,6 +2828,14 @@
     }
   },
   {
+    "id": "retail-simone-vermaak",
+    "type": "retail",
+    "name": "Simone Vermaak",
+    "address": "1 McGowan Avenue, Founders Hill, Modderfontein, South Africa",
+    "phone": "27769574180",
+    "agent": "Simone Vermaak"
+  },
+  {
     "id": "distributor-simone-vermaak",
     "type": "distributor",
     "name": "Simoné Vermaak",
@@ -2175,6 +2864,18 @@
     }
   },
   {
+    "id": "retail-slimming-lounge",
+    "type": "retail",
+    "name": "Slimming Lounge",
+    "address": "1 Pearl St, Tamsui Industria, George, 6530, George, South Africa",
+    "phone": "828005943",
+    "agent": "Slimming Lounge",
+    "coordinates": {
+      "lat": -33.9891516,
+      "lng": 22.4477715
+    }
+  },
+  {
     "id": "retail-smart-living-sa-pty-ltd",
     "type": "retail",
     "name": "Smart Living Sa Pty Ltd",
@@ -2195,6 +2896,18 @@
     }
   },
   {
+    "id": "retail-sonali-lalloobhai",
+    "type": "retail",
+    "name": "Sonali Lalloobhai",
+    "address": "23 Suikerbos Street Lenasia, Johannesburg, South Africa",
+    "phone": "712731509",
+    "agent": "Sonali Lalloobhai",
+    "coordinates": {
+      "lat": -26.3195641,
+      "lng": 27.8382075
+    }
+  },
+  {
     "id": "distributor-soraya-gomez",
     "type": "distributor",
     "name": "Soraya Gomez",
@@ -2211,12 +2924,28 @@
     "agent": "Spar Pharmacy Cape Gate"
   },
   {
+    "id": "retail-st-francis-bay-pharmacy",
+    "type": "retail",
+    "name": "ST FRANCIS BAY PHARMACY",
+    "address": "140 ST FRANCIS DRIVE, ST FRANCIS BAY, South Africa",
+    "phone": "0422940268",
+    "agent": "ST FRANCIS BAY PHARMACY",
+    "coordinates": {
+      "lat": -34.1787829,
+      "lng": 24.8383937
+    }
+  },
+  {
     "id": "distributor-sunel-manson",
     "type": "distributor",
     "name": "Sunel Manson",
     "address": "117 Van Der Stel, Van Der Stel, Gqeberha, Eastern Cape, 6025, South Africa",
     "phone": "27847515954",
-    "agent": "Sunel Manson"
+    "agent": "Sunel Manson",
+    "coordinates": {
+      "lat": -33.9442944,
+      "lng": 25.5022559
+    }
   },
   {
     "id": "retail-super-c2-pty-ltd-t-a-africa-ozone-74",
@@ -2239,6 +2968,14 @@
     "agent": "Super Spar Groblersdal"
   },
   {
+    "id": "retail-sura-tredoux",
+    "type": "retail",
+    "name": "SurÃ© Tredoux",
+    "address": "37 Disa Road,, Bloubergrant, South Africa",
+    "phone": "27769177785",
+    "agent": "SurÃ© Tredoux"
+  },
+  {
     "id": "distributor-sure-tredoux",
     "type": "distributor",
     "name": "Suré Tredoux",
@@ -2259,6 +2996,14 @@
     }
   },
   {
+    "id": "retail-susan-kuhn-bsr",
+    "type": "retail",
+    "name": "Susan Kuhn (BSR)",
+    "address": "32 Pearce Crecent, Empangeni, Empangeni, South Africa",
+    "phone": "828761036",
+    "agent": "Susan Kuhn (BSR)"
+  },
+  {
     "id": "distributor-sylvia-naicker-76",
     "type": "distributor",
     "name": "Sylvia Naicker",
@@ -2268,6 +3013,18 @@
     "coordinates": {
       "lat": -29.786532,
       "lng": 31.0097161
+    }
+  },
+  {
+    "id": "retail-sylvia-naiker",
+    "type": "retail",
+    "name": "Sylvia Naiker",
+    "address": "35 Tyger Avenue, Greenwood Park, Durban, Durban, South Africa",
+    "phone": "833896374",
+    "agent": "Sylvia Naiker",
+    "coordinates": {
+      "lat": -29.7865867,
+      "lng": 31.0087349
     }
   },
   {
@@ -2291,6 +3048,18 @@
     "agent": "Tania Geldenhuys"
   },
   {
+    "id": "retail-the-clean-shop",
+    "type": "retail",
+    "name": "The Clean Shop",
+    "address": "14 Queen street, Knysna, Knysna, South Africa",
+    "phone": "0828558688",
+    "agent": "The Clean Shop",
+    "coordinates": {
+      "lat": -34.0384121,
+      "lng": 23.050624
+    }
+  },
+  {
     "id": "retail-the-clean-shop-78",
     "type": "retail",
     "name": "The Clean Shop*",
@@ -2301,6 +3070,14 @@
       "lat": -34.0339788,
       "lng": 23.0512111
     }
+  },
+  {
+    "id": "retail-the-creative-answer-richard-degenaar",
+    "type": "retail",
+    "name": "The creative answer (Richard Degenaar)",
+    "address": "Unit A, No 4 Ebury Ave, Bryanston, Johannesburg, South Africa",
+    "phone": "117066886",
+    "agent": "The creative answer (Richard Degenaar)"
   },
   {
     "id": "retail-the-creative-answer-pty-ltd",
@@ -2317,6 +3094,26 @@
     "address": "1 Park St,, Bushmans River, Boesmansriviermond, Eastern Cape, 6190, South Africa",
     "phone": "0822149782",
     "agent": "The Daily Company (Pty) Ltd t/a The Daily Shop"
+  },
+  {
+    "id": "retail-the-daily-shop",
+    "type": "retail",
+    "name": "THE DAILY SHOP",
+    "address": "PARK ROAD, BUSHMANS RIVER, South Africa",
+    "phone": "0822149782",
+    "agent": "THE DAILY SHOP"
+  },
+  {
+    "id": "retail-the-green-shed",
+    "type": "retail",
+    "name": "The Green Shed",
+    "address": "3 Leila's Lane, Wilderness, Wilderness, South Africa",
+    "phone": "443330207(Mia0823405052)",
+    "agent": "The Green Shed",
+    "coordinates": {
+      "lat": -33.9934668,
+      "lng": 22.5754173
+    }
   },
   {
     "id": "retail-the-green-shed-79",
@@ -2351,12 +3148,40 @@
     "agent": "The Health Food Emporium"
   },
   {
+    "id": "retail-the-mustard-seed",
+    "type": "retail",
+    "name": "THE MUSTARD SEED",
+    "address": "SHOP 12 PEPPERGROVE MALL, GRAHAMSTOWN, South Africa",
+    "phone": "0466361496",
+    "agent": "THE MUSTARD SEED"
+  },
+  {
+    "id": "retail-the-skin-and-beauty-clinic",
+    "type": "retail",
+    "name": "The skin and beauty clinic",
+    "address": "118, 8th Street, Linden, Randburg, Johannesburg, Johannesburg, South Africa",
+    "phone": "715397577",
+    "agent": "The skin and beauty clinic",
+    "coordinates": {
+      "lat": -26.1337031,
+      "lng": 28.0011577
+    }
+  },
+  {
     "id": "retail-the-slimming-lounge",
     "type": "retail",
     "name": "The Slimming Lounge*",
     "address": "1 Pearl Street, Yellow Star Storage,, Tamsui Industria, Garden Route, Western Cape, 6530, South Africa",
     "phone": "0662303828",
     "agent": "The Slimming Lounge*"
+  },
+  {
+    "id": "retail-thea-muller",
+    "type": "retail",
+    "name": "Thea Muller",
+    "address": "5, 6th avenue, Mellville, Johannesburg, South Africa",
+    "phone": "820499007",
+    "agent": "Thea Muller"
   },
   {
     "id": "distributor-theresa-belling-81",
@@ -2369,6 +3194,14 @@
       "lat": -32.9980034,
       "lng": 27.9038658
     }
+  },
+  {
+    "id": "retail-thyme-again-farm-stall",
+    "type": "retail",
+    "name": "Thyme & Again Farm Stall",
+    "address": "N2 Thyme & Again Farmstall, Plettenberg Bay, South Africa",
+    "phone": "0445359432",
+    "agent": "Thyme & Again Farm Stall"
   },
   {
     "id": "retail-thyme-again-farmstall",
@@ -2391,12 +3224,24 @@
     }
   },
   {
+    "id": "retail-tony-mcbain",
+    "type": "retail",
+    "name": "Tony Mcbain",
+    "address": "No 5 Village Green Close, Plumstead, South Africa",
+    "phone": "835331104",
+    "agent": "Tony Mcbain"
+  },
+  {
     "id": "distributor-trisha-jewaan",
     "type": "distributor",
     "name": "Trisha Jewaan",
     "address": "47 McPherson Drive,, Lincoln Meade, Pietermaritzburg, Eastern Cape, 3201, South Africa",
     "phone": "27836388013",
-    "agent": "Trisha Jewaan"
+    "agent": "Trisha Jewaan",
+    "coordinates": {
+      "lat": -29.6149456,
+      "lng": 30.437077
+    }
   },
   {
     "id": "distributor-vanessa-krugel",
@@ -2415,6 +3260,14 @@
     "agent": "Verna Da Silva"
   },
   {
+    "id": "retail-viewkem-apteek",
+    "type": "retail",
+    "name": "Viewkem Apteek",
+    "address": "c/o Alhoff Dv &, Marsh St, Da Nova, Mossel Bay, Mossel Bay, South Africa",
+    "phone": "0446904770",
+    "agent": "Viewkem Apteek"
+  },
+  {
     "id": "retail-viewkem-pharmacy",
     "type": "retail",
     "name": "Viewkem Pharmacy*",
@@ -2431,6 +3284,14 @@
     "agent": "Vikings Fish Shop*"
   },
   {
+    "id": "retail-village-pharmacy",
+    "type": "retail",
+    "name": "Village Pharmacy",
+    "address": "Shop Z1 - 12A, Knysna Mall, Knysna, South Africa",
+    "phone": "443822245",
+    "agent": "Village Pharmacy"
+  },
+  {
     "id": "retail-vivid-creative-space-ta-vivid-health",
     "type": "retail",
     "name": "Vivid Creative Space t/a Vivid Health",
@@ -2445,6 +3306,18 @@
     "address": "Molopoweg 63,, Vryburg, North West, 8600, South Africa",
     "phone": "0823917943",
     "agent": "Water For Us"
+  },
+  {
+    "id": "retail-way-to-life-living",
+    "type": "retail",
+    "name": "Way to life Living",
+    "address": "1 Hofmeyer Street, Calvinia, South Africa",
+    "phone": "726071673",
+    "agent": "Way to life Living",
+    "coordinates": {
+      "lat": -31.4673998,
+      "lng": 19.7754979
+    }
   },
   {
     "id": "retail-wholesome-harvest",
@@ -2465,6 +3338,14 @@
       "lat": -26.1240706,
       "lng": 28.0196947
     }
+  },
+  {
+    "id": "retail-wilderness-pharmacy",
+    "type": "retail",
+    "name": "Wilderness Pharmacy",
+    "address": "223 George Rd, Wilderness, Kloofstraat, South Africa",
+    "phone": "448770621",
+    "agent": "Wilderness Pharmacy"
   },
   {
     "id": "retail-wilderness-pharmacy-84",
@@ -2499,6 +3380,14 @@
     "agent": "Winnie Strever"
   },
   {
+    "id": "retail-woodville-trading-store-2",
+    "type": "retail",
+    "name": "Woodville Trading Store",
+    "address": "Woodville Trading Store, Seven rd pass, Hoekwil, South Africa",
+    "phone": "0791691682/0448501037",
+    "agent": "Woodville Trading Store"
+  },
+  {
     "id": "retail-woodville-trading-store",
     "type": "retail",
     "name": "Woodville Trading Store *",
@@ -2507,12 +3396,32 @@
     "agent": "Woodville Trading Store *"
   },
   {
+    "id": "retail-xavier-de-villiers",
+    "type": "retail",
+    "name": "Xavier de Villiers",
+    "address": "25 Baxter Way, Edgemead, South Africa",
+    "phone": "718760085",
+    "agent": "Xavier de Villiers",
+    "coordinates": {
+      "lat": -33.869105,
+      "lng": 18.5486394
+    }
+  },
+  {
     "id": "retail-yada-la-vie",
     "type": "retail",
     "name": "Yada La Vie",
     "address": "42 Kromrivier Rd,, Stellenbosch Central, Cape Town, Western Cape, 7600, South Africa",
     "phone": "27842829983",
     "agent": "Yada La Vie"
+  },
+  {
+    "id": "retail-zen-beaurty-aesthetics",
+    "type": "retail",
+    "name": "Zen Beaurty & Aesthetics",
+    "address": "25A Retief Street, Piet Retief, Mpumalanga, Mpumalanga, South Africa",
+    "phone": "768102879",
+    "agent": "Zen Beaurty & Aesthetics"
   },
   {
     "id": "retail-zen-beauty-salon-pty-ltd",
