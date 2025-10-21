@@ -27,9 +27,7 @@ const requiredEnvVars = {
     'DATABASE_URL',
     'JWT_SECRET',
     'NEXTAUTH_SECRET',
-    'NEXTAUTH_URL',
-    'STRIPE_SECRET_KEY',
-    'STRIPE_PUBLISHABLE_KEY',
+    'NEXTAUTH_URL'
   ],
   test: [
     'DATABASE_URL',

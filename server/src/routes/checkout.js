@@ -1,31 +1,21 @@
 import express from 'express';
-import Stripe from 'stripe';
 import { authenticate } from '../middleware/auth.js';
 import pool from '../config/database.js';
 
 const router = express.Router();
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_');
+// Stripe removed: stub out responses to keep client flows working
 
 // Create payment intent
 router.post('/create-payment-intent', authenticate, async (req, res) => {
   try {
     const { amount } = req.body;
 
-    // Create a PaymentIntent with the order amount and currency
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount: Math.round(amount), // Amount in cents
-      currency: 'zar',
-      automatic_payment_methods: {
-        enabled: true,
-      },
-      metadata: {
-        userId: req.user.id,
-      },
-    });
-
-    res.json({
-      clientSecret: paymentIntent.client_secret,
-    });
+    // Previously created a Stripe PaymentIntent.
+    // Now we return a mock client secret to allow non-Stripe checkout/testing flows.
+    const mockClientSecret = `pi_mock_${Date.now()}_secret_${Math.random()
+      .toString(36)
+      .slice(2)}`;
+    res.json({ clientSecret: mockClientSecret });
   } catch (error) {
     console.error('Payment intent creation error:', error);
     res.status(500).json({ error: 'Failed to create payment intent' });
@@ -287,36 +277,10 @@ router.post('/release-stock', authenticate, async (req, res) => {
 });
 
 // Webhook for Stripe events
-router.post('/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
-  const sig = req.headers['stripe-signature'];
-  const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
-
-  let event;
-
-  try {
-    event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
-  } catch (err) {
-    console.error('Webhook signature verification failed:', err);
-    return res.status(400).send(`Webhook Error: ${err.message}`);
-  }
-
-  // Handle the event
-  switch (event.type) {
-    case 'payment_intent.succeeded':
-      const paymentIntent = event.data.object;
-      await handleSuccessfulPayment(paymentIntent);
-      break;
-      
-    case 'payment_intent.payment_failed':
-      const failedPayment = event.data.object;
-      await handleFailedPayment(failedPayment);
-      break;
-      
-    default:
-      console.log(`Unhandled event type ${event.type}`);
-  }
-
-  res.json({ received: true });
+router.post('/webhook', express.json(), async (req, res) => {
+  // Stripe removed: accept payload and return success so existing integrations don't break
+  console.log('Payment webhook received (mock):', req.body?.type || 'unknown');
+  return res.json({ received: true, provider: 'mock' });
 });
 
 async function handleSuccessfulPayment(paymentIntent) {

@@ -33,13 +33,11 @@ const envSchema = z.object({
   GOOGLE_CLIENT_ID: z.string().optional(),
   GOOGLE_CLIENT_SECRET: z.string().optional(),
 
-  // Stripe Configuration
-  STRIPE_PUBLISHABLE_KEY: z.string().startsWith('pk_', 'STRIPE_PUBLISHABLE_KEY must start with pk_'),
-  STRIPE_SECRET_KEY: z.string().startsWith('sk_', 'STRIPE_SECRET_KEY must start with sk_'),
-  STRIPE_WEBHOOK_SECRET: z.string().startsWith('whsec_').optional(),
-
-  // Public Stripe Key (for client-side)
-  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: z.string().startsWith('pk_').optional(),
+  // Payments: Stripe removed — keep keys optional for backward compatibility
+  STRIPE_PUBLISHABLE_KEY: z.string().optional(),
+  STRIPE_SECRET_KEY: z.string().optional(),
+  STRIPE_WEBHOOK_SECRET: z.string().optional(),
+  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: z.string().optional(),
 
   // Email/Newsletter Providers (optional)
   BREVO_API_KEY: z.string().optional(),
@@ -169,7 +167,7 @@ export const env = getEnv();
 export const isFeatureEnabled = {
   database: () => !!env.DATABASE_URL,
   redis: () => !!env.REDIS_URL,
-  stripe: () => !!env.STRIPE_SECRET_KEY && !!env.STRIPE_PUBLISHABLE_KEY,
+  stripe: () => false,
   sentry: () => !!env.SENTRY_DSN,
   stackAuth: () => !!env.NEXT_PUBLIC_STACK_PROJECT_ID && !!env.NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY,
   nextAuth: () => !!env.NEXTAUTH_SECRET && !!env.NEXTAUTH_URL,
@@ -182,7 +180,6 @@ export const isFeatureEnabled = {
 // Helper to get public environment variables (safe for client-side)
 export const getPublicEnv = () => ({
   NEXT_PUBLIC_API_URL: env.NEXT_PUBLIC_API_URL,
-  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
   NEXT_PUBLIC_HCAPTCHA_SITEKEY: env.NEXT_PUBLIC_HCAPTCHA_SITEKEY,
   NEXT_PUBLIC_SOCIAL_INSTAGRAM: env.NEXT_PUBLIC_SOCIAL_INSTAGRAM,
   NEXT_PUBLIC_SOCIAL_FACEBOOK: env.NEXT_PUBLIC_SOCIAL_FACEBOOK,

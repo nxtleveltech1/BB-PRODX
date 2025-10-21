@@ -5,7 +5,6 @@ interface ClientEnv {
   NODE_ENV: "development" | "production" | "test"
   NEXT_PUBLIC_ENV: "development" | "production"
   NEXT_PUBLIC_API_URL: string
-  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY?: string
   NEXT_PUBLIC_HCAPTCHA_SITEKEY?: string
   NEXT_PUBLIC_SOCIAL_INSTAGRAM?: string
   NEXT_PUBLIC_SOCIAL_FACEBOOK?: string
@@ -24,7 +23,6 @@ const getClientEnv = (): ClientEnv =>
                      (process.env.NODE_ENV as ClientEnv["NEXT_PUBLIC_ENV"]) ||
                      "development",
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000",
-    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
     NEXT_PUBLIC_HCAPTCHA_SITEKEY: process.env.NEXT_PUBLIC_HCAPTCHA_SITEKEY,
     NEXT_PUBLIC_SOCIAL_INSTAGRAM: process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM,
     NEXT_PUBLIC_SOCIAL_FACEBOOK: process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK,
