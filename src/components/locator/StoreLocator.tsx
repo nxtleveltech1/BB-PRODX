@@ -70,6 +70,7 @@ export default function StoreLocator({
   const filtered = useMemo(() => {
     const byType = typeFilter === "all" ? locations : locations.filter((l) => l.type === typeFilter);
     return byType
+      .filter((l) => l.coordinates && typeof l.coordinates.lat === 'number' && typeof l.coordinates.lng === 'number')
       .map((l) => {
         const d = haversineKm(center, [l.coordinates.lat, l.coordinates.lng]);
         return { ...l, distanceKm: d } as LocatorLocation & { distanceKm: number };
@@ -230,7 +231,7 @@ export default function StoreLocator({
                               Website
                             </a>
                           )}
-                          {compact ? (
+                          {compact && l.coordinates ? (
                             <Link
                               className="btn btn-primary"
                               href={{
@@ -247,7 +248,7 @@ export default function StoreLocator({
                             >
                               View on map
                             </Link>
-                          ) : (
+                          ) : !compact && l.coordinates ? (
                             <button
                               className="btn btn-primary"
                               onClick={() => {
@@ -257,7 +258,7 @@ export default function StoreLocator({
                             >
                               View on map
                             </button>
-                          )}
+                          ) : null}
                         </div>
                       </li>
                     ))}

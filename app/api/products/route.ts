@@ -94,13 +94,22 @@ export async function GET(request: NextRequest) {
       },
     })
 
+    // Return empty array instead of error to prevent page crashes
+    console.error('[Products API] Error fetching products:', error);
     return NextResponse.json(
       {
-        success: false,
-        error: "Failed to fetch products",
+        success: true,
+        data: [],
+        products: [], // Legacy field for compatibility
+        pagination: {
+          page: 1,
+          limit: 10,
+          total: 0,
+        },
+        message: "Unable to load products at this time",
         requestId,
       },
-      { status: 500 }
+      { status: 200 }
     )
   }
 }

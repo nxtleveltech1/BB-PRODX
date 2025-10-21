@@ -37,14 +37,30 @@ export async function GET(request: Request) {
     });
 
     if (!response.ok) {
-      throw new Error(`Instagram HTTP ${response.status}: ${response.statusText}`);
+      // Return empty array instead of failing
+      console.warn('[Instagram API] Instagram fetch failed:', response.status, response.statusText);
+      return NextResponse.json({
+        posts: [],
+        success: true,
+        source: 'fallback',
+        message: 'Unable to fetch Instagram posts at this time',
+        cached_at: new Date().toISOString(),
+      });
     }
 
     const html = await response.text();
     const posts = await parseInstagramHTML(html, count);
 
+    // Return empty array gracefully if no posts found
     if (posts.length === 0) {
-      throw new Error('No posts extracted from Instagram response');
+      console.warn('[Instagram API] No posts extracted from Instagram response');
+      return NextResponse.json({
+        posts: [],
+        success: true,
+        source: 'instagram',
+        message: 'No posts available',
+        cached_at: new Date().toISOString(),
+      });
     }
 
     return NextResponse.json({
@@ -59,15 +75,15 @@ export async function GET(request: Request) {
       timestamp: new Date().toISOString(),
     });
 
-    return NextResponse.json(
-      {
-        error: error instanceof Error ? error.message : 'Failed to fetch Instagram posts',
-        posts: [],
-        success: false,
-        source: 'error',
-      },
-      { status: 500 }
-    );
+    // Return 200 with empty array instead of 500 error to prevent page crashes
+    return NextResponse.json({
+      error: error instanceof Error ? error.message : 'Failed to fetch Instagram posts',
+      posts: [],
+      success: true,
+      source: 'fallback',
+      message: 'Instagram feed temporarily unavailable',
+      cached_at: new Date().toISOString(),
+    });
   }
 }
 

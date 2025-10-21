@@ -242,6 +242,11 @@ export default function SocialMediaWall({
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   loading={index < 6 ? 'eager' : 'lazy'}
+                  unoptimized={post.media_url.includes('unsplash.com')}
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = '/placeholder-image.png';
+                  }}
                 />
 
                 {/* Gradient overlay on hover */}
