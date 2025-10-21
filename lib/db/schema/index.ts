@@ -115,6 +115,13 @@ export {
   type ReviewStats,
 } from './review';
 
+// Social media schemas
+export {
+  instagramPosts,
+  type InstagramPost,
+  type NewInstagramPost,
+} from './social';
+
 // Common query result types
 export interface ProductWithDetails extends Product {
   category?: Category | null;

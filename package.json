@@ -51,6 +51,7 @@
     "ai:design-iteration": "node scripts/ai-design-iteration.js",
     "data:agents": "node scripts/generate-locations-from-excel.mjs",
     "data:sync:locations": "node scripts/sync-locations.mjs",
+    "data:sync:instagram": "node scripts/sync-instagram.mjs",
     "audit:code": "tsx scripts/audit-code-quality.ts",
     "quality:check": "pnpm run lint && pnpm run audit:code && pnpm run test:run",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\""
