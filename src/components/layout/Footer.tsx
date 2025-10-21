@@ -72,21 +72,21 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/40 bg-[#F9E7C9]/90 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6 py-4 text-xs text-[#7a7771] flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span>&copy; {new Date().getFullYear()} Better Being. All rights reserved.</span>
+      <div className="border-t border-white/10 bg-[var(--bb-black-bean)]">
+        <div className="max-w-7xl mx-auto px-6 py-4 text-xs text-[var(--bb-citron)] flex flex-col sm:flex-row items-center justify-between gap-3 uppercase tracking-wide">
+          <span>&copy; {new Date().getFullYear()} BETTER BEING. ALL RIGHTS RESERVED.</span>
           <div className="flex flex-wrap items-center gap-4">
-            <a href="/privacy" className="hover:text-[#b5a642] transition-colors">
-              Privacy Policy
+            <a href="/privacy" className="hover:text-white transition-colors">
+              PRIVACY POLICY
             </a>
-            <a href="/terms" className="hover:text-[#b5a642] transition-colors">
-              Terms of Service
+            <a href="/terms" className="hover:text-white transition-colors">
+              TERMS OF SERVICE
             </a>
-            <a href="/accessibility" className="hover:text-[#b5a642] transition-colors">
-              Accessibility
+            <a href="/accessibility" className="hover:text-white transition-colors">
+              ACCESSIBILITY
             </a>
-            <a href="/sitemap" className="hover:text-[#b5a642] transition-colors">
-              Sitemap
+            <a href="/sitemap" className="hover:text-white transition-colors">
+              SITEMAP
             </a>
           </div>
         </div>
