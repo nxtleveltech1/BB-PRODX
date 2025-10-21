@@ -75,7 +75,10 @@ export default function LeafletMap({ center, radiusKm = 50, markers, highlightId
         {markers.map((m) => (
           <Marker
             key={m.id}
-            position={[m.coordinates.lat, m.coordinates.lng] as LatLngExpression}
+            position={[
+              (m.coordinates?.lat ?? centerLatLng.lat),
+              (m.coordinates?.lng ?? centerLatLng.lng),
+            ] as LatLngExpression}
             icon={markerIcon}
             eventHandlers={{
               click: () => onMarkerClick?.(m.id),

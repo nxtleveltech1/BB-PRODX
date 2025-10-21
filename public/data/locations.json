@@ -1,5 +1,13 @@
 [
   {
+    "id": "retail-5-stitches",
+    "type": "retail",
+    "name": "5 Stitches",
+    "address": "1001 Koos Smal Street, Eldoraigne, Centurion, Gauteng, 0157, South Africa",
+    "phone": "0832799942",
+    "agent": "5 Stitches"
+  },
+  {
     "id": "retail-abundant-today-pty-ltd-1",
     "type": "retail",
     "name": "Abundant Today Pty Ltd",
@@ -10,6 +18,78 @@
       "lat": -33.9501373,
       "lng": 18.4693988
     }
+  },
+  {
+    "id": "distributor-adele-snyman",
+    "type": "distributor",
+    "name": "Adéle Snyman",
+    "address": "MacDonalds Transport, 12 Swakara Street, Upington, Northern Cape, 8801, South Africa",
+    "phone": "0836452212",
+    "agent": "Adéle Snyman"
+  },
+  {
+    "id": "distributor-aimee-willow",
+    "type": "distributor",
+    "name": "Aimee Willow",
+    "address": "34 Topaz Walk, San Michel, Noordhoek, Cape Town, Western Cape, 7979, South Africa",
+    "phone": "0794788987",
+    "agent": "Aimee Willow"
+  },
+  {
+    "id": "retail-aldila-beyond-wellness",
+    "type": "retail",
+    "name": "Aldila Beyond Wellness",
+    "address": "Unit 7, Mariehan Investments Business Park, Andries Potgieter Boulevard, Vanderbijlpark, Johannesburg, Gauteng, 1911, South Africa",
+    "phone": "0822533338",
+    "agent": "Aldila Beyond Wellness"
+  },
+  {
+    "id": "retail-alejandra-vargas",
+    "type": "retail",
+    "name": "Alejandra Vargas",
+    "address": "Teddy Bear Cottage, 23b Askop Road, The Crags, Plettenberg Bay,, Garden Route Western Cape, 6600, South Africa",
+    "phone": "0644246367",
+    "agent": "Alejandra Vargas"
+  },
+  {
+    "id": "retail-algoamed-ta-klinicare-distributors",
+    "type": "retail",
+    "name": "Algoamed T/A Klinicare Distributors",
+    "address": "Shop 2B Parkton Arcade, 329 Cape Road, Newton Park, Port Elizabeth, Eastern Cape, 6045, South Africa",
+    "phone": "0413641424",
+    "agent": "Algoamed T/A Klinicare Distributors"
+  },
+  {
+    "id": "distributor-alicia-littleford",
+    "type": "distributor",
+    "name": "Alicia Littleford",
+    "address": "11 Bryanston Manor, Paulshof, Johannesburg, Gauteng, 2191, South Africa",
+    "phone": "0846046968",
+    "agent": "Alicia Littleford"
+  },
+  {
+    "id": "retail-all-things-earthly",
+    "type": "retail",
+    "name": "All Things Earthly",
+    "address": "All Things Earthly @ The Farm Village, 1 Village Lane, Noordhoek, Cape Town, Western Cape, 7979, South Africa",
+    "phone": "0661305380",
+    "agent": "All Things Earthly"
+  },
+  {
+    "id": "distributor-amanda-fourie",
+    "type": "distributor",
+    "name": "Amanda Fourie",
+    "address": "55 Leslie Crescent, Brackenfell, Cape Town, Western Cape, 7560, South Africa",
+    "phone": "0845263517",
+    "agent": "Amanda Fourie"
+  },
+  {
+    "id": "distributor-amanda-kruger",
+    "type": "distributor",
+    "name": "Amanda Kruger",
+    "address": "5 Grobler Street, Groblersdal, Limpopo, 0470, South Africa",
+    "phone": "0605588688",
+    "agent": "Amanda Kruger"
   },
   {
     "id": "retail-anchor-viking-restaurant-2",
@@ -24,6 +104,22 @@
     }
   },
   {
+    "id": "distributor-anja-brummer",
+    "type": "distributor",
+    "name": "Anja Brummer",
+    "address": "164 Lutop street, Hoedspruit, Limpopo, 1380, South Africa",
+    "phone": "0662883351",
+    "agent": "Anja Brummer"
+  },
+  {
+    "id": "distributor-annalien-steyn",
+    "type": "distributor",
+    "name": "Annalien Steyn",
+    "address": "18 Langstraat, Albertinia, Garden Route, Western Cape, 6695, South Africa",
+    "phone": "0834574733",
+    "agent": "Annalien Steyn"
+  },
+  {
     "id": "distributor-anneke-pelser-3",
     "type": "distributor",
     "name": "Anneke Pelser",
@@ -34,6 +130,38 @@
       "lat": -34.0497942,
       "lng": 22.3990082
     }
+  },
+  {
+    "id": "distributor-antoinette-odendaal",
+    "type": "distributor",
+    "name": "Antoinette Odendaal",
+    "address": "Dr DJ BosmanC/O Brandberg and Karas avenue, Dent-o-med building, Vaalpark, Johannesburg, Gauteng, 1947, South Africa",
+    "phone": "0823035436",
+    "agent": "Antoinette Odendaal"
+  },
+  {
+    "id": "retail-apothecary-table",
+    "type": "retail",
+    "name": "Apothecary Table",
+    "address": "57 Veld Street, Glen Marais Shopping Centre, Kempton Park, Johannesburg, Gauteng, 1619, South Africa",
+    "phone": "0617364452",
+    "agent": "Apothecary Table"
+  },
+  {
+    "id": "retail-aura-sports",
+    "type": "retail",
+    "name": "Aura Sports",
+    "address": "1 Ludel Close, Montagu Gardens, Cape Town, Western Cape, 7441, South Africa",
+    "phone": "0721917655",
+    "agent": "Aura Sports"
+  },
+  {
+    "id": "retail-bs-naturally-essential",
+    "type": "retail",
+    "name": "B's Naturally Essential",
+    "address": "C/O AE Retail Group, 5 Princes Road, Vincent, East London, Eastern Cape, 5247, South Africa",
+    "phone": "0823617554",
+    "agent": "B's Naturally Essential"
   },
   {
     "id": "distributor-barry-record-4",
@@ -48,6 +176,54 @@
     }
   },
   {
+    "id": "retail-beacon-isle-kwikspar",
+    "type": "retail",
+    "name": "Beacon Isle Kwikspar*",
+    "address": "Beacon Isle Crescent, Plettenberg Bay, Garden Route, Western Cape, 6506, South Africa",
+    "phone": "0445331555",
+    "agent": "Beacon Isle Kwikspar*"
+  },
+  {
+    "id": "retail-belle-maree-health-beauty",
+    "type": "retail",
+    "name": "Belle Maree Health & Beauty",
+    "address": "Unit A Office Park, Crosways Village Centre Schafli Road, Kwelera, East London, Eastern Cape, 5259, South Africa",
+    "phone": "0832651146",
+    "agent": "Belle Maree Health & Beauty"
+  },
+  {
+    "id": "distributor-benice-grove",
+    "type": "distributor",
+    "name": "Benice Grové",
+    "address": "Steenkamp Wealth Bluestar, 25 Fletcher Street, Bredasdorp, Overberg, Western Cape, 7280, South Africa",
+    "phone": "0828102603",
+    "agent": "Benice Grové"
+  },
+  {
+    "id": "distributor-bernadette-de-souza",
+    "type": "distributor",
+    "name": "Bernadette De Souza",
+    "address": "Integrated Health Solutions, Body Stress Release, 83 George Storrar Drive, Groenkloof, Pretoria, Gauteng, 0181, South Africa",
+    "phone": "0844221166",
+    "agent": "Bernadette De Souza"
+  },
+  {
+    "id": "distributor-beverly-swanepoel",
+    "type": "distributor",
+    "name": "Beverly Swanepoel",
+    "address": "7 Molopo Street, Stilfontein, North West, 2551, South Africa",
+    "phone": "0716116604",
+    "agent": "Beverly Swanepoel"
+  },
+  {
+    "id": "retail-biltong-sonderend",
+    "type": "retail",
+    "name": "Biltong Sonderend",
+    "address": "40 Main Road,, Riviersonderend, Overberg, Western Cape, 7250, South Africa",
+    "phone": "0722229927",
+    "agent": "Biltong Sonderend"
+  },
+  {
     "id": "retail-bio-dynamics-5",
     "type": "retail",
     "name": "Bio-Dynamics",
@@ -58,6 +234,62 @@
       "lat": -33.9462159,
       "lng": 18.6738463
     }
+  },
+  {
+    "id": "retail-bio-sil",
+    "type": "retail",
+    "name": "Bio-Sil",
+    "address": "59 Lascelles Road, Germiston/Edenvale, Johannesburg, Gauteng, 1609, South Africa",
+    "phone": "0116155504",
+    "agent": "Bio-Sil"
+  },
+  {
+    "id": "retail-blue-crane-farmstall",
+    "type": "retail",
+    "name": "Blue Crane Farmstall",
+    "address": "Blue Crane Farmstall, N2, Heidelberg, Garden Route, Western Cape, 6665, South Africa",
+    "phone": "0824216446",
+    "agent": "Blue Crane Farmstall"
+  },
+  {
+    "id": "distributor-bob-mohapi",
+    "type": "distributor",
+    "name": "Bob Mohapi",
+    "address": "Courier Guy Kiosk Ladybrand, Ladybrand, Free State, 9745, South Africa",
+    "phone": "26663103650",
+    "agent": "Bob Mohapi"
+  },
+  {
+    "id": "distributor-body-stress-release-foundation",
+    "type": "distributor",
+    "name": "Body Stress Release Foundation",
+    "address": "C/O The Treasurer, 25 Bosman Street, Strand, Cape Town, Western Cape, 7140, South Africa",
+    "phone": "0826532100",
+    "agent": "Body Stress Release Foundation"
+  },
+  {
+    "id": "retail-bredasdorp-super-spar",
+    "type": "retail",
+    "name": "Bredasdorp Super Spar",
+    "address": "Super Spar Bredasdorp, Overberg Shopping Centre, Long Street, Bredasdorp, Overberg, Western Cape, 7280, South Africa",
+    "phone": "0244241106",
+    "agent": "Bredasdorp Super Spar"
+  },
+  {
+    "id": "retail-brunos-curio-and-biltong",
+    "type": "retail",
+    "name": "Bruno's Curio and Biltong*",
+    "address": "N2 Stormriver Bridge, Stormsriver, Stormsriver, Garden Route, Western Cape, 6500, South Africa",
+    "phone": "0745683902",
+    "agent": "Bruno's Curio and Biltong*"
+  },
+  {
+    "id": "retail-buildingthetrustsbp-toh",
+    "type": "retail",
+    "name": "BuildingTheTrustSBP-Toh",
+    "address": "3 Selbysteeg, Bredasdorp, Bredasdorp, Overberg, Western Cape, 7280, South Africa",
+    "phone": "0844782831",
+    "agent": "BuildingTheTrustSBP-Toh"
   },
   {
     "id": "retail-bulbi-health-6",
@@ -72,6 +304,38 @@
     }
   },
   {
+    "id": "distributor-carike-laroque",
+    "type": "distributor",
+    "name": "Carike Laroque",
+    "address": "94 Crestwood Drive, Lonehill, Johannesburg, Gauteng, 2062, South Africa",
+    "phone": "0832787708",
+    "agent": "Carike Laroque"
+  },
+  {
+    "id": "distributor-carmen-pretorius",
+    "type": "distributor",
+    "name": "Carmen Pretorius",
+    "address": "27 Louis Trichardt St,, Sandbaai, Hermanus, Western Cape, 7200, South Africa",
+    "phone": "0826800492",
+    "agent": "Carmen Pretorius"
+  },
+  {
+    "id": "distributor-carol-watson",
+    "type": "distributor",
+    "name": "Carol Watson",
+    "address": "Village square shopping centre The business Centre, Office 125, 6 St Francis drive, St Francis Bay, Sarah Baartman District, Eastern Cape, 6312, South Africa",
+    "phone": "0824018279",
+    "agent": "Carol Watson"
+  },
+  {
+    "id": "distributor-caroline-lanning",
+    "type": "distributor",
+    "name": "Caroline Lanning",
+    "address": "5 Dunvegan Estate, 22 Len Oates Road, Dunvegan, Johannesburg, Gauteng, 1609, South Africa",
+    "phone": "0738178145",
+    "agent": "Caroline Lanning"
+  },
+  {
     "id": "distributor-carolyn-shand-7",
     "type": "distributor",
     "name": "Carolyn Shand",
@@ -82,6 +346,30 @@
       "lat": -33.9356824,
       "lng": 18.4427954
     }
+  },
+  {
+    "id": "retail-caspita-mediterranean-family-restaurant",
+    "type": "retail",
+    "name": "Caspita Mediterranean Family Restaurant",
+    "address": "Caspita Restaurant N2, Victoria Heights, George, Garden Route, Western Cape, 6529, South Africa",
+    "phone": "0828281844",
+    "agent": "Caspita Mediterranean Family Restaurant"
+  },
+  {
+    "id": "distributor-cathrine-drotskie",
+    "type": "distributor",
+    "name": "Cathrine Drotskie",
+    "address": "3 Stellen Close, Park Island, Marina De Gama, Cape Town, Western Cape, 7945, South Africa",
+    "phone": "0812892865",
+    "agent": "Cathrine Drotskie"
+  },
+  {
+    "id": "distributor-cbd-care",
+    "type": "distributor",
+    "name": "CBD Care",
+    "address": "Shop 8, The Sedge Centre, cnr Vink & Main Service Road, Knysna, Garden Route, Western Cape, 6600, South Africa",
+    "phone": "0823302611",
+    "agent": "CBD Care"
   },
   {
     "id": "distributor-cecilia-mangold-8",
@@ -96,6 +384,38 @@
     }
   },
   {
+    "id": "distributor-chantelle-florees",
+    "type": "distributor",
+    "name": "Chantelle Florees",
+    "address": "154 Woodley Drive, Southfield, Cape Town, Western Cape, 7880, South Africa",
+    "phone": "0844811445",
+    "agent": "Chantelle Florees"
+  },
+  {
+    "id": "distributor-charissa-nissen",
+    "type": "distributor",
+    "name": "Charissa Nissen",
+    "address": "25 Bosman Street, Goede Hoop, Strand, Cape Town, Western Cape, 7140, South Africa",
+    "phone": "0826532100",
+    "agent": "Charissa Nissen"
+  },
+  {
+    "id": "retail-chelsea-kruser",
+    "type": "retail",
+    "name": "Chelsea Kruser",
+    "address": "Unit 3, 171 Blaauwberg Road, Table View, Cape Town, Western Cape, 7441, South Africa",
+    "phone": "0780342899",
+    "agent": "Chelsea Kruser"
+  },
+  {
+    "id": "distributor-christa-bester",
+    "type": "distributor",
+    "name": "Christa Bester",
+    "address": "Christian Life Church, 77 Le Roux Street, Lichtenburg, North West, 2740, South Africa",
+    "phone": "0828931229",
+    "agent": "Christa Bester"
+  },
+  {
     "id": "distributor-christina-nieuwoudt-9",
     "type": "distributor",
     "name": "Christina Nieuwoudt",
@@ -106,6 +426,46 @@
       "lat": -26.0639017,
       "lng": 30.1162164
     }
+  },
+  {
+    "id": "retail-creatief-me-pty-ltd",
+    "type": "retail",
+    "name": "Creatief Me Pty Ltd",
+    "address": "1 Main Street, Askham, Northern Cape, 8814, South Africa",
+    "phone": "0825668119",
+    "agent": "Creatief Me Pty Ltd"
+  },
+  {
+    "id": "distributor-cynthia-duigan",
+    "type": "distributor",
+    "name": "Cynthia Duigan",
+    "address": "Powerbrake, C/O Soloman Mahlangu and R104, Willow Park Manor, N4 Gateway Industrial Park, Pretoria, Gauteng, 0184, South Africa",
+    "phone": "0834145776",
+    "agent": "Cynthia Duigan"
+  },
+  {
+    "id": "distributor-dallas-fell",
+    "type": "distributor",
+    "name": "Dallas Fell*",
+    "address": "6 Symonds Lane, Bo-Dorp, Garden Route, Western Cape, 6530, South Africa",
+    "phone": "0448732005",
+    "agent": "Dallas Fell*"
+  },
+  {
+    "id": "retail-dassiesfontein",
+    "type": "retail",
+    "name": "Dassiesfontein",
+    "address": "N2 between Bot River &, Caledon, Caledon, Cape Town, Western Cape, 7230, South Africa",
+    "phone": "0664757897",
+    "agent": "Dassiesfontein"
+  },
+  {
+    "id": "distributor-david-bergh",
+    "type": "distributor",
+    "name": "David Bergh",
+    "address": "100 Midas Avenue, Olympus AH, Midrand, Pretoria, Gauteng, 0184, South Africa",
+    "phone": "0674120019",
+    "agent": "David Bergh"
   },
   {
     "id": "distributor-des-attwood-10",
@@ -120,6 +480,14 @@
     }
   },
   {
+    "id": "retail-die-deli",
+    "type": "retail",
+    "name": "Die Deli",
+    "address": "1 Kloppers St,, Delmas, Johannesburg, Gauteng, 2210, South Africa",
+    "phone": "0764975141",
+    "agent": "Die Deli"
+  },
+  {
     "id": "retail-die-kruie-dokter-pty-ltd-11",
     "type": "retail",
     "name": "Die Kruie Dokter (Pty) Ltd",
@@ -130,6 +498,14 @@
       "lat": -34.1973523,
       "lng": 22.0402627
     }
+  },
+  {
+    "id": "distributor-divine-space",
+    "type": "distributor",
+    "name": "Divine Space",
+    "address": "Divine Space, 28 Francois Ave, Bordeaux, Johannesburg, Gauteng, 2194, South Africa",
+    "phone": "0829008024",
+    "agent": "Divine Space"
   },
   {
     "id": "retail-donatellas-food-goods-12",
@@ -144,6 +520,38 @@
     }
   },
   {
+    "id": "retail-dr-er-gerber",
+    "type": "retail",
+    "name": "Dr ER Gerber",
+    "address": "Unit A6, Meyrickton Park, 2 Meyrickton Place, Hillcrest, Hillcrest, Kwazulu Natal, 3610, South Africa",
+    "phone": "0790364266",
+    "agent": "Dr ER Gerber"
+  },
+  {
+    "id": "distributor-dr-holly-jay-roothman",
+    "type": "distributor",
+    "name": "Dr Holly-Jay Roothman",
+    "address": "37 Lily Avenue, Northcliff, Johannesburg, Gauteng, 2195, South Africa",
+    "phone": "0650414370",
+    "agent": "Dr Holly-Jay Roothman"
+  },
+  {
+    "id": "distributor-dr-nabeela-hajee",
+    "type": "distributor",
+    "name": "Dr Nabeela Hajee",
+    "address": "90 Scorpio Drive, Ext 9, Lenasia, Johannesburg, Gauteng, 1820, South Africa",
+    "phone": "0760364039",
+    "agent": "Dr Nabeela Hajee"
+  },
+  {
+    "id": "retail-dr-nicole-bernic",
+    "type": "retail",
+    "name": "Dr Nicole Bernic",
+    "address": "51 Galloway Avenue, Douglasdale, Fourways, Johannesburg, Gauteng, 2055, South Africa",
+    "phone": "0733186418",
+    "agent": "Dr Nicole Bernic"
+  },
+  {
     "id": "retail-dr-r-e-w-hill-13",
     "type": "retail",
     "name": "Dr R.E.W. Hill",
@@ -154,6 +562,14 @@
       "lat": -33.9823837,
       "lng": 25.5708353
     }
+  },
+  {
+    "id": "distributor-dr-sadiyah-nana",
+    "type": "distributor",
+    "name": "Dr Sa'diyah Nana",
+    "address": "21 Elizabeth Road, Bardene, Johannesburg, Gauteng, 1459, South Africa",
+    "phone": "0820966663",
+    "agent": "Dr Sa'diyah Nana"
   },
   {
     "id": "distributor-dr-sonali-lalloobhai-14",
@@ -228,6 +644,30 @@
     }
   },
   {
+    "id": "distributor-elaine-van-coller",
+    "type": "distributor",
+    "name": "Elaine Van Coller",
+    "address": "38 Corfu Ave, Capri, Fish Hoek, Cape Town, Western Cape, 7975, South Africa",
+    "phone": "27767507617",
+    "agent": "Elaine Van Coller"
+  },
+  {
+    "id": "retail-elephant-walk-farmstall",
+    "type": "retail",
+    "name": "Elephant Walk Farmstall*",
+    "address": "N2 Highway, Coral Tree cottage turn off, Harkerville, Garden Route, Western Cape, 6604, South Africa",
+    "phone": "0839285126",
+    "agent": "Elephant Walk Farmstall*"
+  },
+  {
+    "id": "distributor-elizma-carsten",
+    "type": "distributor",
+    "name": "Elizma Carsten",
+    "address": "15 Terblanche Street, Suider-Paarl, Cape Town, Western Cape, 7646, South Africa",
+    "phone": "27741332955",
+    "agent": "Elizma Carsten"
+  },
+  {
     "id": "distributor-elmarie-raymer-20",
     "type": "distributor",
     "name": "Elmarie Raymer",
@@ -238,6 +678,54 @@
       "lat": -33.9794357,
       "lng": 25.5711092
     }
+  },
+  {
+    "id": "retail-elna-flawn",
+    "type": "retail",
+    "name": "Elna Flawn",
+    "address": "33 Bunker Street, Turnberry Village, Kuilsrivier, Cape Town, Western Cape, 7580, South Africa",
+    "phone": "0721944847",
+    "agent": "Elna Flawn"
+  },
+  {
+    "id": "distributor-elroy-opperman",
+    "type": "distributor",
+    "name": "Elroy Opperman",
+    "address": "81 Sleigh Street, Langebaan, Cape Town, Western Cape, 7357, South Africa",
+    "phone": "0828350898",
+    "agent": "Elroy Opperman"
+  },
+  {
+    "id": "retail-emagenes",
+    "type": "retail",
+    "name": "Emagenes",
+    "address": "Shop U676, Loch Logen, Henry Street, Willows, Bloemfontein, Free State, 9300, South Africa",
+    "phone": "0829295209",
+    "agent": "Emagenes"
+  },
+  {
+    "id": "distributor-emma-de-klerk",
+    "type": "distributor",
+    "name": "Emma De Klerk",
+    "address": "6 Maggie Street, Onverwacht, Lephalale, Limpopo, 0555, South Africa",
+    "phone": "27732914069",
+    "agent": "Emma De Klerk"
+  },
+  {
+    "id": "distributor-eternity-brady",
+    "type": "distributor",
+    "name": "Eternity Brady",
+    "address": "Courier Guy Branch, Fish Hoek, Fish Hoek, Cape Town, Western Cape, 7975, South Africa",
+    "phone": "27764104150",
+    "agent": "Eternity Brady"
+  },
+  {
+    "id": "distributor-eulene-duncan",
+    "type": "distributor",
+    "name": "Eulene Duncan",
+    "address": "Vryguns Farm, Vryguns Road, Paarl, Cape Town, Western Cape, 7620, South Africa",
+    "phone": "0719843901",
+    "agent": "Eulene Duncan"
   },
   {
     "id": "retail-fanies-apteek-21",
@@ -264,6 +752,30 @@
     }
   },
   {
+    "id": "retail-feed-me-green",
+    "type": "retail",
+    "name": "Feed Me Green*",
+    "address": "3 Lake Pleasant Rd, Groenvallei, Sedgefield, Garden Route, Western Cape, 6572, South Africa",
+    "phone": "27824379776",
+    "agent": "Feed Me Green*"
+  },
+  {
+    "id": "retail-fraaikem-apteek",
+    "type": "retail",
+    "name": "Fraaikem Apteek*",
+    "address": "Impala Avenue, Fraai Uitsig,, Klein Brak River, Western Cape, 6503, South Africa",
+    "phone": "0446966638",
+    "agent": "Fraaikem Apteek*"
+  },
+  {
+    "id": "distributor-francina-du-plessis",
+    "type": "distributor",
+    "name": "Francina Du Plessis",
+    "address": "Nelspruit Courier Guy- The Grove Shopping Centre, Nelspruit, Mpumalanga, 1200, South Africa",
+    "phone": "27728330775",
+    "agent": "Francina Du Plessis"
+  },
+  {
     "id": "retail-fresh-more-23",
     "type": "retail",
     "name": "Fresh & More",
@@ -274,6 +786,46 @@
       "lat": -24.2306685,
       "lng": 28.9993116
     }
+  },
+  {
+    "id": "distributor-frianke-paxton",
+    "type": "distributor",
+    "name": "Frianke Paxton",
+    "address": "54, 7th Street,, Chartwell, Johannesburg, Gauteng, 2055, South Africa",
+    "phone": "27790381889",
+    "agent": "Frianke Paxton"
+  },
+  {
+    "id": "distributor-frikkie-mouton",
+    "type": "distributor",
+    "name": "Frikkie Mouton",
+    "address": "Watson Way, House Nr 47, Raithby, Cape Town, Western Cape, 7130, South Africa",
+    "phone": "0730478016",
+    "agent": "Frikkie Mouton"
+  },
+  {
+    "id": "distributor-gabi-soule-hoekstra",
+    "type": "distributor",
+    "name": "Gabi Soule-Hoekstra",
+    "address": "1 Dennendal East Avenue, Dennendal, Cape Town, Western Cape, 7945, South Africa",
+    "phone": "0731559385",
+    "agent": "Gabi Soule-Hoekstra"
+  },
+  {
+    "id": "distributor-gail-klinkert",
+    "type": "distributor",
+    "name": "Gail Klinkert",
+    "address": "Health on Hillcrest, 47 Hillcrest Ave, Craighall, Johannesburg, Gauteng, 2196, South Africa",
+    "phone": "27825523370",
+    "agent": "Gail Klinkert"
+  },
+  {
+    "id": "distributor-gayle-fahrenfort",
+    "type": "distributor",
+    "name": "Gayle Fahrenfort",
+    "address": "1 Forest Glade, Tokai Road, Tokai, Cape Town, Western Cape, 7966, South Africa",
+    "phone": "27832355532",
+    "agent": "Gayle Fahrenfort"
   },
   {
     "id": "retail-geneva-pharmacy-24",
@@ -288,6 +840,54 @@
     }
   },
   {
+    "id": "distributor-gerda-drewes",
+    "type": "distributor",
+    "name": "Gerda Drewes",
+    "address": "1 Alan Burman Street, AquaPark, Tzaneen, Limpopo, 0850, South Africa",
+    "phone": "27827217210",
+    "agent": "Gerda Drewes"
+  },
+  {
+    "id": "distributor-gill-hilcove",
+    "type": "distributor",
+    "name": "Gill Hilcove",
+    "address": "324 Thorougbred Street, Val De Vie Estate, Paarl, Cape Town, Western Cape, 7646, South Africa",
+    "phone": "0834416735",
+    "agent": "Gill Hilcove"
+  },
+  {
+    "id": "retail-go-natural",
+    "type": "retail",
+    "name": "Go Natural",
+    "address": "Unit 32 King Fisher Park, C/O Nobel & Ou Paardevlei rd, The Interchange, Somerset West, Cape Town, Western Cape, 7130, South Africa",
+    "phone": "27822979700",
+    "agent": "Go Natural"
+  },
+  {
+    "id": "distributor-griffin-slabbert",
+    "type": "distributor",
+    "name": "Griffin Slabbert",
+    "address": "33 Provinsielaan, Uniepark, Cape Town, Western Cape, 7600, South Africa",
+    "phone": "0767269527",
+    "agent": "Griffin Slabbert"
+  },
+  {
+    "id": "retail-grounded",
+    "type": "retail",
+    "name": "Grounded",
+    "address": "Shop 19, Ocean Village, Cnr Main Road & Buitekant Street, Yzerfontein, West Coast, Western Cape, 7351, South Africa",
+    "phone": "0620299132",
+    "agent": "Grounded"
+  },
+  {
+    "id": "retail-hartenbos-spar",
+    "type": "retail",
+    "name": "Hartenbos Spar*",
+    "address": "7 Kompanje Ave, Hartenbos, Garden Route, Western Cape, 6500, South Africa",
+    "phone": "0446951530",
+    "agent": "Hartenbos Spar*"
+  },
+  {
     "id": "retail-hcc-health-25",
     "type": "retail",
     "name": "HCC Health",
@@ -298,6 +898,30 @@
       "lat": -26.1411736,
       "lng": 27.9840486
     }
+  },
+  {
+    "id": "retail-heal-naturally",
+    "type": "retail",
+    "name": "Heal Naturally",
+    "address": "41 Erica Road - Health Ford Physiotherapy, Table View, Cape Town, Western Cape, 7441, South Africa",
+    "phone": "27848434797",
+    "agent": "Heal Naturally"
+  },
+  {
+    "id": "retail-health-herbal",
+    "type": "retail",
+    "name": "Health & Herbal",
+    "address": "Shop 20, Marine Walk Shopping Centre, Salta Boulevard, Salta, Durban, KwaZulu Natal, 4320, South Africa",
+    "phone": "27837028511",
+    "agent": "Health & Herbal"
+  },
+  {
+    "id": "retail-health-living",
+    "type": "retail",
+    "name": "Health & Living *",
+    "address": "Paddagat Centre, Courtenay St, George, Garden Route, Western Cape, 6529, South Africa",
+    "phone": "0836288639",
+    "agent": "Health & Living *"
   },
   {
     "id": "retail-health-buddy-26",
@@ -324,6 +948,14 @@
     }
   },
   {
+    "id": "retail-healthy-life",
+    "type": "retail",
+    "name": "Healthy Life*",
+    "address": "Shop 1, Noel Centre, Main St, Plettenberg, Garden Route, Western Cape, 6600, South Africa",
+    "phone": "0782553304",
+    "agent": "Healthy Life*"
+  },
+  {
     "id": "retail-healthy-radiance-28",
     "type": "retail",
     "name": "Healthy Radiance",
@@ -348,6 +980,22 @@
     }
   },
   {
+    "id": "distributor-helen-groenewald",
+    "type": "distributor",
+    "name": "Helen Groenewald",
+    "address": "c/o Jürg Zimmerman,12 Gladiolus crescent , Welgedacht Estate, Welgedacht, Cape Town, Western Cape, 7530, South Africa",
+    "phone": "0837530270",
+    "agent": "Helen Groenewald"
+  },
+  {
+    "id": "distributor-helen-saayman",
+    "type": "distributor",
+    "name": "Helen Saayman",
+    "address": "15 Berghshoop Estate, Durbanville, Cape Town, Western Cape, 7550, South Africa",
+    "phone": "27827863085",
+    "agent": "Helen Saayman"
+  },
+  {
     "id": "retail-hermanus-pharmacy-30",
     "type": "retail",
     "name": "Hermanus Pharmacy",
@@ -358,6 +1006,46 @@
       "lat": -34.418503,
       "lng": 19.2220603
     }
+  },
+  {
+    "id": "retail-hillcrest-kwikspar",
+    "type": "retail",
+    "name": "Hillcrest Kwikspar",
+    "address": "36a Old Main Road, Shop 1-3 Hillgate Centre, Hillcrest, Hillcrest, Kwazulu Natal, 3610, South Africa",
+    "phone": "0317655353",
+    "agent": "Hillcrest Kwikspar"
+  },
+  {
+    "id": "retail-hoekwil-country-cafe",
+    "type": "retail",
+    "name": "Hoekwil Country Cafe*",
+    "address": "C/o Duiwe Rivier Rd and Church Rd, Hoekwil, Garden Route, Western Cape, 6538, South Africa",
+    "phone": "0824650995",
+    "agent": "Hoekwil Country Cafe*"
+  },
+  {
+    "id": "retail-holistic-womb-wellness",
+    "type": "retail",
+    "name": "Holistic Womb Wellness",
+    "address": "19 Bantam Drive, Blairgowrie, Johannesburg, Gauteng, 2194, South Africa",
+    "phone": "0825653197",
+    "agent": "Holistic Womb Wellness"
+  },
+  {
+    "id": "distributor-hope-komane",
+    "type": "distributor",
+    "name": "Hope Komane",
+    "address": "309 Moedi Section, Kgano Street, Thembisa, Johannesburg, Gauteng, 1632, South Africa",
+    "phone": "0840762855",
+    "agent": "Hope Komane"
+  },
+  {
+    "id": "retail-hyssop-health-shop",
+    "type": "retail",
+    "name": "Hyssop Health Shop",
+    "address": "Shop 12, 13a Marra Square, Bree street, Langebaan, West Coast, Western Cape, 7357, South Africa",
+    "phone": "27836500718",
+    "agent": "Hyssop Health Shop"
   },
   {
     "id": "retail-image-focus-aesthetics-31",
@@ -384,6 +1072,22 @@
     }
   },
   {
+    "id": "distributor-ingrid-landsberg",
+    "type": "distributor",
+    "name": "Ingrid Landsberg",
+    "address": "126 Muirfield Ave, Pearl Valley Golf Estate, Paarl, Cape Town, Western Cape, 7646, South Africa",
+    "phone": "27832707139",
+    "agent": "Ingrid Landsberg"
+  },
+  {
+    "id": "distributor-ingrid-sternberg",
+    "type": "distributor",
+    "name": "Ingrid Sternberg",
+    "address": "29 Grand Comores Rd, St Francis Bay, St Francis Bay, Cape Town, Western Cape, 6312, South Africa",
+    "phone": "27732746877",
+    "agent": "Ingrid Sternberg"
+  },
+  {
     "id": "distributor-isabelle-steiger-33",
     "type": "distributor",
     "name": "Isabelle Steiger",
@@ -406,6 +1110,62 @@
       "lat": -33.8102003,
       "lng": 18.6630541
     }
+  },
+  {
+    "id": "retail-janani-integrative-wellness",
+    "type": "retail",
+    "name": "Janani Integrative Wellness",
+    "address": "106 The Club Retail Mall, Hazelwood, Pretoria, Gauteng, 0181, South Africa",
+    "phone": "0647538540",
+    "agent": "Aneeshia Khoja"
+  },
+  {
+    "id": "distributor-jane-obrien",
+    "type": "distributor",
+    "name": "Jane O'Brien",
+    "address": "44 Van Riebeeck Street, Norscot, Johannesburg, Gauteng, 2191, South Africa",
+    "phone": "27824599731",
+    "agent": "Jane O'Brien"
+  },
+  {
+    "id": "distributor-jean-loock",
+    "type": "distributor",
+    "name": "Jean Loock",
+    "address": "500 Harvard Lass, The Meadow Estate Ridge Road, Hazeldean, Pretoria, Gauteng, 4515, South Africa",
+    "phone": "27795283102",
+    "agent": "Jean Loock"
+  },
+  {
+    "id": "distributor-jesse-duvenage",
+    "type": "distributor",
+    "name": "Jesse Duvenage",
+    "address": "21 Starfish Way, Atlantic Beach Estate, Melkbosstrand, Cape Town, Western Cape, 7441, South Africa",
+    "phone": "0822220042",
+    "agent": "Jesse Duvenage"
+  },
+  {
+    "id": "distributor-joanne-river",
+    "type": "distributor",
+    "name": "Joanne River",
+    "address": "708 Harker street, Hornlee, Knynsa, Garden Route, Western Cape, 6505, South Africa",
+    "phone": "27840368600",
+    "agent": "Joanne River"
+  },
+  {
+    "id": "distributor-joanne-van-rensburg",
+    "type": "distributor",
+    "name": "Joanne Van Rensburg",
+    "address": "Tandem Shop, 6 Racecourse Road, Milnerton, Cape Town, Western Cape, 7441, South Africa",
+    "phone": "27633325817",
+    "agent": "Joanne Van Rensburg"
+  },
+  {
+    "id": "distributor-joey-meyer",
+    "type": "distributor",
+    "name": "Joey Meyer",
+    "address": "The Courier Guy Hartbeespoort Kiosk, Hartbeespoort, North West, 0216, South Africa",
+    "phone": "27827610634",
+    "agent": "Joey Meyer"
   },
   {
     "id": "distributor-johanna-van-der-merwe-35",
@@ -444,6 +1204,13 @@
     }
   },
   {
+    "id": "distributor-karen-leygonie",
+    "type": "distributor",
+    "name": "Karen Leygonie",
+    "address": "Kraal Kraft Complex, Rocky Drift, White River, Mpumalanga, 1240, South Africa",
+    "agent": "Karen Leygonie"
+  },
+  {
     "id": "distributor-karin-manthe-38",
     "type": "distributor",
     "name": "Karin Manthe",
@@ -456,6 +1223,22 @@
     }
   },
   {
+    "id": "distributor-karin-van-heerden",
+    "type": "distributor",
+    "name": "Karin van Heerden",
+    "address": "13 Lanyon Street, Baillie Park, Potchefstroom, North West, 2520, South Africa",
+    "phone": "27741025285",
+    "agent": "Karin van Heerden"
+  },
+  {
+    "id": "distributor-kathy-heapy",
+    "type": "distributor",
+    "name": "Kathy Heapy",
+    "address": "Wellness on Whisken, 38 Whisken Avenue, Crowthorne, Centurion, Gauteng, 1685, South Africa",
+    "phone": "27836512211",
+    "agent": "Kathy Heapy"
+  },
+  {
     "id": "distributor-keith-law-39",
     "type": "distributor",
     "name": "Keith Law",
@@ -466,6 +1249,14 @@
       "lat": -33.9624939,
       "lng": 25.5778724
     }
+  },
+  {
+    "id": "retail-kleinkrantz-superette",
+    "type": "retail",
+    "name": "Kleinkrantz Superette*",
+    "address": "7 Protea Lane, Kleinkrantz, Wilderness, Garden Route, Western Cape, 6560, South Africa",
+    "phone": "0787337770",
+    "agent": "Kleinkrantz Superette*"
   },
   {
     "id": "retail-kloof-street-kwikspar-40",
@@ -492,6 +1283,14 @@
     }
   },
   {
+    "id": "retail-knysna-health",
+    "type": "retail",
+    "name": "Knysna Health*",
+    "address": "Shop 4, Broadwalk Centre, 52 Waterfront Drive, Knysna, Garden Route, Western Cape, 6570, South Africa",
+    "phone": "626071634",
+    "agent": "Knysna Health*"
+  },
+  {
     "id": "retail-knysna-super-spar-42",
     "type": "retail",
     "name": "Knysna Super Spar*",
@@ -502,6 +1301,38 @@
       "lat": -34.0347709,
       "lng": 23.0447427
     }
+  },
+  {
+    "id": "retail-knysna-village-pharmacy",
+    "type": "retail",
+    "name": "Knysna Village Pharmacy*",
+    "address": "Shop Z1 - 12A, Knysna Mall, Main Street, Knysna, Garden Route, Western Cape, 6570, South Africa",
+    "phone": "0443822245",
+    "agent": "Knysna Village Pharmacy*"
+  },
+  {
+    "id": "retail-la-willia",
+    "type": "retail",
+    "name": "La Willia",
+    "address": "The Courier Guy Kiosk, 40 Jordaan Street, Heidelberg, Johannesburg, Gauteng, 1441, South Africa",
+    "phone": "0615448733",
+    "agent": "La Willia"
+  },
+  {
+    "id": "distributor-leanne-cursons",
+    "type": "distributor",
+    "name": "Leanne Cursons",
+    "address": "29 Wag-'n-Bietjie Avenue,, Clubview X2, Centurion, Gauteng, 0157, South Africa",
+    "phone": "0846431147",
+    "agent": "Leanne Cursons"
+  },
+  {
+    "id": "distributor-lieben-health",
+    "type": "distributor",
+    "name": "Lieben Health",
+    "address": "Shop 7, The Village Square, 5 Van Riebeeck Street, Stillbaai, Cape Town, Western Cape, 6674, South Africa",
+    "phone": "0637687031",
+    "agent": "Lieben Health"
   },
   {
     "id": "retail-lime-fusion-43",
@@ -528,6 +1359,22 @@
     }
   },
   {
+    "id": "distributor-lorna-loveday",
+    "type": "distributor",
+    "name": "Lorna Loveday",
+    "address": "104 Stantiazicht, 218 Langenhoven Street, Constantia Park, Pretoria, Gauteng, 0180, South Africa",
+    "phone": "0824049709",
+    "agent": "Lorna Loveday"
+  },
+  {
+    "id": "distributor-louise-larsen",
+    "type": "distributor",
+    "name": "Louise Larsen",
+    "address": "16 Nolengeni Ridge, Uvango, Margate, Kwa Zulu Natal, 4275, South Africa",
+    "phone": "0848666355",
+    "agent": "Louise Larsen"
+  },
+  {
     "id": "distributor-lyn-bauer-45",
     "type": "distributor",
     "name": "Lyn Bauer",
@@ -550,6 +1397,22 @@
       "lat": -33.9754285,
       "lng": 25.5972811
     }
+  },
+  {
+    "id": "distributor-lynnette-pretorius",
+    "type": "distributor",
+    "name": "Lynnette Pretorius",
+    "address": "90 Ross Street, Noordheuwel x4, Krugersdorp, Krugersdorp, Gauteng, 1739, South Africa",
+    "phone": "27795279114",
+    "agent": "Lynnette Pretorius"
+  },
+  {
+    "id": "distributor-lz-skin-beauty",
+    "type": "distributor",
+    "name": "LZ Skin & Beauty",
+    "address": "733 Besembiesie street, Montana Park, Pretoria, Gauteng, 0182, South Africa",
+    "phone": "27820816901",
+    "agent": "LZ Skin & Beauty"
   },
   {
     "id": "retail-madelie-prins-wellness-centre-47",
@@ -588,6 +1451,62 @@
     }
   },
   {
+    "id": "retail-maralise-potgieter",
+    "type": "retail",
+    "name": "Maralise Potgieter",
+    "address": "61 Merestyn Street,, Saldanha, Cape Town, Western Cape, 7395, South Africa",
+    "phone": "27761687838",
+    "agent": "Maralise Potgieter"
+  },
+  {
+    "id": "distributor-marelize-crouse",
+    "type": "distributor",
+    "name": "Marelize Crouse",
+    "address": "14 Doncaster Street,, Saldanha, Cape Town, Western Cape, 7395, South Africa",
+    "phone": "0814630011",
+    "agent": "Marelize Crouse"
+  },
+  {
+    "id": "distributor-maria-calaca",
+    "type": "distributor",
+    "name": "Maria Calaca",
+    "address": "11 Jurgens Avenue,, Strubenvale, Johannesburg, Gauteng, 1559, South Africa",
+    "phone": "0785117177",
+    "agent": "Maria Calaca"
+  },
+  {
+    "id": "distributor-maria-du-plessis",
+    "type": "distributor",
+    "name": "Maria Du Plessis",
+    "address": "27 Hofmeyer Avenue,, Kendridge, Cape Town, Western Cape, 7550, South Africa",
+    "phone": "27825616344",
+    "agent": "Maria Du Plessis"
+  },
+  {
+    "id": "distributor-marie-du-preez",
+    "type": "distributor",
+    "name": "Marie du Preez",
+    "address": "16 Stein Road,, President Park, Centurion, Gauteng, 1685, South Africa",
+    "phone": "0678544675",
+    "agent": "Marie du Preez"
+  },
+  {
+    "id": "distributor-marie-hurter",
+    "type": "distributor",
+    "name": "Marie Hurter",
+    "address": "9B Voortrekker Street,, Uniondale, Cape Town, Western Cape, 6460, South Africa",
+    "phone": "27825154322",
+    "agent": "Marie Hurter"
+  },
+  {
+    "id": "distributor-mariet-bigham",
+    "type": "distributor",
+    "name": "Mariet Bigham",
+    "address": "Hobos Hide, 119 Larsens Road,, Muldersdrift, Krugersdorp, Gauteng, 1747, South Africa",
+    "phone": "27845688056",
+    "agent": "Mariet Bigham"
+  },
+  {
     "id": "distributor-marina-botha-50",
     "type": "distributor",
     "name": "Marina Botha",
@@ -600,6 +1519,30 @@
     }
   },
   {
+    "id": "distributor-marj-heyman",
+    "type": "distributor",
+    "name": "Marj Heyman",
+    "address": "ATT. Tillie Tsitsikamma Gardens Self Catering Cottages & Restaurant, Witelsbos, Tsitsikamma, Eastern Cape, 6309, South Africa",
+    "phone": "27793536235",
+    "agent": "Marj Heyman"
+  },
+  {
+    "id": "retail-martins-deli",
+    "type": "retail",
+    "name": "Martin's Deli",
+    "address": "1 River Road, Stanford Industrial Park, Stanford, Cape Town, Western Cape, 7210, South Africa",
+    "phone": "0720589772",
+    "agent": "Martin's Deli"
+  },
+  {
+    "id": "retail-maryna-van-der-merwe",
+    "type": "retail",
+    "name": "Maryna van der Merwe",
+    "address": "Aan de Hawequa Estate No 7,, Hanepootstraat, Wellington, Western Cape, 7655, South Africa",
+    "phone": "0832352369",
+    "agent": "Maryna van der Merwe"
+  },
+  {
     "id": "distributor-may-smith-ehlers-51",
     "type": "distributor",
     "name": "May Smith-Ehlers",
@@ -610,6 +1553,38 @@
       "lat": -33.8656561,
       "lng": 18.5033276
     }
+  },
+  {
+    "id": "distributor-maz-tissink",
+    "type": "distributor",
+    "name": "Maz Tissink",
+    "address": "10 Berzelia Crescent, Sagewood Estate, Table View, Cape Town, Western Cape, 7441, South Africa",
+    "phone": "27643110458",
+    "agent": "Maz Tissink"
+  },
+  {
+    "id": "retail-mc-agencies",
+    "type": "retail",
+    "name": "MC Agencies*",
+    "address": "Wellbeing Health Shop, Queens Hotel Building, Baron van Reede Street, Oudtshoorn, Cape Town, Western Cape, 6620, South Africa",
+    "phone": "27833112146",
+    "agent": "MC Agencies*"
+  },
+  {
+    "id": "retail-mega-store-mossel-bay",
+    "type": "retail",
+    "name": "Mega Store Mossel Bay*",
+    "address": "14 Industrie Road, Die Voor Bay, Mossel Bay, Garden Route, Western Cape, 6506, South Africa",
+    "phone": "0613741501",
+    "agent": "Mega Store Mossel Bay*"
+  },
+  {
+    "id": "distributor-melanie-arendse",
+    "type": "distributor",
+    "name": "Melanie Arendse",
+    "address": "10 Lotus Place, Simon Road, Lotus River, Cape Town, Western Cape, 7941, South Africa",
+    "phone": "0685153855",
+    "agent": "Melanie Arendse"
   },
   {
     "id": "retail-melk-heuning-52",
@@ -636,6 +1611,30 @@
     }
   },
   {
+    "id": "distributor-moira-carelsen",
+    "type": "distributor",
+    "name": "Moira Carelsen",
+    "address": "474 Grysbok Street,, Waterkloof Ridge, Pretoria, Gauteng, 0180, South Africa",
+    "phone": "27760730210",
+    "agent": "Moira Carelsen"
+  },
+  {
+    "id": "distributor-mojaji-lekame",
+    "type": "distributor",
+    "name": "Mojaji Lekame",
+    "address": "X 2054, Morutagae Street, Jouberton Ext 2, Klerksdorp, North West, 2574, South Africa",
+    "phone": "0829304392",
+    "agent": "Mojaji Lekame"
+  },
+  {
+    "id": "retail-mymr-ltd",
+    "type": "retail",
+    "name": "MYMR Ltd",
+    "address": "Unit 1 Lodge Farm Buildings, Saxondale, UK, Nottingham, NG 13 8AY (UK), South Africa",
+    "phone": "447733590902",
+    "agent": "MYMR Ltd"
+  },
+  {
     "id": "retail-nature-s-niche-54",
     "type": "retail",
     "name": "Nature's Niche",
@@ -646,6 +1645,46 @@
       "lat": -26.1514516,
       "lng": 27.9997838
     }
+  },
+  {
+    "id": "retail-natures-own-pharmacy",
+    "type": "retail",
+    "name": "Nature's Own Pharmacy",
+    "address": "Shop 8, Perridgevale Shopping Centre, Nile Road,, Perridgevale, Gqeberha, Eastern Cape, 6001, South Africa",
+    "phone": "0413638555",
+    "agent": "Nature's Own Pharmacy"
+  },
+  {
+    "id": "retail-natures-relief",
+    "type": "retail",
+    "name": "Nature's Relief",
+    "address": "Shop 12, Trinity Village Shopping Centre, 65 Knoppiesdoring Street, Randburg, Johannesburg, Gauteng, 2169, South Africa",
+    "phone": "0635022974",
+    "agent": "Nature's Relief"
+  },
+  {
+    "id": "retail-natures-nook",
+    "type": "retail",
+    "name": "Natures Nook*",
+    "address": "32a Langeberg Mall, Louis Fourie Road, Voorbaai, Mossel Bay, Garden Route, Western Cape, 6506, South Africa",
+    "phone": "0790609288",
+    "agent": "Natures Nook*"
+  },
+  {
+    "id": "retail-natures-way-health-shop",
+    "type": "retail",
+    "name": "Natures Way Health Shop*",
+    "address": "Shop 9, MyPond Hotel , Complex, 33 Van Der Riet Street, Port Alfred, Port Alfred, Eastern Cape, 6170, South Africa",
+    "phone": "466245735",
+    "agent": "Natures Way Health Shop*"
+  },
+  {
+    "id": "retail-nostalgia-farmstall",
+    "type": "retail",
+    "name": "Nostalgia Farmstall*",
+    "address": "Karatara Road,, Segdefield, Garden Route, Western Cape, 6573, South Africa",
+    "phone": "27722319301",
+    "agent": "Nostalgia Farmstall*"
   },
   {
     "id": "retail-nude-foods-55",
@@ -660,6 +1699,62 @@
     }
   },
   {
+    "id": "retail-opplipaas-padstal",
+    "type": "retail",
+    "name": "Opplipaas Padstal",
+    "address": "Oppiplaas Padstal, Farm Tolange, N2,, Riversdale, Garden Route, Western Cape, 6672, South Africa",
+    "phone": "824776574",
+    "agent": "Opplipaas Padstal"
+  },
+  {
+    "id": "retail-organas",
+    "type": "retail",
+    "name": "Organa's*",
+    "address": "Shop No 1, Corner of Hoepoe Avenue & Main Road,, Sedgefield, Garden Route, Western Cape, 6573, South Africa",
+    "phone": "0795063396",
+    "agent": "Organa's*"
+  },
+  {
+    "id": "retail-organic-heart-pty-ltd",
+    "type": "retail",
+    "name": "Organic Heart (Pty) Ltd",
+    "address": "96 Da Gama Road,, Ferreira Town, Jeffery's bay. Eastern Cape, 6330, South Africa",
+    "phone": "0844437583",
+    "agent": "Organic Heart (Pty) Ltd"
+  },
+  {
+    "id": "retail-organic-wellness",
+    "type": "retail",
+    "name": "Organic Wellness*",
+    "address": "112 York Street, Harry Man Square,, George, Garden Route, Western Cape, 6531, South Africa",
+    "phone": "27846013000",
+    "agent": "Organic Wellness*"
+  },
+  {
+    "id": "retail-oudtshoorn-fietse",
+    "type": "retail",
+    "name": "Oudtshoorn Fietse",
+    "address": "57 Adderley Street,, Oudtshoorn, Oudtshoorn, Western Cape, 6620, South Africa",
+    "phone": "0693414991",
+    "agent": "Oudtshoorn Fietse"
+  },
+  {
+    "id": "retail-overberg-wellness-pty-ltd",
+    "type": "retail",
+    "name": "Overberg Wellness Pty Ltd",
+    "address": "The Courier Guy Hermanus, The Gateway Centre, Hermanus, Hermanus, Western Cape, 7200, South Africa",
+    "phone": "27726106176",
+    "agent": "Overberg Wellness Pty Ltd"
+  },
+  {
+    "id": "retail-oysters-r-us",
+    "type": "retail",
+    "name": "Oysters R Us*",
+    "address": "84/189 Boven Lange Valley,, Wilderness, Garden Route, Western Cape, 6529, South Africa",
+    "phone": "27825786817",
+    "agent": "Oysters R Us*"
+  },
+  {
     "id": "retail-pacaltsdorp-apteek-56",
     "type": "retail",
     "name": "Pacaltsdorp Apteek*",
@@ -670,6 +1765,46 @@
       "lat": -34.0160457,
       "lng": 22.4558341
     }
+  },
+  {
+    "id": "retail-pepper-tree",
+    "type": "retail",
+    "name": "Pepper Tree",
+    "address": "Pepper Tree, 5 Louw Street,, Philadelphia, Cape Town, Western Cape, 7304, South Africa",
+    "phone": "219721916",
+    "agent": "Pepper Tree"
+  },
+  {
+    "id": "retail-pharma-warehouse-pharmacy",
+    "type": "retail",
+    "name": "Pharma Warehouse Pharmacy*",
+    "address": "Shop 7B, Witfontein Rd,, Heather Park, Garden Route, Western Cape, 6529, South Africa",
+    "phone": "448707181",
+    "agent": "Pharma Warehouse Pharmacy*"
+  },
+  {
+    "id": "retail-piquet-collective-accrue-ventures-pty-ltd",
+    "type": "retail",
+    "name": "Piquet Collective (Accrue Ventures Pty Ltd)",
+    "address": "9B Kerk Street,, Piketberg, Cape Town, Western Cape, 7320, South Africa",
+    "phone": "0223000312",
+    "agent": "Piquet Collective (Accrue Ventures Pty Ltd)"
+  },
+  {
+    "id": "retail-pizza-world",
+    "type": "retail",
+    "name": "Pizza World",
+    "address": "161 Main Road,, Kleinmond, Cape Town, Western Cape, 7195, South Africa",
+    "phone": "27721565894",
+    "agent": "Pizza World"
+  },
+  {
+    "id": "retail-plett-medicine-depot",
+    "type": "retail",
+    "name": "Plett Medicine Depot*",
+    "address": "Atmar Centre, 12 High Street,, Plettenberg Bay, Garden Route, Western Cape, 6600, South Africa",
+    "phone": "445332278",
+    "agent": "Plett Medicine Depot*"
   },
   {
     "id": "retail-prohype-pty-ltd-57",
@@ -708,6 +1843,30 @@
     }
   },
   {
+    "id": "distributor-ps-20-holdings-ta-life-edit",
+    "type": "distributor",
+    "name": "PS 20 Holdings t/a Life Edit",
+    "address": "White House, Langgewacht Farm, Fraaigelen Road, Kuils River, Cape Town, Western Cape, 7646, South Africa",
+    "phone": "0846760402",
+    "agent": "PS 20 Holdings t/a Life Edit"
+  },
+  {
+    "id": "retail-psy-noetics",
+    "type": "retail",
+    "name": "PSY Noetics*",
+    "address": "5 The Meadows,, Rietvlei Road, Garden Route, Western Cape, 6400, South Africa",
+    "phone": "0614134000",
+    "agent": "PSY Noetics*"
+  },
+  {
+    "id": "retail-pure-life",
+    "type": "retail",
+    "name": "Pure Life",
+    "address": "228 Monument Road,, Glen Marais, Kempton Park, Gauteng, 1619, South Africa",
+    "phone": "119790705",
+    "agent": "Pure Life"
+  },
+  {
     "id": "distributor-ranelda-bergh-60",
     "type": "distributor",
     "name": "Ranelda Bergh",
@@ -718,6 +1877,38 @@
       "lat": -26.46057,
       "lng": 29.4806287
     }
+  },
+  {
+    "id": "retail-red-barn-farms",
+    "type": "retail",
+    "name": "Red Barn Farms*",
+    "address": "L7 Middelrietvlei Road, Moerasrivier,, Blanco, Garden Route, Western Cape, 6531, South Africa",
+    "phone": "0812581725",
+    "agent": "Red Barn Farms*"
+  },
+  {
+    "id": "retail-redberry-farmstall",
+    "type": "retail",
+    "name": "Redberry Farmstall*",
+    "address": "R404 , Geelhoutboom Road,, Blanco, Garden Route, Western Cape, 6530, South Africa",
+    "phone": "448707123",
+    "agent": "Redberry Farmstall*"
+  },
+  {
+    "id": "distributor-reinette-bosch",
+    "type": "distributor",
+    "name": "Reinette Bosch",
+    "address": "Courier Guy Branch,, Wellington, Wellington, Western Cape, 7655, South Africa",
+    "phone": "218642828",
+    "agent": "Reinette Bosch"
+  },
+  {
+    "id": "retail-renewed-roots-wellness",
+    "type": "retail",
+    "name": "Renewed Roots Wellness",
+    "address": "30 Furrow Road, Diswilmar,, Mogale, Krugersdorp, Gauteng, 1739, South Africa",
+    "phone": "27727501252",
+    "agent": "Renewed Roots Wellness"
   },
   {
     "id": "distributor-requel-nel-61",
@@ -744,6 +1935,30 @@
     }
   },
   {
+    "id": "retail-retail-h-and-h-pharmacy-group",
+    "type": "retail",
+    "name": "Retail H and H Pharmacy Group",
+    "address": "Shop 75, Killarney Mall,, Killarney, Johannesburg, Gauteng, 2913, South Africa",
+    "phone": "116461911",
+    "agent": "Retail H and H Pharmacy Group"
+  },
+  {
+    "id": "distributor-riana-pretorius",
+    "type": "distributor",
+    "name": "Riana Pretorius",
+    "address": "36 Dassen Eiland Rylaan, Yzerfontein, West Coast, Western Cape, 7351, South Africa",
+    "phone": "27826877374",
+    "agent": "Riana Pretorius"
+  },
+  {
+    "id": "distributor-rinel-burger",
+    "type": "distributor",
+    "name": "Rinel Burger",
+    "address": "15 Viney street,, Bailliepark, Porchefstroom, North West, 2531, South Africa",
+    "phone": "27720736022",
+    "agent": "Rinel Burger"
+  },
+  {
     "id": "retail-riviera-supermarket-63",
     "type": "retail",
     "name": "Riviera Supermarket*",
@@ -754,6 +1969,14 @@
       "lat": -34.0347709,
       "lng": 23.0447427
     }
+  },
+  {
+    "id": "distributor-ronel-booysen",
+    "type": "distributor",
+    "name": "Ronel Booysen",
+    "address": "209 Adam Tas, Greensleeves Complex Unit 11, Clubview, Centurion, Gauteng, 0014, South Africa",
+    "phone": "27827651579",
+    "agent": "Ronel Booysen"
   },
   {
     "id": "distributor-ronel-watson-64",
@@ -768,6 +1991,46 @@
     }
   },
   {
+    "id": "distributor-ronelle-du-plessis",
+    "type": "distributor",
+    "name": "Ronelle du Plessis",
+    "address": "Eksderde Camp Pretoria, Portion 26, Stand 4,, Boekenhoudskloof, Pretoria, Gauteng, 0035, South Africa",
+    "phone": "0716825690",
+    "agent": "Ronelle du Plessis"
+  },
+  {
+    "id": "retail-route-27-biltong",
+    "type": "retail",
+    "name": "Route 27 Biltong",
+    "address": "R27 West Coast Road, Vygevalley Farm, opposite Jakkaslfontein Nature Reserve, Jakkaslfontein, Western Cape, 7351, South Africa",
+    "phone": "0724479344",
+    "agent": "Route 27 Biltong"
+  },
+  {
+    "id": "retail-rowan-tree",
+    "type": "retail",
+    "name": "Rowan Tree",
+    "address": "2B C/O 3rd Ave & 6th St,, Linden, Johannesburg, Gauteng, 2195, South Africa",
+    "phone": "0711817596",
+    "agent": "Rowan Tree"
+  },
+  {
+    "id": "retail-sanctuary-pharmacy",
+    "type": "retail",
+    "name": "Sanctuary Pharmacy",
+    "address": "160 Victoria Road, Worq Market Building, Midlands, Pietermaritzburg, Kwazulu Natal, 3201, South Africa",
+    "phone": "658448547",
+    "agent": "Sanctuary Pharmacy"
+  },
+  {
+    "id": "retail-sandton-square-pharmacy",
+    "type": "retail",
+    "name": "Sandton Square Pharmacy",
+    "address": "Sandton Square, Shop 1, Cnr Walker Drive & Sandton Avenue,, Ben Kamma, Gqeberha, Eastern Cape, 6025, South Africa",
+    "phone": "0415171818",
+    "agent": "Sandton Square Pharmacy"
+  },
+  {
     "id": "distributor-sandy-hanekom-65",
     "type": "distributor",
     "name": "Sandy Hanekom",
@@ -778,6 +2041,22 @@
       "lat": -33.9412145,
       "lng": 18.4916545
     }
+  },
+  {
+    "id": "distributor-sarieta-kuhn",
+    "type": "distributor",
+    "name": "Sarieta Kuhn",
+    "address": "790 Stellenberg Road,, Equestria, Pretoria, Gauteng, 0184, South Africa",
+    "phone": "27723865291",
+    "agent": "Sarieta Kuhn"
+  },
+  {
+    "id": "distributor-scholim-hirschfield",
+    "type": "distributor",
+    "name": "Scholim Hirschfield",
+    "address": "173 Cedara Road,, Hiltara Park, Hilton, Kwazulu Natal, 3245, South Africa",
+    "phone": "0797557374",
+    "agent": "Scholim Hirschfield"
   },
   {
     "id": "retail-schuin-villa-pharmacy-pty-ltd-66",
@@ -792,6 +2071,14 @@
     }
   },
   {
+    "id": "retail-secunda-kwekery",
+    "type": "retail",
+    "name": "Secunda Kwekery",
+    "address": "Trichardt Road,, Secunda, Mpumalanga, 2300, South Africa",
+    "phone": "27724390099",
+    "agent": "Secunda Kwekery"
+  },
+  {
     "id": "retail-sedgefield-pharmacy-67",
     "type": "retail",
     "name": "Sedgefield Pharmacy*",
@@ -802,6 +2089,14 @@
       "lat": -34.0170872,
       "lng": 22.8107142
     }
+  },
+  {
+    "id": "retail-seven-seas-fisheries",
+    "type": "retail",
+    "name": "Seven Seas Fisheries",
+    "address": "118 14th Avenue,, Fairlands, Johannesburg, Gauteng, 2195, South Africa",
+    "phone": "0828434607",
+    "agent": "Seven Seas Fisheries"
   },
   {
     "id": "retail-shabby-fufu-farmstall-68",
@@ -852,6 +2147,22 @@
     }
   },
   {
+    "id": "distributor-simone-vermaak",
+    "type": "distributor",
+    "name": "Simoné Vermaak",
+    "address": "1 McGowan Ave, Founders Hill,, Lethabong, Johannesburg, Gauteng, 1609, South Africa",
+    "phone": "27769574180",
+    "agent": "Simoné Vermaak"
+  },
+  {
+    "id": "retail-sitari-health-shop",
+    "type": "retail",
+    "name": "Sitari Health Shop",
+    "address": "Shop 26, Sitari Village Mall, Sunderbans Drive, Firgrove,, Somerset West, Cape Town, Western Cape, 7130, South Africa",
+    "phone": "824024617",
+    "agent": "Sitari Health Shop"
+  },
+  {
     "id": "retail-skin-and-beauty-clinic-72",
     "type": "retail",
     "name": "Skin and Beauty Clinic",
@@ -862,6 +2173,14 @@
       "lat": -26.1322578,
       "lng": 28.0026544
     }
+  },
+  {
+    "id": "retail-smart-living-sa-pty-ltd",
+    "type": "retail",
+    "name": "Smart Living Sa Pty Ltd",
+    "address": "1 Lista Crescent, Vredekloof,, Brakenfell, Cape Town, Western Cape, 7560, South Africa",
+    "phone": "0795138333",
+    "agent": "Smart Living Sa Pty Ltd"
   },
   {
     "id": "retail-son-of-a-butcher-73",
@@ -876,6 +2195,30 @@
     }
   },
   {
+    "id": "distributor-soraya-gomez",
+    "type": "distributor",
+    "name": "Soraya Gomez",
+    "address": "57 Orion Street,, Surrey Estate, Cape Town, Western Cape, 7764, South Africa",
+    "phone": "0729086273",
+    "agent": "Soraya Gomez"
+  },
+  {
+    "id": "retail-spar-pharmacy-cape-gate",
+    "type": "retail",
+    "name": "Spar Pharmacy Cape Gate",
+    "address": "21 Okavango Road, Cape Gate Lifestyle,, Kleinbron Estate, Cape Town, Western Cape, 7560, South Africa",
+    "phone": "27219821360",
+    "agent": "Spar Pharmacy Cape Gate"
+  },
+  {
+    "id": "distributor-sunel-manson",
+    "type": "distributor",
+    "name": "Sunel Manson",
+    "address": "117 Van Der Stel, Van Der Stel, Gqeberha, Eastern Cape, 6025, South Africa",
+    "phone": "27847515954",
+    "agent": "Sunel Manson"
+  },
+  {
     "id": "retail-super-c2-pty-ltd-t-a-africa-ozone-74",
     "type": "retail",
     "name": "Super C2 Pty Ltd T/A Africa Ozone",
@@ -886,6 +2229,22 @@
       "lat": -33.976561,
       "lng": 18.4517227
     }
+  },
+  {
+    "id": "retail-super-spar-groblersdal",
+    "type": "retail",
+    "name": "Super Spar Groblersdal",
+    "address": "5 Grobler Street,, Groblersdal, Limpopo, 0470, South Africa",
+    "phone": "27724344754",
+    "agent": "Super Spar Groblersdal"
+  },
+  {
+    "id": "distributor-sure-tredoux",
+    "type": "distributor",
+    "name": "Suré Tredoux",
+    "address": "37 Disa Road,, Bloubergrant, Cape Town, Western Cape, 7441, South Africa",
+    "phone": "27769177785",
+    "agent": "Suré Tredoux"
   },
   {
     "id": "distributor-susan-k-hn-75",
@@ -924,6 +2283,14 @@
     }
   },
   {
+    "id": "distributor-tania-geldenhuys",
+    "type": "distributor",
+    "name": "Tania Geldenhuys",
+    "address": "Erf 372/67, Northfork Park, Hartebeesfontein,, Hopefield, Western Cape, 7355, South Africa",
+    "phone": "0724400463",
+    "agent": "Tania Geldenhuys"
+  },
+  {
     "id": "retail-the-clean-shop-78",
     "type": "retail",
     "name": "The Clean Shop*",
@@ -934,6 +2301,22 @@
       "lat": -34.0339788,
       "lng": 23.0512111
     }
+  },
+  {
+    "id": "retail-the-creative-answer-pty-ltd",
+    "type": "retail",
+    "name": "The Creative Answer Pty Ltd",
+    "address": "Unit A No. 4 Ebury Ave,, Bryanston, Johannesburg, Gauteng, 2191, South Africa",
+    "phone": "27828968621",
+    "agent": "The Creative Answer Pty Ltd"
+  },
+  {
+    "id": "retail-the-daily-company-pty-ltd-ta-the-daily-shop",
+    "type": "retail",
+    "name": "The Daily Company (Pty) Ltd t/a The Daily Shop",
+    "address": "1 Park St,, Bushmans River, Boesmansriviermond, Eastern Cape, 6190, South Africa",
+    "phone": "0822149782",
+    "agent": "The Daily Company (Pty) Ltd t/a The Daily Shop"
   },
   {
     "id": "retail-the-green-shed-79",
@@ -960,6 +2343,22 @@
     }
   },
   {
+    "id": "retail-the-health-food-emporium",
+    "type": "retail",
+    "name": "The Health Food Emporium",
+    "address": "Shop 116, Blue Berry Square Shopping Centre Blueberry Street,, Roodepoort, Johannesburg, Gauteng, 2170, South Africa",
+    "phone": "0117047711",
+    "agent": "The Health Food Emporium"
+  },
+  {
+    "id": "retail-the-slimming-lounge",
+    "type": "retail",
+    "name": "The Slimming Lounge*",
+    "address": "1 Pearl Street, Yellow Star Storage,, Tamsui Industria, Garden Route, Western Cape, 6530, South Africa",
+    "phone": "0662303828",
+    "agent": "The Slimming Lounge*"
+  },
+  {
     "id": "distributor-theresa-belling-81",
     "type": "distributor",
     "name": "Theresa Belling",
@@ -972,6 +2371,14 @@
     }
   },
   {
+    "id": "retail-thyme-again-farmstall",
+    "type": "retail",
+    "name": "Thyme & Again Farmstall *",
+    "address": "Thyme & Again Farmstall, N2, Plettenberg Bay, Plettenberg, Garden Route, Western Cape, 6600, South Africa",
+    "phone": "445359432",
+    "agent": "Thyme & Again Farmstall *"
+  },
+  {
     "id": "retail-tishbi-edms-bpk-c-o-louis-serfontein-82",
     "type": "retail",
     "name": "Tishbi Edms Bpk c/o Louis Serfontein",
@@ -982,6 +2389,70 @@
       "lat": -34.0271826,
       "lng": 20.4438705
     }
+  },
+  {
+    "id": "distributor-trisha-jewaan",
+    "type": "distributor",
+    "name": "Trisha Jewaan",
+    "address": "47 McPherson Drive,, Lincoln Meade, Pietermaritzburg, Eastern Cape, 3201, South Africa",
+    "phone": "27836388013",
+    "agent": "Trisha Jewaan"
+  },
+  {
+    "id": "distributor-vanessa-krugel",
+    "type": "distributor",
+    "name": "Vanessa Krugel",
+    "address": "PandoPro (Pty) Ltd, 97B West Road,, Sandton, Johannesburg, Gauteng, 2196, South Africa",
+    "phone": "27829035040",
+    "agent": "Vanessa Krugel"
+  },
+  {
+    "id": "distributor-verna-da-silva",
+    "type": "distributor",
+    "name": "Verna Da Silva",
+    "address": "97 Coler Avenue, Pierre van Ryneveld, Centurion, Centurion, Gauteng, 0157, South Africa",
+    "phone": "27837021456",
+    "agent": "Verna Da Silva"
+  },
+  {
+    "id": "retail-viewkem-pharmacy",
+    "type": "retail",
+    "name": "Viewkem Pharmacy*",
+    "address": "c/o Alhoff Dv &, Marsh St, Da Nova,, Mossel Bay, Garden Route, Western Cape, 6506, South Africa",
+    "phone": "446904770",
+    "agent": "Viewkem Pharmacy*"
+  },
+  {
+    "id": "retail-vikings-fish-shop",
+    "type": "retail",
+    "name": "Vikings Fish Shop*",
+    "address": "23 Blond Street,, Mossel Bay, Garden Route, Western Cape, 6500, South Africa",
+    "phone": "446912570",
+    "agent": "Vikings Fish Shop*"
+  },
+  {
+    "id": "retail-vivid-creative-space-ta-vivid-health",
+    "type": "retail",
+    "name": "Vivid Creative Space t/a Vivid Health",
+    "address": "5 Station Road,, Paarl, Cape Town, Western Cape, 7646, South Africa",
+    "phone": "0820664774",
+    "agent": "Vivid Creative Space t/a Vivid Health"
+  },
+  {
+    "id": "retail-water-for-us",
+    "type": "retail",
+    "name": "Water For Us",
+    "address": "Molopoweg 63,, Vryburg, North West, 8600, South Africa",
+    "phone": "0823917943",
+    "agent": "Water For Us"
+  },
+  {
+    "id": "retail-wholesome-harvest",
+    "type": "retail",
+    "name": "Wholesome Harvest",
+    "address": "169 San Juan Avenue, Berario,, Randburg, Johannesburg, Gauteng, 2195, South Africa",
+    "phone": "823370051",
+    "agent": "Wholesome Harvest"
   },
   {
     "id": "distributor-why-holistic-health-83",
@@ -1018,5 +2489,53 @@
       "lat": -26.1247428,
       "lng": 27.8466814
     }
+  },
+  {
+    "id": "distributor-winnie-strever",
+    "type": "distributor",
+    "name": "Winnie Strever",
+    "address": "8 Sneeuberg Street, Klaradyn Retirement Village, Leeukop Crescent, Brakenfell, Cape Town, Western Cape, 7560, South Africa",
+    "phone": "837339826",
+    "agent": "Winnie Strever"
+  },
+  {
+    "id": "retail-woodville-trading-store",
+    "type": "retail",
+    "name": "Woodville Trading Store *",
+    "address": "Woodville Trading Store,, Hoekwil, Garden Route, Western Cape, 6538, South Africa",
+    "phone": "791691682",
+    "agent": "Woodville Trading Store *"
+  },
+  {
+    "id": "retail-yada-la-vie",
+    "type": "retail",
+    "name": "Yada La Vie",
+    "address": "42 Kromrivier Rd,, Stellenbosch Central, Cape Town, Western Cape, 7600, South Africa",
+    "phone": "27842829983",
+    "agent": "Yada La Vie"
+  },
+  {
+    "id": "retail-zen-beauty-salon-pty-ltd",
+    "type": "retail",
+    "name": "Zen Beauty Salon (Pty) Ltd",
+    "address": "25A Retief Street,, Piet Retief, Mpumalanga, 2380, South Africa",
+    "phone": "0768102879",
+    "agent": "Zen Beauty Salon (Pty) Ltd"
+  },
+  {
+    "id": "distributor-zimkhitha-mabanga",
+    "type": "distributor",
+    "name": "Zimkhitha Mabanga",
+    "address": "1 Trinity Crescent,, Parklands North, Cape Town, Western Cape, 7441, South Africa",
+    "phone": "27780534451",
+    "agent": "Zimkhitha Mabanga"
+  },
+  {
+    "id": "retail-zoe-meyer",
+    "type": "retail",
+    "name": "Zoe Meyer",
+    "address": "Unit 3, 171 Blaauwberg Road, Table View, Table View, Cape Town, Western Cape, 7441, South Africa",
+    "phone": "27818970314",
+    "agent": "Zoe Meyer"
   }
 ]
