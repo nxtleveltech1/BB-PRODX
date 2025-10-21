@@ -2,7 +2,7 @@ export default function AccessibilityPage() {
   return (
     <div className="min-h-screen bg-[#F9E7C9]">
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] bg-[var(--bb-black-bean)] overflow-hidden flex items-center justify-center">
+      <section className="relative min-h-[var(--hero-min-h-desktop)] md:min-h-[var(--hero-min-h-tablet)] sm:min-h-[var(--hero-min-h-mobile)] bg-[var(--bb-black-bean)] overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-br from-[#BB4500]/20 to-transparent"></div>
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <h1
