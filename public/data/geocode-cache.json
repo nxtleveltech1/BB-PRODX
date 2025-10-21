@@ -160,5 +160,352 @@
   "42 kromrivier rd,, stellenbosch central, cape town, western cape, 7600, south africa": null,
   "25a retief street,, piet retief, mpumalanga, 2380, south africa": null,
   "1 trinity crescent,, parklands north, cape town, western cape, 7441, south africa": null,
-  "unit 3, 171 blaauwberg road, table view, table view, cape town, western cape, 7441, south africa": null
+  "unit 3, 171 blaauwberg road, table view, table view, cape town, western cape, 7441, south africa": null,
+  "3 lake pleasant rd, groenvallei, sedgefield, garden route, western cape, 6572, south africa": null,
+  "impala avenue, fraai uitsig,, klein brak river, western cape, 6503, south africa": null,
+  "nelspruit courier guy- the grove shopping centre, nelspruit, mpumalanga, 1200, south africa": null,
+  "54, 7th street,, chartwell, johannesburg, gauteng, 2055, south africa": null,
+  "watson way, house nr 47, raithby, cape town, western cape, 7130, south africa": null,
+  "1 dennendal east avenue, dennendal, cape town, western cape, 7945, south africa": null,
+  "health on hillcrest, 47 hillcrest ave, craighall, johannesburg, gauteng, 2196, south africa": null,
+  "1 forest glade, tokai road, tokai, cape town, western cape, 7966, south africa": null,
+  "shop 19, ocean village, cnr main road & buitekant street, yzerfontein, west coast, western cape, 7351, south africa": null,
+  "7 kompanje ave, hartenbos, garden route, western cape, 6500, south africa": null,
+  "41 erica road - health ford physiotherapy, table view, cape town, western cape, 7441, south africa": null,
+  "shop 20, marine walk shopping centre, salta boulevard, salta, durban, kwazulu natal, 4320, south africa": null,
+  "paddagat centre, courtenay st, george, garden route, western cape, 6529, south africa": null,
+  "shop 1, noel centre, main st, plettenberg, garden route, western cape, 6600, south africa": null,
+  "c/o jürg zimmerman,12 gladiolus crescent , welgedacht estate, welgedacht, cape town, western cape, 7530, south africa": null,
+  "15 berghshoop estate, durbanville, cape town, western cape, 7550, south africa": null,
+  "36a old main road, shop 1-3 hillgate centre, hillcrest, hillcrest, kwazulu natal, 3610, south africa": null,
+  "c/o duiwe rivier rd and church rd, hoekwil, garden route, western cape, 6538, south africa": null,
+  "19 bantam drive, blairgowrie, johannesburg, gauteng, 2194, south africa": null,
+  "309 moedi section, kgano street, thembisa, johannesburg, gauteng, 1632, south africa": null,
+  "shop 12, 13a marra square, bree street, langebaan, west coast, western cape, 7357, south africa": null,
+  "126 muirfield ave, pearl valley golf estate, paarl, cape town, western cape, 7646, south africa": null,
+  "29 grand comores rd, st francis bay, st francis bay, cape town, western cape, 6312, south africa": null,
+  "500 harvard lass, the meadow estate ridge road, hazeldean, pretoria, gauteng, 4515, south africa": null,
+  "21 starfish way, atlantic beach estate, melkbosstrand, cape town, western cape, 7441, south africa": null,
+  "the courier guy hartbeespoort kiosk, hartbeespoort, north west, 0216, south africa": null,
+  "kraal kraft complex, rocky drift, white river, mpumalanga, 1240, south africa": null,
+  "13 lanyon street, baillie park, potchefstroom, north west, 2520, south africa": null,
+  "25 fletcher street, bredasdorp, bredasdorp, south africa": {
+    "lat": -34.5289423,
+    "lng": 20.0415914
+  },
+  "overberg shopping centre, bredasdorp, south africa": null,
+  "between botrivier & caledon, next to the n2, caledon, south africa": null,
+  "26 kloof street, gardens, south africa": {
+    "lat": -33.9280711,
+    "lng": 18.4125194
+  },
+  "5 louw st, philadelphia, cape town, 7304, cape town, south africa": {
+    "lat": -33.6665024,
+    "lng": 18.5820103
+  },
+  "160 stoneridge country estate, centurion, south africa": null,
+  "marine walk, salta boulevard, salta blvd, sibaya, durban, 4320, durban, south africa": null,
+  "77 musgrave road, durban, 4091, durban, south africa": {
+    "lat": -29.8390984,
+    "lng": 31.0042024
+  },
+  "35 tyger avenue, greenwood park, durban, durban, south africa": {
+    "lat": -29.7865867,
+    "lng": 31.0087349
+  },
+  "32 pearce crecent, empangeni, empangeni, south africa": null,
+  "fishhoek, fishhoek, south africa": null,
+  "6 symonds lane, george, george, south africa": {
+    "lat": -33.9540253,
+    "lng": 22.4618038
+  },
+  "72 york street, george, george, south africa": {
+    "lat": -33.9981658,
+    "lng": 22.4452526
+  },
+  "75 stander street, george, george, south africa": {
+    "lat": -33.9619859,
+    "lng": 22.4947377
+  },
+  "3rd street knysna road, george, george, south africa": null,
+  "witfontein road, george, george, south africa": {
+    "lat": -33.9529036,
+    "lng": 22.42282
+  },
+  "harry mann square, 112 york st, george central, george, 6531, george, south africa": null,
+  "witfontein rd, healtherpark, george, george, south africa": null,
+  "92 york street, george, george, south africa": {
+    "lat": -33.9981658,
+    "lng": 22.4452526
+  },
+  "middelrietvlei road, george, george, south africa": null,
+  "r404 , geelhoutboom road, george, george, south africa": null,
+  "83 hibernia st, george central, george, 6530, george, south africa": {
+    "lat": -33.9595178,
+    "lng": 22.4582334
+  },
+  "1 pearl st, tamsui industria, george, 6530, george, south africa": {
+    "lat": -33.9891516,
+    "lng": 22.4477715
+  },
+  "n2 kraaibosch road, victoria heights, george, 6529, george, south africa": null,
+  "hakerville, harkerville, south africa": null,
+  "n2 highway harkerville, plettenberg bay, 6604, harkerville, south africa": null,
+  "7 kompanje ave, hartenbos, mossel bay, 6500, hartenbos, south africa": null,
+  "7 marine square college road, hermanus, south africa": null,
+  "36a old main road, hop 1-3 hillgate centre, hillcrest, hillcrest, south africa": null,
+  "duiwe rivier rd hoekwil, hoekwil, south africa": null,
+  "woodville trading store, seven rd pass, hoekwil, south africa": null,
+  "lonehill, johannesburg, south africa": {
+    "lat": -26.0148149,
+    "lng": 28.0268685
+  },
+  "19 bantam drive, blairgowrie, johannesburg, south africa": null,
+  "37 lily ave, northcliff, johannesburg, south africa": null,
+  "309 moedi section kgano street thembisa, johannesburg, south africa": null,
+  "38 whisken avenue, crowthorne, johannesburg, johannesburg, south africa": {
+    "lat": -25.9842447,
+    "lng": 28.0809316
+  },
+  "randburg, johannesburg, south africa": {
+    "lat": -26.0915852,
+    "lng": 28.0020276
+  },
+  "90 scorpio drive, ext 9 lenasia, johannesburg, south africa": null,
+  "23 suikerbos street lenasia, johannesburg, south africa": {
+    "lat": -26.3195641,
+    "lng": 27.8382075
+  },
+  "unit a, no 4 ebury ave, bryanston, johannesburg, south africa": null,
+  "5, 6th avenue, mellville, johannesburg, south africa": null,
+  "57 veld st, glen marais, kempton park, 1619, johannesburg, south africa": null,
+  "2 pandora rd, malvern, johannesburg, south africa": {
+    "lat": -26.1980369,
+    "lng": 28.1183497
+  },
+  "74 5th ave linden, johannesburg, johannesburg, south africa": {
+    "lat": -26.1402054,
+    "lng": 27.9849723
+  },
+  "killarney, johannesburg, south africa": {
+    "lat": -26.166751,
+    "lng": 28.0504636
+  },
+  "shop 116, blue berry square shopping centre, blueberry street, honeydew, roodepoort, johannesburg, south africa": null,
+  "118, 8th street, linden, randburg, johannesburg, johannesburg, south africa": {
+    "lat": -26.1337031,
+    "lng": 28.0011577
+  },
+  "169 san juan ave, berario, johannesburg, south africa": null,
+  "21 elizabeth road, bardene, boksburg, johannesburg, south africa": null,
+  "unit 95, aloe ridge 2, edenvale, gauteng, edenvale, south africa": null,
+  "223 george rd, wilderness, kloofstraat, south africa": null,
+  "19 main street, knysna, knysna, south africa": {
+    "lat": -33.9459388,
+    "lng": 22.9346509
+  },
+  "broadwalk centre, 52 waterfront drive, knysna, knysna, south africa": null,
+  "42 main road, knysna, knysna, south africa": {
+    "lat": -34.0347709,
+    "lng": 23.0447427
+  },
+  "19 main road, knysna, knysna, south africa": {
+    "lat": -34.0347709,
+    "lng": 23.0447427
+  },
+  "14 queen street, knysna, knysna, south africa": {
+    "lat": -34.0384121,
+    "lng": 23.050624
+  },
+  "shop z1 - 12a, knysna mall, knysna, south africa": null,
+  "langebaan, langebaan, south africa": {
+    "lat": -33.0909912,
+    "lng": 18.0336421
+  },
+  "13a marra square, bree street, langebaan, langebaan, south africa": null,
+  "onverwaght, lephalale, south africa": null,
+  "32 tenth avenue, lichtenberg, lichtenburg, south africa": null,
+  "2 thabo mbeki dr, mokopane, limpopo 0601, mokopane, south africa": {
+    "lat": -24.2971632,
+    "lng": 28.9475822
+  },
+  "77 bland streetmossel bay, mossel bay, south africa": null,
+  "93 marsh street, mossel bay, south africa": {
+    "lat": -34.18255,
+    "lng": 22.1433586
+  },
+  "14 industrie road, mossel bay, mossel bay, south africa": null,
+  "32a langeberg mall, louis fourie road, mossel bay, mossel bay, south africa": null,
+  "c/o alhoff dv &, marsh st, da nova, mossel bay, mossel bay, south africa": null,
+  "25a retief street, piet retief, mpumalanga, mpumalanga, south africa": null,
+  "137 pãªrel avenue, orania, northern cape, orania, south africa": null,
+  "queens hotel building, baron van reede street, oudtshoorn, south africa": null,
+  "57 adderley st, oudtshoorn, 6620, oudtshoorn, south africa": null,
+  "54 troupand street, phalaborwa, phalaborwa, south africa": null,
+  "beacon isle crescent, plettenberg bay, plettenberg bay, south africa": null,
+  "shop 1, noel centre, main st, plettenberg bay, plettenberg bay, south africa": null,
+  "12 high street, plettenberg bay, plettenberg bay, south africa": {
+    "lat": -34.0542252,
+    "lng": 23.3705293
+  },
+  "n2 thyme & again farmstall, plettenberg bay, south africa": null,
+  "5 the meadows, rietvlei rd, plett, 6400, plettenberg bay, south africa": null,
+  "117 van der stel, port elizabeth, south africa": {
+    "lat": -33.9442944,
+    "lng": 25.5022559
+  },
+  "29 wag n bietjie ave, clubview, pretoria, pretoria, south africa": {
+    "lat": -25.8228534,
+    "lng": 28.1603935
+  },
+  "218 langenhoven street, constantia park, pretoria, south africa": {
+    "lat": -25.8041015,
+    "lng": 28.2842034
+  },
+  "474 grysbok street, waterkloof ridge, pretoria, south africa": null,
+  "portion 26, boekenhoudskloof, pretoria, 0035, pretoria, south africa": null,
+  "equestria, pretoria, pretoria, south africa": null,
+  "1001 koos smal street, eldoraigne, 0157, pretoria, south africa": null,
+  "14 doncaster street, saldhana, saldhana, south africa": null,
+  "3 lake pleasant rd, groenvallei, sedgefield, south africa": null,
+  "49 main service rd, sedgefield, 6573, sedgefield, south africa": {
+    "lat": -34.0131171,
+    "lng": 22.8002295
+  },
+  "unit 32 king fisher park, c/o nobel & ou paardevlei rd, the interchange, somerset west, somerset west, south africa": null,
+  "1 river st, stanford, 7210, stanford, south africa": null,
+  "5 van riebeeck street, stilbaai west, 6674, stilbaai, south africa": {
+    "lat": -34.3697692,
+    "lng": 21.4047985
+  },
+  "n2 stormriver bridge, stormriver, south africa": null,
+  "9 b voortrekker street, uniondale, uniondale, south africa": {
+    "lat": -33.6610245,
+    "lng": 23.1130189
+  },
+  "16 nolengeni road, uvongo, margate, 4270, uvongo, south africa": null,
+  "63 molopoweg, vryburg, vryburg, south africa": null,
+  "aan de hawequa estate no 7, hanepootstraat, wellington, south africa": null,
+  "plot 107, werksaam, curlews road, rocky's drift, white river, 1240, white river, mpumalanga, south africa": null,
+  "3 leila's lane, wilderness, wilderness, south africa": {
+    "lat": -33.9934668,
+    "lng": 22.5754173
+  },
+  "1 mcgowan avenue, founders hill, modderfontein, south africa": null,
+  "address, suburb, south africa": null,
+  "20 disa avenue, upington, northern cape, south africa": {
+    "lat": -28.4342245,
+    "lng": 21.263418
+  },
+  "all things earthly @ the farm village, 1 village lane, noordhoek, south africa": null,
+  "3 middel street, klipdam, kuilsrivier, south africa": null,
+  "27 louis trichardt st,, sandbaai, south africa": null,
+  "1 main street, askham, south africa": null,
+  "watson way, house nr 47, raithby, south africa": null,
+  "1 alan burman street, aquapark, south africa": null,
+  "324 thorougbred street, val de vie estate, paarl, south africa": null,
+  "126 muirfield ave, pearl valley golf estate, paarl, south africa": null,
+  "courier guy branch,, wellington, south africa": null,
+  "no 5 village green close, plumstead, south africa": null,
+  "25 baxter way, edgemead, south africa": {
+    "lat": -33.869105,
+    "lng": 18.5486394
+  },
+  "unit 7, mariehan investments business park, andries potgieter boulevard, vanderbijlpark, south africa": null,
+  "dr dj bosmanc/o brandberg and karas avenue, dent-o-med building, vaalpark, south africa": null,
+  "c/o ae retail group, 5 princes road, vincent, south africa": null,
+  "3 mount churchill street, midstream, south africa": null,
+  "courier guy kiosk ladybrand, ladybrand, south africa": null,
+  "c/o the treasurer, 25 bosman street, strand, south africa": null,
+  "3 selbysteeg, bredasdorp, bredasdorp, south africa": {
+    "lat": -34.5321365,
+    "lng": 20.0362708
+  },
+  "village square shopping centre the business centre, office 125, 6 st francis drive, st francis bay, south africa": null,
+  "5 dunvegan estate, 22 len oates road, dunvegan, south africa": null,
+  "25 bosman street, goede hoop, strand, south africa": null,
+  "sandown road, table view, south africa": null,
+  "100 midas avenue, olympus ah, midrand, south africa": null,
+  "1 kloppers st,, delmas, south africa": null,
+  "divine space, 28 francois ave, bordeaux, south africa": null,
+  "unit a6, meyrickton park, 2 meyrickton place, hillcrest, south africa": null,
+  "51 galloway avenue, douglasdale, fourways, south africa": null,
+  "38 corfu ave, capri, fish hoek, south africa": null,
+  "shop u676, loch logen, henry street, willows, south africa": null,
+  "courier guy branch, fish hoek, fish hoek, south africa": null,
+  "489 prince afred street, pietermaritzburg, south africa": null,
+  "41 erica road - health ford physiotherapy, table view, south africa": null,
+  "trevington house, 29 grand comores, st francis bay, south africa": null,
+  "106 the club retail mall, hazelwood, south africa": null,
+  "44 van riebeeck street, norscot, south africa": null,
+  "500 harverd lass, the meadow estate, ridge road, hazeldean, south africa": null,
+  "21 starfish way, atlantic beach estate, melkbosstrand, south africa": null,
+  "tandem shop, 6 racecourse road, milnerton, south africa": null,
+  "90 ross street, noordheuwel x4, krugersdorp, south africa": null,
+  "733 besembiesie street, montana park, south africa": null,
+  "11 jurgens avenue,, strubenvale, south africa": {
+    "lat": -26.2581438,
+    "lng": 28.4723407
+  },
+  "16 stein road,, president park, south africa": null,
+  "10 berzelia crescent, sagewood estate, table view, south africa": null,
+  "9b kerk street,, piketberg, south africa": null,
+  "161 main road,, kleinmond, south africa": {
+    "lat": -34.3388857,
+    "lng": 19.008751
+  },
+  "white house, langgewacht farm, fraaigelen road, kuils river, south africa": null,
+  "228 monument road,, glen marais, south africa": null,
+  "30 furrow road, diswilmar,, mogale, south africa": null,
+  "15 viney street,, bailliepark, south africa": null,
+  "160 victoria road, worq market building, midlands, south africa": null,
+  "trichardt road,, secunda, south africa": null,
+  "shop 26, sitari village mall, sunderbans drive, firgrove,, somerset west, south africa": null,
+  "5 grobler street,, groblersdal, south africa": null,
+  "37 disa road,, bloubergrant, south africa": null,
+  "47 mcpherson drive,, lincoln meade, south africa": {
+    "lat": -29.6149456,
+    "lng": 30.437077
+  },
+  "pandopro (pty) ltd, 97b west road,, sandton, south africa": null,
+  "97 coler avenue, pierre van ryneveld, centurion, south africa": null,
+  "5 station road,, paarl, south africa": null,
+  "1 hofmeyer street, calvinia, south africa": {
+    "lat": -31.4673998,
+    "lng": 19.7754979
+  },
+  "8 sneeuberg street, klaradyn retirement village, leeukop crescent, brakenfell, south africa": null,
+  "42 kromrivier rd,, stellenbosch central, south africa": null,
+  "1 trinity crescent,, parklands north, south africa": null,
+  "154 woodley drive, southfield, south africa": null,
+  "36 dassen eiland rylaan, yzerfontein, south africa": null,
+  "15 berghshoop estate, durbanville, south africa": null,
+  "address, area, south africa": null,
+  "cape road, newon park, south africa": null,
+  "322 cape road, newton park, south africa": {
+    "lat": -33.9486094,
+    "lng": 25.5623513
+  },
+  "96 da gama road, jeffreys bay, south africa": {
+    "lat": -34.0354905,
+    "lng": 24.9302122
+  },
+  "crossways village, east london, south africa": null,
+  "park road, bushmans river, south africa": null,
+  "84 westbourne pharmacy, port elizabeth, south africa": null,
+  "summerstrand, port elizabeth, south africa": {
+    "lat": -33.99,
+    "lng": 25.6616667
+  },
+  "4th ave newton park, port elizabeth, south africa": {
+    "lat": -33.9472552,
+    "lng": 25.565569
+  },
+  "perridgevale shopping centre, port elizabeth, south africa": null,
+  "cnr walker drive and sandton ave, port elizabeth, south africa": null,
+  "140 st francis drive, st francis bay, south africa": {
+    "lat": -34.1787829,
+    "lng": 24.8383937
+  },
+  "shop 12 peppergrove mall, grahamstown, south africa": null
 }

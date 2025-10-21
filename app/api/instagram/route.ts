@@ -1,13 +1,25 @@
 import { NextResponse } from 'next/server';
 
+interface InstagramPost {
+  id: string;
+  caption: string;
+  media_url: string;
+  permalink: string;
+  media_type: 'IMAGE' | 'VIDEO' | 'CAROUSEL_ALBUM';
+  timestamp?: string;
+  likes?: number;
+}
+
+const INSTAGRAM_USERNAME = 'the.betterbeing';
+const CACHE_DURATION = 3600; // 1 hour
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const count = parseInt(searchParams.get('count') || '4', 10);
+  const count = parseInt(searchParams.get('count') || '12', 10);
 
   try {
-    // Fetch posts from Instagram's public HTML page and parse the embedded JSON
-    const username = 'the.betterbeing';
-    const response = await fetch(`https://www.instagram.com/${username}/`, {
+    // Fetch posts from Instagram's public HTML page
+    const response = await fetch(`https://www.instagram.com/${INSTAGRAM_USERNAME}/`, {
       headers: {
         'User-Agent':
           'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -19,54 +31,103 @@ export async function GET(request: Request) {
         'Sec-Fetch-Dest': 'document',
         'Sec-Fetch-Mode': 'navigate',
         'Sec-Fetch-Site': 'none',
+        'Cache-Control': 'no-cache',
       },
-      next: { revalidate: 3600 }, // Cache for 1 hour
+      next: { revalidate: CACHE_DURATION },
     });
 
     if (!response.ok) {
-      throw new Error(`Instagram fetch error: ${response.status}`);
+      throw new Error(`Instagram HTTP ${response.status}: ${response.statusText}`);
     }
 
     const html = await response.text();
-
-    // Extract JSON from the HTML page
-    const jsonMatch = html.match(
-      /<script type="application\/ld\+json">({.*?})<\/script>/
-    );
-    const sharedDataMatch = html.match(
-      /window\._sharedData = ({.*?});<\/script>/
-    );
-
-    let posts: any[] = [];
-
-    if (sharedDataMatch) {
-      const sharedData = JSON.parse(sharedDataMatch[1]);
-      const edges =
-        sharedData?.entry_data?.ProfilePage?.[0]?.graphql?.user
-          ?.edge_owner_to_timeline_media?.edges || [];
-
-      posts = edges.slice(0, count).map((edge: any) => ({
-        id: edge.node.id,
-        caption: edge.node.edge_media_to_caption?.edges?.[0]?.node?.text || '',
-        media_url: edge.node.display_url,
-        permalink: `https://www.instagram.com/p/${edge.node.shortcode}/`,
-        media_type: edge.node.is_video ? 'VIDEO' : 'IMAGE',
-      }));
-    }
+    const posts = await parseInstagramHTML(html, count);
 
     if (posts.length === 0) {
-      throw new Error('No posts found in Instagram response');
+      throw new Error('No posts extracted from Instagram response');
     }
 
     return NextResponse.json({
       posts,
       success: true,
+      source: 'instagram',
+      cached_at: new Date().toISOString(),
     });
   } catch (error) {
-    console.error('Instagram scraping error:', error);
+    console.error('[Instagram API] Fetch error:', {
+      message: error instanceof Error ? error.message : 'Unknown error',
+      timestamp: new Date().toISOString(),
+    });
+
     return NextResponse.json(
-      { error: 'Failed to fetch Instagram posts', posts: [] },
+      {
+        error: error instanceof Error ? error.message : 'Failed to fetch Instagram posts',
+        posts: [],
+        success: false,
+        source: 'error',
+      },
       { status: 500 }
     );
   }
+}
+
+async function parseInstagramHTML(html: string, count: number): Promise<InstagramPost[]> {
+  const posts: InstagramPost[] = [];
+
+  // Strategy 1: Try window._sharedData (legacy method)
+  const sharedDataMatch = html.match(/window\._sharedData\s*=\s*({.+?});<\/script>/);
+  if (sharedDataMatch) {
+    try {
+      const sharedData = JSON.parse(sharedDataMatch[1]);
+      const edges =
+        sharedData?.entry_data?.ProfilePage?.[0]?.graphql?.user
+          ?.edge_owner_to_timeline_media?.edges || [];
+
+      for (const edge of edges.slice(0, count)) {
+        posts.push({
+          id: edge.node.id,
+          caption: edge.node.edge_media_to_caption?.edges?.[0]?.node?.text || '',
+          media_url: edge.node.display_url,
+          permalink: `https://www.instagram.com/p/${edge.node.shortcode}/`,
+          media_type: edge.node.is_video ? 'VIDEO' : 'IMAGE',
+          timestamp: new Date(edge.node.taken_at_timestamp * 1000).toISOString(),
+          likes: edge.node.edge_liked_by?.count,
+        });
+      }
+
+      if (posts.length > 0) {
+        console.log(`[Instagram Parser] Extracted ${posts.length} posts via _sharedData`);
+        return posts;
+      }
+    } catch (err) {
+      console.warn('[Instagram Parser] _sharedData parsing failed:', err);
+    }
+  }
+
+  // Strategy 2: Try application/ld+json schema
+  const ldJsonMatches = html.matchAll(/<script type="application\/ld\+json">(.+?)<\/script>/gs);
+  for (const match of ldJsonMatches) {
+    try {
+      const data = JSON.parse(match[1]);
+      if (data['@type'] === 'ProfilePage' && data.mainEntity?.interactionStatistic) {
+        // This usually contains profile metadata, not posts
+        continue;
+      }
+    } catch (err) {
+      console.warn('[Instagram Parser] ld+json parsing failed:', err);
+    }
+  }
+
+  // Strategy 3: Try extracting from script tags containing "xdt_api__v1__media"
+  const apiDataMatch = html.match(/"xdt_api__v1__media__shortcode__web_info".*?"data":\s*({.+?})\s*}/s);
+  if (apiDataMatch) {
+    try {
+      const mediaData = JSON.parse(apiDataMatch[1]);
+      // Parse media data if available
+    } catch (err) {
+      console.warn('[Instagram Parser] API data parsing failed:', err);
+    }
+  }
+
+  return posts;
 }
