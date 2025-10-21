@@ -27,9 +27,8 @@ export default function ShopPage() {
                 letterSpacing: 'var(--hero-letterspacing)'
               }}
             >
-              THE BETTER WAY NATURAL<br />NO COMPROMISE
+              THE BETTER WAY NATURAL, NO COMPROMISE
             </h1>
-            <p className="text-subhero text-white/90">Discover our complete collection of premium natural supplements</p>
           </div>
         </div>
       </section>
