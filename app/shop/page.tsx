@@ -18,7 +18,7 @@ export default function ShopPage() {
         <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
           <div className="min-h-[var(--hero-min-h-desktop)] md:min-h-[var(--hero-min-h-tablet)] sm:min-h-[var(--hero-min-h-mobile)] flex flex-col items-center justify-center text-center py-24">
             <h1
-              className="u-hero-title text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-6"
+              className="u-hero-title text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-6 max-w-4xl mx-auto"
               style={{
                 fontFamily: 'League Spartan, sans-serif',
                 fontWeight: 900,
@@ -27,7 +27,7 @@ export default function ShopPage() {
                 letterSpacing: 'var(--hero-letterspacing)'
               }}
             >
-              THE BETTER WAY NATURAL, NO COMPROMISE
+              THE BETTER WAY NATURAL,<br />NO COMPROMISE
             </h1>
           </div>
         </div>
