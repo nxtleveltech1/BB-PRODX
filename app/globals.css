@@ -1470,10 +1470,24 @@ html {
   --bb-hero-surround: #BB4500;
 
   /* Global Hero Typography Tokens (canonical reference from Home) */
-  --hero-font-size: clamp(4rem, 10vw, 9rem);
+  /* Adjusted to ensure max ~2 lines while staying bold/impactful */
+  --hero-font-size: clamp(2.4rem, 7.5vw, 7.5rem);
   --hero-letterspacing: 0.1em; /* standardized hero letter spacing */
   --hero-lineheight: 0.85;
+  --hero-max-ch: 20ch; /* keep hero headings to ~2 lines max */
   --hero-min-h-desktop: 75vh;
   --hero-min-h-tablet: 60vh;
   --hero-min-h-mobile: 50vh;
+}
+
+/* Utility: unified hero title styling and two-line max intent */
+.u-hero-title {
+  font-family: 'League Spartan, sans-serif';
+  font-weight: 900;
+  font-size: var(--hero-font-size);
+  line-height: var(--hero-lineheight);
+  letter-spacing: var(--hero-letterspacing);
+  text-wrap: balance;
+  max-width: var(--hero-max-ch);
+  margin-inline: auto;
 }

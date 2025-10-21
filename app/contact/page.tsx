@@ -32,7 +32,7 @@ export default function ContactPage() {
       <section className="relative min-h-[var(--hero-min-h-tablet)] bg-[var(--bb-hero-surround)] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/Platform Graphics/Contact Us Banner.png"
+            src="/Platform Graphics/Contact Us banner.png"
             alt="Contact hero"
             className="w-full h-full object-cover"
           />
@@ -43,7 +43,7 @@ export default function ContactPage() {
         <div className="relative z-20 w-full px-6 max-w-7xl mx-auto">
           <div className="min-h-[var(--hero-min-h-tablet)] flex flex-col items-center justify-center text-center py-24">
             <h1
-              className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-6"
+              className="u-hero-title text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-6"
               style={{
                 fontFamily: 'League Spartan, sans-serif',
                 fontWeight: 900,
