@@ -54,89 +54,90 @@ export default function SocialMediaWall({
     fetchPosts();
   }, [count]);
 
-  // Fallback posts with wellness-themed images
+  // Local Instagram posts - using actual Better Being Instagram images
+  // Temporary solution until Instagram API integration is configured
   const fallbackPosts = [
     {
       id: '1',
       caption: 'Discover natural wellness solutions that support your journey to better being. 🌿✨ #BetterBeing #Wellness',
-      media_url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=600&fit=crop&crop=center',
+      media_url: '/images/Instagram/capture_251021_192437.png',
       permalink: 'https://www.instagram.com/the.betterbeing/',
       media_type: 'IMAGE' as const,
     },
     {
       id: '2',
       caption: 'Premium wellness products designed for your daily rituals. Quality ingredients, sustainable practices. 💚',
-      media_url: 'https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=600&h=600&fit=crop&crop=center',
+      media_url: '/images/Instagram/capture_251021_192530.png',
       permalink: 'https://www.instagram.com/the.betterbeing/',
       media_type: 'IMAGE' as const,
     },
     {
       id: '3',
       caption: 'Your wellness journey starts with the right choices. Choose products that nourish both body and mind. 🌸',
-      media_url: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=600&fit=crop&crop=center',
+      media_url: '/images/Instagram/capture_251021_192542.png',
       permalink: 'https://www.instagram.com/the.betterbeing/',
       media_type: 'IMAGE' as const,
     },
     {
       id: '4',
       caption: 'Experience the difference that premium, natural wellness products can make in your daily routine. ✨',
-      media_url: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=600&fit=crop&crop=center',
+      media_url: '/images/Instagram/capture_251021_192603.png',
       permalink: 'https://www.instagram.com/the.betterbeing/',
       media_type: 'IMAGE' as const,
     },
     {
       id: '5',
       caption: 'Nourish your body and mind with our carefully crafted wellness collection. 🌱',
-      media_url: 'https://images.unsplash.com/photo-1596215143922-aba2cd0c2ddb?w=600&h=600&fit=crop&crop=center',
+      media_url: '/images/Instagram/capture_251021_192617.png',
       permalink: 'https://www.instagram.com/the.betterbeing/',
       media_type: 'IMAGE' as const,
     },
     {
       id: '6',
       caption: 'Self-care starts with choosing the right wellness products for your unique journey. 💫',
-      media_url: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=600&fit=crop&crop=center',
+      media_url: '/images/Instagram/capture_251021_192632.png',
       permalink: 'https://www.instagram.com/the.betterbeing/',
       media_type: 'IMAGE' as const,
     },
     {
       id: '7',
       caption: 'Better Being: where quality meets wellness, and nature meets science. 🌿',
-      media_url: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&h=600&fit=crop&crop=center',
+      media_url: '/images/Instagram/capture_251021_192647.png',
       permalink: 'https://www.instagram.com/the.betterbeing/',
       media_type: 'IMAGE' as const,
     },
     {
       id: '8',
       caption: 'Transform your wellness routine with products designed to work in harmony with your body. 🌸',
-      media_url: 'https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&h=600&fit=crop&crop=center',
+      media_url: '/images/Instagram/capture_251021_192809.png',
       permalink: 'https://www.instagram.com/the.betterbeing/',
       media_type: 'IMAGE' as const,
     },
     {
       id: '9',
       caption: 'From nature to nourishment - discover the Better Being difference. 💚',
-      media_url: 'https://images.unsplash.com/photo-1599459183200-59c7687a0275?w=600&h=600&fit=crop&crop=center',
+      media_url: '/images/Instagram/capture_251021_192924.png',
       permalink: 'https://www.instagram.com/the.betterbeing/',
       media_type: 'IMAGE' as const,
     },
     {
       id: '10',
       caption: 'Wellness made simple, natural, and effective. Your journey starts here. ✨',
-      media_url: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=600&h=600&fit=crop&crop=center',
+      media_url: '/images/Instagram/capture_251021_192943.png',
       permalink: 'https://www.instagram.com/the.betterbeing/',
       media_type: 'IMAGE' as const,
     },
     {
       id: '11',
       caption: 'Embrace holistic wellness with our thoughtfully curated product range. 🌱',
-      media_url: 'https://images.unsplash.com/photo-1600428877887-59d403795f6f?w=600&h=600&fit=crop&crop=center',
+      media_url: '/images/Instagram/capture_251021_192957.png',
       permalink: 'https://www.instagram.com/the.betterbeing/',
       media_type: 'IMAGE' as const,
     },
     {
       id: '12',
       caption: 'Better begins with you. Better begins here. 💫',
-      media_url: 'https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=600&h=600&fit=crop&crop=center',
+      media_url: '/images/Instagram/capture_251021_193104.png',
       permalink: 'https://www.instagram.com/the.betterbeing/',
       media_type: 'IMAGE' as const,
     },
@@ -242,7 +243,6 @@ export default function SocialMediaWall({
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   loading={index < 6 ? 'eager' : 'lazy'}
-                  unoptimized={post.media_url.includes('unsplash.com')}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.src = '/placeholder-image.png';
