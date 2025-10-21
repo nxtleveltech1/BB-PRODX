@@ -1,5 +1,8 @@
 export default function SitemapPage() {
-  const sections = [
+  const sections: Array<{
+    title: string;
+    links: Array<{ name: string; url: string; external?: boolean }>;
+  }> = [
     {
       title: "Main Pages",
       links: [
