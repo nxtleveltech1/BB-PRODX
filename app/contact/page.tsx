@@ -47,9 +47,9 @@ export default function ContactPage() {
               style={{
                 fontFamily: 'League Spartan, sans-serif',
                 fontWeight: 900,
-                fontSize: 'clamp(3rem, 8vw, 7rem)',
+                fontSize: 'var(--hero-font-size)',
                 lineHeight: 'var(--hero-lineheight)',
-                letterSpacing: '0.1em'
+                letterSpacing: 'var(--hero-letterspacing)'
               }}
             >
               REAL PEOPLE, REAL REPLIES
@@ -76,7 +76,7 @@ export default function ContactPage() {
               <div className="space-y-6">
                 <div className="p-6 bg-[var(--bb-black-bean)] text-white">
                   <h3 className="text-xl font-semibold uppercase tracking-wide" style={{ fontFamily: 'League Spartan, sans-serif' }}>
-                    Become a Stockist
+                    Stock Better Being
                   </h3>
                   <p className="mt-3 text-[var(--bb-champagne)] leading-relaxed" style={{ fontFamily: 'Playfair Display, serif' }}>
                     Let's get you on board!

@@ -45,9 +45,9 @@ const [scrollY, setScrollY] = useState(0);
               style={{
                 fontFamily: 'League Spartan, sans-serif',
                 fontWeight: 900,
-                fontSize: 'clamp(3rem, 8vw, 7rem)',
+                fontSize: 'var(--hero-font-size)',
                 lineHeight: 'var(--hero-lineheight)',
-                letterSpacing: '0.1em'
+                letterSpacing: 'var(--hero-letterspacing)'
               }}
             >
               BETTER BEGINS HERE

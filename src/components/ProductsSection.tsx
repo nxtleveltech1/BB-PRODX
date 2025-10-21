@@ -82,7 +82,19 @@ export const ProductsSection = () => {
                 <CardContent className="p-0">
                   {/* Product Image Container */}
                   <div className="relative w-full aspect-square bg-[var(--bb-champagne)] flex items-center justify-center">
-                    <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4" />
+                    {(() => {
+                      const name = (product.name || '').toLowerCase()
+                      const isFacialPot = ['skin therapy', 'aloe', 'day', 'night', 'eye']
+                        .some(k => name.includes(k))
+                      const scaleClass = isFacialPot ? 'scale-75' : ''
+                      return (
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className={`w-full h-full object-contain p-4 transition-transform ${scaleClass}`}
+                        />
+                      )
+                    })()}
                   </div>
 
                   {/* Product Info */}
@@ -126,19 +138,18 @@ export const ProductsSection = () => {
                     {/* Actions */}
                     <div className="flex space-x-3">
                       <Button
+                        variant="outline"
+                        className="flex-1 border-[var(--bb-black-bean)] text-[var(--bb-black-bean)] hover:bg-[var(--bb-black-bean)] hover:text-white"
+                        onClick={(event) => { event.stopPropagation(); router.push(`/products/${product.id}`) }}
+                      >
+                        Read More
+                      </Button>
+                      <Button
                         className="flex-1 bg-[var(--bb-black-bean)] hover:bg-[var(--bb-black-bean)]/90 text-white"
                         onClick={(event) => event.stopPropagation()}
                       >
                         <ShoppingCart className="w-4 h-4 mr-2" />
-                        Add to cart
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="shrink-0 border-[var(--bb-mahogany)] text-[var(--bb-mahogany)] hover:bg-[var(--bb-mahogany)]/10"
-                        onClick={(event) => event.stopPropagation()}
-                      >
-                        <Heart className="w-4 h-4" />
+                        Add to Cart
                       </Button>
                     </div>
                   </div>
@@ -162,4 +173,3 @@ export const ProductsSection = () => {
 };
 
 export default ProductsSection;
-

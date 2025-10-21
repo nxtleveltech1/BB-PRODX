@@ -24,16 +24,14 @@ export default function PortalAccessPage() {
               style={{
                 fontFamily: 'League Spartan, sans-serif',
                 fontWeight: 900,
-                fontSize: 'clamp(3rem, 8vw, 7rem)',
+                fontSize: 'var(--hero-font-size)',
                 lineHeight: 'var(--hero-lineheight)',
-                letterSpacing: '0.1em'
+                letterSpacing: 'var(--hero-letterspacing)'
               }}
             >
               LETS GET YOU ON BOARD
             </h1>
-            <p className="text-subhero text-white/90">
-              Stock Better Being
-            </p>
+            {/* Subtitle removed per spec */}
           </div>
         </div>
       </section>
@@ -42,14 +40,7 @@ export default function PortalAccessPage() {
       <section className="py-16 bg-[#F9E7C9]">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <p 
-            className="leading-relaxed text-[var(--bb-payne-gray)]"
-            style={{ 
-              fontFamily: 'Playfair Display, serif',
-              fontWeight: 300,
-              fontSize: 'clamp(1.25rem, 2.5vw, 2rem)',
-              lineHeight: 1.4,
-              letterSpacing: '0.01em'
-            }}
+            className="leading-relaxed text-[var(--bb-payne-gray)] text-lg md:text-2xl font-light"
           >
             You know your community; we'll meet you with the right backing to make it work—clear communication, easy onboarding, fast reorders.
           </p>
