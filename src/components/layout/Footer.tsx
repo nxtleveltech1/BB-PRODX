@@ -4,9 +4,14 @@ import React, { useRef, useState } from "react";
 import { toast } from "sonner";
 import Script from "next/script";
 
-const INSTAGRAM_URL = process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM || "https://www.instagram.com/the.betterbeing/";
-const FACEBOOK_URL = process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK || "https://facebook.com/betterbeing";
-const LINKEDIN_URL = process.env.NEXT_PUBLIC_SOCIAL_LINKEDIN || "https://linkedin.com/company/betterbeing";
+const INSTAGRAM_URL =
+  process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM ||
+  "https://www.instagram.com/the.betterbeing/";
+const FACEBOOK_URL =
+  process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK || "https://facebook.com/betterbeing";
+const LINKEDIN_URL =
+  process.env.NEXT_PUBLIC_SOCIAL_LINKEDIN ||
+  "https://linkedin.com/company/betterbeing";
 
 export default function Footer() {
   return (
@@ -80,12 +85,17 @@ export default function Footer() {
 
       <div className="border-t border-white/10 bg-[var(--bb-black-bean)]">
         <div className="max-w-7xl mx-auto px-6 py-4 text-xs text-[var(--bb-citron)] flex flex-col sm:flex-row items-center justify-between gap-3 uppercase tracking-wide">
-          <span>&copy; {new Date().getFullYear()} BETTER BEING. ALL RIGHTS RESERVED.</span>
+          <span>
+            &copy; {new Date().getFullYear()} BETTER BEING. ALL RIGHTS RESERVED.
+          </span>
           <div className="flex flex-wrap items-center gap-4">
             <a href="/terms" className="hover:text-white transition-colors">
               Term & Condition & Privacy Policy
             </a>
-            <a href="/accessibility" className="hover:text-white transition-colors">
+            <a
+              href="/accessibility"
+              className="hover:text-white transition-colors"
+            >
               ACCESSIBILITY
             </a>
             <a href="/sitemap" className="hover:text-white transition-colors">
@@ -98,7 +108,13 @@ export default function Footer() {
   );
 }
 
-function FooterColumn({ title, children }: { title: string; children: React.ReactNode }) {
+function FooterColumn({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <div className="min-w-0">
       <h4
@@ -107,14 +123,23 @@ function FooterColumn({ title, children }: { title: string; children: React.Reac
       >
         {title}
       </h4>
-      <ul className="space-y-2" style={{ fontFamily: "Playfair Display, serif" }}>
+      <ul
+        className="space-y-2"
+        style={{ fontFamily: "Playfair Display, serif" }}
+      >
         {children}
       </ul>
     </div>
   );
 }
 
-function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+function FooterLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
   return (
     <li>
       <a
@@ -128,9 +153,23 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
   );
 }
 
-function FooterSocial({ href, label, children }: { href: string; label: string; children: React.ReactNode }) {
+function FooterSocial({
+  href,
+  label,
+  children,
+}: {
+  href: string;
+  label: string;
+  children: React.ReactNode;
+}) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="hover:text-[#b5a642] transition-colors">
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={label}
+      className="hover:text-[#b5a642] transition-colors"
+    >
       {children}
     </a>
   );
@@ -158,7 +197,11 @@ function NewsletterForm() {
     try {
       let hcaptchaToken = "";
       if (siteKey) {
-        const el = document.querySelector<HTMLTextAreaElement | HTMLInputElement>('textarea[name="h-captcha-response"], input[name="h-captcha-response"]');
+        const el = document.querySelector<
+          HTMLTextAreaElement | HTMLInputElement
+        >(
+          'textarea[name="h-captcha-response"], input[name="h-captcha-response"]'
+        );
         hcaptchaToken = el?.value || "";
         if (!hcaptchaToken) {
           toast.error("Please complete the captcha.");
@@ -170,7 +213,12 @@ function NewsletterForm() {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, hcaptchaToken, ts: mountedAt.current, hp }),
+        body: JSON.stringify({
+          email,
+          hcaptchaToken,
+          ts: mountedAt.current,
+          hp,
+        }),
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok) {
@@ -179,7 +227,9 @@ function NewsletterForm() {
       } else if (res.status === 501) {
         toast.error("Subscription service not configured on the server.");
       } else {
-        toast.error((data as { message?: string })?.message || "Subscription failed.");
+        toast.error(
+          (data as { message?: string })?.message || "Subscription failed."
+        );
       }
     } catch (error: any) {
       toast.error(error?.message || "Network error. Please try again.");
@@ -190,7 +240,9 @@ function NewsletterForm() {
 
   return (
     <>
-      {siteKey && <Script src="https://hcaptcha.com/1/api.js" strategy="lazyOnload" />}
+      {siteKey && (
+        <Script src="https://hcaptcha.com/1/api.js" strategy="lazyOnload" />
+      )}
       <form onSubmit={onSubmit} className="flex w-full max-w-sm">
         <label className="sr-only" htmlFor="company">
           Company

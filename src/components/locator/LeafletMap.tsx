@@ -34,9 +34,21 @@ const markerIcon = L.icon({
   shadowSize: [41, 41],
 });
 
-export default function LeafletMap({ center, radiusKm = 50, markers, highlightId: _highlightId, onMarkerClick, height, className }: LeafletMapProps) {
-  const centerLatLng = useMemo(() => ({ lat: center[0], lng: center[1] }), [center]);
-  const containerHeight = typeof height === "number" ? `${height}px` : height || "500px";
+export default function LeafletMap({
+  center,
+  radiusKm = 50,
+  markers,
+  highlightId: _highlightId,
+  onMarkerClick,
+  height,
+  className,
+}: LeafletMapProps) {
+  const centerLatLng = useMemo(
+    () => ({ lat: center[0], lng: center[1] }),
+    [center]
+  );
+  const containerHeight =
+    typeof height === "number" ? `${height}px` : height || "500px";
 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<L.Map | null>(null);
@@ -63,10 +75,13 @@ export default function LeafletMap({ center, radiusKm = 50, markers, highlightId
       scrollWheelZoom: true,
     }).setView(centerLatLng as unknown as LatLngExpression, 7);
 
-    tileLayerRef.current = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    }).addTo(map);
+    tileLayerRef.current = L.tileLayer(
+      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }
+    ).addTo(map);
 
     markersLayerRef.current = L.layerGroup().addTo(map);
     mapRef.current = map;
@@ -100,16 +115,19 @@ export default function LeafletMap({ center, radiusKm = 50, markers, highlightId
         }
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Keep view in sync
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
-    map.setView(centerLatLng as unknown as LatLngExpression, Math.max(map.getZoom(), 6), {
-      animate: true,
-    });
+    map.setView(
+      centerLatLng as unknown as LatLngExpression,
+      Math.max(map.getZoom(), 6),
+      {
+        animate: true,
+      }
+    );
   }, [centerLatLng]);
 
   // Keep radius circle in sync
@@ -119,14 +137,19 @@ export default function LeafletMap({ center, radiusKm = 50, markers, highlightId
 
     if (radiusKm > 0) {
       if (!circleRef.current) {
-        circleRef.current = L.circle(centerLatLng as unknown as LatLngExpression, {
-          radius: radiusKm * 1000,
-          color: "#BB4500",
-          fillColor: "#BB4500",
-          fillOpacity: 0.08,
-        }).addTo(map);
+        circleRef.current = L.circle(
+          centerLatLng as unknown as LatLngExpression,
+          {
+            radius: radiusKm * 1000,
+            color: "#BB4500",
+            fillColor: "#BB4500",
+            fillOpacity: 0.08,
+          }
+        ).addTo(map);
       } else {
-        circleRef.current.setLatLng(centerLatLng as unknown as LatLngExpression);
+        circleRef.current.setLatLng(
+          centerLatLng as unknown as LatLngExpression
+        );
         circleRef.current.setRadius(radiusKm * 1000);
       }
     } else if (circleRef.current) {
@@ -151,7 +174,9 @@ export default function LeafletMap({ center, radiusKm = 50, markers, highlightId
       const lat = m.coordinates?.lat ?? centerLatLng.lat;
       const lng = m.coordinates?.lng ?? centerLatLng.lng;
 
-      const marker = L.marker([lat, lng] as unknown as LatLngExpression, { icon: markerIcon });
+      const marker = L.marker([lat, lng] as unknown as LatLngExpression, {
+        icon: markerIcon,
+      });
 
       const html = `
         <div style="min-width: 200px">
@@ -160,8 +185,16 @@ export default function LeafletMap({ center, radiusKm = 50, markers, highlightId
             ${m.type === "distributor" ? "Distribution Point" : "Retail Store"}
           </div>
           <div style="margin-bottom: 4px">${m.address}</div>
-          ${m.vendor ? `<div style="font-size: 13px"><strong>Vendor:</strong> ${m.vendor}</div>` : ""}
-          ${m.agent ? `<div style="font-size: 13px"><strong>Agent:</strong> ${m.agent}</div>` : ""}
+          ${
+            m.vendor
+              ? `<div style="font-size: 13px"><strong>Vendor:</strong> ${m.vendor}</div>`
+              : ""
+          }
+          ${
+            m.agent
+              ? `<div style="font-size: 13px"><strong>Agent:</strong> ${m.agent}</div>`
+              : ""
+          }
           ${
             m.phone
               ? `<div style="margin-top: 6px"><a href="tel:${m.phone}" style="color: #BB4500">${m.phone}</a></div>`
@@ -188,7 +221,10 @@ export default function LeafletMap({ center, radiusKm = 50, markers, highlightId
   return (
     <div
       ref={containerRef}
-      className={["rounded-2xl border border-[#E8E2DC] bg-white/80 shadow-md", className || ""].join(" ")}
+      className={[
+        "rounded-2xl border border-[#E8E2DC] bg-white/80 shadow-md",
+        className || "",
+      ].join(" ")}
       style={{ height: containerHeight, width: "100%", overflow: "hidden" }}
     />
   );

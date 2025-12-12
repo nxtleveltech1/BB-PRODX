@@ -1,7 +1,5 @@
-import { redirect } from "next/navigation"
+import { redirect } from "next/navigation";
 
 export default function StockBetterBeingRedirectPage() {
-  redirect("/portal-access")
+  redirect("/portal-access");
 }
-
-

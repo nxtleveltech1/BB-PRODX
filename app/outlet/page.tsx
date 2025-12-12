@@ -8,7 +8,9 @@ export default function OutletPage() {
   const lat = Number.parseFloat(sp?.get("lat") ?? "");
   const lng = Number.parseFloat(sp?.get("lng") ?? "");
   const hasCenter = Number.isFinite(lat) && Number.isFinite(lng);
-  const initialCenter = hasCenter ? ([lat, lng] as [number, number]) : undefined;
+  const initialCenter = hasCenter
+    ? ([lat, lng] as [number, number])
+    : undefined;
   const radiusParam = Number.parseInt(sp?.get("radius") ?? "");
   const initialRadius = Number.isFinite(radiusParam) ? radiusParam : undefined;
   const t = sp?.get("type") ?? "";
@@ -30,4 +32,3 @@ export default function OutletPage() {
     </div>
   );
 }
-
