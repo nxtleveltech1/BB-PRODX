@@ -86,7 +86,7 @@ export default function HomePage() {
               </div>
 
               <h2
-                className="text-3xl lg:text-4xl font-light leading-tight text-[#2C2B29] whitespace-nowrap"
+                className="text-3xl lg:text-4xl font-light leading-tight text-[#2C2B29] whitespace-normal sm:whitespace-nowrap"
                 style={{ fontFamily: "Playfair Display, serif" }}
               >
                 Your Journey to{" "}

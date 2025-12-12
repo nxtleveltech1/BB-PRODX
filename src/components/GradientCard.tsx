@@ -10,17 +10,17 @@ export default function GradientCard({ icon, title, subtitle, ctaText, href }: G
   return (
     <div className="bg-gradient-to-br from-[var(--bb-black-bean)] to-[var(--bb-mahogany)] text-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
       <div className="p-10 text-center">
-        <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-white/10 flex items-center justify-center">
+        <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-white flex items-center justify-center">
           <img
             src={icon}
             alt={`${title} icon`}
             className="w-16 h-16 object-contain"
           />
         </div>
-        <h2 className="text-2xl font-semibold uppercase tracking-wide mb-4" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+        <h2 className="text-2xl font-semibold uppercase tracking-wide mb-4 text-white" style={{ fontFamily: 'League Spartan, sans-serif' }}>
           {title}
         </h2>
-        <p className="text-[var(--bb-champagne)] leading-relaxed mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+        <p className="text-white leading-relaxed mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
           {subtitle}
         </p>
         <a

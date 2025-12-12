@@ -8,6 +8,22 @@
 @import "../styles/mobile-touch.css";
 
 /* =============================================================================
+   MOBILE BASELINE FIXES (prevent horizontal overflow + improve tap UX)
+   ============================================================================= */
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+/* =============================================================================
    BETTERBEING DESIGN SYSTEM TOKENS
    ============================================================================= */
 
@@ -1322,16 +1338,18 @@ html {
 /* Account Dropdown */
 .account-dropdown {
   position: absolute;
-  top: calc(100% + 0.5rem);
+  top: calc(100% + 0.75rem);
   right: 0;
-  min-width: 12rem;
-  background: transparent; /* no background */
-  backdrop-filter: none; /* no blur */
-  border: none; /* no border */
-  border-radius: 0;
-  box-shadow: none; /* no shadow */
-  overflow: visible;
-  z-index: 50;
+  min-width: 14rem;
+  max-width: min(18rem, 92vw);
+  background: rgba(249, 231, 201, 0.98); /* var(--bb-champagne) */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(186, 69, 0, 0.25); /* var(--bb-mahogany) */
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  padding: 0.5rem;
+  z-index: 1000;
   animation: dropdownSlide 0.2s ease-out;
 }
 
@@ -1349,15 +1367,17 @@ html {
 .dropdown-item {
   display: block;
   width: 100%;
-  padding: 0.5rem 0; /* minimal */
-  color: var(--bb-mahogany);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+  color: var(--bb-black-bean);
   font-size: 0.875rem;
-  font-weight: 400;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
   text-decoration: none;
   border: none;
   background: transparent;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .dropdown-item:last-child {
@@ -1365,11 +1385,13 @@ html {
 }
 
 .dropdown-item:hover {
-  color: var(--bb-citron);
+  background-color: rgba(255, 255, 255, 0.65);
+  color: var(--bb-mahogany);
 }
 
 .dropdown-item:focus {
   outline: none;
+  box-shadow: 0 0 0 3px hsl(17 100% 37% / 0.15);
 }
 
 /* Mobile Menu Button */
@@ -1411,7 +1433,7 @@ html {
 .mobile-overlay {
   position: fixed;
   inset: 0;
-  background: transparent; /* no dimming */
+  background: rgba(0, 0, 0, 0.55);
   backdrop-filter: none;
   z-index: 900; /* ensure overlay sits below menu */
   animation: overlayFade 0.3s ease-out;
@@ -1431,8 +1453,8 @@ html {
   top: 0;
   right: 0;
   width: min(20rem, 90vw);
-  height: 100vh;
-  background: transparent; /* no panel background */
+  height: 100dvh;
+  background: var(--bb-black-bean);
   backdrop-filter: none;
   border-left: none;
   z-index: 1000; /* ensure menu is above overlay */
@@ -1451,7 +1473,8 @@ html {
 }
 
 .mobile-menu-content {
-  padding: 2rem;
+  padding: calc(1.25rem + env(safe-area-inset-top)) 1.25rem
+    calc(1.25rem + env(safe-area-inset-bottom));
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -1467,7 +1490,7 @@ html {
 .mobile-nav-link {
   display: block;
   padding: 1rem 0;
-  color: var(--bb-mahogany);
+  color: var(--bb-champagne);
   font-size: 1.125rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -1514,7 +1537,7 @@ html {
   background: transparent;
   border: none;
   border-radius: 0;
-  color: var(--bb-mahogany);
+  color: var(--bb-champagne);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
@@ -1539,7 +1562,7 @@ html {
   .header-grid-container {
     /* Simple two-column layout on mobile */
     grid-template-columns: 1fr auto;
-    padding: 0.5rem 0.75rem;
+    padding: calc(0.5rem + env(safe-area-inset-top)) 0.75rem 0.5rem;
     gap: 0.75rem;
     max-width: 100%;
   }
@@ -1562,6 +1585,29 @@ html {
   }
 
   .header-actions {
+    display: flex;
+    gap: 0.75rem;
+    padding-right: 0;
+    top: 0;
+  }
+
+  /* Mobile: keep header icons tappable but compact */
+  .header-icon-button {
+    display: none;
+  }
+
+  .header-icon-button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .cart-link svg {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+
+  /* Mobile: account lives inside the slide-out menu */
+  .account-dropdown-container {
     display: none;
   }
 }

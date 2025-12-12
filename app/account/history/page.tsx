@@ -80,7 +80,7 @@ function OrderHistoryContent() {
   const { user: _user } = useUser();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-bb-champagne to-bb-champagne/90">
+    <div className="min-h-screen bg-gradient-to-br from-bb-champagne to-bb-champagne/90 pt-24">
       <div className="container mx-auto px-6 py-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">

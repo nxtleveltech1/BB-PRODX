@@ -66,9 +66,9 @@ export function UserMenu() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <Link href="/profile" className="cursor-pointer">
+          <Link href="/account" className="cursor-pointer">
             <User className="mr-2 h-4 w-4" />
-            Profile
+            Account
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
@@ -78,9 +78,9 @@ export function UserMenu() {
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/settings" className="cursor-pointer">
+          <Link href="/account/orders" className="cursor-pointer">
             <Settings className="mr-2 h-4 w-4" />
-            Settings
+            Orders
           </Link>
         </DropdownMenuItem>
         {session.user.role === "admin" && (

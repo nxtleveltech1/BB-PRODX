@@ -304,12 +304,12 @@ export const Navigation = () => {
                           <p className="text-xs text-muted-foreground truncate">{user.email}</p>
                         </div>
                         <Link 
-                          href="/profile" 
+                          href="/account" 
                           className="flex items-center px-3 py-2 text-sm text-muted-foreground hover:text-primary-600 hover:bg-primary-50/50 rounded-md transition-colors"
                           onClick={() => setShowUserMenu(false)}
                         >
                           <User className="w-4 h-4 mr-2" />
-                          Profile Settings
+                          Account
                         </Link>
                         <Link 
                           href="/account" 

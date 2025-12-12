@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import {
   ChevronDown,
@@ -14,7 +15,7 @@ import {
 import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/lib/useAuth";
 
-export default function Header() {
+export default function Header(): JSX.Element {
   const [showAccountMenu, setShowAccountMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [isClient, setIsClient] = useState(false);
@@ -22,7 +23,7 @@ export default function Header() {
 
   useEffect(() => {
     setIsClient(true);
-    const onScroll = () => {
+    const onScroll = (): void => {
       setScrolled(window.scrollY > 12);
     };
     onScroll();
@@ -35,7 +36,7 @@ export default function Header() {
   const cartCount = getCartCount();
   const showUserState = isClient && !isUserLoading;
 
-  const closeMobileMenu = () => setShowMobileMenu(false);
+  const closeMobileMenu = (): void => setShowMobileMenu(false);
 
   return (
     <header
@@ -49,11 +50,14 @@ export default function Header() {
             className="logo-container group"
             aria-label="Better Being - Home"
           >
-            <img
+            <Image
               src="/Untitled%20design%20(1).png"
               alt="Better Being Logo"
               className="header-logo"
-              loading="eager"
+              width={160}
+              height={60}
+              priority
+              sizes="(max-width: 1024px) 120px, 160px"
             />
           </Link>
         </div>
@@ -186,12 +190,20 @@ export default function Header() {
                           Account Dashboard
                         </Link>
                         <Link
-                          href="/account/history"
+                          href="/account/orders"
                           className="dropdown-item"
                           role="menuitem"
                           onClick={() => setShowAccountMenu(false)}
                         >
                           Orders
+                        </Link>
+                        <Link
+                          href="/account/history"
+                          className="dropdown-item"
+                          role="menuitem"
+                          onClick={() => setShowAccountMenu(false)}
+                        >
+                          Order History
                         </Link>
                         <button
                           onClick={async () => {

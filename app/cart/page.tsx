@@ -268,7 +268,7 @@ export default function CartPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[var(--bb-champagne)] to-[var(--bb-champagne)]/90 pt-24 md:pt-28 pb-28 md:pb-0">
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Cart Items */}
           <div className="lg:col-span-2">
@@ -307,7 +307,7 @@ export default function CartPage() {
 
           {/* Order Summary */}
           <div className="lg:col-span-1">
-            <div className="bg-gradient-to-br from-[var(--bb-champagne)]/80 to-white/60 border-2 border-[var(--bb-mahogany)]/20 rounded-xl p-6 shadow-xl sticky top-8">
+            <div className="bg-gradient-to-br from-[var(--bb-champagne)]/80 to-white/60 border-2 border-[var(--bb-mahogany)]/20 rounded-xl p-6 shadow-xl lg:sticky lg:top-28">
               <h2 className="text-xl font-heading font-bold text-[var(--bb-black-bean)] mb-6">
                 Order Summary
               </h2>

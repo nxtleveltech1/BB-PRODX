@@ -21,7 +21,7 @@ export default async function DashboardPage() {
               Total orders placed
             </p>
             <Button asChild variant="link" className="mt-2 h-auto p-0">
-              <Link href="/orders">View orders →</Link>
+              <Link href="/account/orders">View orders →</Link>
             </Button>
           </CardContent>
         </Card>
@@ -69,7 +69,7 @@ export default async function DashboardPage() {
               Manage your account
             </p>
             <Button asChild variant="link" className="mt-2 h-auto p-0">
-              <Link href="/settings">Update settings →</Link>
+              <Link href="/account">Update settings →</Link>
             </Button>
           </CardContent>
         </Card>

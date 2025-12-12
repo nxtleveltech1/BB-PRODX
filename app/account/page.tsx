@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 import { useUser, useAuth } from '@/lib/useAuth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, type ComponentType, type ReactNode } from 'react';
 import AuthGuard from '../components/AuthGuard';
 import {
   User,
@@ -67,10 +67,14 @@ const mockOrders = [
   }
 ];
 
-function AccountSection({ title, icon: Icon, children }: {
-  title: string;
-  icon: any;
-  children: React.ReactNode;
+function AccountSection({
+  title,
+  icon: Icon,
+  children,
+}: {
+  title: string
+  icon: ComponentType<{ className?: string }>
+  children: ReactNode
 }) {
   return (
     <div className="card">
@@ -89,17 +93,31 @@ function AccountSection({ title, icon: Icon, children }: {
 
 function OrderStatusBadge({ status }: { status: string }) {
   const statusConfig = {
-    delivered: { color: "green", text: "Delivered", icon: CheckCircle },
-    processing: { color: "blue", text: "Processing", icon: Package },
-    shipped: { color: "orange", text: "Shipped", icon: Truck },
-    cancelled: { color: "red", text: "Cancelled", icon: X }
+    delivered: {
+      className: 'bg-green-100 text-green-800',
+      text: 'Delivered',
+      icon: CheckCircle,
+    },
+    processing: {
+      className: 'bg-blue-100 text-blue-800',
+      text: 'Processing',
+      icon: Package,
+    },
+    shipped: {
+      className: 'bg-orange-100 text-orange-800',
+      text: 'Shipped',
+      icon: Truck,
+    },
+    cancelled: { className: 'bg-red-100 text-red-800', text: 'Cancelled', icon: X },
   };
 
   const config = statusConfig[status as keyof typeof statusConfig] || statusConfig.processing;
   const Icon = config.icon;
 
   return (
-    <span className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-${config.color}-100 text-${config.color}-800`}>
+    <span
+      className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${config.className}`}
+    >
       <Icon className="w-3 h-3" />
       {config.text}
     </span>
@@ -127,7 +145,6 @@ function AccountPageContent() {
   const handleSave = () => {
     // In a real app, you would save to a backend API here
     // For now, we'll just save the changes locally
-    console.log('Saving user data:', userData);
     setOriginalUserData({...userData});
     setIsEditing(false);
     // You could add a success message here
@@ -155,44 +172,29 @@ function AccountPageContent() {
   ];
 
   return (
-    <div className="min-h-screen bg-[var(--bb-champagne)]">
-      {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm border-b border-[var(--color-neutral-200)]">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-3 group">
-              <div className="w-10 h-10 bg-gradient-to-br from-[var(--bb-mahogany)] to-[var(--bb-citron)] rounded-lg flex items-center justify-center">
-                <User className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-heading font-bold text-[var(--color-neutral-900)] tracking-brand">
-                BETTER BEING
-              </span>
-            </Link>
-
-            <nav className="flex items-center gap-6">
-              <Link href="/products" className="text-[var(--color-neutral-600)] hover:text-[var(--bb-mahogany)] transition-colors">
-                Products
-              </Link>
-              <Link href="/cart" className="text-[var(--color-neutral-600)] hover:text-[var(--bb-mahogany)] transition-colors">
-                Cart
-              </Link>
-              <button 
-                onClick={handleSignOut}
-                className="text-red-600 hover:text-red-700 transition-colors flex items-center gap-2"
-              >
-                <LogOut className="w-4 h-4" />
-                Sign Out
-              </button>
-            </nav>
-          </div>
-        </div>
-      </header>
-
+    <div className="min-h-screen bg-[var(--bb-champagne)] pt-24">
       <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-8">
+          <div>
+            <h1 className="text-3xl font-heading font-bold text-[var(--bb-black-bean)]">
+              Account Dashboard
+            </h1>
+            <p className="text-[var(--color-neutral-600)]">
+              Manage your profile, orders, and preferences.
+            </p>
+          </div>
+          <button
+            onClick={handleSignOut}
+            className="btn btn-secondary inline-flex items-center gap-2"
+          >
+            <LogOut className="w-4 h-4" />
+            Sign Out
+          </button>
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Sidebar Navigation */}
           <div className="lg:col-span-1">
-            <div className="card sticky top-8">
+            <div className="card sticky top-24">
               {/* User Summary */}
               <div className="text-center mb-6">
                 <div className="w-20 h-20 bg-gradient-to-br from-[#8B4513] to-[#B5A642] rounded-full mx-auto mb-4 flex items-center justify-center">
@@ -363,14 +365,14 @@ function AccountPageContent() {
                       <>
                         <button
                           onClick={handleSave}
-                          className="btn-secondary flex items-center gap-2"
+                          className="btn btn-secondary flex items-center gap-2"
                         >
                           <Save className="w-4 h-4" />
                           Save Changes
                         </button>
                         <button
                           onClick={handleCancel}
-                          className="btn-secondary flex items-center gap-2"
+                          className="btn btn-secondary flex items-center gap-2"
                         >
                           <X className="w-4 h-4" />
                           Cancel
@@ -379,7 +381,7 @@ function AccountPageContent() {
                     ) : (
                       <button
                         onClick={handleEdit}
-                        className="btn-primary flex items-center gap-2"
+                        className="btn btn-primary flex items-center gap-2"
                       >
                         <Edit3 className="w-4 h-4" />
                         Edit Profile
@@ -447,7 +449,7 @@ function AccountPageContent() {
                       <p className="text-[var(--color-neutral-600)] mb-6">
                         Start your wellness journey with our premium products
                       </p>
-                      <Link href="/products" className="btn-primary">
+                      <Link href="/products" className="btn btn-primary">
                         Browse Products
                       </Link>
                     </div>
@@ -466,7 +468,7 @@ function AccountPageContent() {
                   <p className="text-[var(--color-neutral-600)] mb-6">
                     Save your favorite products for later
                   </p>
-                  <Link href="/products" className="btn-primary">
+                  <Link href="/products" className="btn btn-primary">
                     Start Shopping
                   </Link>
                 </div>
@@ -490,7 +492,7 @@ function AccountPageContent() {
                             Update your account password
                           </p>
                         </div>
-                        <button className="btn-secondary">
+                        <button className="btn btn-secondary">
                           Change Password
                         </button>
                       </div>
@@ -504,7 +506,7 @@ function AccountPageContent() {
                             Add an extra layer of security
                           </p>
                         </div>
-                        <button className="btn-secondary">
+                        <button className="btn btn-secondary">
                           Enable 2FA
                         </button>
                       </div>
@@ -518,7 +520,7 @@ function AccountPageContent() {
                             Manage your active login sessions
                           </p>
                         </div>
-                        <button className="btn-secondary">
+                        <button className="btn btn-secondary">
                           View Sessions
                         </button>
                       </div>
@@ -584,7 +586,7 @@ function AccountPageContent() {
                   </div>
 
                   <div className="pt-6 border-t border-[var(--color-neutral-200)]">
-                    <button className="btn-primary">
+                    <button className="btn btn-primary">
                       <Save className="w-4 h-4 mr-2" />
                       Save Preferences
                     </button>
