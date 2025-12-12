@@ -37,6 +37,8 @@ interface CartContextType {
   removeFromCart: (cartItemId: number) => void;
   clearCart: () => void;
   isAddingToCart: boolean;
+  isItemInCart: (productId: number) => boolean;
+  getItemQuantity: (productId: number) => number;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -225,6 +227,13 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     removeFromCart: removeFromCartMutation.mutate,
     clearCart: clearCartMutation.mutate,
     isAddingToCart: addToCartMutation.isPending,
+    isItemInCart: (productId: number) => {
+      return Array.isArray(cartItems) && cartItems.some(item => item.product_id === productId);
+    },
+    getItemQuantity: (productId: number) => {
+      const item = Array.isArray(cartItems) ? cartItems.find(item => item.product_id === productId) : undefined;
+      return item ? Number(item.quantity) || 0 : 0;
+    },
   };
 
   return (

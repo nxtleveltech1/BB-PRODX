@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Heart, ShoppingBag } from "lucide-react";
-import { useCart } from "../../contexts/CartContext";
+import { useCart } from "@/contexts/CartContext";
 
 interface WLItem {
   id: number;
@@ -17,7 +17,7 @@ const LS_KEY = "betterBeing_wishlist";
 
 export default function WishlistPage() {
   const [items, setItems] = useState<WLItem[]>([]);
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
 
   useEffect(() => {
     try {
@@ -36,16 +36,9 @@ export default function WishlistPage() {
   };
 
   const moveToCart = (it: WLItem) => {
-    addItem({
-      id: Date.now(),
-      product_id: it.product_id,
+    addToCart({
+      productId: it.product_id,
       quantity: 1,
-      product_name: it.name,
-      product_description: "",
-      product_image: it.image || "/placeholder.svg",
-      product_price: typeof it.price === 'string' ? it.price.replace(/^R/, '') : String(it.price),
-      product_in_stock: true,
-      product_stock_count: 1,
     });
     remove(it.product_id);
   };

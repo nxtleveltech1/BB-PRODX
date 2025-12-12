@@ -20,7 +20,7 @@ import {
   Leaf,
   Share2
 } from "lucide-react";
-import { useCart } from "../../../contexts/CartContext";
+import { useCart } from "@/contexts/CartContext";
 import { getProductById, getRelatedProducts } from "@/data/products";
 import { toast } from "sonner";
 
@@ -111,7 +111,7 @@ function ReviewCard({ rating, author, date, title, content, verified }: ReviewPr
 export default function ProductDetailPage() {
   const params = useParams<{ id: string }>();
   const router = useRouter();
-  const { addItem, isItemInCart, getItemQuantity } = useCart();
+  const { addToCart, isItemInCart, getItemQuantity } = useCart();
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const [activeTab, setActiveTab] = useState<'description' | 'ingredients' | 'reviews'>('description');
@@ -187,21 +187,10 @@ export default function ProductDetailPage() {
   const cartQuantity = getItemQuantity(product.id);
 
   const handleAddToCart = () => {
-    const cartItem = {
-      id: Date.now(),
-      product_id: product.id,
+    addToCart({
+      productId: product.id,
       quantity: quantity,
-      product_name: product.name,
-      product_description: product.description,
-      product_image: product.images[0],
-      product_price: product.price.toString(),
-      product_original_price: product.originalPrice?.toString(),
-      product_in_stock: product.inStock,
-      product_stock_count: product.stockCount,
-      category_name: product.category,
-    };
-    
-    addItem(cartItem);
+    });
   };
 
   const reviews = [

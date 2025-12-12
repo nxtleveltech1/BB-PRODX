@@ -293,7 +293,7 @@ export const RecommendationEngine: React.FC<RecommendationEngineProps> = ({
 }) => {
   const { user } = useAuth();
   const cart = useCart() as any;
-  const addToCart = cart?.addItem || (() => {});
+  const addToCart = cart?.addToCart || (() => {});
   const [recommendations, setRecommendations] = useState<{
     personalized: Recommendation[];
     trending: Recommendation[];

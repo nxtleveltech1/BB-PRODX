@@ -8,11 +8,11 @@ import { toast } from "sonner";
 // import api from "@/services/apiOptimized";
 import { products } from "@/data/products";
 import TopSixFlip from "@/components/TopSixFlip";
-import { useCart } from "../../contexts/CartContext";
+import { useCart } from "@/contexts/CartContext";
 
 function ProductCard({ product }: { product: any }) {
   const router = useRouter();
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
   const hasDiscount = product.originalPrice && product.originalPrice !== product.price;
   const price = typeof product.price === 'string' ? product.price : `R${product.price}`;
   const originalPrice = typeof product.originalPrice === 'string' ? product.originalPrice : `R${product.originalPrice}`;
@@ -144,7 +144,7 @@ function upsertWishlistEntry(entry: { product_id: number; name: string; image: s
 
 function MobileProductCard({ product }: { product: any }) {
   const router = useRouter();
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
   const toNumber = (v: any) => typeof v === 'number' ? v : Number(String(v ?? '').replace(/[^0-9.]/g, '')) || 0;
   const priceNum = toNumber(product.price);
   const origNum = product.originalPrice != null ? toNumber(product.originalPrice) : NaN;
@@ -158,18 +158,9 @@ function MobileProductCard({ product }: { product: any }) {
     e.preventDefault();
     e.stopPropagation();
     try {
-      addItem({
-        id: Date.now(),
-        product_id: product.id,
+      addToCart({
+        productId: product.id,
         quantity: 1,
-        product_name: product.name,
-        product_description: product.description,
-        product_image: product.image || "/placeholder.svg",
-        product_price: typeof product.price === 'string' ? product.price.replace(/^R/, '') : String(product.price),
-        product_original_price: typeof product.originalPrice === 'string' ? product.originalPrice.replace(/^R/, '') : (product.originalPrice ? String(product.originalPrice) : undefined),
-        product_in_stock: product.inStock !== false,
-        product_stock_count: product.stockCount || 1,
-        category_name: product.categoryId || undefined,
       });
     } catch (_err) {}
   };

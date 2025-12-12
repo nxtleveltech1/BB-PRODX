@@ -12,7 +12,7 @@ import {
   Truck,
   Lock
 } from 'lucide-react';
-import { useCart } from '../../contexts/CartContext';
+import { useCart } from '@/contexts/CartContext';
 
 interface CheckoutForm {
   // Shipping Information

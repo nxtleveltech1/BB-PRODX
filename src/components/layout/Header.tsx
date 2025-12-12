@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { ChevronDown, ShoppingCart, User, Menu, X, Search, Heart } from "lucide-react";
-import { useCart } from "../../../contexts/CartContext";
+import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/lib/useAuth";
 
 export default function Header() {
