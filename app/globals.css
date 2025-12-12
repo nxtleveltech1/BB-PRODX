@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Manrope:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap");
 @import "../styles/mobile-touch.css";
 
@@ -18,6 +18,7 @@
   --bb-champagne: #F9E7C9;       /* Warm champagne base */
   --bb-black-bean: #2C2B29;      /* Deep charcoal for text */
   --bb-payne-gray: #7A7771;      /* Sophisticated gray */
+  --bb-hero-surround: #BB4500;   /* Hero section background (mahogany) */
   
   /* Extended Luxury Palette */
   --luxury-bronze: #CD7F32;
@@ -115,6 +116,14 @@
   --transition-base: all 200ms ease-out;
   --transition-slow: all 300ms ease-out;
   --transition-wellness: all 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Hero Section Variables - Matching Reference */
+  --hero-font-size: clamp(3rem, 8vw, 6rem);
+  --hero-lineheight: 0.9;
+  --hero-letterspacing: -0.02em;
+  --hero-min-h-desktop: 80vh;
+  --hero-min-h-tablet: 70vh;
+  --hero-min-h-mobile: 60vh;
 }
 
 html {
@@ -348,6 +357,7 @@ html, body {
   background-color: var(--bb-champagne);
   color: var(--bb-black-bean);
   overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+  font-family: "Playfair Display", Georgia, serif;
 }
 
 /* Media defaults: make media shrink to container */
@@ -388,6 +398,16 @@ img, video {
   font-size: clamp(1.25rem, 2.5vw, 2rem);
   line-height: 1.4;
   letter-spacing: 0.01em;
+}
+
+/* Hero Title Utility */
+.u-hero-title {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 900;
+  font-size: var(--hero-font-size);
+  line-height: var(--hero-lineheight);
+  letter-spacing: var(--hero-letterspacing);
+  text-transform: uppercase;
 }
 
 .text-luxury {

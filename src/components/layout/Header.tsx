@@ -31,9 +31,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 text-white transition-colors duration-200 ${
-        scrolled ? 'bg-black/85 backdrop-blur-sm shadow-[0_6px_16px_rgba(0,0,0,0.25)]' : 'bg-gradient-to-b from-black/90 via-black/70 to-transparent'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 text-white bg-black transition-colors duration-200"
       data-scrolled={scrolled}
     >
       <div className="header-grid-container">
@@ -50,14 +48,20 @@ export default function Header() {
 
         <div className="header-nav-zone">
           <nav className="desktop-nav" role="navigation" aria-label="Main navigation">
+            <Link href="/" className="nav-link uppercase tracking-[0.32em]">
+              Home
+            </Link>
             <Link href="/products" className="nav-link uppercase tracking-[0.32em]">
               Shop
+            </Link>
+            <Link href="/outlet" className="nav-link uppercase tracking-[0.32em]">
+              Outlet
             </Link>
             <Link href="/about" className="nav-link uppercase tracking-[0.32em]">
               About
             </Link>
             <Link href="/contact" className="nav-link uppercase tracking-[0.32em]">
-              Contact Us
+              Contact U
             </Link>
             <Link href="/portal-access" className="nav-link uppercase tracking-[0.32em]">
               Stock Better Being
@@ -149,14 +153,20 @@ export default function Header() {
           <div className="mobile-menu" role="navigation" aria-label="Mobile navigation">
             <div className="mobile-menu-content">
               <nav className="mobile-nav">
+                <Link href="/" className="mobile-nav-link" onClick={closeMobileMenu}>
+                  Home
+                </Link>
                 <Link href="/products" className="mobile-nav-link" onClick={closeMobileMenu}>
                   Shop
+                </Link>
+                <Link href="/outlet" className="mobile-nav-link" onClick={closeMobileMenu}>
+                  Outlet
                 </Link>
                 <Link href="/about" className="mobile-nav-link" onClick={closeMobileMenu}>
                   About
                 </Link>
                 <Link href="/contact" className="mobile-nav-link" onClick={closeMobileMenu}>
-                  Contact Us
+                  Contact U
                 </Link>
                 <Link href="/portal-access" className="mobile-nav-link mobile-nav-highlight" onClick={closeMobileMenu}>
                   Stock Better Being

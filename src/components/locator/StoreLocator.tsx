@@ -272,6 +272,7 @@ export default function StoreLocator({
           {!compact && (
             <div className="lg:col-span-7 lg:sticky lg:top-24">
               <DynamicLeafletMap
+                key={`map-${center[0]}-${center[1]}`}
                 center={center}
                 radiusKm={radiusKm}
                 markers={filtered}

@@ -47,10 +47,16 @@ export default function Footer() {
               </div>
 
               <div className="w-full lg:w-auto lg:ml-16 mt-8 lg:mt-0">
-                <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider" style={{ fontFamily: "League Spartan, sans-serif" }}>
+                <h4
+                  className="text-[#7a7771] text-base font-semibold mb-4 uppercase tracking-wider md:text-lg"
+                  style={{ fontFamily: "League Spartan, sans-serif" }}
+                >
                   Stay Connected
                 </h4>
-                <p className="text-[#7a7771] text-sm mb-4" style={{ fontFamily: "Playfair Display, serif" }}>
+                <p
+                  className="text-[#7a7771] text-base mb-4 md:text-lg"
+                  style={{ fontFamily: "Playfair Display, serif" }}
+                >
                   Subscribe for wellness tips and exclusive offers
                 </p>
                 <NewsletterForm />
@@ -76,11 +82,8 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 py-4 text-xs text-[var(--bb-citron)] flex flex-col sm:flex-row items-center justify-between gap-3 uppercase tracking-wide">
           <span>&copy; {new Date().getFullYear()} BETTER BEING. ALL RIGHTS RESERVED.</span>
           <div className="flex flex-wrap items-center gap-4">
-            <a href="/privacy" className="hover:text-white transition-colors">
-              PRIVACY POLICY
-            </a>
             <a href="/terms" className="hover:text-white transition-colors">
-              TERMS OF SERVICE
+              Term & Condition & Privacy Policy
             </a>
             <a href="/accessibility" className="hover:text-white transition-colors">
               ACCESSIBILITY
@@ -98,7 +101,10 @@ export default function Footer() {
 function FooterColumn({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="min-w-0">
-      <h4 className="text-[#7a7771] text-sm font-semibold mb-4 uppercase tracking-wider" style={{ fontFamily: "League Spartan, sans-serif" }}>
+      <h4
+        className="text-[#7a7771] text-base font-semibold mb-4 uppercase tracking-wider md:text-lg"
+        style={{ fontFamily: "League Spartan, sans-serif" }}
+      >
         {title}
       </h4>
       <ul className="space-y-2" style={{ fontFamily: "Playfair Display, serif" }}>
@@ -111,7 +117,11 @@ function FooterColumn({ title, children }: { title: string; children: React.Reac
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <li>
-      <a href={href} className="text-[#7a7771] text-sm hover:text-[#b5a642] transition-colors">
+      <a
+        href={href}
+        className="text-[#7a7771] text-base hover:text-[#b5a642] transition-colors md:text-lg"
+        style={{ fontFamily: "Playfair Display, serif" }}
+      >
         {children}
       </a>
     </li>
@@ -210,7 +220,7 @@ function NewsletterForm() {
           disabled={loading}
           className="bg-[#b5a642] hover:bg-[#a39638] disabled:opacity-60 disabled:cursor-not-allowed text-white px-6 py-2 text-sm font-medium transition-colors"
         >
-          {loading ? "Subscribing…" : "Subscribe"}
+          {loading ? "Subscribing…" : "SUBSCRIBE"}
         </button>
         {siteKey && (
           <div className="mt-3">
