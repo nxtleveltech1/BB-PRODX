@@ -12,7 +12,7 @@ import { useCart } from "@/contexts/CartContext";
 
 function ProductCard({ product }: { product: any }) {
   const router = useRouter();
-  const { addToCart } = useCart();
+  const { addItem } = useCart();
   const hasDiscount = product.originalPrice && product.originalPrice !== product.price;
   const price = typeof product.price === 'string' ? product.price : `R${product.price}`;
   const originalPrice = typeof product.originalPrice === 'string' ? product.originalPrice : `R${product.originalPrice}`;

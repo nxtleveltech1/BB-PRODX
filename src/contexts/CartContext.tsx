@@ -1,9 +1,9 @@
-import React, { createContext, useContext, ReactNode } from 'react';
+import React, { createContext, useContext, ReactNode, useMemo } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
 // Types
-interface CartItem {
+interface ApiCartItem {
   cart_id: number;
   product_id: number;
   name: string;
@@ -15,7 +15,7 @@ interface CartItem {
   stock_count: number;
 }
 
-interface CartSummary {
+interface ApiCartSummary {
   totalItems: number;
   totalQuantity: number;
   totalPrice: number;
@@ -27,9 +27,31 @@ interface AddToCartData {
   size?: string;
 }
 
+// Legacy/UI cart types (used by app/cart + app/checkout)
+export interface CartItem {
+  id: number;
+  product_id: number;
+  quantity: number;
+  product_name: string;
+  product_description: string;
+  product_image: string;
+  product_price: string;
+  product_original_price?: string;
+  product_in_stock: boolean;
+  product_stock_count: number;
+  category_name?: string;
+}
+
+export interface CartState {
+  items: CartItem[];
+  isLoading: boolean;
+  error: string | null;
+}
+
 interface CartContextType {
-  cartItems: CartItem[];
-  cartSummary: CartSummary;
+  // Newer server-backed API
+  cartItems: ApiCartItem[];
+  cartSummary: ApiCartSummary;
   isLoading: boolean;
   getCartCount: () => number;
   addToCart: (data: AddToCartData) => void;
@@ -39,6 +61,16 @@ interface CartContextType {
   isAddingToCart: boolean;
   isItemInCart: (productId: number) => boolean;
   getItemQuantity: (productId: number) => number;
+
+  // Legacy UI API (kept for existing pages/components)
+  state: CartState;
+  addItem: (item: CartItem) => void;
+  removeItem: (id: number) => void;
+  updateQuantity: (id: number, quantity: number) => void;
+  getCartSubtotal: () => number;
+  getCartTax: () => number;
+  getCartShipping: () => number;
+  getCartTotal: () => number;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -48,7 +80,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 const API_BASE: string = (process.env.NEXT_PUBLIC_API_URL as string | undefined) || '/api';
 
 const cartApi = {
-  getCart: async (): Promise<CartItem[]> => {
+  getCart: async (): Promise<ApiCartItem[]> => {
     const response = await fetch(`${API_BASE}/cart`, {
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
@@ -58,7 +90,7 @@ const cartApi = {
     return response.json();
   },
 
-  getCartSummary: async (): Promise<CartSummary> => {
+  getCartSummary: async (): Promise<ApiCartSummary> => {
     const response = await fetch(`${API_BASE}/cart/summary`, {
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
@@ -209,6 +241,35 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     },
   });
 
+  // Map server items to legacy UI items expected by existing pages
+  const legacyItems: CartItem[] = useMemo(() => {
+    return (Array.isArray(cartItems) ? cartItems : []).map((i) => ({
+      id: i.cart_id,
+      product_id: i.product_id,
+      quantity: Number(i.quantity) || 0,
+      product_name: i.name ?? '',
+      product_description: '',
+      product_image: i.image_url ?? '/placeholder.svg',
+      product_price: String(i.price ?? '0'),
+      product_original_price: undefined,
+      product_in_stock: Boolean(i.in_stock),
+      product_stock_count: Number(i.stock_count) || 0,
+      category_name: undefined,
+    }));
+  }, [cartItems]);
+
+  const getCartSubtotal = (): number =>
+    legacyItems.reduce((total, item) => total + (parseFloat(item.product_price) * item.quantity), 0);
+
+  const getCartTax = (): number => getCartSubtotal() * 0.15; // 15% VAT
+
+  const getCartShipping = (): number => {
+    const subtotal = getCartSubtotal();
+    return subtotal >= 500 ? 0 : 50; // Free shipping over R500
+  };
+
+  const getCartTotal = (): number => getCartSubtotal() + getCartTax() + getCartShipping();
+
   const contextValue: CartContextType = {
     cartItems,
     cartSummary,
@@ -234,6 +295,31 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       const item = Array.isArray(cartItems) ? cartItems.find(item => item.product_id === productId) : undefined;
       return item ? Number(item.quantity) || 0 : 0;
     },
+
+    // Legacy API
+    state: {
+      items: legacyItems,
+      isLoading,
+      error: null,
+    },
+    addItem: (item: CartItem) => {
+      addToCartMutation.mutate({
+        productId: item.product_id,
+        quantity: item.quantity,
+      });
+    },
+    removeItem: (id: number) => removeFromCartMutation.mutate(id),
+    updateQuantity: (id: number, quantity: number) => {
+      if (quantity <= 0) {
+        removeFromCartMutation.mutate(id);
+        return;
+      }
+      updateCartMutation.mutate({ cartItemId: id, quantity });
+    },
+    getCartSubtotal,
+    getCartTax,
+    getCartShipping,
+    getCartTotal,
   };
 
   return (
