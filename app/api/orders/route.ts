@@ -34,13 +34,12 @@ export async function GET(request: NextRequest) {
     .offset(offset)
 
   // Lightweight pagination meta (best-effort)
-  const totalCountRow = await db
+  const totalCountRows = await db
     .select({ count: sql<number>`count(*)`.as("count") })
     .from(orders)
     .where(baseWhere)
-    .then((rows) => rows[0])
 
-  const totalCount = Number(totalCountRow?.count) || list.length
+  const totalCount = Number(totalCountRows[0]?.count) || list.length
 
   return NextResponse.json<OrdersApiResponse>({
     success: true,

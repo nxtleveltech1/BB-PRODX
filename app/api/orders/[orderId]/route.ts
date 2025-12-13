@@ -31,12 +31,12 @@ export async function GET(
     )
   }
 
-  const order = await db
+  const orderRows = await db
     .select()
     .from(orders)
     .where(and(eq(orders.id, orderId), eq(orders.userId, userId)))
     .limit(1)
-    .then((rows) => rows[0])
+  const order = orderRows[0]
 
   if (!order) {
     return NextResponse.json<OrdersApiResponse>(

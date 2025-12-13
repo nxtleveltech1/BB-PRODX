@@ -135,14 +135,13 @@ export const findExistingCartItemId = async (params: {
       ? and(eq(cart.userId, userId), eq(cart.productId, productId), isNull(cart.size))
       : and(eq(cart.userId, userId), eq(cart.productId, productId), eq(cart.size, size))
 
-  const existing = await dbHandle
+  const existingRows = await dbHandle
     .select({ id: cart.id, quantity: cart.quantity })
     .from(cart)
     .where(whereClause)
     .limit(1)
-    .then((rows) => rows[0])
 
-  return existing ?? null
+  return existingRows[0] ?? null
 }
 
 

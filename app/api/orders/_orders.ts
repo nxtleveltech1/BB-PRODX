@@ -163,7 +163,10 @@ export const createOrderFromCart = async (params: {
       .from(products)
       .where(inArray(products.id, productIds))
 
-    const stockById = new Map(dbProducts.map((p) => [p.id, Number(p.stockCount) || 0]))
+    const stockById = new Map<number, number>()
+    for (const p of dbProducts) {
+      stockById.set(p.id, Number(p.stockCount) || 0)
+    }
 
     for (const item of cartItems) {
       const currentStock = stockById.get(item.productId) ?? 0
