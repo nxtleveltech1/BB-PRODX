@@ -4,13 +4,12 @@ import { db } from "@/lib/db/client-node"
 import { orders } from "@/lib/db/schema"
 import {
   createOrderFromCart,
-  dynamic,
   getUserIdOr401,
-  runtime,
   type OrdersApiResponse,
 } from "./_orders"
 
-export { runtime, dynamic }
+export const runtime = "nodejs"
+export const dynamic = "force-dynamic"
 
 export async function GET(request: NextRequest) {
   const userIdOrResponse = await getUserIdOr401()

@@ -14,8 +14,8 @@ const coerceNonNegativeInt = (value: unknown): number | null => {
   return i >= 0 ? i : null
 }
 
-const parseItemId = (params: { itemId?: string }): number | null => {
-  const n = Number(params.itemId)
+const parseItemId = (itemIdRaw: string | undefined): number | null => {
+  const n = Number(itemIdRaw)
   if (!Number.isFinite(n)) return null
   const i = Math.trunc(n)
   return i > 0 ? i : null
@@ -23,12 +23,13 @@ const parseItemId = (params: { itemId?: string }): number | null => {
 
 export async function PUT(
   request: NextRequest,
-  context: { params: { itemId: string } }
+  context: { params: Promise<{ itemId: string }> }
 ) {
   const authResult = await getUserIdOr401()
   if (!authResult.ok) return authResult.response
 
-  const itemId = parseItemId(context.params)
+  const { itemId: itemIdParam } = await context.params
+  const itemId = parseItemId(itemIdParam)
   if (!itemId) {
     return NextResponse.json<CartResponse>(
       { success: false, message: "Invalid cart item ID" },
@@ -122,12 +123,13 @@ export async function PUT(
 
 export async function DELETE(
   _request: NextRequest,
-  context: { params: { itemId: string } }
+  context: { params: Promise<{ itemId: string }> }
 ) {
   const authResult = await getUserIdOr401()
   if (!authResult.ok) return authResult.response
 
-  const itemId = parseItemId(context.params)
+  const { itemId: itemIdParam } = await context.params
+  const itemId = parseItemId(itemIdParam)
   if (!itemId) {
     return NextResponse.json<CartResponse>(
       { success: false, message: "Invalid cart item ID" },

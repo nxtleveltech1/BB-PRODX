@@ -2,9 +2,10 @@ import { NextRequest, NextResponse } from "next/server"
 import { and, eq } from "drizzle-orm"
 import { db } from "@/lib/db/client-node"
 import { orderItems, orders } from "@/lib/db/schema"
-import { dynamic, getUserIdOr401, runtime, type OrdersApiResponse } from "../_orders"
+import { getUserIdOr401, type OrdersApiResponse } from "../_orders"
 
-export { runtime, dynamic }
+export const runtime = "nodejs"
+export const dynamic = "force-dynamic"
 
 const parseOrderId = (value: string | undefined): number | null => {
   const n = Number(value)
@@ -15,13 +16,14 @@ const parseOrderId = (value: string | undefined): number | null => {
 
 export async function GET(
   _request: NextRequest,
-  context: { params: { orderId: string } }
+  context: { params: Promise<{ orderId: string }> }
 ) {
   const userIdOrResponse = await getUserIdOr401()
   if (userIdOrResponse instanceof NextResponse) return userIdOrResponse
   const userId = userIdOrResponse
 
-  const orderId = parseOrderId(context.params.orderId)
+  const { orderId: orderIdParam } = await context.params
+  const orderId = parseOrderId(orderIdParam)
   if (!orderId) {
     return NextResponse.json<OrdersApiResponse>(
       { success: false, message: "Invalid order ID" },
