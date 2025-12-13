@@ -24,7 +24,7 @@ const envSchema = z.object({
   NEXTAUTH_SECRET: z.string().min(32, 'NEXTAUTH_SECRET must be at least 32 characters'),
 
   // JWT Configuration (for legacy support during migration)
-  JWT_SECRET: z.string().min(32, 'JWT_SECRET must be at least 32 characters'),
+  JWT_SECRET: z.string().min(32, 'JWT_SECRET must be at least 32 characters').optional(),
   JWT_REFRESH_SECRET: z.string().min(32).optional(),
 
   // OAuth Providers (optional during migration)
@@ -106,6 +106,12 @@ function validateEnv(): Env {
   try {
     // Parse the environment
     const parsed = envSchema.parse(process.env);
+
+    // Back-compat: some parts of the legacy Express stack require JWT_SECRET,
+    // but the Next.js app (and NextAuth) doesn't. If it's missing, reuse NEXTAUTH_SECRET.
+    if (!parsed.JWT_SECRET) {
+      parsed.JWT_SECRET = parsed.NEXTAUTH_SECRET;
+    }
 
     // Log successful validation in development
     if (process.env.NODE_ENV === 'development') {

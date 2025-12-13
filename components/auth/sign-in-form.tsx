@@ -29,13 +29,19 @@ export function SignInForm() {
         email,
         password,
         redirect: false,
+        callbackUrl,
       });
 
       if (result?.error) {
-        toast.error("Invalid email or password");
+        // next-auth returns generic error codes like "CredentialsSignin"
+        toast.error(
+          result.error === "CredentialsSignin"
+            ? "Invalid email or password"
+            : `Sign in failed: ${result.error}`
+        );
       } else {
         toast.success("Signed in successfully!");
-        router.push(callbackUrl);
+        router.replace(callbackUrl);
         router.refresh();
       }
     } catch (error) {
@@ -55,7 +61,7 @@ export function SignInForm() {
       }
 
       await signIn(provider, {
-        redirectTo: callbackUrl,
+        callbackUrl,
       });
     } catch (error) {
       toast.error(`Failed to sign in with ${provider}`);
