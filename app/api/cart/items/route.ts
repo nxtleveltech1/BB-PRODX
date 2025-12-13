@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
 
   try {
     await transaction(async (tx) => {
-      const product = await tx
+      const productRows = await tx
         .select({
           id: products.id,
           inStock: products.inStock,
@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
         .from(products)
         .where(eq(products.id, productId))
         .limit(1)
-        .then((rows) => rows[0])
+      const product = productRows[0]
 
       if (!product) {
         throw new Error("Product not found")
