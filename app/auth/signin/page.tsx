@@ -4,8 +4,9 @@ import { redirect } from "next/navigation";
 
 export default async function SignInPage() {
   // Redirect if already authenticated
+  // Only redirect if we have a valid session with user data
   const session = await getSession();
-  if (session?.user) {
+  if (session?.user?.id) {
     redirect("/dashboard");
   }
 

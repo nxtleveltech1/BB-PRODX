@@ -39,15 +39,20 @@ export function SignInForm() {
             ? "Invalid email or password"
             : `Sign in failed: ${result.error}`
         );
-      } else {
+        setIsLoading(false);
+      } else if (result?.ok) {
+        // Session created successfully - force full page reload to ensure cookie is set
         toast.success("Signed in successfully!");
-        router.replace(callbackUrl);
-        router.refresh();
+        // Use window.location for full reload to ensure session cookie is picked up
+        window.location.href = callbackUrl;
+      } else {
+        // Unexpected result
+        toast.error("Sign in failed. Please try again.");
+        setIsLoading(false);
       }
     } catch (error) {
       toast.error("An error occurred during sign in");
       console.error("Sign in error:", error);
-    } finally {
       setIsLoading(false);
     }
   };
