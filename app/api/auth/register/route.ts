@@ -39,12 +39,12 @@ export async function POST(request: NextRequest) {
     const { name, email, password } = validationResult.data;
 
     // Check if user already exists
-    const existingUser = await db
+    const existingUserRows = await db
       .select()
       .from(schema.users)
       .where(eq(schema.users.email, email.toLowerCase()))
       .limit(1)
-      .then((users) => users[0]);
+    const existingUser = existingUserRows[0]
 
     if (existingUser) {
       return NextResponse.json(

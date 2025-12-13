@@ -62,12 +62,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const { email, password } = parsedCredentials.data;
 
         // Find user by email
-        const user = await db
+        const userRows = await db
           .select()
           .from(schema.users)
           .where(eq(schema.users.email, email))
           .limit(1)
-          .then((users) => users[0]);
+        const user = userRows[0]
 
         if (!user || !user.password) {
           return null;
@@ -155,12 +155,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       }
 
       // For credentials provider, check if email is verified
-      const dbUser = await db
+      const dbUserRows = await db
         .select()
         .from(schema.users)
         .where(eq(schema.users.id, parseInt(user.id!)))
         .limit(1)
-        .then((users) => users[0]);
+      const dbUser = dbUserRows[0]
 
       // You can add email verification requirement here
       // if (!dbUser?.emailVerified) {

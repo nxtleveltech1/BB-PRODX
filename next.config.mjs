@@ -38,13 +38,29 @@ const nextConfig = {
     }
     if (target) {
       return [
+        // These routes are handled by Next.js API routes - do NOT proxy them
         {
-          // NextAuth routes should NOT be proxied - they run locally in Next.js
           source: '/api/auth/:path*',
           destination: '/api/auth/:path*',
         },
         {
-          // All other /api routes are proxied to the backend
+          source: '/api/cart/:path*',
+          destination: '/api/cart/:path*',
+        },
+        {
+          source: '/api/orders/:path*',
+          destination: '/api/orders/:path*',
+        },
+        {
+          source: '/api/products/:path*',
+          destination: '/api/products/:path*',
+        },
+        {
+          source: '/api/health/:path*',
+          destination: '/api/health/:path*',
+        },
+        // All other /api routes are proxied to the Express backend
+        {
           source: '/api/:path*',
           destination: `${target}/:path*`,
         },
