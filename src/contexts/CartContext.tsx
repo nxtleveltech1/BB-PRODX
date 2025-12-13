@@ -76,8 +76,86 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 // API functions
-// Use Next.js public env var if provided; otherwise rely on frontend rewrite to backend at /api
-const API_BASE: string = (process.env.NEXT_PUBLIC_API_URL as string | undefined) || '/api';
+// Always use same-origin `/api` so Next.js rewrites proxy to the backend.
+// This avoids cross-origin cookie issues and keeps auth working reliably.
+const API_BASE = '/api';
+
+type EnhancedCartSummary = {
+  itemCount?: number;
+  quantity?: number;
+  total?: string | number;
+};
+
+type EnhancedCartItem = {
+  id: number;
+  product_id: number;
+  quantity: number;
+  product_name: string;
+  product_image: string;
+  product_price: string;
+  product_in_stock: boolean;
+  product_stock_count: number;
+};
+
+type EnhancedCartResponse = {
+  success: boolean;
+  message?: string;
+  error?: string;
+  cart?: {
+    items: EnhancedCartItem[];
+    summary: EnhancedCartSummary;
+    isEmpty: boolean;
+  };
+  summary?: EnhancedCartSummary;
+  errors?: Array<{ msg?: string; message?: string }>;
+};
+
+const parseMoney = (value: unknown): number => {
+  if (typeof value === 'number') return value;
+  if (typeof value === 'string') {
+    const n = Number(value.replace(/[^0-9.]/g, ''));
+    return Number.isFinite(n) ? n : 0;
+  }
+  return 0;
+};
+
+const getErrorMessage = async (response: Response): Promise<string> => {
+  try {
+    const data = (await response.json().catch(() => null)) as EnhancedCartResponse | null;
+    const message =
+      data?.message ||
+      data?.error ||
+      data?.errors?.[0]?.msg ||
+      data?.errors?.[0]?.message;
+
+    if (response.status === 401) {
+      return message || 'Please sign in to add items to your cart.';
+    }
+
+    return message || `Request failed (HTTP ${response.status})`;
+  } catch {
+    if (response.status === 401) return 'Please sign in to add items to your cart.';
+    return `Request failed (HTTP ${response.status})`;
+  }
+};
+
+const mapEnhancedItemToApiItem = (item: EnhancedCartItem): ApiCartItem => ({
+  cart_id: item.id,
+  product_id: item.product_id,
+  name: item.product_name ?? '',
+  price: String(item.product_price ?? '0'),
+  image_url: item.product_image ?? '/placeholder.svg',
+  quantity: Number(item.quantity) || 0,
+  size: undefined,
+  in_stock: Boolean(item.product_in_stock),
+  stock_count: Number(item.product_stock_count) || 0,
+});
+
+const mapEnhancedSummaryToApiSummary = (summary: EnhancedCartSummary | undefined): ApiCartSummary => ({
+  totalItems: Number(summary?.itemCount) || 0,
+  totalQuantity: Number(summary?.quantity) || 0,
+  totalPrice: parseMoney(summary?.total),
+});
 
 const cartApi = {
   getCart: async (): Promise<ApiCartItem[]> => {
@@ -86,8 +164,11 @@ const cartApi = {
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.status === 401) return [];
-    if (!response.ok) throw new Error('Failed to fetch cart');
-    return response.json();
+    if (!response.ok) throw new Error(await getErrorMessage(response));
+
+    const data = (await response.json()) as EnhancedCartResponse;
+    const items = data?.cart?.items ?? [];
+    return items.map(mapEnhancedItemToApiItem);
   },
 
   getCartSummary: async (): Promise<ApiCartSummary> => {
@@ -96,60 +177,59 @@ const cartApi = {
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.status === 401) return { totalItems: 0, totalQuantity: 0, totalPrice: 0 };
-    if (!response.ok) throw new Error('Failed to fetch cart summary');
-    return response.json();
+    if (!response.ok) throw new Error(await getErrorMessage(response));
+
+    const data = (await response.json()) as EnhancedCartResponse;
+    const summary = data?.summary;
+    return mapEnhancedSummaryToApiSummary(summary);
   },
 
   addToCart: async (data: AddToCartData): Promise<any> => {
-    const response = await fetch(`${API_BASE}/cart/add`, {
+    const response = await fetch(`${API_BASE}/cart/items`, {
       method: 'POST',
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
+      body: JSON.stringify({ productId: data.productId, quantity: data.quantity ?? 1 }),
     });
     if (!response.ok) {
-      const error = await response.json().catch(() => ({}));
-      throw new Error(error.message || 'Failed to add item to cart');
+      throw new Error(await getErrorMessage(response));
     }
     return response.json();
   },
 
   updateCartItem: async (cartItemId: number, quantity: number): Promise<any> => {
-    const response = await fetch(`${API_BASE}/cart/update/${cartItemId}`, {
+    const response = await fetch(`${API_BASE}/cart/items/${cartItemId}`, {
       method: 'PUT',
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ quantity }),
     });
     if (!response.ok) {
-      const error = await response.json().catch(() => ({}));
-      throw new Error(error.message || 'Failed to update cart item');
+      throw new Error(await getErrorMessage(response));
     }
     return response.json();
   },
 
   removeFromCart: async (cartItemId: number): Promise<any> => {
-    const response = await fetch(`${API_BASE}/cart/remove/${cartItemId}`, {
+    const response = await fetch(`${API_BASE}/cart/items/${cartItemId}`, {
       method: 'DELETE',
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
     });
     if (!response.ok) {
-      const error = await response.json().catch(() => ({}));
-      throw new Error(error.message || 'Failed to remove item from cart');
+      throw new Error(await getErrorMessage(response));
     }
     return response.json();
   },
 
   clearCart: async (): Promise<any> => {
-    const response = await fetch(`${API_BASE}/cart/clear`, {
+    const response = await fetch(`${API_BASE}/cart`, {
       method: 'DELETE',
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
     });
     if (!response.ok) {
-      const error = await response.json().catch(() => ({}));
-      throw new Error(error.message || 'Failed to clear cart');
+      throw new Error(await getErrorMessage(response));
     }
     return response.json();
   },

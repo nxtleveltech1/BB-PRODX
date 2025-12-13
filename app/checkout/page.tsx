@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { toast } from 'sonner';
 import {
   ArrowLeft,
   CreditCard,
@@ -138,14 +139,48 @@ export default function CheckoutPage() {
     setIsProcessing(true);
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Clear cart and redirect to success page
+      const shippingAddress = {
+        firstName: form.firstName,
+        lastName: form.lastName,
+        addressLine1: form.address,
+        city: form.city,
+        state: form.province,
+        postalCode: form.postalCode,
+        country: form.country,
+        phone: form.phone,
+      };
+
+      const response = await fetch('/api/orders', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          shippingAddress,
+          billingAddress: form.billingAddressSame ? undefined : shippingAddress,
+          paymentMethod: 'card',
+          customerNotes: '',
+          shippingCost: shipping,
+        }),
+      });
+
+      const data = await response.json().catch(() => null);
+
+      if (response.status === 401) {
+        toast.error(data?.message || 'Please sign in to place your order.');
+        router.push('/auth/signin');
+        return;
+      }
+
+      if (!response.ok || !data?.success) {
+        toast.error(data?.message || 'Order placement failed. Please try again.');
+        return;
+      }
+
       clearCart();
       router.push('/checkout/success');
     } catch (error) {
       console.error('Order placement failed:', error);
+      toast.error('Order placement failed. Please try again.');
     } finally {
       setIsProcessing(false);
     }

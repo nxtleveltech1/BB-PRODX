@@ -60,7 +60,9 @@ const envSchema = z.object({
   NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY: z.string().optional(),
 
   // API Configuration
-  NEXT_PUBLIC_API_URL: z.string().url().default('http://localhost:8000'),
+  // IMPORTANT: This value is used by Next.js rewrites as a proxy target for `/api/*`,
+  // so it should include the `/api` path suffix (e.g. `http://localhost:8000/api`).
+  NEXT_PUBLIC_API_URL: z.string().url().default('http://localhost:8000/api'),
   VALID_API_KEYS: z.string().optional(),
 
   // Redis Configuration (optional)
@@ -137,7 +139,7 @@ function validateEnv(): Env {
         NODE_ENV: process.env.NODE_ENV as 'development' | 'production' | 'test' || 'development',
         PORT: parseInt(process.env.PORT || '8000'),
         HOST: process.env.HOST || 'localhost',
-        NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000',
+        NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api',
       };
 
       // Return partial environment cast to full type (unsafe but allows development)

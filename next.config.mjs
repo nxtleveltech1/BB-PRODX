@@ -34,7 +34,7 @@ const nextConfig = {
     let target = process.env.NEXT_PUBLIC_API_URL;
     // In development, default to local backend if not set
     if (!target && process.env.NODE_ENV !== 'production') {
-      target = 'http://localhost:3001/api';
+      target = 'http://localhost:8000/api';
     }
     if (target) {
       return [

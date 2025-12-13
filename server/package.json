@@ -2,11 +2,11 @@
   "name": "better-being-backend",
   "version": "1.0.0",
   "description": "Better Being Wellness Platform Backend with AI Recommendations",
-  "main": "src/index.js",
+  "main": "src/enhanced-server.js",
   "type": "module",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
+    "start": "node src/enhanced-server.js",
+    "dev": "nodemon src/enhanced-server.js",
     "test": "node test-api.js",
     "test:watch": "nodemon test-api.js",
     "demo": "node test-api.js",
@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^16.1.4",

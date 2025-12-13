@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 import pool from './config/database.js';
 
 // Enhanced middleware imports
@@ -40,6 +41,9 @@ app.use(securityHeaders);
 
 // CORS with enhanced configuration
 app.use(cors(corsOptions));
+
+// Cookie parsing (required for auth_token + sessionId cookies)
+app.use(cookieParser());
 
 // General rate limiting
 app.use(generalLimiter);
