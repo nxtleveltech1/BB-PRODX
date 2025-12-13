@@ -57,7 +57,7 @@ export async function PUT(
 
   try {
     await transaction(async (tx) => {
-      const existing = await tx
+      const existingRows = await tx
         .select({
           id: cart.id,
           productId: cart.productId,
@@ -65,7 +65,7 @@ export async function PUT(
         .from(cart)
         .where(and(eq(cart.id, itemId), eq(cart.userId, authResult.userId)))
         .limit(1)
-        .then((rows) => rows[0])
+      const existing = existingRows[0]
 
       if (!existing) {
         throw new Error("Cart item not found")
@@ -78,7 +78,7 @@ export async function PUT(
         return
       }
 
-      const product = await tx
+      const productRows = await tx
         .select({
           inStock: products.inStock,
           stockCount: products.stockCount,
@@ -86,7 +86,7 @@ export async function PUT(
         .from(products)
         .where(eq(products.id, existing.productId))
         .limit(1)
-        .then((rows) => rows[0])
+      const product = productRows[0]
 
       if (!product || !product.inStock) {
         throw new Error("Product is out of stock")
