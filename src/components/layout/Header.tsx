@@ -93,7 +93,7 @@ export default function Header(): JSX.Element {
               href="/contact"
               className="nav-link uppercase tracking-[0.32em]"
             >
-              Contact U
+              Contact Us
             </Link>
             <Link
               href="/portal-access"
@@ -285,7 +285,7 @@ export default function Header(): JSX.Element {
                   className="mobile-nav-link"
                   onClick={closeMobileMenu}
                 >
-                  Contact U
+                  Contact Us
                 </Link>
                 <Link
                   href="/portal-access"
